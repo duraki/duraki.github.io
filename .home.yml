@@ -9,3 +9,5 @@ posts:
 scripts: 
   - "Trigger Alina POS malware:/scripts/trigger_alina.c"
   - "Get URLs from PE:/scripts/geturls"
+art:
+  ga: true 

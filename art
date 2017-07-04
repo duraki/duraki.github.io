@@ -21,7 +21,7 @@ class Build
 
   attr_accessor :artist, :title, :description
   attr_accessor :posts_in, :posts_out
-  attr_accessor :script_list
+  attr_accessor :script_list, :ga
   attr_accessor :post_title, :post_date
 
   def initialize config
@@ -33,6 +33,7 @@ class Build
     self.posts_in = config['posts']['in']
     self.posts_out = config['posts']['out']
     self.script_list = config['scripts']
+    self.ga = config['art']['ga']
 
     exec = self.cli # generate html from md cmd
     system(exec) # exec generation process
