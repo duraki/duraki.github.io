@@ -1,0 +1,139 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+        <title>Security/ SQL injection on REST-style URL</title>
+
+        <meta name="theme-color" content="#252525">
+
+	<link href="https://fonts.googleapis.com/css?family=Amiri" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Raleway:100" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Mono:100,300,400" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Fira+Mono:400,700|Open+Sans:300,400,600|Raleway:200,300,400,600&amp;subset=latin-ext" rel="stylesheet">
+
+        <link rel="stylesheet" href="assets/css/normalize.css">
+        <link rel="stylesheet" href="assets/css/skeleton.css">
+        <link rel="stylesheet" href="assets/css/home.css">
+
+    </head>
+    <body>
+
+        <div class="container" style="margin-top: 30px;">
+
+            <div class="row">
+                <p style="text-align:center;">
+                    <img src="assets/img/duraki-logo.png" alt="duraki logo"/>
+                </p>
+            </div>
+
+	    <div class="row">
+                <div class="one-sixth column" style="margin-top: 10%; margin-left: 0%";>
+                    <h3><a href="/">blog</a> / <a href="">Security/ SQL injection on REST-style URL</a></h3>
+                </div>
+	    </div>
+
+            <div class="tags">
+            <code class="tags-code">security</code>
+            <code class="tags-code">web</code>
+            <code class="tags-code">api</code>
+            <code class="tags-code">vuln</code>
+            <code class="tags-code">sql</code>
+            <code class="tags-code">injection</code>
+            <code class="tags-code">rest</code>
+            </div>
+
+	    <hr style="display: block; text-align: left; width: 100%;" />
+
+            <div class="row">
+                <div class="six columns" style="margin-top: 0%;"><h2 id="rest,-a-šta-je-to?"><a class="header-link" href="#rest,-a-šta-je-to?"></a>REST, a šta je to?</h2>
+<p>Pri samom početku, prije nego što počnete čitati ovaj tutorijal ili vršiti praksu po naznačenom, moram vas napomenuti nekoliko stvari. Prva stvar je da je ovaj tutorijal namjenjen za edukacione svrhe, najčešće u koristan za blackbox penetration testinga. Druga stvar su preduslovi, a isti su sljedeći: da znate vršiti advanced SQL injection; da ne koračate preko teksta; i da znate osnove HTTPa.</p>
+<p>Šta je zapravo REST? Representational state transfer a/k/a REST je arhitektura koja koristi identifikaciju resursa. Iste resurse manipulišemo preko reprezentacija, i ostalih dodataka koje dolaze uz sam REST da bi izgradili sistem koji je podložan promjenama. Treba naznačiti da REST uzima resurs kao glavni izvor, odnosno sami request. REST je danas implementiran u mnogo web-aplikacija zbog njegove jednostavnosti bilo da se radi o MVCu ili pure PHPu, za razliku od SOAP, RPC, CORBA, koji &quot;vežu&quot; mašine, REST ustvari koristi HTTP da napravi poziv među mašinama. Šta to ustvari znači? To znači da REST aplicira API koji kasnije služi kao objekat kojem se treba mjenjati samo uvoz kod jednog toka, a ne da mjenjamo čitav sustav, i/ili dodavanjem novih redirekcija. SVAKI RESURS JE REQUEST!</p>
+<p>Možda se sada pitate kako to izgleda, čemu služi, kako da ga upotrijebim, kako da znam kad, gdje i šta? Idemo polako. REST ima unikatan način pozivanja a ja sam siguran da ste vi dobro upoznati s njim, samo toga niste svjesni. Mogu da se kladim da ste bar jednom &quot;naletjeli&quot; na webaplikaciju koja koristi REST. Implementiran je u većini frameworka, brz je i pouzdan. Možda poslije ovog write-upa vi počnete koristiti REST?! Upotreba REST arhitekture je široka. Neko to radi zbog estetike, neko zbog njegove pouzdanosti, neko zbog smanjena posla, neko zato što je primoran od strane šefa, a neko jednostavno voli da eksperimentiše sa njim (kao npr. ja). No dobro, ovdje smo da pričamo o vršenju SQLi na REST-styled URI-ma.</p>
+<h2 id="znam-šta-je-rest,-a-šta-je-rest-url?"><a class="header-link" href="#znam-šta-je-rest,-a-šta-je-rest-url?"></a>Znam šta je REST, a šta je REST-url?</h2>
+<p><strong>REST-styled</strong> a/k/a <strong>RESTful</strong> a/k/a <strong>clean URL</strong> a/k/a <strong>SEO-friendly</strong> (etc.) URL JE: struktura URL-a koji ne sadrže parametar URL-a već njegov resurs + reprezentaciju. Tipičan URL sa kojim ste se svi susretali, a o kojem sam već pričao je taj da se resurs šalje preko reprezentacija koji su već deklarisani. Ovaj tip URL-a se najčešće koristi zbog SEO i stalnog standarda linka.</p>
+<p>Ako i dalje niste shvatili na šta ciljam, idem vam to prikazati &quot;grafički&quot;. Uzmimo u obzir da se u sljedećem linku pod parametrom &quot;mod=&quot; vrši query za &quot;modul {user,admin,vip}&quot;, a pod parametrom &quot;id=&quot; vrši selektiranje ID korisnika. Output bi trebao biti print ID korisnika.</p>
+<p><strong>URL</strong>: <a href="http://example.com/show.php?mod=user&amp;id=33">http://example.com/show.php?mod=user&amp;id=33</a><br><strong>PHP</strong> (pseudo):</p>
+<pre class="hljs"><code><span class="php"><span class="hljs-meta">&lt;?php</span>
+    $id = $_GET[<span class="hljs-string">'id'</span>];
+    <span class="hljs-keyword">echo</span> <span class="hljs-string">"ID je: "</span> . $id;
+
+    ...
+
+    query_u_bazu($id);
+    query_u_bazu($_GET[<span class="hljs-string">'mod'</span>]);
+<span class="hljs-meta">?&gt;</span></span></code></pre><p><strong>OUTPUT</strong>:<br>ID je: 33</p>
+<p>Ovo gore je tipični primjer. U ovom slučaju, da testiramo SQL injection, probali bi postaviti quotes/double_quotes ispred parametra. Primjer je napisan ispod. Važno je napomenuti da u pentestingu treba testirati svaki parametar jer ako nemamo izvorni kod, ne znamo koji je parametar filtriran a koji ne. Možda baš taj koji nam je bilo &quot;mrsko&quot; da testiramo bio je ranjiv, a to traje svega 2-5 sekundi.  </p>
+<pre class="hljs"><code>URL SQL#<span class="hljs-number">1</span>: http://example.<span class="hljs-keyword">com</span>/show.php?<span class="hljs-keyword">mod</span>=<span class="hljs-comment">"user&amp;id=33</span>
+URL SQL#<span class="hljs-number">2</span>: http://example.<span class="hljs-keyword">com</span>/show.php?<span class="hljs-keyword">mod</span>=user&amp;id=<span class="hljs-comment">"33</span></code></pre><p>Uzmimo u obzir sljedeće: da je DBMS MySQL; da se radi o GET requestu; i da nam je i prvi i drugi test bacio MySQL error. Izvršavanje SQL komandi na URLu iznad je jednostavano i to bi večina koja čita ovaj tutorijal trebala znati. No, šta ako se radi o URL gdje su parametri sakriveni preko reprezentacije. Primjer takvog URL-a je napisan ispod.  </p>
+<p>URL_REST: <a href="http://example.com/show/user/33">http://example.com/show/user/33</a></p>
+<p>Jel vam sad poznatno? Prvo ću napisati tabelu razlike između normalnim URLom i čistim URLom.</p>
+<pre class="hljs"><code>+<span class="hljs-comment">----------------------------------------------------------------------------------------+</span>
+| http://example.com/   - Normalni URL           | http://example.com/   - RESTful URL   |
+|<span class="hljs-comment">----------------------------------------------------------------------------------------|</span>
+| show.php?<span class="hljs-keyword">mod</span>=<span class="hljs-keyword">user</span>&amp;<span class="hljs-keyword">id</span>=<span class="hljs-number">33</span>                        | <span class="hljs-keyword">show</span>/<span class="hljs-keyword">user</span>/<span class="hljs-number">33</span>                          |
+| show.php?<span class="hljs-keyword">mod</span>=<span class="hljs-keyword">user</span>&amp;<span class="hljs-keyword">id</span>=<span class="hljs-number">69</span>                        | <span class="hljs-keyword">show</span>/<span class="hljs-keyword">user</span>/<span class="hljs-number">69</span>                          |
+| show.php?<span class="hljs-keyword">mod</span>=<span class="hljs-keyword">user</span>&amp;<span class="hljs-keyword">id</span>=<span class="hljs-number">32</span>                        | <span class="hljs-keyword">show</span>/<span class="hljs-keyword">user</span>/<span class="hljs-number">32</span>                          |
+| show.php?<span class="hljs-keyword">mod</span>=<span class="hljs-keyword">admin</span>&amp;<span class="hljs-keyword">id</span>=<span class="hljs-number">2</span>                        | <span class="hljs-keyword">show</span>/<span class="hljs-keyword">admin</span>/<span class="hljs-number">2</span>                          |
+| show.php?<span class="hljs-keyword">mod</span>=<span class="hljs-keyword">admin</span>&amp;<span class="hljs-keyword">id</span>=<span class="hljs-number">3</span>                        | <span class="hljs-keyword">show</span>/<span class="hljs-keyword">admin</span>/<span class="hljs-number">3</span>                          |
+| show.php?<span class="hljs-keyword">mod</span>=vip&amp;<span class="hljs-keyword">id</span>=<span class="hljs-number">18</span>                         | <span class="hljs-keyword">show</span>/vip/<span class="hljs-number">18</span>                           |
+| show.php?<span class="hljs-keyword">mod</span>=vip&amp;<span class="hljs-keyword">id</span>=<span class="hljs-number">30</span>                         | <span class="hljs-keyword">show</span>/vip/<span class="hljs-number">30</span>                           |
+| show.php?<span class="hljs-keyword">mod</span>=vip&amp;<span class="hljs-keyword">id</span>=<span class="hljs-number">13</span>                         | <span class="hljs-keyword">show</span>/vip/<span class="hljs-number">13</span>                           |
++<span class="hljs-comment">----------------------------------------------------------------------------------------+</span></code></pre><p>Nadam se da shvaćate razliku između ova dva URLa. Vrlo je moguće da vas je ovakav RESTful URL odbacio od napada koji ste spremili. Poenta je da od sad pa nadalje ne bi trebao. Vrlo je malo literature na ovu temu ali ja sam izdvojio vremena da testiram i da podijelim znanje. Ako ste zabrinuti kako je moguće pozivati ovakav sklop URLa preko RESTa evo ideje. Deklarisani su svi resursi i reprezentacije, treba ih samo ukopčati. Treba napomenuti da je response servera drugačiji ako se koristi REST arhitektura.</p>
+<pre class="hljs"><code>show.php / {<span class="hljs-keyword">show</span>} / resurs
+<span class="hljs-keyword">mod</span>=<span class="hljs-keyword">user</span> / {<span class="hljs-keyword">user</span>} / reprezentacija
+<span class="hljs-keyword">id</span>=<span class="hljs-number">69</span>    / {<span class="hljs-number">69</span>}   / reprezentacija
+<span class="hljs-keyword">http</span>://example.com/show.php?<span class="hljs-keyword">mod</span>=<span class="hljs-keyword">user</span>&amp;<span class="hljs-keyword">id</span>=<span class="hljs-number">69</span>
+<span class="hljs-keyword">http</span>://example.com/{<span class="hljs-keyword">show</span>}/{<span class="hljs-keyword">user</span>}/{<span class="hljs-number">69</span>}</code></pre><p>Moguće da i dalje niste shvatili opći bit REST API-a, zašto se koristi, šta je REST-ful URL, i ostalo, najbolje bi vam bilo da pročitate tekst ispočetka jer je ovo kompleksna tema za kratak tekst i dajem sve od sebe da je objasnim što lakše mogu. Na kraju tutorijala imate reference koje bi vam preporučio da pročitate ako želite detaljno znati šta se vrti u pozadini budući da je ovo tekst konkretno na SQL injection čistih URIa.</p>
+<p><strong>Napomena</strong>: Gore navedeni čisti URL ne mora da znači da je osnovica REST arhitekture. Vrlo moguće je da se takva domena javlja i ako je u pitanju RewriteRula u .htaccess; injection se vodi na istom principu uz malu razliku koju ću navesti u tekstu ispod. Isto tako, reference za .htaccess možete pogledati na kraju tutorijala. Dobro će vam poslužiti ako želite da se igrate sa ovakvim stvarima.</p>
+<h2 id="kako-vršiti-injection"><a class="header-link" href="#kako-vršiti-injection"></a>Kako vršiti injection</h2>
+<p>Sad ide počinje pravo učenje. Ne čitaj ako ne znaš osnovu. Zbunit ćeš se! Recimo da želite vršiti pentesting na neki određen websajt. Taj websajt ima URL &quot;<a href="http://example.com/">http://example.com/</a>. Prvo što radite jeste provjerite da li je CMS pre-made/public ili je custom-made odnosno CMS po naruđbi. Ako je to prvo, onda pokušajte ispisati exploit ili ako je starija verzija, nađite si exploit sami. AKO je CMS po naruđbi, šta treba raditi pri samom početku je &quot;baciti&quot; request i provjeriti header-response websajta. Za takve stvari inače koristim alat &quot;curl&quot; sa parametrom head + URL. Potrebno je obratiti pažnju na X-Powered-By jer nam on inače vrača informaciju na kojoj tehnologiji se bazira webaplikacija a pri tome i verziju.</p>
+<pre class="hljs"><code>dns@kutija:/$ curl <span class="hljs-comment">--head http://example.com</span>
+HTTP/1.1 200 OK
+Date: Thu, 19 Dec 2013 00:10:10 GMT
+Server: Apache/2.2.14 (Ubuntu)
+X-Powered-By: PHP/5.3.2-1ubuntu4.22
+<span class="hljs-keyword">Set</span>-Cookie: PHPSESSID=fn07ffrue52frs7u4gnenainu1; path=/
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+<span class="hljs-keyword">Cache</span>-Control: <span class="hljs-keyword">no</span>-<span class="hljs-keyword">store</span>, <span class="hljs-keyword">no</span>-<span class="hljs-keyword">cache</span>, must-revalidate, post-<span class="hljs-keyword">check</span>=<span class="hljs-number">0</span>, pre-<span class="hljs-keyword">check</span>=<span class="hljs-number">0</span>
+<span class="hljs-keyword">Pragma</span>: <span class="hljs-keyword">no</span>-<span class="hljs-keyword">cache</span>
+Vary: <span class="hljs-keyword">Accept</span>-<span class="hljs-keyword">Encoding</span>
+<span class="hljs-keyword">Content</span>-<span class="hljs-keyword">Type</span>: <span class="hljs-built_in">text</span>/html; charset=cp1250</code></pre><p>Nekad X-Powered-By ne vraća ništa (sakriven je), a nekad vraća i REST API codename ili ime (ako je korišten), u ovom slučaju nije nam vratio. No to nije kraj, injection i dalje možemo izvršiti. Ali pre toga jedna napomena. Sjetite se da sam rekao da ima razlika između injectovanja na čisti URL koji se vodi preko REST arhitekture, i na čisti URL koji se vodi preko .htaccess-a. Razlika je u tome da u REST arhitekturi, ako je konfigurisano, reprezentacija mora imati konstantu vrijednost, u protivnom samo slanje zahtjeva nije moguće. Primjer. Ako je REST konfigurisan da username parametar ima vrijednost od 3 karaktera, REQUEST MORA ZADOVOLJAVATI TO. Ako ne zadovoljava, vraća grešku. U tom slučaju četvrti i peti link bi bacio hard grešku. Drugi link bi bacio soft grešku (ako query ne postoji ili slično)</p>
+<pre class="hljs"><code>[<span class="hljs-number">1</span>] http://<span class="hljs-built_in">example</span>.com/<span class="hljs-built_in">show</span>.php?username=dn5  &lt;- ne baca grešku
+[<span class="hljs-number">2</span>] http://<span class="hljs-built_in">example</span>.com/<span class="hljs-built_in">show</span>.php?username=dn51 &lt;- baca grešku (soft <span class="hljs-built_in">error</span> - zavisi od slučaja <span class="hljs-keyword">do</span> slučaja - query)
+-
+[<span class="hljs-number">3</span>] http://<span class="hljs-built_in">example</span>.com/<span class="hljs-built_in">show</span>/dn5/  &lt;- ne baca grešku
+[<span class="hljs-number">4</span>] http://<span class="hljs-built_in">example</span>.com/<span class="hljs-built_in">show</span>/dn51/ &lt;- baca grešku (hard <span class="hljs-built_in">error</span> - UVIJEK) / Previše karaktera odnosno nije identičan <span class="hljs-number">3</span>
+[<span class="hljs-number">5</span>] http;//<span class="hljs-built_in">example</span>.com/<span class="hljs-built_in">show</span>/dn/   &lt;- baca grešku (hard <span class="hljs-built_in">error</span> - UVIJEK) / Premalo karaktera odnosno nije identičan <span class="hljs-number">3</span></code></pre><p>U slučaju da se koristi .htaccess sa rewrite rulom, konfiguracija ne postoji i request bi se sastojao kao u drugom linku, nebitno što je čisti URL. Kako se svodi injection ću objasniti u sljedećem paragrafu. Važno je bilo napomenuti gore napisano jer će vam služiti za sljedeći paragraf.  </p>
+<p>Ako za SQL injection koristimo quote ili double quote, isti bi princip koristili i na čisti URI. Da provjerimo jel input sanitizovan, provjeravamo svaku reprezentaciju pa čak i resurs jer je razliku teško naći, odnosno nemoguće ako ne znate back-end. Imamo jednostavan link koji smo koristili u poršlom primjeru, {show} je resurs, {dn5} je reprezentacija a budući da resurs može biti ne-deklarisan, moramo provjeriti i njega što samim tim idemo na crno.</p>
+<pre class="hljs"><code>Normalni <span class="hljs-string">URL:</span>  [<span class="hljs-number">1</span>] <span class="hljs-string">http:</span><span class="hljs-comment">//example.com/show.php?username=dn5' &lt;- baca MySQL error</span>
+RESTful  <span class="hljs-string">URL:</span>  [<span class="hljs-number">2</span>] <span class="hljs-string">http:</span><span class="hljs-comment">//example.com/show/dn*               &lt;- baca MySQL error</span>
+Rewrite  <span class="hljs-string">URL:</span>  [<span class="hljs-number">3</span>] <span class="hljs-string">http:</span><span class="hljs-comment">//example.com/show/"dn5              &lt;- baca MySQL error</span></code></pre><p><strong>ZAŠTO?</strong> Kod prvog linka gdje je normalni URL, već je poznato da grabimo dn5 + quote , a input nije očišćen. Tipični napad preko SQL injection. Kod drugog linka, uzimamo u obzir da je REST konfigurisan na 3 karaktera, znači, jedan karakter moramo obrisati i zamjeniti ga sa zvjezdicom (<em>) ili navodnikom (&quot;). U većini slučajeva se koristi zvjezdica, a iz kojeg razloga nikad nisam ni saznao, valjda je Kyle Anderson uveo takav zakon :)). Ako server nije konfigurisan da reprezentacija sadrži tri karaktera, možete probati i dn5</em>. Kod trećeg primjera gdje se koristi mod_rewrite + .htaccess, quote stavljate ispred jer nekad je loše ispisan RewriteRule i veče su mogućnosti da vam tako baci grešku mada nije pogrešno postaviti quote i na kraju.  </p>
+<p>U prvom linku ne trebate provjeravati show.php (nemoguće je), ali ako se nađete u situaciji kao u linku 2 ili 3, morate provjeriti i to jer ne znate da li je to reprezentacija ili resurs, i ako je to prvo, da li je ista ranjiva. Koliko znam, resurs nije moguće konfigurisati na određenu vrijednost karaktera. Radite sljedeće.</p>
+<pre class="hljs"><code>RESTful <span class="hljs-string">URL:</span>  [<span class="hljs-number">1</span>] <span class="hljs-string">http:</span><span class="hljs-comment">//example.com/*show/dn5               &lt;- ne baca MySQL error</span>
+Rewrite <span class="hljs-string">URL:</span>  [<span class="hljs-number">2</span>] <span class="hljs-string">http:</span><span class="hljs-comment">//example.com/"show/dn5               &lt;- ne baca MySQL error</span></code></pre><p>Ovaj slučaj može značiti dvije stvari. Prva stvar je da je &quot;show&quot; resurs, a druga stvar je da je input sanitizovan i da nije moguće izvršiti injection na taj parametar. Opet kažem, važno je testirati svaku vrijednost jer nikad ne znate šta je tu resurs a šta reprezentacija, šta je ranjivo a šta ne. Znači testiranjem do pobjede.</p>
+<h2 id="alati"><a class="header-link" href="#alati"></a>Alati</h2>
+<p>Hmm... Odgovor na vaše pitanje &quot;Jel ima š&#39;a automatsko da se ne peglam?&quot; će biti.. &quot;MOŽDA&quot; :)) Alati postoje i uvijek će postojati. Tu su da nam pripomognu i ubrzaju proces. Lista alata se nalazi ispod. Uz sqlmap koristite paramtera za URL + *, a u BurpSuite morate konfigurisati koliko threada da šalje jer mnogo alarmira IDS. Prihvatite se manuel testiranja na ranjivost a onda koristite sqlmap ako baš morate.</p>
+<pre class="hljs"><code>[*] sqlmap          - Alat za testiranje ranjivosti nad SQL injection, sadrž<span class="hljs-selector-tag">i</span> testiranje <span class="hljs-selector-tag">i</span> na čistim URLima (implementirao Miroslav u v0.<span class="hljs-number">9</span>)
+[*] BurpSuite       - Sadrž<span class="hljs-selector-tag">i</span> opciju za testiranje svih direktorija <span class="hljs-selector-tag">i</span> fajlova sa quotom
+[*] yourbrain<span class="hljs-selector-class">.pl</span>    - Nije baš alat ali je korisniji od svakog alata /sarkazam</code></pre><h2 id="outro"><a class="header-link" href="#outro"></a>Outro</h2>
+<p>To bi bilo to. Ako ste našli grešu, prijavite je meni na twitter: @dn5__ ili na email dn5@dn5.ljuska.org :)) Pozdrav za ekipu sa irca. Ljuska.org! Specijalan shotout za knownsrv.com. Posjetite moj blog: <a href="http://dn5.ljuska.org">http://dn5.ljuska.org</a>. Ako imate kakve ideje i prijedloge, šaljite ih na mail a ja ću ugoditi svima i odgovoriti.  </p>
+<pre class="hljs"><code><span class="hljs-attribute">Twitter</span>: <span class="hljs-variable">@dn5__</span>
+<span class="hljs-attribute">Email</span>: dn5<span class="hljs-variable">@dn5</span>.ljuska.org
+<span class="hljs-attribute">IRC</span>: irc.rizon.net / #ljuska / dn5</code></pre><h2 id="reference"><a class="header-link" href="#reference"></a>Reference</h2>
+<pre class="hljs"><code>Arhitectural Style and the Design of Network-based Software Arhitectures - http:<span class="hljs-regexp">//</span>www.ics.uci.edu<span class="hljs-regexp">/~fielding/</span>pubs<span class="hljs-regexp">/dissertation/</span>top.htm
+REST - http:<span class="hljs-regexp">//</span>en.wikipedia.org<span class="hljs-regexp">/wiki/</span>REST
+Clean URLs - http:<span class="hljs-regexp">//</span>en.wikipedia.org<span class="hljs-regexp">/wiki/</span>Clean_URL
+How to have clean URLs - http:<span class="hljs-regexp">//</span>wettone.com<span class="hljs-regexp">/code/</span>clean-urls
+
+$ <span class="hljs-keyword">exit</span></code></pre>
+                </div>
+            </div>
+
+	    <hr style="display: block; text-align: left; width: 100%;" />
+
+	    <small style="color:rgba(68, 63, 63, 0.42)">this project, script or post is written by @durakih (c) 2017</small>
+
+        </div>
+    </body>
+</html>

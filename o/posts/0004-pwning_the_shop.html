@@ -1,0 +1,127 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+        <title>Pwning the shop - Electronicpromo!</title>
+
+        <meta name="theme-color" content="#252525">
+
+	<link href="https://fonts.googleapis.com/css?family=Amiri" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Raleway:100" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Mono:100,300,400" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Fira+Mono:400,700|Open+Sans:300,400,600|Raleway:200,300,400,600&amp;subset=latin-ext" rel="stylesheet">
+
+        <link rel="stylesheet" href="assets/css/normalize.css">
+        <link rel="stylesheet" href="assets/css/skeleton.css">
+        <link rel="stylesheet" href="assets/css/home.css">
+
+    </head>
+    <body>
+
+        <div class="container" style="margin-top: 30px;">
+
+            <div class="row">
+                <p style="text-align:center;">
+                    <img src="assets/img/duraki-logo.png" alt="duraki logo"/>
+                </p>
+            </div>
+
+	    <div class="row">
+                <div class="one-sixth column" style="margin-top: 10%; margin-left: 0%";>
+                    <h3><a href="/">blog</a> / <a href="">Pwning the shop - Electronicpromo!</a></h3>
+                </div>
+	    </div>
+
+            <div class="tags">
+            <code class="tags-code">pwning</code>
+            <code class="tags-code">hacking</code>
+            <code class="tags-code">shop</code>
+            <code class="tags-code">carders</code>
+            <code class="tags-code">vpro</code>
+            </div>
+
+	    <hr style="display: block; text-align: left; width: 100%;" />
+
+            <div class="row">
+                <div class="six columns" style="margin-top: 0%;"><p>Long time no see. First post on english, let&#39;s start. Today special is pwning the old carding shop called &quot;electronicpromo&quot;. Electronicpromo allows various carder from around the world to check credit card balance, additional check if credit card is valid and working, check for VBV (Verified by Visa) &amp; MCSC (Mastercard Secure Code) etc. We will cover all of them later but first.. Let take a small look at information of Electronicpromo.</p>
+<h2 id="i-gathering-info-electronicpromo"><a class="header-link" href="#i-gathering-info-electronicpromo"></a>I Gathering info Electronicpromo</h2>
+<pre class="hljs"><code><span class="hljs-selector-tag">Website</span>     : <span class="hljs-selector-tag">electronicpromo</span><span class="hljs-selector-class">.net</span>
+<span class="hljs-selector-tag">IP</span>          : 192<span class="hljs-selector-class">.184</span><span class="hljs-selector-class">.8</span><span class="hljs-selector-class">.95</span>
+<span class="hljs-selector-tag">Name</span> <span class="hljs-selector-tag">servers</span>: <span class="hljs-selector-tag">yns1</span><span class="hljs-selector-class">.yahoo</span><span class="hljs-selector-class">.com</span> ; <span class="hljs-selector-tag">yns2</span><span class="hljs-selector-class">.yahoo</span><span class="hljs-selector-class">.com</span>
+<span class="hljs-selector-tag">Mail</span> <span class="hljs-selector-tag">server</span> : <span class="hljs-selector-tag">mail</span><span class="hljs-selector-class">.electronicpromo</span><span class="hljs-selector-class">.net</span></code></pre><p class="img-container"><img src="http://i.imgur.com/Xn9eHVK.png" alt="DNS"></p>
+<p> Domain is registered @ melbourneit.com. You can check whole whois at whois.melbourneit.com. Particular thing I found very interesting is registration and creation date of domain which is 01/05/2010. Seems that either domain administrator don&#39;t have a life, or lives in a country which doesn&#39;t celebrate (International) Workers&#39; Day [1]. Just to note that whois registration info is private, either by private-whois or another offshore service.</p>
+<h2 id="ii-what-does-ep-offer"><a class="header-link" href="#ii-what-does-ep-offer"></a>II What does EP offer</h2>
+<p>Login form @ front-page
+<a href="http://i.imgur.com/aTyAs2v.png">http://i.imgur.com/aTyAs2v.png</a></p>
+<p>Registration page: It is invite only so don&#39;t bother contacting them, if you are security researcher, I can give it to you for free, just write me on twitter (@dn5__)
+<a href="http://i.imgur.com/pXfKpRn.png">http://i.imgur.com/pXfKpRn.png</a></p>
+<p>Dashboard / Account home
+You can see service they offer: CCV Checker 69; 3D Secure Checker &amp; Balance CVV Checker
+<a href="http://i.imgur.com/yGZusai.png">http://i.imgur.com/yGZusai.png</a></p>
+<p> CCV Checker 69 - Visa, Mastercard, Amex, Discover; Accepting all country
+<a href="http://i.imgur.com/lA3yJtK.png">http://i.imgur.com/lA3yJtK.png</a></p>
+<p> 3D Secure Checker - Visa, Mastercard; Accepting all country
+<a href="http://i.imgur.com/hmyXH3X.png">http://i.imgur.com/hmyXH3X.png</a></p>
+<p> Balance CVV Checker (Check card balance) - Visa, Mastercard, Amex, Discover; Accepting all country
+<a href="http://i.imgur.com/omtkYeK.png">http://i.imgur.com/omtkYeK.png</a></p>
+<p> Profile page / Change password
+<a href="http://i.imgur.com/sx8qHT4.png">http://i.imgur.com/sx8qHT4.png</a></p>
+<p> They even offer own API, which is by the way, exploitable but we will leave that for later on. Bellow is the picture of their API Service. 
+<a href="http://i.imgur.com/ik0F3ka.png">http://i.imgur.com/ik0F3ka.png</a></p>
+<p>III MY HAX0RZ SKILLS</p>
+<p>First step is to dig inside of domain name, check behaviour and such. Lets start!</p>
+<p>$ dig www.electronicpromo.net +noadflag</p>
+<p>; &lt;&lt;&gt;&gt; DiG 9.10b1 &lt;&lt;&gt;&gt; www.electronicpromo.net +noadflag
+;; global options: +cmd
+;; Got answer:
+;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 44933
+;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 0</p>
+<p>;; QUESTION SECTION:
+;www.electronicpromo.net.       IN      A</p>
+<p>;; ANSWER SECTION:
+www.electronicpromo.net. 306    IN      A       192.184.8.95</p>
+<p>;; Query time: 15 msec
+;; SERVER: 192.168.1.1#53(192.168.1.1)
+;; WHEN: Mon Mar 17 22:38:51 Central European Standard Time 2014
+;; MSG SIZE  rcvd: 57</p>
+<p>By the time of writting this document, we&#39;ve checked IP address to which we access electronicpromo.net domain. Based upon our research we&#39;ve found that IP address with numbers 192.184.8.95 is dedicated from datacenter located in USA. Owner of this IP is Black Lotus Communications[2] company (BLCC) who provide DDoS protection. This kind of reference give us clue to ask same company for additional information of their client who need this service. In this case Black Lotus provide emergency response center telephone number but I was kind enough to contact abuse center by e-mail. Black Lotus will be forced to reveal information so we can sinkhole domain and do additional tracking of administration.</p>
+<p>Location of IP address by map/graph:
+<a href="http://i.imgur.com/6Sk3Pcm.png">http://i.imgur.com/6Sk3Pcm.png</a></p>
+<p> Lets keep smashing the box. While doing the vulnerability assestment on Electronicpromo, I&#39;ve found out that they have &quot;_vti_inf&quot; file which reveals us that FrontPage is installed, and that we can check FrontPage Configuration Information. Looking up into this file, comments reveals us this:</p>
+<p>Frontpage Version             -     5.0.2.4803
+Frontpage SHTML Script URL     -     _vti_bin/shtml.exe/_vti_rpc
+Frontpage Author Script URL -     _vti_bin/_vti_aut/author.exe
+Frontpage Admin Script URL     -     _vti_bin/_vti_adm/admin.exe</p>
+<p>Without too much complication of process we use, here are the relative informations. Oh yes, by the way, thanks for setting file_uploads register to 1 (On)! Gived us much, much help.</p>
+<p>$ uname -a
+Linux la427.electronicpromo.net 2.6.32-358.2.1.el6.x86_64 #1 SMP Wed Mar 13 00:26:49 UTC 2013 x86_64</p>
+<p>$ mysql --version
+mysql  Ver xx.xx Distrib 5.1.73 (masked*)</p>
+<p>$ openssl version
+OpenSSL 1.0.1e-fips 11 Feb 2013</p>
+<p>So, you are now probably interested on which way did I root the server if there were no IP availible except firewall one. Well, here is the answer: Ha! Got&#39; ya! Magician never reveals their secret! Lets go on.</p>
+<p>$ php -r &quot;print getenv(&quot;DOCUMENT_ROOT&quot;)&quot;;
+/home/elecpro/public_html</p>
+<p>$ php -r &quot;print getenv(&quot;SERVER_ADMIN&quot;)&quot;;
+webmaster@electronicpromo.net</p>
+<p>IV Outro
+ I hope you found this post interesting. Post will be updated probably. If not, ask me questions on my twitter @dn5<strong> or email me . Please note that this post is for educational purpose only. This post is not made to show off my skills but to show respect to people who are still there to break cyber-crime. This post will be proceeded to IC3 as complain. Do not redistribute to your blog. Domains will be sinkholed ASAP.
+Kind regards everyone. This is dn5!
+t - @dn5</strong>
+e - <a href="&#109;&#97;&#105;&#108;&#116;&#x6f;&#x3a;&#100;&#110;&#x35;&#x40;&#x64;&#110;&#x35;&#x2e;&#x6c;&#x6a;&#x75;&#115;&#107;&#x61;&#x2e;&#x6f;&#x72;&#x67;">&#100;&#110;&#x35;&#x40;&#x64;&#110;&#x35;&#x2e;&#x6c;&#x6a;&#x75;&#115;&#107;&#x61;&#x2e;&#x6f;&#x72;&#x67;</a> </p>
+<p>References
+[1] <a href="http://en.wikipedia.org/wiki/International_Workers%27_Day">http://en.wikipedia.org/wiki/International_Workers%27_Day</a>
+[2] <a href="http://www.blacklotus.net/">http://www.blacklotus.net/</a></p>
+<p><a href="http://i.imgur.com/vEZXwE9.jpg">http://i.imgur.com/vEZXwE9.jpg</a></p>
+
+                </div>
+            </div>
+
+	    <hr style="display: block; text-align: left; width: 100%;" />
+
+	    <small style="color:rgba(68, 63, 63, 0.42)">this project, script or post is written by @durakih (c) 2017</small>
+
+        </div>
+    </body>
+</html>

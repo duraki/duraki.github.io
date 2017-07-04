@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+        <title>Bugbounty/ Huawei Stored XSS vuln @ Support</title>
+
+        <meta name="theme-color" content="#252525">
+
+	<link href="https://fonts.googleapis.com/css?family=Amiri" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Raleway:100" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Mono:100,300,400" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Fira+Mono:400,700|Open+Sans:300,400,600|Raleway:200,300,400,600&amp;subset=latin-ext" rel="stylesheet">
+
+        <link rel="stylesheet" href="assets/css/normalize.css">
+        <link rel="stylesheet" href="assets/css/skeleton.css">
+        <link rel="stylesheet" href="assets/css/home.css">
+
+    </head>
+    <body>
+
+        <div class="container" style="margin-top: 30px;">
+
+            <div class="row">
+                <p style="text-align:center;">
+                    <img src="assets/img/duraki-logo.png" alt="duraki logo"/>
+                </p>
+            </div>
+
+	    <div class="row">
+                <div class="one-sixth column" style="margin-top: 10%; margin-left: 0%";>
+                    <h3><a href="/">blog</a> / <a href="">Bugbounty/ Huawei Stored XSS vuln @ Support</a></h3>
+                </div>
+	    </div>
+
+            <div class="tags">
+            <code class="tags-code">huawei</code>
+            <code class="tags-code">support</code>
+            <code class="tags-code">webapp</code>
+            <code class="tags-code">xss</code>
+            <code class="tags-code">vuln</code>
+            <code class="tags-code">bugbounty</code>
+            </div>
+
+	    <hr style="display: block; text-align: left; width: 100%;" />
+
+            <div class="row">
+                <div class="six columns" style="margin-top: 0%;"><h2 id="vulnerability-no.-#2"><a class="header-link" href="#vulnerability-no.-#2"></a>Vulnerability No. #2</h2>
+<p>Huawei support page have a special POST request to favorite support line / link for future reference. Because user input is not properly sanitized, client is allowed to insert HTML code inside special parameter sent through request. This vulnerability can lead to various types of XSS or even some type of DDoS attack. Check the video at the end to see vulnerability PoC live.</p>
+<h2 id="poc"><a class="header-link" href="#poc"></a>PoC</h2>
+<p>This vulnerability can be recreated either by &quot;Live HTTP Headers&quot; plugin for Firefox, or in other way, using special tools to reply the request like Burpsuite or Acunetix. Specially scripted software can be coded too using Python or Perl. You may also try to edit inline HTML over inspect-element to recreate the bug. </p>
+<p>Vuln URL:</p>
+<pre class="hljs"><code>http:<span class="hljs-regexp">//</span>support.huawei.com<span class="hljs-regexp">/support/</span>pages<span class="hljs-regexp">/search/</span>resultFavorite.<span class="hljs-keyword">do</span>?actionFlag=addResultFavorite</code></pre><p>Request:</p>
+<pre class="hljs"><code><span class="hljs-attribute">POST</span></code></pre><p>Params:</p>
+<pre class="hljs"><code>* docId=SE0000696205 <span class="hljs-string">[1]</span>  
+* docName=&lt;img src=<span class="hljs-string">"http://imgur.com/1drVAHB.jpg"</span> /&gt; <span class="hljs-string">[2]</span>  
+* keywords=HUAWEI_VULN <span class="hljs-string">[3]</span>  
+* lang=en <span class="hljs-string">[4]</span>  
+* searchType=SUPPORT_DOCS <span class="hljs-string">[5]</span>  
+* url=http://example.com <span class="hljs-string">[6]</span>  </code></pre><p>Details:</p>
+<pre class="hljs"><code><span class="hljs-comment">[1]</span> = Document ID, leave as <span class="hljs-keyword">is</span>  
+<span class="hljs-comment">[2]</span> = Image or any other input validation (vulnerable parameter)  
+<span class="hljs-comment">[3]</span> = Keywords / Category  
+<span class="hljs-comment">[4]</span> = Language, leave as <span class="hljs-keyword">is</span>  
+<span class="hljs-comment">[5]</span> = Search type, leave as <span class="hljs-keyword">is</span>  
+<span class="hljs-comment">[6]</span> = Redirection page  </code></pre><h2 id="fix"><a class="header-link" href="#fix"></a>Fix</h2>
+<p>Try to sanitize user input, check if &quot;docName&quot; parameter is proper, use functions to escape special chars, and allow redirection only to host/server of Huawei, so fix the &quot;url&quot; parameter. </p>
+<h2 id="video"><a class="header-link" href="#video"></a>Video</h2>
+<iframe src="https://player.vimeo.com/video/93203325" width="500" height="415" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                </div>
+            </div>
+
+	    <hr style="display: block; text-align: left; width: 100%;" />
+
+	    <small style="color:rgba(68, 63, 63, 0.42)">this project, script or post is written by @durakih (c) 2017</small>
+
+        </div>
+    </body>
+</html>

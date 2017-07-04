@@ -1,0 +1,149 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+        <title>Cyber-attack on vehicle system P1</title>
+
+        <meta name="theme-color" content="#252525">
+
+	<link href="https://fonts.googleapis.com/css?family=Amiri" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Raleway:100" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Mono:100,300,400" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Fira+Mono:400,700|Open+Sans:300,400,600|Raleway:200,300,400,600&amp;subset=latin-ext" rel="stylesheet">
+
+        <link rel="stylesheet" href="assets/css/normalize.css">
+        <link rel="stylesheet" href="assets/css/skeleton.css">
+        <link rel="stylesheet" href="assets/css/home.css">
+
+    </head>
+    <body>
+
+        <div class="container" style="margin-top: 30px;">
+
+            <div class="row">
+                <p style="text-align:center;">
+                    <img src="assets/img/duraki-logo.png" alt="duraki logo"/>
+                </p>
+            </div>
+
+	    <div class="row">
+                <div class="one-sixth column" style="margin-top: 10%; margin-left: 0%";>
+                    <h3><a href="/">blog</a> / <a href="">Cyber-attack on vehicle system P1</a></h3>
+                </div>
+	    </div>
+
+            <div class="tags">
+            <code class="tags-code">cyberattack</code>
+            <code class="tags-code">vehicle</code>
+            <code class="tags-code">system</code>
+            <code class="tags-code">car</code>
+            <code class="tags-code">canbus</code>
+            </div>
+
+	    <hr style="display: block; text-align: left; width: 100%;" />
+
+            <div class="row">
+                <div class="six columns" style="margin-top: 0%;"><h2 id="intro"><a class="header-link" href="#intro"></a>Intro</h2>
+<p>Ko bi rekao da ću ja jednom pisati o cyber-attacks i hardveru. Znam za jedan post trenutno a to je bilo hakovanje onog Dongle-a sa Švicarske mreže na domaću. I tako se jednom vozam sa drugom u autu, i razmišljamo zašto ne bi provjerili sigurnost sistema na novijim automobilima koji imaju mogućnost kompjuterske dijagnostike općenito.  </p>
+<h2 id="zašto-ne?"><a class="header-link" href="#zašto-ne?"></a>Zašto ne?</h2>
+<p>Za početak, ono što nas je prvo odvuklo od toga jesu finansije. Počevši od automobila koji testiramo, pa dijagnostički (hardver) alati, API, softveri, i naravno skontamo da nam treba previše novca za krenuti. Onda sam se ja odlučio da se baziram teoretski, napišemo potrebnu dokumentaciju i onda potom to prenesemo praktično.  </p>
+<h2 id="0x01---općenito-(teorija)"><a class="header-link" href="#0x01---općenito-(teorija)"></a>0x01 - Općenito (Teorija)</h2>
+<p>Motorno vozilo korišteno u svrhu transporta, kao proizvod koji je nastao automobilnom industrijom. U današnjem vremenu skoro neophodan predmet. Sa godinama, automobilska industrija je radila na poboljšanjima automobila i danas se čak može reći da dostiže vrhunac tehnologije. No, ova tehnologija u mnogo slučajeva može da se negativno odrazi na samog potrošača. Kao što svi znamo, onda kada do nekog predmeta imamo pristup fizičke ili druge prirode, u vidu umrežavanja, to nam kao <em>napadačima</em> pruža određene (ne)pogodnosti. Sigurnost automobilske industrije mnogo proizvođaća zabrinjava. Tako npr. <strong>Mercedes</strong> ima poseban sektor koji se bavi inžinjeringom i sigurnošću sistema. Takvo nešta ima i <strong>Tesla</strong>, i <strong>Hyundai</strong>. Kao što možete primjetiti, velike firme se bore da održavaju nivo sigurnosti u novijim automobilima koji imaju razne pristupe povezanosti (GPS, GSM, WiFi, Bluetooth ..).  </p>
+<h2 id="0x02---veza"><a class="header-link" href="#0x02---veza"></a>0x02 - Veza</h2>
+<p>Automobili su kompleksne jedinice, a svaki automobil je po nečemu unikatan. Kada se baziramo na modele, noviji automobili u SAD i Europi imaju dodatne mogućnosti povezivanja. Tako imamo USB, razne jackove, CD/DVD radio, OBD, pa čak i &quot;novije&quot; načine kao WiFi, Bluetooth, itd.    </p>
+<p>Tako se možemo postaviti u dvije pozicije u svrhu pristupa:  </p>
+<pre class="hljs"><code><span class="hljs-comment">* BEŽIČNO</span>
+    |
+    |___________________ * SIGNALI (Radio valovi, keyfobs, <span class="hljs-keyword">IR</span> ...)
+<span class="hljs-comment">                         * SIGNALI NA DODIR ILI MOTION</span>
+<span class="hljs-comment">                         * WiFi</span>
+<span class="hljs-comment">* KOMPJUTERSKI</span>
+    |
+    |___________________ * <span class="hljs-keyword">CD</span>/DVD, USB, BLUETOOTH
+<span class="hljs-comment">                         * DIJAGNOSTIKA</span>
+<span class="hljs-comment">                         * DASHBOARD</span></code></pre><h2 id="0x03---sigurnost"><a class="header-link" href="#0x03---sigurnost"></a>0x03 - Sigurnost</h2>
+<p>Naravno, mi ćemo se u ovom tekstu bazirati prije svega na sigurnost kompjuterskih sistema unutar automobila. Za početak čemo podijeliti način na koji se kompjuter povezuje na <a href="https://en.wikipedia.org/wiki/Electronic_control_unit">ECU</a> komponentu. <strong>ECU</strong> (<em>Electronic Control Unit</em>) je ustvari mali system koji u automobilskoj industriji služi kao veza između kompjutera i operacijskih radnji vozila. U današnjim automobilima možemo nači i više od 70 ECU sistema koji upravljaju raznim radnjama.  </p>
+<p>Instrument kojim upravljamo ECU da vrši operacije se naziva konzola, a u današnje vrijeme je bitno napomenuti da takav pristup imamo i putem infotainment systemima ili jednostavno dashboard (Tablet).  </p>
+<pre class="hljs"><code> -<span class="ruby">----------------------------------------------------------------------
+</span>|   FIZIČKI             |   WIRELESS                | KEY CONNECTED
+ -<span class="ruby">----------------------------------------------------------------------
+</span>    -<span class="ruby"> USB Portovi           - Bluetooth               - CAN bus
+</span>    -<span class="ruby"> Auxilary              - WiFi                    - Ethernet
+</span>    -<span class="ruby"> CD/DVD Rom            - GSM                     - High-Speed mbus
+</span>    -<span class="ruby"> ...                   - OPS, XM, Remote         - ...</span></code></pre><p>Gore smo naveli način pristupa konzole na automobil. Ako detaljno istražimo gore pojmove ili ako imamo uvid u sigurnost, navedene možemo svrstati po sigurnosnom segmentu. Tako možemo razumjeti attack-surface na kojem se baziramo.  </p>
+<p class="img-container"><img src="http://i.imgur.com/GWubT8R.png" alt="diagram-konzola"></p>
+<p>Na prethodnom diagramu možemo vidjeti da se zavisno od vrsta povezivanja može doći do dva predjela. To jest, imamo pristup <strong>user mode</strong> u slučaju da se vezujemo putem bluetootha ili WiFi. To znači da imamo limitiran pristup na infotainment systemu. Ali, ako vezu ostvarujemo putem mobilne mreže (tj. GSM) na HSI, ili USB-om na UDEV, te kvaser interfejsu (CAN), odma imamo pristup kernelu / srce sistema. Važno je napomenuti da se infotainment system bazira na <strong>Windows CE</strong> ili <strong>Linux</strong> varijanti zavisno od proizvođača automobila. Na top-u se pišu razna sučelja.  </p>
+<p class="img-container"><img src="http://i.imgur.com/jgyBVHy.png" alt="infotsys"></p>
+<p>Mene iskreno najviše zanima kernel level mod jer u takvom pristupu imate mogućnost obavljanja svih mogućih funkcija i kanala na automobilu. Najlakši pristup tome je fizički, odnosno pristup CAN Bus, pa ćemo se tako praktično i teoretski bazirati na njemu i njegovoj signalizaciji. Noviji automobili imaju pristup preko etherneta što je jako zanimljivo budući da se snifanje mreže može izvršiti efikasno i jeftino.  </p>
+<h2 id="0x04---can-bus"><a class="header-link" href="#0x04---can-bus"></a>0x04 - CAN Bus</h2>
+<p>Dosta puta sam u dosadašnjem tekstu napisao CAN Bus pa je vrijeme da objasnim o čemu se radi. <a href="https://en.wikipedia.org/wiki/CAN_bus">Controller Area Network</a> ili CAN Bus je port / plug u vozilima koji omogućava mikrokontrolerima i uređajima da upravljaju i omoguće interakciju sa aplikacijama, tzv. VCS. CAN Bus standard je izrađen 1983. u <a href="https://en.wikipedia.org/wiki/Robert_Bosch_GmbH">Robert Bosch GmbH</a>. Protokol je prvi put zabilježen u upotrebi 1988. u BMW 8 seriji. Znači, automobili imaju i do 70 ECUa za razne subsisteme (transmisija, airbag, abs, volan, el. podizači, vrata itd.). CAN standard je uveden sa razlogom da bi se mogli čitati odgovori od raznih senzora koji su ECU napajani.  </p>
+<p>VCS:  </p>
+<ul class="list">
+<li>CAN Bus  </li>
+<li>Linbus  </li>
+<li>MOST  </li>
+<li>Flexray (BMW SUV automobili)  </li>
+<li>Ethernet  </li>
+<li>TPMS  </li>
+</ul>
+<p>Trenutno ga ima u dvije glavne verzije, kao sistem, <strong>CAN 1.0</strong>, i <strong>CAN 2.0</strong> (1991), a druga verzija je u glavnoj standarizaciji ISO-118982. Treba napomenuti da CAN nije namjenjen samo automobilskoj industriji, iako je napravljen za to ulogu, danas ga možemo vidjeti u raznim aspektima proizvodnje. Uglavnom, CAN 2.0 verzija se dijeli na dvije BIT verzije:  </p>
+<ul class="list">
+<li>CAN 2.0A (11-bit)</li>
+<li>CAN 2.0B (29-bit)</li>
+</ul>
+<p>Budući da radi na low-level protokolu, ne podržava nikakav vid sigurnosne implementacija. Aplikacije koje komuniciraju sa njim su napravljene na osnovu svog specifičnog sigurnosnog mehanizma (npr. da se komunikacije provjere).  </p>
+<p><strong>CAN Bus</strong> radi na osnovu signalizacije tj. šalje dva signala koja emituju neku informaciju. Tako imamo signal visoke frekfencije (CAN HIGH / <strong>CANH</strong>) i signal niske frekvencije (CAN LOW / <strong>CANL</strong>). Za primjer protokola CAN Bus-a uzet ćemo standardnu OBD diagnostiku, tipa OBD-II. U skupu, CAN Bus podržava 2.5 volti odnosno dovoljno voltaže za emitovanje signala. Na osnovu CANH i CANL možemo odrediti signalizaciju i informaciju.  </p>
+<p class="img-container"><img src="http://i.imgur.com/UUvmy9r.png" alt="voltaza-canbus"></p>
+<p>Zavisno od vrste konektovanja na dijagnostici, pinovi i signali su raspoređeni na različitim mjestima. Za OBD-II ovi pinovi se nalaze na poziciji 6 za CANH, te poziciji 14 za CANL. Više o on-board diagnostic možete porčitati <a href="https://en.wikipedia.org/wiki/On-board_diagnostics">ovdje</a>.  </p>
+<h2 id="0x05---signal-/-informacije"><a class="header-link" href="#0x05---signal-/-informacije"></a>0x05 - Signal / Informacije</h2>
+<p>Svi signali sa CAN Bus-a na procesor se šalju sa razlogom to jest da pošalju neki vid informacije. Signal ima svoju strukturu to jest frame informacije. Klasičan način generisanja informacija je sljedeći:  </p>
+<ul class="list">
+<li>Arbitation ID<ul class="list">
+<li>Predstavlja ID subjekta sa kojim se komunicira</li>
+<li>Može sadržavati više subjekata / ID-ova</li>
+<li>Prvi subjekat je onaj sa kojim se komunicira</li>
+</ul>
+</li>
+<li>IDE<ul class="list">
+<li>Standard formata</li>
+<li>Uvijek 0</li>
+</ul>
+</li>
+<li>DLC/DATA LENGTH CODE<ul class="list">
+<li>Veličina podatka u bajtovima</li>
+</ul>
+</li>
+<li>DATA<ul class="list">
+<li>Podatak</li>
+<li>Najviše 8 bajtova  </li>
+</ul>
+</li>
+</ul>
+<p><strong>Primjer informacije: </strong></p>
+<pre class="hljs"><code>    |<span class="hljs-string"> ARBITATION ID #                                                         </span>|
+    |<span class="hljs-string">                  IDE                                                    </span>|
+    |<span class="hljs-string">                       DLC                                               </span>|
+    |<span class="hljs-string">                            ========== DATA ==========                   </span>|</code></pre><p>Jedan frame podatka se sastoji od bitova koji su prevedeni iz signala (CANH i CANL). Bitovi se dijele različite strukture zavisno od framea.  </p>
+<p class="img-container"><img src="http://i.imgur.com/RI89RBI.png" alt="frame-primjer"></p>
+<p>Kao što možemo vidjeti na primjeru nekog frame-a, imamo kompletan prikaz CAN slike. CAN standard zahtjeva implementaciju base frame formata ali se isti može nadovezati sa extended frame formatom odnosno da pruža takav vid opcije.  </p>
+<ul class="list">
+<li>Zeleno označen prostor je ustvari identifier koji sadrži jedinstven ID koji asocira sa tim signalom.</li>
+<li>Plavo označen prostor je vrsta frame-a</li>
+<li>Žuto označen prostor je broj bajtova koji se šalju</li>
+<li>Crveno ozčaen prostor je informacija koja se šalje</li>
+</ul>
+<h2 id="0x06---u-praksi"><a class="header-link" href="#0x06---u-praksi"></a>0x06 - U praksi</h2>
+<p>U drugom dijelu sigurnosti automobilnih sistema ću pisati o emitovanju signala na virtualni CAN. Kad govorim virtualni, mislim na to da ću napraviti virtualnu mašinu odnosno automobil na svom računaru koji će imati CAN interfejs. Ovo radim isključivo iz razloga što vozim prahistorijsko auto (oldschool E30) i što nemam hardver. Nakon toga ide praksa na automobilu srednje klase iznad 2010-o godište. Za buduće, preporučujem da pročitate malo o <a href="https://en.wikipedia.org/wiki/SocketCAN">SocketCAN</a> i nadam se da se vrtite na Linuxu jer se sljedeći dokument snifanja mreže bazira na njemu.</p>
+<p>Outro ću da ostavim za drugi put.</p>
+
+                </div>
+            </div>
+
+	    <hr style="display: block; text-align: left; width: 100%;" />
+
+	    <small style="color:rgba(68, 63, 63, 0.42)">this project, script or post is written by @durakih (c) 2017</small>
+
+        </div>
+    </body>
+</html>

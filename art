@@ -1,0 +1,104 @@
+#!/usr/local/bin/ruby
+
+require 'erb'
+require 'yaml'
+require 'front_matter_parser'
+
+class Art
+  
+  def initialize
+    @home = YAML.load_file('.home.yml');
+  end
+
+  def builder 
+    p "[build]."
+    builder = Build.new @home
+  end
+
+end
+
+class Build
+
+  attr_accessor :artist, :title, :description
+  attr_accessor :posts_in, :posts_out
+  attr_accessor :script_list
+  attr_accessor :post_title, :post_date
+
+  def initialize config
+    @template = File.read('./index.erb')
+
+    self.artist = config['minimal']['artist']
+    self.title = config['minimal']['title'] 
+    self.description = config['minimal']['description']
+    self.posts_in = config['posts']['in']
+    self.posts_out = config['posts']['out']
+    self.script_list = config['scripts']
+
+    exec = self.cli # generate html from md cmd
+    system(exec) # exec generation process
+
+    list = posts # get all .md files
+    beauty(list) # build by metadata
+
+    write
+  end
+
+  def cli
+    return "generate-md --layout ./tuxtheme --input .#{self.posts_in} --output .#{self.posts_out}" 
+  end
+
+  def posts
+    list = Array.new
+    Dir["."+self.posts_in+"/*.md"].each do |f|
+      list.push(f)
+    end
+
+    list.sort_by! {|s| s[/\d+/].to_i}
+
+    list
+  end
+
+  def beauty list 
+    hashed = {} 
+
+    i = 0
+    list.each do |file|
+      extract_metadata(file)
+
+      i=i+1
+      hashed[i] = { id: extract_id(file), filename: file, title: @post_title, date: @post_date, out: @post_out}
+    end
+
+    @all_posts = Hash[hashed.to_a.reverse]
+  end
+
+  def extract_id file
+    file.match(/[0-9]{4}/).to_a[0]
+    id = file.match(/[0-9]{4}/).to_a[0]
+    id.to_s
+  end
+
+  def extract_metadata file
+    metadata = FrontMatterParser::Parser.parse_file(file)
+    metadata.front_matter
+
+    @post_title = metadata.front_matter['title']
+    @post_date = metadata.front_matter['date']
+
+    @post_out = file.sub '.md', '.html'
+    @post_out = @post_out.sub self.posts_in, self.posts_out
+  end
+  
+  def write
+    erb = ERB.new(@template)
+    #print erb.result(binding)
+  
+    File.open('index.html', 'w') do |f|
+      f.write erb.result(binding)
+    end
+  end
+
+end
+
+art = Art.new
+art.builder

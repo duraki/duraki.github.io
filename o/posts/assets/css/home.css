@@ -1,0 +1,68 @@
+h2 {
+    font-family: 'Fira Mono';
+    font-size: 1.7rem;
+}
+
+h2:before {
+    content: '## ';
+    color: #9e9e9e;
+}
+
+h3 {
+    font-size: 2.1rem;
+}
+
+hr {
+    /**margin-bottom: 20px;**/
+}
+
+.h_post {
+    font-family: 'Amiri';
+    font-size: 16px;
+}
+
+body {
+    width: 100%;
+    color: #776767;
+    background: #fdfdfd;
+}
+
+.posts {
+    list-style-type: none;
+    margin: 0;
+    margin-bottom: 2em;
+}
+
+.posts li {
+    line-height: 1.75em;
+}
+
+.posts span {
+    color: #AAA;
+    font-family: "Fira Mono", Monaco, monospace, "Courier New";
+    font-size: small;
+    background: #f3e4e4;
+    padding: 3px;
+}
+
+.posts span:hover {
+    color: white;
+    background-color: black;
+}
+
+a:visited {
+    color: #A00;
+}
+
+a {
+    letter-spacing: 1px;
+    font-size: 13px;
+    color: #A00;
+    text-decoration: none;
+    font-family: "Fira Mono", Monaco, monospace;
+}
+
+a:hover {
+    color: #000;
+    text-decoration: underline;
+}

@@ -1,0 +1,70 @@
+body {
+    width: 100%;
+    color: #776767;
+    background: #FFFDFD;
+}
+
+p {
+    display: inline;
+    font-family: 'Raleway', sans-serif;
+}
+
+.im {
+    font-size: small;
+}
+
+.hd {
+    font-size: 30px;
+}
+
+.minimalist {
+    font-size: 18px;
+    font-weight: 100;
+    letter-spacing: 1.6px;
+}
+
+.and {
+    font-size: 23px;
+    font-weight: 300;
+}
+
+.se {
+    font-family: 'Fira Mono', monospace;
+    font-size: 26px;
+}
+
+.interests {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.creator {
+    font-size: 24px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: regular;
+}
+
+.project {
+    font-size: 18px;
+    font-weight: 100;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+.work {
+    font-size: 15px;
+    font-weight: 100;
+}
+
+.link {
+    font-size: small;
+    font-weight: 200;
+}
+
+.link-big {
+    font-size: 25px;
+    font-weight: 200;
+}

@@ -1,0 +1,106 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+        <title>Intro</title>
+
+        <meta name="theme-color" content="#252525">
+
+	<link href="https://fonts.googleapis.com/css?family=Amiri" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Raleway:100" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Mono:100,300,400" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Fira+Mono:400,700|Open+Sans:300,400,600|Raleway:200,300,400,600&amp;subset=latin-ext" rel="stylesheet">
+
+        <link rel="stylesheet" href="assets/css/normalize.css">
+        <link rel="stylesheet" href="assets/css/skeleton.css">
+        <link rel="stylesheet" href="assets/css/home.css">
+
+    </head>
+    <body>
+
+        <div class="container" style="margin-top: 30px;">
+
+            <div class="row">
+                <p style="text-align:center;">
+                    <img src="assets/img/duraki-logo.png" alt="duraki logo"/>
+                </p>
+            </div>
+
+	    <div class="row">
+                <div class="one-sixth column" style="margin-top: 10%; margin-left: 0%";>
+                    <h3><a href="/">blog</a> / <a href="">Intro</a></h3>
+                </div>
+	    </div>
+
+	    <hr style="display: block; text-align: left; width: 100%;" />
+
+            <div class="row">
+                <div class="six columns" style="margin-top: 0%;">
+
+
+                    <div class="tags">
+                    </div><h2 id="intro"><a class="header-link" href="#intro"></a>Intro</h2>
+<p><a href="https://github.com/dn5/getjarpy">Getjarpy</a> is easy-to-use script/software with main use to download particular files from website <a href="www.getjar.mobi">www.getjar.mobi</a>, the oldest living database for downloading JAR files (applications, games, etc.) primary for older mobile phones. Getjarpy is transforming user-data and tricking website that it&#39;s been accessed over mobile phone and allowing user to automatically download JAR application. <strong>Note:</strong> that GetJar official website is not allowing users to download files from PC as you can see from screencast bellow! </p>
+<p class="img-container"><img src="http://i.imgur.com/KkyTa3b.gif" alt="GetjarSuckz"></p>
+<h2 id="usage"><a class="header-link" href="#usage"></a>Usage</h2>
+<p>To use Getjarpy you will need Python 2.7 with additional modules, read <a href="#Dependencies">Dependencies</a> for more information. Basic usage of Getjarpy is to edit line 63 and it&#39;s variable data <code>mobileModel</code> which is at the moment of coding set to <code>nokia-5130-xpressmusic/</code>. You can get your model name parsed by visiting www.getjar.mobi, selecting your model and visiting any application listed. </p>
+<p>Then, it&#39;s just a matter of using predefined commands listed bellow. Please, make sure to change coresponding phone model, in case you don&#39;t, all files will be downloaded to the resolution of <code>Nokia 5130 XpressMusic</code>. </p>
+<p class="img-container"><img src="http://i.imgur.com/cJlFHFX.gif" alt="Usage"></p>
+<h1 id="to-list-usage-/-help-use-`--help`-argument"><a class="header-link" href="#to-list-usage-/-help-use-`--help`-argument"></a>To list usage / help use <code>--help</code> argument</h1>
+<pre class="hljs"><code>$ python getjarpy.py --help
+            _    _                        
+  __ _  ___|<span class="hljs-string"> </span>|<span class="hljs-string">_ (_) __ _ _ __ _ __  _   _ 
+ / _` </span>|<span class="hljs-string">/ _ \ __</span>||<span class="hljs-string"> </span>|<span class="hljs-string">/ _` </span>|<span class="hljs-string"> '__</span>|<span class="hljs-string"> '_ \</span>|<span class="hljs-string"> </span>|<span class="hljs-string"> </span>|<span class="hljs-string"> </span>|
+|<span class="hljs-string"> (_</span>|<span class="hljs-string"> </span>|<span class="hljs-string">  __/ </span>|<span class="hljs-string">_ </span>|<span class="hljs-string"> </span>|<span class="hljs-string"> (_</span>|<span class="hljs-string"> </span>|<span class="hljs-string"> </span>|<span class="hljs-string">  </span>|<span class="hljs-string"> </span>|<span class="hljs-string">_) </span>|<span class="hljs-string"> </span>|<span class="hljs-string">_</span>|<span class="hljs-string"> </span>|
+ \__, |<span class="hljs-string">\___</span>|<span class="hljs-string">\__</span>|<span class="hljs-string">/ </span>|<span class="hljs-string">\__,_</span>|<span class="hljs-string">_</span>|<span class="hljs-string">  </span>|<span class="hljs-string"> .__/ \__, </span>|
+ |<span class="hljs-string">___/        </span>|<span class="hljs-string">__/           </span>|<span class="hljs-string">_</span>|<span class="hljs-string">    </span>|<span class="hljs-string">___/ 
+Simple GetJar java application downloader   
+Coded by dn5 / http://dn5.ljuska.org / @dn5__ 
+
+Usage: python getjarpy.py http://getjar.mobi/mobile/xxxxxx/name-of-app-model localFileName
+Example: python getjarpy.py http://www.getjar.mobi/mobile/567704/fooddash-for-nokia-5130-xpressmusic/ FoodDash</span></code></pre><h1 id="to-download-file-use-`uri-localname`-argument"><a class="header-link" href="#to-download-file-use-`uri-localname`-argument"></a>To download file use <code>URI LOCALNAME</code> argument</h1>
+<pre class="hljs"><code>$ python getjarpy.py http://www.getjar.mobi/mobile/<span class="hljs-number">567704</span>/fooddash-<span class="hljs-keyword">for</span>-nokia<span class="hljs-number">-5130</span>-xpressmusic/ FoodDash
+            <span class="hljs-keyword">_</span>    <span class="hljs-keyword">_</span>                        
+  __ <span class="hljs-keyword">_</span>  ___| <span class="hljs-type">|_</span> (<span class="hljs-keyword">_</span>) __ <span class="hljs-keyword">_</span> <span class="hljs-keyword">_</span> __ <span class="hljs-keyword">_</span> __  <span class="hljs-keyword">_</span>   <span class="hljs-keyword">_</span> 
+ / <span class="hljs-keyword">_</span>` |<span class="hljs-type">/ _</span> \ __|<span class="hljs-type">| |/ _</span>` | <span class="hljs-type">'__</span>| <span class="hljs-type">'_</span> \| <span class="hljs-type">| | |
+| (_</span>| <span class="hljs-type">|  __</span>/ |<span class="hljs-type">_</span> | <span class="hljs-type">| (_</span>| <span class="hljs-type">| |  | |_</span>) | <span class="hljs-type">|_</span>| <span class="hljs-type">|
+ \__</span>, |<span class="hljs-type">\___</span>|<span class="hljs-type">\__</span>|<span class="hljs-type">/ |\__</span>,<span class="hljs-keyword">_</span>|<span class="hljs-type">_</span>|  <span class="hljs-type">| .__</span>/ \__, |
+ <span class="hljs-type">|___</span>/        |<span class="hljs-type">__</span>/           |<span class="hljs-type">_</span>|    <span class="hljs-type">|___</span>/ 
+Simple GetJar java application downloader   
+Coded <span class="hljs-built_in">by</span> dn5 / http://dn5.ljuska.org / @dn5__ 
+
+Usage: python getjarpy.py http://getjar.mobi/mobile/xxxxxx/name-of-app-model localFileName
+<span class="hljs-keyword">Example</span>: python getjarpy.py http://www.getjar.mobi/mobile/<span class="hljs-number">567704</span>/fooddash-<span class="hljs-keyword">for</span>-nokia<span class="hljs-number">-5130</span>-xpressmusic/ FoodDash
+
+Setting a link <span class="hljs-keyword">for</span> exploitation!
+http://www.getjar.mobi/mobile/<span class="hljs-number">567704</span>/fooddash-<span class="hljs-keyword">for</span>-nokia<span class="hljs-number">-5130</span>-xpressmusic/
+
+Writing other settings!
+Trying to exploit this URL: http://m.getjar.mobi/mobile/<span class="hljs-number">567704</span>/fooddash-<span class="hljs-keyword">for</span>--java/?d=-java
+Extracting some files from URL ...
+Getting file data and extracting installation!
+
+Getting a JAR file <span class="hljs-keyword">for</span> the last <span class="hljs-built_in">time</span>, I promise.
+Opening a file <span class="hljs-keyword">for</span> testing, just to make sure everything works!
+Writting data ...
+w00t w00t, your file is ready to be transfered or reverse engineered! Filename: FoodDash.jar</code></pre><h2 id="dependencies"><a class="header-link" href="#dependencies"></a>Dependencies</h2>
+<ul class="list">
+<li>Python 2.7</li>
+<li>BeautifulSoup (<code>pip install BeautifulSoup</code>)</li>
+<li>urllib2 (should come installed by default)</li>
+<li>socket (should come installed by default)</li>
+</ul>
+<h2 id="about-/-license"><a class="header-link" href="#about-/-license"></a>About / License</h2>
+<p>This software is not intended to replace mobile downloading operation from GetJar, it is used for testing purpose and is not suported to use for illegal act. Me, dn5 coded this software for testing purpose and learning experience with Python. Software is licensed under GNU General Public License v3.0 (GPL-3.0). </p>
+
+                </div>
+            </div>
+
+	    <hr style="display: block; text-align: left; width: 100%;" />
+
+	    <small style="color:rgba(68, 63, 63, 0.42)">this project, script or post is written by @durakih (c) 2017</small>
+
+        </div>
+    </body>
+</html>
