@@ -3,15 +3,28 @@
 require 'erb'
 require 'yaml'
 require 'front_matter_parser'
+require 'colorize'
 
+# art
+# Author : Halis Duraki <duraki@linuxmail.org>
+# Website: https://duraki.github.io
+# Package: Art
 class Art
   
+  # Init.
   def initialize
+    puts "Welcome to Art.".green
+    puts "Art".red + " is a standalone Ruby static blog generator.".green 
+    puts "---------".red
+    puts "[+] Loading `.home.yml` from this directory ...".green
     @home = YAML.load_file('.home.yml');
+    puts "[+] File loaded.".green
+    puts "---------".red
   end
 
+  # Build.
   def builder 
-    p "[build]."
+    puts "[+] Creating build configuration ...".green
     builder = Build.new @home
   end
 
@@ -25,21 +38,47 @@ class Build
   attr_accessor :post_title, :post_date
 
   def initialize config
-    @template = File.read('./index.erb')
+    puts "[+] Reading `layout/index.erb` file ...".green
+    @template = File.read('./layout/index.erb')
+    puts "[+] Index layout loaded.".green
 
+    puts "[+] Creating accessors from YAML file ...".green
+    puts "---------".red
+
+    puts "[+] Detecting who you are ...".red
     self.artist = config['minimal']['artist']
+
+    puts "[+] Detecting blog title ...".red
     self.title = config['minimal']['title'] 
+
+    puts "[+] Detecting blog description ...".red
     self.description = config['minimal']['description']
+
+    puts "[+] Detecting input directory ...".red
     self.posts_in = config['posts']['in']
+
+    puts "[+] Detecting output directory ...".red
     self.posts_out = config['posts']['out']
+
+    puts "[+] Building script list ...".red
     self.script_list = config['scripts']
+
+    puts "[+] Detecting Google Analytics ...".red
     self.ga = config['art']['ga']
 
+    puts "[x] Accessors built.".green
+    puts "---------".red
+
+    puts "[+] Exporting markdown to HTML ...".green
     exec = self.cli # generate html from md cmd
     system(exec) # exec generation process
 
+    puts "[+] Building metadata ...".green
     list = posts # get all .md files
     beauty(list) # build by metadata
+
+    puts "[+] All systems ready ...".green
+    puts "---------".red
 
     write
   end
@@ -91,15 +130,18 @@ class Build
   end
   
   def write
+    puts "[+] Binding results ...".green
     erb = ERB.new(@template)
-    #print erb.result(binding)
   
     File.open('index.html', 'w') do |f|
       f.write erb.result(binding)
     end
+
+    puts "[x] All done.".green
   end
 
 end
 
+# Initialize.
 art = Art.new
 art.builder
