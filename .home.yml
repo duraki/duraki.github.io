@@ -4,8 +4,8 @@ minimal:
   title: "deviltux home"
   description: "A home of an engineer and a hacker."
 posts: 
-  in: /i/posts
-  out: /o/posts
+  in: /posts/i
+  out: /posts/o
 scripts: 
   - "Trigger Alina POS malware:/scripts/trigger_alina.c"
   - "Get URLs from PE:/scripts/geturls"
