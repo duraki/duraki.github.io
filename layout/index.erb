@@ -40,7 +40,6 @@
     </div>
 
     <div class="row">
-
       <div class="one-sixth column" style="margin-top: 10%; margin-left: 0%;">
         <h3><a href="/index.html">blog</a> / <a href="/about.html">about</a></h3> 
       </div>
@@ -63,9 +62,39 @@
         </ul>
 
       </div>
+
+    <div class="row">
+      <div class="one-sixth column" style="margin-top: 0%; margin-left: 0%;">
+        <h3><a href="/index.html">blog</a> / <a href="#scripts">scripts</a></h3> 
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="half column" style="margin-top: 0%">
+
+        <ul class="posts">
+            
+          <% @scriptarr.each do |script| %>
+          <li>
+
+            <span><%= script[1][:name] %></span> » <a class="h_post" href="<%= script[1][:name] %>" alt="<%= script[1][:name] %>"><%= script[1][:title] %></a>
+
+          </li>
+          <% end %>
+
+
+        </ul>
+
+      </div>
+
     </div>
 
   </div>
+
+	    <hr style="display: block; text-align: left; width: 100%;" />
+
+	    <small style="font-family: 'Amiri'; color:rgba(68, 63, 63, 0.42)">this project, script or post is written by @durakih (c) 2017</small>
+
 
   <% if @ga == true %>
       <script type="text/javascript" src="./o/posts/assets/js/ga.js"></script>
