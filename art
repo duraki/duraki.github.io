@@ -71,11 +71,14 @@ class Build
 
     puts "[+] Exporting markdown to HTML ...".green
     exec = self.cli # generate html from md cmd
-    system(exec) # exec generation process
+    system(exec + "> /dev/null") # exec generation process
 
-    puts "[+] Building metadata ...".green
+    puts "[+] Building metadata & posts ...".green
     list = posts # get all .md files
     beauty(list) # build by metadata
+
+    puts "[+] Building scripts ...".green
+    scripts(self.script_list)
 
     puts "[+] All systems ready ...".green
     puts "---------".red
@@ -85,6 +88,16 @@ class Build
 
   def cli
     return "generate-md --layout ./tuxtheme --input .#{self.posts_in} --output .#{self.posts_out}" 
+  end
+
+  def scripts list
+    @scriptarr = {}
+
+    list.each_with_index do |item, index|
+        @scriptarr[index] = {name: item.split(':')[1], title: item.split(':')[0]}
+    end
+
+    @scriptarr
   end
 
   def posts
