@@ -1,0 +1,32 @@
+#!/bin/bash
+
+# geturls (./geturls)
+# skripta za malware reseaching / pretrazivanje url-ova unutar binary fajla
+# script for malware research / searching for url-s in binary file
+# duraki / deviltux / https://duraki.github.io
+# updatejted 29.Dec.2013. zbog public releasa
+
+if [ ! -n "$1" ]
+then
+	echo "Enter a filename to scan"
+	exit 0
+fi
+
+if [ -f $1 ]
+then
+	echo "Searching for URI inside of" $1
+	resultHTTP=$(grep -a "http://" $1)
+	resutlHTTPS=$(grep -a "https://" $1)
+	resultWWW=$(grep -a "www." $1)
+
+	#HUE = Hueristic detection stringova
+	echo "$resultHTTP"  > "url"
+	echo "$resultHTTPS" >> "url"
+	echo "$resultWWW" >> "url"
+
+	# brisanje praznih linija
+	awk 'NF > 0' url
+	rm url #ne treba nam viÅ¡e <- moze del po potrebi
+else
+	echo "File does not exsist"
+fi
