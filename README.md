@@ -2,18 +2,20 @@
     <img src="https://duraki.github.io/images/duraki-logo.png" alt="deviltux logo" title="deviltux" align="right" height="30" />
 </a>
 
-blog/deviltux
+duraki/blog/deviltux
 ======================
 
 This repository contains the static site generator, a `deviltux` theme, and a 
-space for writing blogposts. The script is built in Ruby, with a few dependencies,
-and the blog is developed as a project or a library, consisting of `changelog` 
-details, and various other configuration files.
+space for writing blogposts for my blog located [here](https://duraki.github.io). 
+The script is built in Ruby, called `Art`, with a few dependencies, and the blog is developed 
+as a project or a library, consisting of `changelog` details, and various other 
+configuration files. The script, posts and theme is bundled with the repository for the ease of use.
   
 On every publish, a new release should be made, including the details from the 
-changelog for that particular version.
+changelog for that particular version. This is not mandatory but affects the repository 
+usage.
   
-[![Blog image](http://i.imgur.com/LGbjIiZ.png)
+![Blog image](http://i.imgur.com/LGbjIiZ.png)
 
 ## Table of content
 
@@ -43,16 +45,32 @@ $ gem install front_matter_parser
 $ gem install colorize
 ```
 
+Of course, this will also build my blog, and my posts, so to start fresh, I'd rather advice you to clone only raw `Art` script and clone `tuxtheme` manually and continue with the reading of this file.
+
+```
+$ mkdir blog && cd blog/
+$ wget https://raw.githubusercontent.com/duraki/duraki.github.io/master/art
+...
+
+$ git clone git@github.com:duraki/tuxtheme.git
+...
+```
+
 ## Themes 
 
 ### deviltux 
 
-This repository is equiped with a submodule `tuxtheme` which is available [here](https://github.com/duraki/tuxtheme) and which one may use for their blog.
-To create your own theme, clone the `tuxtheme` and create personal fork. You will also need an `layout/index.erb` file which is your homepage. 
+This repository is equiped with a submodule `tuxtheme` which is available [here](https://github.com/duraki/tuxtheme) and which one may use for their own blog.
+To create your own theme, clone or fork the `tuxtheme` and make changes locally. You will also need an `layout/index.erb` file which is your homepage/index file. This file is not bundled with your theme but is located in main repository. Use Ruby `erb` binding to create own layout. Check out `index.erb` file of this repository.
 
-### Configuration 
+```
+$ cd blog/
+$ mkdir layout/ && touch layout/index.erb
+```
 
-Once you are ready to configure own blog, you can either check file `.home.yml` from this repository or `touch .home.yml` and enter the details manually. 
+## Configuration 
+
+Once you are ready to configure own blog, you can either copy `.home.yml` file from this repository or `touch .home.yml` and enter the details manually. 
 Below is an example of configuration file which defines all necessary properties.
 
 ```
@@ -72,8 +90,8 @@ art:
   ga: true # enable google analytics
 ```
 
-Afterwards, just save the file and push it to the `git`. The `./art` script takes parameter from this file and creates a standalone static blog.
-In case you enabled **gA** (Google Analytics), make sure to update the `ga.js` file located in [tuxtheme/assets/js/ga.js](https://github.com/duraki/tuxtheme/blob/master/assets/js/ga.js).
+Afterwards, just save the file to your repository and push it to the `git`. The `./art` script takes parameter from this file and creates a standalone static blog.
+In case you want **gA** (Google Analytics), make sure to update the `ga.js` file located in [tuxtheme/assets/js/ga.js](https://github.com/duraki/tuxtheme/blob/master/assets/js/ga.js) or create the file in your own in exact directort: `assets/js/ga.js`.
 
 ## Write
 
@@ -84,14 +102,20 @@ $ touch ./posts/i/1111-my-slug-here.md
 $ echo "## Art" >> ./posts/i/1111-my-slug-here.md
 ```
 
-Please, make sure to follow the format for creating new post. The exact filename will be used for a URL (slug-name) except `*md` will be converted to `*html`. The higher the first numbers, the higher the priority post get. So, post with slug `1111-slug-name.md` will have priority over `850-slug-name.md` and will be shown first in the **index** page. 
+* Please, make sure to follow the format for creating new post.  
+* The exact filename will be used for a URL (slug-name) except `*md` will be converted to `*html`.  
+* The higher the first numbers, the higher the priority post get. 
+    - Post with slug `1111-slug-name.md` will have priority over `850-slug-name.md`.
+    - Depending on your `layout/index.erb` file, the post `1111-slug-name.md` will be shown first in the list. 
   
-The expected format for new post is: `[priority]-[slug-_name-_here].md`.
-Example:
+The expected format for new post is: `[priority]-[slug-_name-_here].md`.  
+  
+Example:  
+  
     - `1000-awesome-blog-post-slug.md`
     - `12000-this-is-another-post.md`
   
-It's also good to note that files are `Front matter` based, which means they offer various know-alike. This is useful for SEO and various extensions that can be made while creating layouts and themes. Example of post front matter inside the *md file.
+It's also good to note that files are *front matter* based, which means they offer various know-alike. This is useful for SEO and various extensions that can be made while creating layouts and themes. Example of post front matter inside the `*md` file.
 
 ```
 ---
@@ -101,10 +125,12 @@ tags: ["some", "tag", "here"]
 ---
 ```
 
-Once these files are created, `Art` script will build the input / markdown post to output theme (in this case: `deviltux`).
+Once these files are created, `Art` script will build the input / markdown post to output directory, with the given theme.
 
 ## Build 
-And the final magic, which is to output your generated blog from the given layout. This is the easiest part, and if you did everything correctly, including requirement installation, configuration of the `yml` file, layouting and writing new post, final thing is to generate the blog. Just use `./art` command and the script will build the project / blog which you can then upload remotely on for e.g. GitHub or GitLab static pages.
+And the final magic, which is to output your generated blog from the given layout.  
+This is the easiest part, and if you did everything correctly, only thing is to generate the blog.  
+Just use `./art` command and the script will build the project / blog which you can then upload remotely on for e.g. on GitHub or GitLab static pages.
 
 ```
 ./art
