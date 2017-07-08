@@ -14,7 +14,7 @@ class Art
   # Init.
   def initialize
     puts "Welcome to Art.".green
-    puts "Art".red + " is a standalone Ruby static blog generator.".green 
+    puts "Art".red + " is a standalone static blog generator.".green 
     puts "---------".red
     puts "[+] Loading `.home.yml` from this directory ...".green
     @home = YAML.load_file('.home.yml');
