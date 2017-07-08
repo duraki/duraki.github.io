@@ -1,7 +1,3 @@
-<a href="https://duraki.github.io/">
-    <img src="https://duraki.github.io/images/duraki-logo.png" alt="deviltux logo" title="deviltux" align="right" height="30" />
-</a>
-
 duraki/blog/deviltux
 ======================
 
