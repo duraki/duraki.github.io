@@ -1,5 +1,5 @@
 <a href="https://duraki.github.io/">
-    <img src="https://duraki.github.io/images/duraki-logo.png" alt="deviltux logo" title="deviltux" align="right" height="60" />
+    <img src="https://duraki.github.io/images/duraki-logo.png" alt="deviltux logo" title="deviltux" align="right" height="30" />
 </a>
 
 blog/deviltux
@@ -22,6 +22,7 @@ changelog for that particular version.
 - [Configuration](#configuration)
 - [Write](#write)
 - [Build](#build)
+- [License](#license)
 
 ## Installation 
 
