@@ -1,7 +1,7 @@
 ---
-title: Dev/ Automated & Productive environment
+title: Code/ Automated & Productive development
 date: Jul 11 2017
-tags: ["development", "environment", "automation"]
+tags: ["development", "environment", "automation", "stoprepetitivetasks"]
 ---
 
 ## Opinions

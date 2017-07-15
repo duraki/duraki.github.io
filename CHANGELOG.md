@@ -4,6 +4,7 @@
 
 ### Version 1.0.1 of 15 Jul 2017
 + #fixed: "Automated Developers Setup" completed
++ #fixed: Post name + Tags
 
 ### Version 1.0.0 of 11 Jul 2017
 + #added: changelog file
