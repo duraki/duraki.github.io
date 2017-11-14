@@ -39,6 +39,8 @@ gem 2.6.12
 
 $ gem install front_matter_parser
 $ gem install colorize
+
+$ npm -g install markdown-styles 
 ```
 
 Of course, this will also build my blog, and my posts, so to start fresh, I'd rather advice you to clone only raw `Art` script and clone `tuxtheme` manually and continue with the reading of this file.
