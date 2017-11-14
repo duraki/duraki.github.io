@@ -1,0 +1,161 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+        <title>Challange/ Apple+Redhat</title>
+
+        <meta name="theme-color" content="#252525">
+
+	<link href="https://fonts.googleapis.com/css?family=Amiri" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Raleway:100" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Mono:100,300,400" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Fira+Mono:400,700|Open+Sans:300,400,600|Raleway:200,300,400,600&amp;subset=latin-ext" rel="stylesheet">
+
+        <link rel="stylesheet" href="assets/css/normalize.css">
+        <link rel="stylesheet" href="assets/css/skeleton.css">
+        <link rel="stylesheet" href="assets/css/home.css">
+
+    </head>
+    <body>
+
+        <div class="container" style="margin-top: 30px;">
+
+            <div class="row">
+                <p style="text-align:center;">
+                    <img src="assets/img/duraki-logo.png" alt="duraki logo"/>
+                </p>
+            </div>
+
+	    <div class="row">
+                <div class="one-sixth column" style="margin-top: 10%; margin-left: 0%";>
+                    <h3><a href="/">blog</a> / <a href="">Challange/ Apple+Redhat</a></h3>
+                </div>
+	    </div>
+
+            <div class="tags">
+            <code class="tags-code">challange</code>
+            <code class="tags-code">redhat</code>
+            <code class="tags-code">rhel</code>
+            <code class="tags-code">macbook</code>
+            <code class="tags-code">air</code>
+            <code class="tags-code">setup</code>
+            </div>
+
+	    <hr style="display: block; text-align: left; width: 100%;" />
+
+            <div class="row">
+                <div class="six columns" style="margin-top: 0%;"><h2 id="what?"><a class="header-link" href="#what?"></a>What?</h2>
+<p>Trying to setup a sort of normal distro on Macbook is itself demanding task, but
+stepping up the game and putting RedHat on a tiny Air is another fun.</p>
+<p>Older Macbook of mine survived with Ubuntu for a fair time. Common issues takes
+time, like network connection setup and small polishing details, which is
+logical. Network issues are present because of large amount of devices, 
+standards and small number of developers who contribute. Another thing to point
+at is security, for which we hear and horror stories every now and then on 
+/r/netsec, hn and alike.</p>
+<p>What I&#39;m trying to show is issue you will mostly face if you try this. At the
+end you&#39;ll have something unique and stable.</p>
+<p>Currently typing this on Macbook Air from 2015 running a fully-supported
+RHEL.</p>
+<h2 id="how?"><a class="header-link" href="#how?"></a>How?</h2>
+<p>First and foremost, RH is enterprise distribution, which means you&#39;ll have to be
+subscribed to their SPM system which allows you to have all these toolsets they
+offer. Not having that will  result in a non-working environment and
+unsupported system. You may be allowed to use <code>Developers Edition</code> or something
+like that which is offered for free and in what you get is only a basic toolset
+to build your machine.</p>
+<p>Me, I&#39;m subscribed to a desktop oriented system with support of security and
+development edition. Preffered choice for my daily usage which is devOping such
+system at large.</p>
+<p>Most basic <code>dd</code> and a 16GB USB3.0 will do it fine with your new shiny USB
+already inside your Mac. Holding (Apple) Option key will result your boot to
+jump in device selection. Of course continue with installation through <code>EFI
+Boot</code> as with any other distribution. No problem arises.</p>
+<p>Through installation you may be asked to set installation media, which needs to
+say <code>Auto-detected installation media</code>. If it&#39;s not working, try rewriting image
+to your USB again.</p>
+<p>Set the root password and reboot the system.</p>
+<h2 id="status"><a class="header-link" href="#status"></a>Status</h2>
+<p>Once you boot in, you will have the most basic <a href="https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/3/html/Reference_Guide/s1-x-clients.html">GNOME &amp;
+KDE</a> installed and ready for use. This is of course
+if you subscribed already to repositories you have to and registered your
+    machine. But first.</p>
+<p><strong>What works:</strong></p>
+<ul class="list">
+<li>Display / Brightness </li>
+<li>Keyboard / LED</li>
+<li>Mousepad</li>
+<li>Battery / Charging</li>
+</ul>
+<p><strong>What doesn&#39;t work:</strong></p>
+<ul class="list">
+<li>Network (Wireless)</li>
+<li>CPU Fans</li>
+<li>Audio / Microphone</li>
+</ul>
+<p>I&#39;m not sure about <strong>camera</strong>, and as seen <a href="http://atodorov.org/blog/2015/04/26/installing-red-hat-enterprise-linux-7-on-macbook-air-2015/">here</a> I&#39;m having different 
+setup issues which is not strange since I&#39;m working on different RH version.</p>
+<p>Moving on, <strong>one night</strong> was spent fixing network, <strong>one night</strong> fixing audio, and <strong>one
+night</strong> fixing audio/mic.</p>
+<h3 id="network-(wireless)"><a class="header-link" href="#network-(wireless)"></a>Network (Wireless)</h3>
+<p>Thankfully, my friend @e_mouse had given me a USB to Ethernet cable just the
+other day. This worked out of the box and I started furiosuly working on
+solution.</p>
+<p>If you try to follow blog post above, and the fix presented
+<a href="http://atodorov.org/blog/2015/04/27/compiling-broadcom-wl-kmod-wifi-driver-for-rhel-7/">here</a>
+you will see that it isn&#39;t working. I didn&#39;t figure out what the problem was but
+perhaps the given repository might work.</p>
+<p>As of me, I followed the instructions given on <a href="https://elrepo.org/tiki/wl-kmod">elrepo</a>.</p>
+<pre class="hljs"><code>$ lspci| <span class="hljs-keyword">grep</span> Network
+<span class="hljs-number">03</span>:<span class="hljs-number">00</span>.<span class="hljs-number">0</span> Network controller: Broadcom Limited BCM436<span class="hljs-number">0</span> <span class="hljs-number">802.11</span>ac Wireless Network Adapter (rev <span class="hljs-number">03</span>)
+
+<span class="hljs-comment"># support</span>
+<span class="hljs-number">14</span>e4:<span class="hljs-number">43</span>a<span class="hljs-number">0</span>    <span class="hljs-keyword">no</span>    BCM436<span class="hljs-number">0</span></code></pre><p>Out of the box, this wireless card is <a href="https://wireless.wiki.kernel.org/en/users/drivers/b43">not
+supported</a>. Alternative
+is to use <code>wl</code>, solid choice for me since I had experience with it. RedHat team
+also have great support for these stuff so that is a huge plus.</p>
+<p>So lets get all stuff necessary to compile <code>wl</code> for our fresh install.</p>
+<pre class="hljs"><code><span class="hljs-comment"># Root</span>
+
+$ yum group install -y <span class="hljs-string">'Development Tools'</span> <span class="hljs-comment"># for compiling</span>
+$ yum install -y redhat-lsb kernel-abi-whitelists <span class="hljs-comment"># std base &amp; kernel symbols</span>
+$ yum install -y kernel-devel-$(uname -r) <span class="hljs-comment"># kernel dev libs</span>
+
+<span class="hljs-comment"># User</span>
+
+$ mkdir -p ~<span class="hljs-regexp">/rpmbuild/</span>{BUILD,RPMS,SPECS,SOURCES,SRPMS}
+$ echo -e <span class="hljs-string">"%_topdir $(echo $HOME)/rpmbuild\n%dist .el$(lsb_release -s -r|cut -d"</span>.<span class="hljs-string">" -f1).local"</span> <span class="hljs-meta">&gt;&gt; </span>~<span class="hljs-regexp">/.rpmmacros</span></code></pre><p>We also need <em>wl-kmod</em> (tool used to manage wl module) and Broadcom drivers. You
+can get both of these from their public repos.</p>
+<p>To get <strong>Broadcom drivers</strong> <a href="http://www.broadcom.com/support/802.11">link - linux STA 32/64</a></p>
+<pre class="hljs"><code><span class="hljs-variable">$ </span>cd ~<span class="hljs-regexp">/rpmbuild/</span>SOURCES/
+<span class="hljs-variable">$ </span>wget <span class="hljs-symbol">https:</span>/<span class="hljs-regexp">/docs.broadcom.com/docs</span>-<span class="hljs-keyword">and</span>-downloads/docs/linux_sta/hybrid-v35_64-nodebug-pcoem-<span class="hljs-number">6_30_223_271</span>.tar.gz</code></pre><p>Build and prepare <code>wl-kmod</code> for install:</p>
+<pre class="hljs"><code>$ cd ~<span class="hljs-regexp">/rpmbuild
+$ wget http:/</span><span class="hljs-regexp">/elrepo.org/linux</span><span class="hljs-regexp">/elrepo/el</span>7/SRPMS/wl-kmod-<span class="hljs-number">6_30_223_271</span>-<span class="hljs-number">4</span>.el7.elrepo.nosrc.rpm 
+
+<span class="hljs-comment"># Build</span>
+$ rpmbuild --rebuild --define <span class="hljs-string">'packager James Madison'</span> ~<span class="hljs-regexp">/rpmbuild/wl</span>-kmod-<span class="hljs-number">6_30_223_271</span>-<span class="hljs-number">4</span>.el7.elrepo.nosrc.rpm</code></pre><p>Now lets clean up the mess:</p>
+<pre class="hljs"><code><span class="hljs-variable">$ </span>yum remove \*ndiswrapper\*
+
+<span class="hljs-comment"># Install</span>
+<span class="hljs-variable">$ </span>rpm -Uvh ~<span class="hljs-regexp">/rpmbuild/</span>RPMS/[architecture]/kmod-wl*.rpm</code></pre><p><strong>Important notice:</strong></p>
+<p>For some reason, I was getting network hiccups as seen in kernel logs. This was
+up to other drivers taking place at packdrop. To fix this, just disable what you
+don&#39;t need.</p>
+<pre class="hljs"><code><span class="hljs-variable">$ </span>modprobe -r b43 b43legacy ssb wl lib80211
+<span class="hljs-variable">$ </span>modprobe lib80211_crypt_tkip
+<span class="hljs-variable">$ </span>modprobe wl</code></pre><p>You can now grab a beer since this night is over.</p>
+<pre class="hljs"><code><span class="hljs-variable">$ </span>rm -rf ~<span class="hljs-regexp">/rpmbuild</span></code></pre>
+                </div>
+            </div>
+
+	    <hr style="display: block; text-align: left; width: 100%;" />
+
+            <small style="font-family: 'Amiri'; color:rgba(68, 63, 63, 0.42)">this project, script
+                or post is written by @durakih (c) 2017 | <a style="font-size: 11px;" href="/changelog.html">[changelog]</a> | <a style="font-size: 11px;" href="https://twitter.com/devil_tux">[twitter]</a></small>
+
+        </div>
+
+      <script type="text/javascript" src="./assets/js/ga.js"></script>
+    </body>
+</html>
