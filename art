@@ -4,6 +4,7 @@ require 'erb'
 require 'yaml'
 require 'front_matter_parser'
 require 'colorize'
+require 'fileutils'
 
 # + Art
 # + single-file static blog generator
@@ -40,9 +41,11 @@ class Build
 
   def initialize config
     self.theme = config['minimal']['theme']
+    puts "[+] Detecting theme ... ".red + self.theme
+    overwrite_theme self.theme # rebuild theme assets
 
     puts "[+] Reading `#{self.theme}/index.erb` file ...".green
-    @template = File.read('./layout/index.erb')
+    @template = File.read("./#{self.theme}/index.erb")
     puts "[+] Index layout loaded.".green
 
     puts "[+] Creating accessors from YAML file ...".green
@@ -89,12 +92,12 @@ class Build
     write
   end
 
-  # generate html from markdown using `markdown-html` node module
+  # Generate html from markdown using `markdown-html` node module
   def cli
     return "generate-md --layout ./#{self.theme} --input .#{self.posts_in} --output .#{self.posts_out}" 
   end
 
-  # generate scripts and appropriate locations
+  # Generate scripts and appropriate locations
   def scripts list
     @scriptarr = {}
 
@@ -105,7 +108,7 @@ class Build
     @scriptarr
   end
 
-  # get posts by id-s
+  # Get posts by id-s
   def posts
     list = Array.new
     Dir["."+self.posts_in+"/*.md"].each do |f|
@@ -117,6 +120,7 @@ class Build
     list
   end
 
+  # Helper method to beauty post list
   def beauty list 
     hashed = {} 
 
@@ -131,12 +135,14 @@ class Build
     @all_posts = Hash[hashed.to_a.reverse]
   end
 
+  # Extract ID of post
   def extract_id file
     file.match(/[0-9]{4}/).to_a[0]
     id = file.match(/[0-9]{4}/).to_a[0]
     id.to_s
   end
 
+  # Extract metadata / frontmatter from yaml post
   def extract_metadata file
     metadata = FrontMatterParser::Parser.parse_file(file)
     metadata.front_matter
@@ -148,6 +154,7 @@ class Build
     @post_out = @post_out.sub self.posts_in, self.posts_out
   end
   
+  # Write results with erb
   def write
     puts "[+] Binding results ...".green
     erb = ERB.new(@template)
@@ -157,6 +164,11 @@ class Build
     end
 
     puts "[x] All done.".green
+  end
+
+  # Overwrite assets / theme
+  def overwrite_theme theme
+    FileUtils.cp_r Dir["#{theme}/assets/*"], "./assets/" 
   end
 
 end
