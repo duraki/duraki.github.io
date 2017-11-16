@@ -5,16 +5,17 @@ require 'yaml'
 require 'front_matter_parser'
 require 'colorize'
 
-# art
-# Author : Halis Duraki <duraki@linuxmail.org>
-# Website: https://duraki.github.io
-# Package: Art
+# + Art
+# + single-file static blog generator
+#
+# + Author : Halis Duraki <duraki@linuxmail.org>
+# + Website: https://duraki.github.io
 class Art
   
   # Init.
   def initialize
     puts "Welcome to Art.".green
-    puts "Art".red + " is a standalone static blog generator.".green 
+    puts "Art".blue + " is a standalone, single-file static blog generator.".green 
     puts "---------".red
     puts "[+] Loading `.home.yml` from this directory ...".green
     @home = YAML.load_file('.home.yml');
@@ -34,43 +35,45 @@ class Build
 
   attr_accessor :artist, :title, :description
   attr_accessor :posts_in, :posts_out
-  attr_accessor :script_list, :ga
+  attr_accessor :script_list, :theme, :ga
   attr_accessor :post_title, :post_date
 
   def initialize config
-    puts "[+] Reading `layout/index.erb` file ...".green
+    self.theme = config['minimal']['theme']
+
+    puts "[+] Reading `#{self.theme}/index.erb` file ...".green
     @template = File.read('./layout/index.erb')
     puts "[+] Index layout loaded.".green
 
     puts "[+] Creating accessors from YAML file ...".green
     puts "---------".red
 
-    puts "[+] Detecting who you are ...".red
     self.artist = config['minimal']['artist']
+    puts "[+] Detecting who you are ... ".red + self.artist
 
-    puts "[+] Detecting blog title ...".red
     self.title = config['minimal']['title'] 
+    puts "[+] Detecting blog title ... ".red + self.title
 
-    puts "[+] Detecting blog description ...".red
     self.description = config['minimal']['description']
+    puts "[+] Detecting blog description ...".red + " [detected] "
 
-    puts "[+] Detecting input directory ...".red
     self.posts_in = config['posts']['in']
+    puts "[+] Detecting input directory ... ".red + self.posts_in
 
-    puts "[+] Detecting output directory ...".red
     self.posts_out = config['posts']['out']
+    puts "[+] Detecting output directory ...".red + self.posts_out
 
-    puts "[+] Building script list ...".red
     self.script_list = config['scripts']
+    puts "[+] Building script list ... ".red + " [built] "
 
-    puts "[+] Detecting Google Analytics ...".red
     self.ga = config['art']['ga']
+    puts "[+] Detecting Google Analytics ...".red + "[#{self.ga}]"
 
     puts "[x] Accessors built.".green
     puts "---------".red
 
     puts "[+] Exporting markdown to HTML ...".green
-    exec = self.cli # generate html from md cmd
+    exec = self.cli # generate html from mdc
     system(exec + "> /dev/null") # exec generation process
 
     puts "[+] Building metadata & posts ...".green
@@ -86,10 +89,12 @@ class Build
     write
   end
 
+  # generate html from markdown using `markdown-html` node module
   def cli
-    return "generate-md --layout ./tuxtheme --input .#{self.posts_in} --output .#{self.posts_out}" 
+    return "generate-md --layout ./#{self.theme} --input .#{self.posts_in} --output .#{self.posts_out}" 
   end
 
+  # generate scripts and appropriate locations
   def scripts list
     @scriptarr = {}
 
@@ -100,6 +105,7 @@ class Build
     @scriptarr
   end
 
+  # get posts by id-s
   def posts
     list = Array.new
     Dir["."+self.posts_in+"/*.md"].each do |f|
