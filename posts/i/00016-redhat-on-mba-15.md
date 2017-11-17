@@ -1,7 +1,7 @@
 ---
-title: Challange/ Apple+Redhat #1 (Network)
+title: Challenge/ Apple & Redhat Enterprise Linux
 date: Nov 12 2017
-tags: ["challange", "redhat", "rhel", "macbook", "air", "setup"]
+tags: ["challenge", "redhat", "rhel", "macbook", "air", "setup"]
 ---
 
 ## What?

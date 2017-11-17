@@ -1,52 +1,39 @@
-<!doctype html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
-        <title>Security/ SQL injection on REST-style URL</title>
+<!DOCTYPE html>
 
-        <meta name="theme-color" content="#252525">
+<html lang="en">
+<head>
 
-	<link href="https://fonts.googleapis.com/css?family=Amiri" rel="stylesheet" type="text/css">
-	<link href="https://fonts.googleapis.com/css?family=Raleway:100" rel="stylesheet" type="text/css">
-	<link href="https://fonts.googleapis.com/css?family=Roboto+Mono:100,300,400" rel="stylesheet" type="text/css">
-        <link href="https://fonts.googleapis.com/css?family=Fira+Mono:400,700|Open+Sans:300,400,600|Raleway:200,300,400,600&amp;subset=latin-ext" rel="stylesheet">
+<meta charset="utf-8">
 
-        <link rel="stylesheet" href="assets/css/normalize.css">
-        <link rel="stylesheet" href="assets/css/skeleton.css">
-        <link rel="stylesheet" href="assets/css/home.css">
+<title>Security/ SQL injection on REST-style URL</title>
+<meta name="description" content="<%= @description %>">
+<meta name="author" content="<%= @artist %>">
 
-    </head>
-    <body>
+<link rel="stylesheet" href="assets/css/stil.css">
+<link rel="stylesheet" href="assets/css/main.css">
 
-        <div class="container" style="margin-top: 30px;">
+</head>
 
-            <div class="row">
-                <p style="text-align:center;">
-                    <img src="assets/img/duraki-logo.png" alt="duraki logo"/>
-                </p>
-            </div>
+<body>
 
-	    <div class="row">
-                <div class="one-sixth column" style="margin-top: 10%; margin-left: 0%";>
-                    <h3><a href="/">blog</a> / <a href="">Security/ SQL injection on REST-style URL</a></h3>
-                </div>
-	    </div>
+<style>
+  h3 {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+</style>
 
-            <div class="tags">
-            <code class="tags-code">security</code>
-            <code class="tags-code">web</code>
-            <code class="tags-code">api</code>
-            <code class="tags-code">vuln</code>
-            <code class="tags-code">sql</code>
-            <code class="tags-code">injection</code>
-            <code class="tags-code">rest</code>
-            </div>
+  <div id="wrap">
+    <div id="head"><h1>
+        <a href="/">Go back</a> | <a href=""/>Security/ SQL injection on REST-style URL</a></h1></div>
 
-	    <hr style="display: block; text-align: left; width: 100%;" />
+    <div id="content">
+    
+      <div class="tags">
+        <code class="tag">security</code><code class="tag">web</code><code class="tag">api</code><code class="tag">vuln</code><code class="tag">sql</code><code class="tag">injection</code><code class="tag">rest</code>
+      </div>
 
-            <div class="row">
-                <div class="six columns" style="margin-top: 0%;"><h2 id="rest,-a-šta-je-to?"><a class="header-link" href="#rest,-a-šta-je-to?"></a>REST, a šta je to?</h2>
+      <hr style="display: block; text-align: left: width: 100%;" /><h2 id="rest,-a-šta-je-to?"><a class="header-link" href="#rest,-a-šta-je-to?"></a>REST, a šta je to?</h2>
 <p>Pri samom početku, prije nego što počnete čitati ovaj tutorijal ili vršiti praksu po naznačenom, moram vas napomenuti nekoliko stvari. Prva stvar je da je ovaj tutorijal namjenjen za edukacione svrhe, najčešće u koristan za blackbox penetration testinga. Druga stvar su preduslovi, a isti su sljedeći: da znate vršiti advanced SQL injection; da ne koračate preko teksta; i da znate osnove HTTPa.</p>
 <p>Šta je zapravo REST? Representational state transfer a/k/a REST je arhitektura koja koristi identifikaciju resursa. Iste resurse manipulišemo preko reprezentacija, i ostalih dodataka koje dolaze uz sam REST da bi izgradili sistem koji je podložan promjenama. Treba naznačiti da REST uzima resurs kao glavni izvor, odnosno sami request. REST je danas implementiran u mnogo web-aplikacija zbog njegove jednostavnosti bilo da se radi o MVCu ili pure PHPu, za razliku od SOAP, RPC, CORBA, koji &quot;vežu&quot; mašine, REST ustvari koristi HTTP da napravi poziv među mašinama. Šta to ustvari znači? To znači da REST aplicira API koji kasnije služi kao objekat kojem se treba mjenjati samo uvoz kod jednog toka, a ne da mjenjamo čitav sustav, i/ili dodavanjem novih redirekcija. SVAKI RESURS JE REQUEST!</p>
 <p>Možda se sada pitate kako to izgleda, čemu služi, kako da ga upotrijebim, kako da znam kad, gdje i šta? Idemo polako. REST ima unikatan način pozivanja a ja sam siguran da ste vi dobro upoznati s njim, samo toga niste svjesni. Mogu da se kladim da ste bar jednom &quot;naletjeli&quot; na webaplikaciju koja koristi REST. Implementiran je u većini frameworka, brz je i pouzdan. Možda poslije ovog write-upa vi počnete koristiti REST?! Upotreba REST arhitekture je široka. Neko to radi zbog estetike, neko zbog njegove pouzdanosti, neko zbog smanjena posla, neko zato što je primoran od strane šefa, a neko jednostavno voli da eksperimentiše sa njim (kao npr. ja). No dobro, ovdje smo da pričamo o vršenju SQLi na REST-styled URI-ma.</p>
@@ -127,16 +114,10 @@ Clean URLs - http:<span class="hljs-regexp">//</span>en.wikipedia.org<span class
 How to have clean URLs - http:<span class="hljs-regexp">//</span>wettone.com<span class="hljs-regexp">/code/</span>clean-urls
 
 $ <span class="hljs-keyword">exit</span></code></pre>
-                </div>
-            </div>
-
 	    <hr style="display: block; text-align: left; width: 100%;" />
 
-            <small style="font-family: 'Amiri'; color:rgba(68, 63, 63, 0.42)">this project, script
-                or post is written by @durakih (c) 2017 | <a style="font-size: 11px;" href="/changelog.html">[changelog]</a> | <a style="font-size: 11px;" href="https://twitter.com/devil_tux">[twitter]</a></small>
+    </div>
+  </div>
 
-        </div>
-
-      <script type="text/javascript" src="./assets/js/ga.js"></script>
-    </body>
+</body>
 </html>

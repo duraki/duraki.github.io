@@ -1,0 +1,86 @@
+body {
+  font-family: "Courier New";
+  background-color: #ffffff;
+}
+
+#wrap {
+  width:550px;
+}
+
+#desc {
+  background-color: #eeeeee;
+  width:550px;
+  opacity: 0.5;
+}
+
+#desc:hover {
+  background-color: #fff;
+  color: black;
+  opacity: 0.9;
+}
+
+.info {
+  color: #aaaaaa;
+}
+
+.go:hover {
+  color: #fff;
+  background: #000;
+}
+
+.post {
+  border-color: #eeeeee;
+}
+
+.text img {
+  max-width: 550px;
+}
+
+.text blockquote img {
+  max-width: 150px;
+}
+
+a.comments_link {
+  color: #aaa;
+  text-decoration: none;
+}
+
+h2 { 
+  position: relative; 
+  cursor: auto;
+  font-size:14px; 
+  top:auto; 
+  right:auto; 
+  color:auto;
+}
+
+pre {
+  padding: 15px;
+  background: #fbefef;
+  overflow: auto;
+}
+
+.tag {
+  padding: .1rem .1rem;
+  margin: 0 .1rem;
+  white-space: nowrap;
+  border: 1px solid #E1E1E1;
+  border-radius: 4px;
+  -webkit-font-smoothing: antialiased;
+  overflow: scroll;
+}
+
+.tag:hover {
+  border: 1px solid #272626;
+  background: #252424;
+  color: #fdfdfd;
+}
+
+img {
+  max-width: -webkit-fill-available;
+}
+
+th {
+  padding-right: 50px;
+  font-weight: 600;
+}

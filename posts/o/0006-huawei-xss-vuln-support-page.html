@@ -1,51 +1,39 @@
-<!doctype html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
-        <title>Bugbounty/ Huawei Stored XSS vuln @ Support</title>
+<!DOCTYPE html>
 
-        <meta name="theme-color" content="#252525">
+<html lang="en">
+<head>
 
-	<link href="https://fonts.googleapis.com/css?family=Amiri" rel="stylesheet" type="text/css">
-	<link href="https://fonts.googleapis.com/css?family=Raleway:100" rel="stylesheet" type="text/css">
-	<link href="https://fonts.googleapis.com/css?family=Roboto+Mono:100,300,400" rel="stylesheet" type="text/css">
-        <link href="https://fonts.googleapis.com/css?family=Fira+Mono:400,700|Open+Sans:300,400,600|Raleway:200,300,400,600&amp;subset=latin-ext" rel="stylesheet">
+<meta charset="utf-8">
 
-        <link rel="stylesheet" href="assets/css/normalize.css">
-        <link rel="stylesheet" href="assets/css/skeleton.css">
-        <link rel="stylesheet" href="assets/css/home.css">
+<title>Bugbounty/ Huawei Stored XSS vuln @ Support</title>
+<meta name="description" content="<%= @description %>">
+<meta name="author" content="<%= @artist %>">
 
-    </head>
-    <body>
+<link rel="stylesheet" href="assets/css/stil.css">
+<link rel="stylesheet" href="assets/css/main.css">
 
-        <div class="container" style="margin-top: 30px;">
+</head>
 
-            <div class="row">
-                <p style="text-align:center;">
-                    <img src="assets/img/duraki-logo.png" alt="duraki logo"/>
-                </p>
-            </div>
+<body>
 
-	    <div class="row">
-                <div class="one-sixth column" style="margin-top: 10%; margin-left: 0%";>
-                    <h3><a href="/">blog</a> / <a href="">Bugbounty/ Huawei Stored XSS vuln @ Support</a></h3>
-                </div>
-	    </div>
+<style>
+  h3 {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+</style>
 
-            <div class="tags">
-            <code class="tags-code">huawei</code>
-            <code class="tags-code">support</code>
-            <code class="tags-code">webapp</code>
-            <code class="tags-code">xss</code>
-            <code class="tags-code">vuln</code>
-            <code class="tags-code">bugbounty</code>
-            </div>
+  <div id="wrap">
+    <div id="head"><h1>
+        <a href="/">Go back</a> | <a href=""/>Bugbounty/ Huawei Stored XSS vuln @ Support</a></h1></div>
 
-	    <hr style="display: block; text-align: left; width: 100%;" />
+    <div id="content">
+    
+      <div class="tags">
+        <code class="tag">huawei</code><code class="tag">support</code><code class="tag">webapp</code><code class="tag">xss</code><code class="tag">vuln</code><code class="tag">bugbounty</code>
+      </div>
 
-            <div class="row">
-                <div class="six columns" style="margin-top: 0%;"><h2 id="vulnerability-no.-#2"><a class="header-link" href="#vulnerability-no.-#2"></a>Vulnerability No. #2</h2>
+      <hr style="display: block; text-align: left: width: 100%;" /><h2 id="vulnerability-no.-#2"><a class="header-link" href="#vulnerability-no.-#2"></a>Vulnerability No. #2</h2>
 <p>Huawei support page have a special POST request to favorite support line / link for future reference. Because user input is not properly sanitized, client is allowed to insert HTML code inside special parameter sent through request. This vulnerability can lead to various types of XSS or even some type of DDoS attack. Check the video at the end to see vulnerability PoC live.</p>
 <h2 id="poc"><a class="header-link" href="#poc"></a>PoC</h2>
 <p>This vulnerability can be recreated either by &quot;Live HTTP Headers&quot; plugin for Firefox, or in other way, using special tools to reply the request like Burpsuite or Acunetix. Specially scripted software can be coded too using Python or Perl. You may also try to edit inline HTML over inspect-element to recreate the bug. </p>
@@ -67,16 +55,10 @@
 <p>Try to sanitize user input, check if &quot;docName&quot; parameter is proper, use functions to escape special chars, and allow redirection only to host/server of Huawei, so fix the &quot;url&quot; parameter. </p>
 <h2 id="video"><a class="header-link" href="#video"></a>Video</h2>
 <iframe src="https://player.vimeo.com/video/93203325" width="500" height="415" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-                </div>
-            </div>
-
 	    <hr style="display: block; text-align: left; width: 100%;" />
 
-            <small style="font-family: 'Amiri'; color:rgba(68, 63, 63, 0.42)">this project, script
-                or post is written by @durakih (c) 2017 | <a style="font-size: 11px;" href="/changelog.html">[changelog]</a> | <a style="font-size: 11px;" href="https://twitter.com/devil_tux">[twitter]</a></small>
+    </div>
+  </div>
 
-        </div>
-
-      <script type="text/javascript" src="./assets/js/ga.js"></script>
-    </body>
+</body>
 </html>

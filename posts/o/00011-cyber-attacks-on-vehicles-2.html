@@ -1,49 +1,39 @@
-<!doctype html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
-        <title>Cyber-attacks on vehicle system P2</title>
+<!DOCTYPE html>
 
-        <meta name="theme-color" content="#252525">
+<html lang="en">
+<head>
 
-	<link href="https://fonts.googleapis.com/css?family=Amiri" rel="stylesheet" type="text/css">
-	<link href="https://fonts.googleapis.com/css?family=Raleway:100" rel="stylesheet" type="text/css">
-	<link href="https://fonts.googleapis.com/css?family=Roboto+Mono:100,300,400" rel="stylesheet" type="text/css">
-        <link href="https://fonts.googleapis.com/css?family=Fira+Mono:400,700|Open+Sans:300,400,600|Raleway:200,300,400,600&amp;subset=latin-ext" rel="stylesheet">
+<meta charset="utf-8">
 
-        <link rel="stylesheet" href="assets/css/normalize.css">
-        <link rel="stylesheet" href="assets/css/skeleton.css">
-        <link rel="stylesheet" href="assets/css/home.css">
+<title>Cyber-attacks on vehicle system P2</title>
+<meta name="description" content="<%= @description %>">
+<meta name="author" content="<%= @artist %>">
 
-    </head>
-    <body>
+<link rel="stylesheet" href="assets/css/stil.css">
+<link rel="stylesheet" href="assets/css/main.css">
 
-        <div class="container" style="margin-top: 30px;">
+</head>
 
-            <div class="row">
-                <p style="text-align:center;">
-                    <img src="assets/img/duraki-logo.png" alt="duraki logo"/>
-                </p>
-            </div>
+<body>
 
-	    <div class="row">
-                <div class="one-sixth column" style="margin-top: 10%; margin-left: 0%";>
-                    <h3><a href="/">blog</a> / <a href="">Cyber-attacks on vehicle system P2</a></h3>
-                </div>
-	    </div>
+<style>
+  h3 {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+</style>
 
-            <div class="tags">
-            <code class="tags-code">cyberattack</code>
-            <code class="tags-code">vehicle</code>
-            <code class="tags-code">system</code>
-            <code class="tags-code">car</code>
-            </div>
+  <div id="wrap">
+    <div id="head"><h1>
+        <a href="/">Go back</a> | <a href=""/>Cyber-attacks on vehicle system P2</a></h1></div>
 
-	    <hr style="display: block; text-align: left; width: 100%;" />
+    <div id="content">
+    
+      <div class="tags">
+        <code class="tag">cyberattack</code><code class="tag">vehicle</code><code class="tag">system</code><code class="tag">car</code>
+      </div>
 
-            <div class="row">
-                <div class="six columns" style="margin-top: 0%;"><h2 id="geting-started"><a class="header-link" href="#geting-started"></a>Geting started</h2>
+      <hr style="display: block; text-align: left: width: 100%;" /><h2 id="geting-started"><a class="header-link" href="#geting-started"></a>Geting started</h2>
 <p>So, a few days ago, I wrote a partial article about cyber-attacks on vehicles and modern car systems. The post is located <a href="http://dn5.ljuska.org/napadi-na-auto-sistem-1.html">here</a> and as you can see it&#39;s written in Bosnian which I hope, you don&#39;t mind. The reason why I did this is because there are few resource on my native language about cyber and network induced attacks on cars so someone had to write it. I want to note before telling anything else that this tutorial is written only and purposely for educational purpose. Please, do not try to recreate any of this on yours or other cars. If you want to follow this tutorial you may want to use a Linux or OSX system. Both works fine as setting up a virtual CAN device on Windows is pain in the a**.  </p>
 <p>This tutorial is written in several sections. In the first two sections, I will write about setting up a virtual device that will operate as a car or any vehicle that include CAN bus conectivity. To learn more about CAN, please, refer to my previous post or watch some of the DEFCon series about vehicle hacking. In the third section, I will talk about creating a whole virtual ECU component that the CAN will comunicate with. The last few sections are about sniffing the packets and hacking the vehicle.  </p>
 <p>A few more notices: using a vehicle for this experimentation is quite expensive. You will need a car built in new-era, a hardware included in your garage (cables, schemas etc.), and of course a private-type file that manifactures are hiding from the public because of this - <strong>to not hack their systems</strong>!  </p>
@@ -223,16 +213,10 @@ http<span class="hljs-variable">s:</span>//github.<span class="hljs-keyword">com
 <pre class="hljs"><code>For I know <span class="hljs-keyword">the</span> plans I have <span class="hljs-keyword">for</span> you,” declares <span class="hljs-keyword">the</span> LORD, “plans <span class="hljs-built_in">to</span> prosper you <span class="hljs-keyword">and</span> <span class="hljs-keyword">not</span> <span class="hljs-built_in">to</span> harm you, plans <span class="hljs-built_in">to</span> give you hope <span class="hljs-keyword">and</span> <span class="hljs-keyword">a</span> future. 
 Jeremiah <span class="hljs-number">29</span>:<span class="hljs-number">11</span></code></pre><p class="img-container"><img src="http://i.imgur.com/jeScYCb.gif" alt="learn-study-share"></p>
 
-                </div>
-            </div>
-
 	    <hr style="display: block; text-align: left; width: 100%;" />
 
-            <small style="font-family: 'Amiri'; color:rgba(68, 63, 63, 0.42)">this project, script
-                or post is written by @durakih (c) 2017 | <a style="font-size: 11px;" href="/changelog.html">[changelog]</a> | <a style="font-size: 11px;" href="https://twitter.com/devil_tux">[twitter]</a></small>
+    </div>
+  </div>
 
-        </div>
-
-      <script type="text/javascript" src="./assets/js/ga.js"></script>
-    </body>
+</body>
 </html>
