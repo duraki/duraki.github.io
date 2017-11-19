@@ -12,9 +12,13 @@
   <link rel="stylesheet" href="assets/css/stil.css">
   <link rel="stylesheet" href="assets/css/main.css">
 
+
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
 </head>
 
 <body>
+
 
 <style type="text/css">
     .topcorner {
@@ -26,12 +30,12 @@
 </style>
 
   <div class="topcorner">
-    <img src="images/whoami-ghost.png">
+    <img id="avatar" src="images/whoami-ghost.png">
   </div>
 
 
   <div id="wrap">
-    <div id="head"><h1><a href="about.html"/>halis duraki</a></h1></div>
+    <div id="head"><h1><a class="author" href="about.html"/>halis duraki</a></h1></div>
 
 
     <div id="content">
@@ -191,6 +195,17 @@
   ga('send', 'pageview');
   </script>
 
+  <script>
+      $('#avatar').click(function() {
+        $('body').css('background', '#000');
+        $('.post').css('border-color', '#2b2b2b');
+        $('.go').css('color', '#fff');
+        $('.permalink').css('color', '#968e8e');
+        $('#desc').css('background-color', '#fff');
+        $('#desc').css('opacity', 1);
+        $('.author').css('color', '#afafaf');
+      });
+  </script>
 </body>
 
 

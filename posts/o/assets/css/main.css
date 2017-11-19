@@ -84,3 +84,7 @@ th {
   padding-right: 50px;
   font-weight: 600;
 }
+
+.tag-right {
+  float: right;
+}
