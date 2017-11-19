@@ -11,7 +11,7 @@ On every publish, a new release should be made, including the details from the
 changelog for that particular version. This is not mandatory but affects the repository 
 usage.
   
-![Blog image](http://i.imgur.com/LGbjIiZ.png)
+![Blog image](images/blog.png)
 
 ## Table of content
 
