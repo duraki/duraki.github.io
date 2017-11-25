@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+
+  <meta charset="utf-8">
+
+  <title><%= @title %></title>
+  <meta name="description" content="<%= @description %>">
+  <meta name="author" content="<%= @artist %>">
+
+  <link rel="stylesheet" href="assets/css/stil.css">
+  <link rel="stylesheet" href="assets/css/main.css">
+
+
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="assets/main.js"></script>
+
+</head>
+
+<body>
+
+  <div class="topcorner">
+    <img id="avatar" src="images/whoami-ghost.png">
+  </div>
+
+
+  <div id="wrap">
+    <div id="head"><h1><a class="author" href="about.html"/><%= @artist %></a></h1></div>
+
+
+    <div id="content">
+
+      <% @all_posts.each do |post| %>
+      <div class="post link">
+
+        <a href="<%= post[1][:out] %>" class="permalink">#</a>
+        <a href="<%= post[1][:out] %>" class="go"><%= post[1][:title] %></a>
+
+        <div class="info">This was posted on <%= post[1][:date] %></div>
+
+      </div>
+      <% end %>
+
+      <br /><br />
+
+
+      <% @scriptarr.each do |script| %>
+      <div class="post link">
+
+        <a href="#" class="permalink">#</a>
+        <a class="go" href="<%= script[1][:name] %>"><%= script[1][:title] %></a> » <span><%= script[1][:name] %></span> 
+
+      </div>
+      <% end %>
+
+    </div>
+
+    <div id="footer"><div id="desc"><%= @description %></div></div>
+
+  </div>
+
+  <script>
+
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', '<%= @ga %>', 'auto');
+  ga('send', 'pageview');
+  </script>
+
+</body>
+
+
+</html>
