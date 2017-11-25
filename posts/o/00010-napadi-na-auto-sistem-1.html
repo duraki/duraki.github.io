@@ -13,6 +13,7 @@
 <link rel="stylesheet" href="assets/css/main.css">
 
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="assets/main.js"></script>
 
 </head>
 
@@ -27,7 +28,7 @@
 
   <div id="wrap">
     <div id="head"><h1>
-        <a href="/">Go back</a> | <a href=""/>Cyber-attack on vehicle system P1</a></h1></div>
+        <a href="/">Go back</a> | <a id="title-m" href=""/>Cyber-attack on vehicle system P1</a></h1></div>
 
     <div id="content">
     
@@ -129,7 +130,9 @@
 <p>U drugom dijelu sigurnosti automobilnih sistema ću pisati o emitovanju signala na virtualni CAN. Kad govorim virtualni, mislim na to da ću napraviti virtualnu mašinu odnosno automobil na svom računaru koji će imati CAN interfejs. Ovo radim isključivo iz razloga što vozim prahistorijsko auto (oldschool E30) i što nemam hardver. Nakon toga ide praksa na automobilu srednje klase iznad 2010-o godište. Za buduće, preporučujem da pročitate malo o <a href="https://en.wikipedia.org/wiki/SocketCAN">SocketCAN</a> i nadam se da se vrtite na Linuxu jer se sljedeći dokument snifanja mreže bazira na njemu.</p>
 <p>Outro ću da ostavim za drugi put.</p>
 
-	    <hr style="display: block; text-align: left; width: 100%;" />
+      <hr style="display: block; text-align: left; width: 100%;" />
+
+      <div id="footer"><div id="desc">thanks for reading |written on: Mar 26 2016</div></div>
 
     </div>
   </div>
@@ -142,20 +145,6 @@
 
   ga('create', '<%= @ga %>', 'auto');
   ga('send', 'pageview');
-  </script>
-  
-  <script>
-        $('.tag-right').click(function() {
-          $('body').css('background-color', '#000');
-          $('body').css('background', '#000');
-          $('body').css('color', '#fff');
-          $('a').css('color', '#e25c5c');
-          $('pre').css('background', '#4c4c4c4d');
-          $('.permalink').css('color', '#968e8e');
-          $('#desc').css('background-color', '#fff');
-          $('#desc').css('opacity', 1);
-          $('.author').css('color', '#afafaf');
-      });
   </script>
 
 </body>

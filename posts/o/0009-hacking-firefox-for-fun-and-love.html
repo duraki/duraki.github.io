@@ -13,6 +13,7 @@
 <link rel="stylesheet" href="assets/css/main.css">
 
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="assets/main.js"></script>
 
 </head>
 
@@ -27,7 +28,7 @@
 
   <div id="wrap">
     <div id="head"><h1>
-        <a href="/">Go back</a> | <a href=""/>Hacking Firefox for fun &amp; lo&lt;3</a></h1></div>
+        <a href="/">Go back</a> | <a id="title-m" href=""/>Hacking Firefox for fun &amp; lo&lt;3</a></h1></div>
 
     <div id="content">
     
@@ -98,7 +99,9 @@ pwmgr.addLogin(aLogin)</code></pre><h2 id="šta-smo-uradili?"><a class="header-l
 <p>U biti, to bi bilo to, stim da postoji dodatna funkcija koju sam napisao a koju ću zainteresovanim da pošaljem ili da postavim na blog (ako vas ima dovoljno zainteresovanih naravno) koja umjesto što spašava sve user/passwd informacije u internom Firefox password manager modulu, spašava ih u fajlu koristeći se I/O Firefox metodama koji su također na <a href="https://developer.mozilla.org/en-US/Add-ons/Code_snippets/File_I_O">MDN</a>. Skripta je malo duža (malo hah), i zahtjeva da unaprijed znate ove osnove.</p>
 <p>Hvala svima koji pružaju podršku na ovaj ili onaj način. Poseban shot-out za Ljusku jer odavno nisam postavio ništa. CO: tr3x, c0ax, v0da, Krunix, marko, codex, gz4rth, Neuroticar i drugi! :-)</p>
 
-	    <hr style="display: block; text-align: left; width: 100%;" />
+      <hr style="display: block; text-align: left; width: 100%;" />
+
+      <div id="footer"><div id="desc">thanks for reading |written on: Oct 10 2014</div></div>
 
     </div>
   </div>
@@ -111,20 +114,6 @@ pwmgr.addLogin(aLogin)</code></pre><h2 id="šta-smo-uradili?"><a class="header-l
 
   ga('create', '<%= @ga %>', 'auto');
   ga('send', 'pageview');
-  </script>
-  
-  <script>
-        $('.tag-right').click(function() {
-          $('body').css('background-color', '#000');
-          $('body').css('background', '#000');
-          $('body').css('color', '#fff');
-          $('a').css('color', '#e25c5c');
-          $('pre').css('background', '#4c4c4c4d');
-          $('.permalink').css('color', '#968e8e');
-          $('#desc').css('background-color', '#fff');
-          $('#desc').css('opacity', 1);
-          $('.author').css('color', '#afafaf');
-      });
   </script>
 
 </body>

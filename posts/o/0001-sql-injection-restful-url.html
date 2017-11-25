@@ -13,6 +13,7 @@
 <link rel="stylesheet" href="assets/css/main.css">
 
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="assets/main.js"></script>
 
 </head>
 
@@ -27,7 +28,7 @@
 
   <div id="wrap">
     <div id="head"><h1>
-        <a href="/">Go back</a> | <a href=""/>Security/ SQL injection on REST-style URL</a></h1></div>
+        <a href="/">Go back</a> | <a id="title-m" href=""/>Security/ SQL injection on REST-style URL</a></h1></div>
 
     <div id="content">
     
@@ -117,7 +118,9 @@ Clean URLs - http:<span class="hljs-regexp">//</span>en.wikipedia.org<span class
 How to have clean URLs - http:<span class="hljs-regexp">//</span>wettone.com<span class="hljs-regexp">/code/</span>clean-urls
 
 $ <span class="hljs-keyword">exit</span></code></pre>
-	    <hr style="display: block; text-align: left; width: 100%;" />
+      <hr style="display: block; text-align: left; width: 100%;" />
+
+      <div id="footer"><div id="desc">thanks for reading |written on: Dec 18 2013</div></div>
 
     </div>
   </div>
@@ -130,20 +133,6 @@ $ <span class="hljs-keyword">exit</span></code></pre>
 
   ga('create', '<%= @ga %>', 'auto');
   ga('send', 'pageview');
-  </script>
-  
-  <script>
-        $('.tag-right').click(function() {
-          $('body').css('background-color', '#000');
-          $('body').css('background', '#000');
-          $('body').css('color', '#fff');
-          $('a').css('color', '#e25c5c');
-          $('pre').css('background', '#4c4c4c4d');
-          $('.permalink').css('color', '#968e8e');
-          $('#desc').css('background-color', '#fff');
-          $('#desc').css('opacity', 1);
-          $('.author').css('color', '#afafaf');
-      });
   </script>
 
 </body>

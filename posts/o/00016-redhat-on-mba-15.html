@@ -13,6 +13,7 @@
 <link rel="stylesheet" href="assets/css/main.css">
 
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="assets/main.js"></script>
 
 </head>
 
@@ -27,7 +28,7 @@
 
   <div id="wrap">
     <div id="head"><h1>
-        <a href="/">Go back</a> | <a href=""/>Challenge/ Apple &amp; Redhat Enterprise Linux</a></h1></div>
+        <a href="/">Go back</a> | <a id="title-m" href=""/>Challenge/ Apple &amp; Redhat Enterprise Linux</a></h1></div>
 
     <div id="content">
     
@@ -137,7 +138,9 @@ don&#39;t need.</p>
 <span class="hljs-variable">$ </span>modprobe lib80211_crypt_tkip
 <span class="hljs-variable">$ </span>modprobe wl</code></pre><p>You can now grab a beer since this night is over.</p>
 <pre class="hljs"><code><span class="hljs-variable">$ </span>rm -rf ~<span class="hljs-regexp">/rpmbuild</span></code></pre>
-	    <hr style="display: block; text-align: left; width: 100%;" />
+      <hr style="display: block; text-align: left; width: 100%;" />
+
+      <div id="footer"><div id="desc">thanks for reading |written on: Nov 12 2017</div></div>
 
     </div>
   </div>
@@ -150,20 +153,6 @@ don&#39;t need.</p>
 
   ga('create', '<%= @ga %>', 'auto');
   ga('send', 'pageview');
-  </script>
-  
-  <script>
-        $('.tag-right').click(function() {
-          $('body').css('background-color', '#000');
-          $('body').css('background', '#000');
-          $('body').css('color', '#fff');
-          $('a').css('color', '#e25c5c');
-          $('pre').css('background', '#4c4c4c4d');
-          $('.permalink').css('color', '#968e8e');
-          $('#desc').css('background-color', '#fff');
-          $('#desc').css('opacity', 1);
-          $('.author').css('color', '#afafaf');
-      });
   </script>
 
 </body>

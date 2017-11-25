@@ -13,6 +13,7 @@
 <link rel="stylesheet" href="assets/css/main.css">
 
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="assets/main.js"></script>
 
 </head>
 
@@ -27,7 +28,7 @@
 
   <div id="wrap">
     <div id="head"><h1>
-        <a href="/">Go back</a> | <a href=""/>Psych/ Thinking mdfull</a></h1></div>
+        <a href="/">Go back</a> | <a id="title-m" href=""/>Psych/ Thinking mdfull</a></h1></div>
 
     <div id="content">
     
@@ -54,7 +55,9 @@
 <p class="img-container"><img src="http://i.imgur.com/2ikrMBO.jpg" alt="Here is an image of six puppies"></p>
 <p><a href="https://alpha.wallhaven.cc/wallpaper/8086">(source)</a></p>
 
-	    <hr style="display: block; text-align: left; width: 100%;" />
+      <hr style="display: block; text-align: left; width: 100%;" />
+
+      <div id="footer"><div id="desc">thanks for reading |written on: Jul 04 2017</div></div>
 
     </div>
   </div>
@@ -67,20 +70,6 @@
 
   ga('create', '<%= @ga %>', 'auto');
   ga('send', 'pageview');
-  </script>
-  
-  <script>
-        $('.tag-right').click(function() {
-          $('body').css('background-color', '#000');
-          $('body').css('background', '#000');
-          $('body').css('color', '#fff');
-          $('a').css('color', '#e25c5c');
-          $('pre').css('background', '#4c4c4c4d');
-          $('.permalink').css('color', '#968e8e');
-          $('#desc').css('background-color', '#fff');
-          $('#desc').css('opacity', 1);
-          $('.author').css('color', '#afafaf');
-      });
   </script>
 
 </body>

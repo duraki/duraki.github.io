@@ -13,6 +13,7 @@
 <link rel="stylesheet" href="assets/css/main.css">
 
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="assets/main.js"></script>
 
 </head>
 
@@ -27,7 +28,7 @@
 
   <div id="wrap">
     <div id="head"><h1>
-        <a href="/">Go back</a> | <a href=""/>Psych/ A holiday, excatly</a></h1></div>
+        <a href="/">Go back</a> | <a id="title-m" href=""/>Psych/ A holiday, excatly</a></h1></div>
 
     <div id="content">
     
@@ -55,7 +56,9 @@
 <p>Also, happy Eid. These who know me are sure I&#39;m not celebrating anything, ever. Except my successes. But, happy eid to all muslims around the globe, celebrating this beautiful day.</p>
 <p>Good luck to you too, be strong, be passionate and love the days, cause you aren&#39;t living forever.</p>
 
-	    <hr style="display: block; text-align: left; width: 100%;" />
+      <hr style="display: block; text-align: left; width: 100%;" />
+
+      <div id="footer"><div id="desc">thanks for reading |written on: Sep 01 2017</div></div>
 
     </div>
   </div>
@@ -68,20 +71,6 @@
 
   ga('create', '<%= @ga %>', 'auto');
   ga('send', 'pageview');
-  </script>
-  
-  <script>
-        $('.tag-right').click(function() {
-          $('body').css('background-color', '#000');
-          $('body').css('background', '#000');
-          $('body').css('color', '#fff');
-          $('a').css('color', '#e25c5c');
-          $('pre').css('background', '#4c4c4c4d');
-          $('.permalink').css('color', '#968e8e');
-          $('#desc').css('background-color', '#fff');
-          $('#desc').css('opacity', 1);
-          $('.author').css('color', '#afafaf');
-      });
   </script>
 
 </body>
