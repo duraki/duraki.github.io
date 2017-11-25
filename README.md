@@ -1,15 +1,12 @@
 duraki/blog/deviltux
 ======================
 
-This repository contains the static site generator, a `deviltux` theme, and a 
-space for writing blogposts for my blog located [here](https://duraki.github.io). 
-The script is built in Ruby, called `Art`, with a few dependencies, and the blog is developed 
-as a project or a library, consisting of `changelog` details, and various other 
-configuration files. The script, posts and theme is bundled with the repository for the ease of use.
+This repository contains the static site generator, a `deviltux` theme, and my 
+space for writing, which is visible [here](https://duraki.github.io).  
   
-On every publish, a new release should be made, including the details from the 
-changelog for that particular version. This is not mandatory but affects the repository 
-usage.
+The script is built in Ruby, visible in `bin/art`, and have a few dependencies. 
+The blog is developed as a project-shell-script, markdown input and theme which 
+customizable.
   
 ![Blog image](images/blog.png)
 

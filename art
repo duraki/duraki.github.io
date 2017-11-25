@@ -5,27 +5,58 @@ require 'yaml'
 require 'front_matter_parser'
 require 'colorize'
 require 'fileutils'
+require 'open-uri'
 
-# + Art
+# + art
 # + single-file static blog generator
 #
 # + Author : Halis Duraki <duraki@linuxmail.org>
 # + Website: https://duraki.github.io
 class Art
+
+  # => Config mockup
+  CONFIG_MOCKUP = "https://gist.githubusercontent.com/duraki/9549f72f90a3c73a777efcdcea595576/raw/e36faa42a7a62afe10d7878aa1d63eba6e936b34/art.yaml"
+  WWW_DIR = "/docs"
+
+  def init(name)
+    Dir.mkdir "./#{name}"
+    Dir.mkdir "./#{name}/#{WWW_DIR}"
+
+    Dir.mkdir "./#{name}/#{WWW_DIR}/posts/i"
+    Dir.mkdir "./#{name}/#{WWW_DIR}/posts/o"
+
+    mockup = open(CONFIG_MOCKUP)
+    puts "Generating mockup for blog: #{name} ..."
+    IO.copy_stream(mockup, "./#{name}/.home.yml")
+    puts "Done!".blue + " Edit your `.home.yml` file in ./#{name}/, and start writing :)"
+  end
+  def cli
+    if ARGV[0] == "init" && !ARGV[1].nil?
+      init(ARGV[1])
+    end
+
+    if ARGV[0] == "publish" 
+      builder
+    end
+
+    exit
+  end
   
   # Init.
   def initialize
-    puts "Welcome to Art.".green
-    puts "Art".blue + " is a standalone, single-file static blog generator.".green 
+    puts "art".blue + " is a standalone, single-file static blog generator.".green 
     puts "---------".red
-    puts "[+] Loading `.home.yml` from this directory ...".green
-    @home = YAML.load_file('.home.yml');
-    puts "[+] File loaded.".green
-    puts "---------".red
+    puts "init <blog>".blue + " | Start a new blog, initialize directory"
+    puts "publish".blue + "     | Publish blog from this directory"
+    cli
   end
 
   # Build.
   def builder 
+    puts "[+] Loading `.home.yml` from this directory ...".green
+    @home = YAML.load_file('.home.yml')
+    puts "[+] File loaded.".green
+    puts "---------".red
     puts "[+] Creating build configuration ...".green
     builder = Build.new @home
   end
@@ -61,10 +92,10 @@ class Build
     puts "[+] Detecting blog description ...".red + " [detected] "
 
     self.posts_in = config['posts']['in']
-    puts "[+] Detecting input directory ... ".red + self.posts_in
+    puts "[+] Detecting input directory ... ".red + "#{Art::WWW_DIR}" + self.posts_in
 
     self.posts_out = config['posts']['out']
-    puts "[+] Detecting output directory ...".red + self.posts_out
+    puts "[+] Detecting output directory ...".red + "#{Art::WWW_DIR}" + self.posts_out
 
     self.script_list = config['scripts']
     puts "[+] Building script list ... ".red + " [built] "
@@ -94,7 +125,7 @@ class Build
 
   # Generate html from markdown using `markdown-html` node module
   def cli
-    return "generate-md --layout ./#{self.theme} --input .#{self.posts_in} --output .#{self.posts_out}" 
+    return "generate-md --layout ./#{self.theme} --input .#{Art::WWW_DIR}#{self.posts_in} --output .#{Art::WWW_DIR}#{self.posts_out}" 
   end
 
   # Generate scripts and appropriate locations
@@ -111,7 +142,7 @@ class Build
   # Get posts by id-s
   def posts
     list = Array.new
-    Dir["."+self.posts_in+"/*.md"].each do |f|
+    Dir["."+Art::WWW_DIR+self.posts_in+"/*.md"].each do |f|
       list.push(f)
     end
 
@@ -168,11 +199,11 @@ class Build
 
   # Overwrite assets / theme
   def overwrite_theme theme
-    FileUtils.cp_r Dir["#{theme}/assets/*"], "./assets/" 
+    FileUtils.cp_r Dir["#{theme}/assets/*"], ".#{Art::WWW_DIR}/assets/" 
   end
 
 end
 
 # Initialize.
 art = Art.new
-art.builder
+#art.builder
