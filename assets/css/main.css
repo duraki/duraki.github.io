@@ -88,3 +88,10 @@ th {
 .tag-right {
   float: right;
 }
+
+.topcorner {
+    position: absolute;
+    top: 39px;
+    right: 0;
+    width: 100px;
+}
