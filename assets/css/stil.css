@@ -26,3 +26,18 @@ h3{font-size:14px;}
 .next{float:right;}
 .clr{clear:both;}
 iframe{margin-right:120px;}
+
+::-moz-selection { /* FF */
+    color: white;
+    background: black;
+}
+
+::selection {
+    color: white; 
+    background: #da5a5a;
+}
+
+.contrast::selection {
+    color: black;
+    background: white;
+}
