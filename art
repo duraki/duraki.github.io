@@ -16,7 +16,7 @@ class Art
 
   # => Config mockup
   CONFIG_MOCKUP = "https://gist.githubusercontent.com/duraki/9549f72f90a3c73a777efcdcea595576/raw/e36faa42a7a62afe10d7878aa1d63eba6e936b34/art.yaml"
-  WWW_DIR = "/docs"
+  WWW_DIR = ""
 
   def init(name)
     Dir.mkdir "./#{name}"
