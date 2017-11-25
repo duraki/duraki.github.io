@@ -190,7 +190,7 @@ class Build
     puts "[+] Binding results ...".green
     erb = ERB.new(@template)
   
-    File.open('index.html', 'w') do |f|
+    File.open(".#{Art::WWW_DIR}/index.html", 'w') do |f|
       f.write erb.result(binding)
     end
 
