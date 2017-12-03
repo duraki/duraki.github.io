@@ -1,13 +1,13 @@
 ---
-title: Challenge/ Apple & Redhat Enterprise Linux
+title: Xps/ Apple, RedHat & Network
 date: Nov 12 2017
-tags: ["challenge", "redhat", "rhel", "macbook", "air", "setup"]
+tags: ["firstxplatstuff", "redhat", "macbook", "air"]
 ---
 
 ## What?
 
-Trying to setup a sort of normal distro on Macbook is itself demanding task, but
-stepping up the game and putting RedHat on a tiny Air is another fun.
+Trying to setup a sort of normal distro on MacBook is itself demanding task, but
+stepping up the game and putting RedHat on a tiny Air seems quite fun.
   
 Older Macbook of mine survived with Ubuntu for a fair time. Common issues takes
 time, like network connection setup and small polishing details, which is
@@ -19,14 +19,15 @@ at is security, for which we hear and horror stories every now and then on
 What I'm trying to show is issue you will mostly face if you try this. At the
 end you'll have something unique and stable.
   
-Currently typing this on Macbook Air from 2015 running a fully-supported
-RHEL.
+This was written on MBA from 2015 running a fully-supported RHEL (sortof).
 
 ## How?
 
 First and foremost, RH is enterprise distribution, which means you'll have to be
 subscribed to their SPM system which allows you to have all these toolsets they
-offer. Not having that will  result in a non-working environment and
+offer. 
+  
+Not having that will  result in a non-working environment and
 unsupported system. You may be allowed to use `Developers Edition` or something
 like that which is offered for free and in what you get is only a basic toolset
 to build your machine.
