@@ -45,3 +45,7 @@ iframe{margin-right:120px;}
 p {
     margin-top: 20px !important;
 }
+
+.blank {
+    background: #fff;
+}

@@ -9,9 +9,8 @@ $(document).ready(function() {
           $('hr').css('border-color', '#e8dfdf36');
 
           /** brutalist **/
-          $('.topcorner').css('background', '#303030');
-          $('.topcorner').css('height', '100px');
-          $('#avatar').css('display', 'none');
+          $('.topcorner').css('background', 'rgb(227, 92, 92)');
+          $('#avatar').attr('src', 'images/whoami.png');
 
           $('.author').css('color', '#303030');
           $('.author').css('background', '#303030');
