@@ -2,13 +2,13 @@
 minimal: 
   artist: "halis duraki"
   title: "deviltux home"
-  description: "Offensive Security Engineer, interested in breaking and fixing stuff."
+  description: "Offensive Security Reseacher, interested in breaking and fixing stuff."
   theme: "sterdo"
 posts: 
   in: /posts/i
   out: /posts/o
 scripts: 
-  - "Trigger Alina POS malware:/scripts/trigger_alina.c"
-  - "Get URLs from PE:/scripts/geturls"
+  - "Trigger Alina POS malware:/scripts/trigger_alina.txt"
+  - "Get URLs from PE:/scripts/geturls.txt"
 art:
   ga: UA-86651245-2

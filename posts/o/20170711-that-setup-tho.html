@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+
+<meta charset="utf-8">
+
+<title>Code/ Automated &amp; Productive development</title>
+<meta name="description" content="<%= @description %>">
+<meta name="author" content="<%= @artist %>">
+
+<link rel="stylesheet" href="assets/css/stil.css">
+<link rel="stylesheet" href="assets/css/main.css">
+
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="assets/main.js"></script>
+
+</head>
+
+<body>
+
+<style>
+  h3 {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+</style>
+
+  <div id="wrap">
+    <div id="head"><h1>
+        <a href="/">Go back</a> | <a id="title-m" href=""/>Code/ Automated &amp; Productive development</a></h1></div>
+
+    <div id="content">
+    
+      <div class="tags">
+        <code class="tag">development</code><code class="tag">environment</code><code class="tag">automation</code><code class="tag">stoprepetitivetasks</code>
+        <a class="tag-right">night</a>
+      </div>
+
+      <hr style="display: block; text-align: left: width: 100%;" /><h2 id="opinions"><a class="header-link" href="#opinions"></a>Opinions</h2>
+<p>Last year and a bit current, I&#39;ve spent engineering various <code>devops/deployment</code>  and <code>backend</code> service that powers a large betting platform. </p>
+<p>Every so often, I found myself going through a single repetitive task, number of times, before I finally settle things down and find a way to automate it.</p>
+<p>Without going much in details, this post should show you how I deal with that stuff, whether working on an open-source, or a work-related project.</p>
+<p>Please note that this setup is not suitable for all and every of you out there. Although this should definitely introduce you to some proper automated solutions that the usage should be appreciated.</p>
+<h2 id="toolset"><a class="header-link" href="#toolset"></a>Toolset</h2>
+<p>I&#39;ve heard this not once, that some find themself overwhelmed with a number of tools in use, through every, day-to-day life. This is normal and for a difference, I enjoy it.</p>
+<p>Having a large number of available tools is great, since multiple source of the same problem-solving solution creates a cheaper market and breaks the tale of  monopoly. </p>
+<p>Although above is true, we still have <em>things</em> for life. These are the utilities we are used to. We know every inch of them, and they feel like a home.</p>
+<p>So, here is a list, of my personal source of home-feeling tools:</p>
+<ul class="list">
+<li>Vim </li>
+<li>iTerm/Tmux</li>
+<li>[OhMy] / Zsh</li>
+<li>Git / Devist</li>
+</ul>
+<blockquote>
+<p> Cliche feels.</p>
+</blockquote>
+<p>Nevertless, this was a topic about automation on dev environment, so I&#39;ll try to head it in that way from now on.</p>
+<h3 id="vim"><a class="header-link" href="#vim"></a>Vim</h3>
+<p>Ah, the father of text editors. Although just a few selected youngers use Vim in the company I work for, I love to hear colleagues, rearly, asking me questions about it.</p>
+<p>It&#39;s enormous configuration settings and keymapping allowed me to automate it in various tasks, either while developing or writing devdocs.  </p>
+<p>I&#39;ll offer just a bit of my <code>.vimrc</code> file. I don&#39;t like open-sourcing my dotfiles, especially <code>vimrc</code> which I think [every] should be written by the developer who use it, himself. </p>
+<p>Here is just a part of my configuration that automates Vim.</p>
+<pre class="hljs"><code><span class="hljs-keyword">nmap</span> <span class="hljs-symbol">&lt;leader&gt;</span>t2 :<span class="hljs-keyword">set</span> expandtab tabstop=<span class="hljs-number">2</span> <span class="hljs-built_in">shiftwidth</span>=<span class="hljs-number">2</span> softtabstop=<span class="hljs-number">2</span><span class="hljs-symbol">&lt;CR&gt;</span>
+<span class="hljs-keyword">nmap</span> <span class="hljs-symbol">&lt;leader&gt;</span>t4 :<span class="hljs-keyword">set</span> expandtab tabstop=<span class="hljs-number">4</span> <span class="hljs-built_in">shiftwidth</span>=<span class="hljs-number">4</span> softtabstop=<span class="hljs-number">4</span><span class="hljs-symbol">&lt;CR&gt;</span>
+<span class="hljs-keyword">nmap</span> <span class="hljs-symbol">&lt;leader&gt;</span>t6 :<span class="hljs-keyword">set</span> expandtab tabstop=<span class="hljs-number">6</span> <span class="hljs-built_in">shiftwidth</span>=<span class="hljs-number">6</span> softtabstop=<span class="hljs-number">6</span><span class="hljs-symbol">&lt;CR&gt;</span>
+<span class="hljs-keyword">nmap</span> <span class="hljs-symbol">&lt;leader&gt;</span>t8 :<span class="hljs-keyword">set</span> expandtab tabstop=<span class="hljs-number">8</span> <span class="hljs-built_in">shiftwidth</span>=<span class="hljs-number">8</span> softtabstop=<span class="hljs-number">8</span><span class="hljs-symbol">&lt;CR&gt;</span></code></pre><p>Why choosing especially these few lines from my 500-something long <code>vimrc</code> file? </p>
+<p>I&#39;m working in several languages, switching between Ruby, C and PHP. These maps above help me switch between proper code indentation with a three keys, one of which we should not count here - my lead key. </p>
+<p>Simply, pressing <code>t2</code> gets me ready for a Ruby, or as such, typing <code>t4</code> switch me in PHP <em>ninja</em> mode.</p>
+<p>This is something I found my self typing a lot in the past when I started working in different languages. As of course, it gets boring awhile after, one should find a help that usually comes in different size and shape. Therefore, some plugin it, and other native it. </p>
+<p>Although many use various Vim plugins, I usually try to keep it as simple as possible. That is — no stuff that I don&#39;t really need or rarely use.</p>
+<h3 id="iterm"><a class="header-link" href="#iterm"></a>iTerm</h3>
+<p>The finest combination with Tmux. The Yin &amp; Yang of developers heaven. </p>
+<p><strong>iTerm</strong> is a very known terminal emulator. My configuration is pretty straight forward. I look for minimal window with nothing more then a typing space.</p>
+<p>A picture of the my terminal:</p>
+<p><img src="http://i.imgur.com/VzktTpk.png" alt="minimal_iterm_view">I&#39;m pretty aware of text color being a bit darker and blending with the black background, but my eye sight is currently <em>ok</em> , and I have no problem reading it. </p>
+<p>Here is a split pane. </p>
+<p class="img-container"><img src="http://i.imgur.com/WEjBmkp.png" alt="minimal_split_pane_iterm"></p>
+<p>So, where is the automation here, one might ask. My iTerm is automated in various tasks, depending on the situation I&#39;m currently in. One of my favourite is presented below.</p>
+<p>For an example, as a heavily <strong>git</strong> user, I try to follow proper changelog tags even while commiting the message. That means that every log show excatly what I did in a particular commit.</p>
+<p class="img-container"><img src="http://i.imgur.com/btPLp4X.png" alt="gitlog_sendkeys_iterm"></p>
+<p>Thankfully, with iTerm, I&#39;ve only added these kepmaps to  <code>Keys</code> in Preferences. These lines were added to support tagging commit message.</p>
+<table>
+<thead>
+<tr>
+<th>KEYCOMBO</th>
+<th>Action</th>
+<th>Text</th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>⇧⌘A</code></td>
+<td>Send</td>
+<td><code>[added]</code></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>⇧⌘F</code></td>
+<td>Send</td>
+<td><code>[fixed]</code></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>⇧⌘R</code></td>
+<td>Send</td>
+<td><code>[removed]</code></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Now, with every commit, just press the key combination and you&#39;ll have a tag automatically added.</p>
+<pre class="hljs"><code>- repo (dev) $ git commit -m <span class="hljs-string">"[press_combo] message"</span>
+&gt; [added] my feature here</code></pre><p>Enjoy beautiful gitlog. This configuration is available through tmux, so let&#39;s hop into it.</p>
+<h3 id="tmux"><a class="header-link" href="#tmux"></a>Tmux</h3>
+<p>As of <strong>tmux</strong>, I personally only automated various server/worker environments that fire up in multiple panes and execute particular commands. </p>
+<p>For this, I&#39;m using <a href="https://github.com/tmuxinator/tmuxinator">tmuxinator</a> which is one of my favourite Gem out there. It is fast, and it support various features that one can extend in ways and combinations.</p>
+<p>This tool is beautiful, and I&#39;m soon starting to send pull requests. It&#39;s a joy once you get used to it. I usually setup the configuration file per-project basis. An example of such a project is presented below (edited alias for presentation purpose).</p>
+<pre class="hljs"><code>$ cat $HOME/.tmuxinator/gradapp.yml
+~/.tmuxinator/gradapp.yml
+
+<span class="hljs-attr">name:</span> gradapp
+<span class="hljs-attr">root:</span> ~/dev/gradba-web
+
+<span class="hljs-attr">windows:</span>
+<span class="hljs-attr">  - app:</span>
+<span class="hljs-attr">      layout:</span> even-vertical
+<span class="hljs-attr">      panes:</span>
+<span class="hljs-bullet">          -</span> vim .
+<span class="hljs-attr">      layout:</span> even-horizontal
+<span class="hljs-attr">      panes:</span>
+<span class="hljs-bullet">          -</span> php artisan
+<span class="hljs-bullet">          -</span> tail -f ./storage/logs/dev.log
+<span class="hljs-attr">  - db:</span>
+<span class="hljs-attr">      layout:</span> even-vertical
+<span class="hljs-attr">      panes:</span>
+<span class="hljs-bullet">          -</span> sqlite3 /dev/db/grad.sqlite
+<span class="hljs-bullet">          -</span> mysql
+<span class="hljs-bullet">          -</span> tail -f ./storage/logs/db.log
+<span class="hljs-bullet">          -</span> tail -f ./storage/logs/slowlog.sym.log
+<span class="hljs-attr">  - logs:</span>
+<span class="hljs-attr">      layout:</span> even-horizontal
+<span class="hljs-attr">      panes:</span>
+<span class="hljs-bullet">          -</span> tail -f ./storage/logs/dev.log
+<span class="hljs-bullet">          -</span> tail -f ./storage/logs/router.log
+<span class="hljs-bullet">          -</span> tail -f ./storage/logs/commands.log</code></pre><p>Whenever I get ready to work on this application:</p>
+<pre class="hljs"><code><span class="hljs-comment"># alias mux=tmuxinator $1</span>
+$ mux gradapp</code></pre><blockquote>
+<p>Above environment is for a startup called &quot;Grad&quot; (eng. <em>City</em>) - <a href="https://grad.ba">https://grad.ba</a>. It&#39;s an iOS / Android mobile application that will help you enjoy small country in Europe (<a href="https://en.m.wikipedia.org/wiki/Bosnia_and_Herzegovina">Bosnia and Herzegovina</a>). Shot out to my team out there, thank you for doing this.</p>
+</blockquote>
+<p>This is how the environment looks like while in devmode. </p>
+<p class="img-container"><img src="http://i.imgur.com/YpPsTFQ.png" alt="tmuxinator_env_setup"></p>
+<p>A good example of using <strong>tmux</strong> is via pane sync. For example, my <code>.tmux.conf</code> is binded to <code>s</code> key to start pane synchronization.</p>
+<pre class="hljs"><code>$ cat <span class="hljs-variable">$HOME</span>/.tmux.conf
+...
+<span class="hljs-built_in">bind</span> s <span class="hljs-built_in">set</span>-window-option synchronize-panes</code></pre><p>Now imagine you want to log two different files or open two different projects in <strong>tmux</strong> panes (pseudo usage below). </p>
+<pre class="hljs"><code>$ tmux
+&gt; prefix+<span class="hljs-comment">"         # splits panes</span>
+&gt; prefix+s         # start <span class="hljs-keyword">sync</span>
+$ tailf /var/<span class="hljs-built_in">log</span>/        # synced <span class="hljs-keyword">to</span> both panes
+pane#<span class="hljs-number">1</span> $ /var/<span class="hljs-built_in">log</span>/this.<span class="hljs-built_in">log</span>
+pane#<span class="hljs-number">2</span> $ /var/<span class="hljs-built_in">log</span>/that.<span class="hljs-built_in">log</span>
+&gt; prefix+s        # <span class="hljs-keyword">stop</span> <span class="hljs-keyword">sync</span></code></pre><h3 id="[ohmy]-/-zsh"><a class="header-link" href="#[ohmy]-/-zsh"></a>[OhMy] / Zsh</h3>
+<p><a href="https://github.com/robbyrussell/oh-my-zsh">This framework</a> is something special for <a href="http://www.zsh.org/">that shell</a>.   I try to keep my <code>.zshrc</code> file clean but that ain&#39;t working lately. I&#39;m putting various stuff that I should try to seperate. Nevertheless, I had to point it in this post.</p>
+<p>Some of my favourite aliases and functions are below. Others are kept for a nostalgic feeling or muscle memory, but I&#39;m pretty sure these greatly helped me with production.</p>
+<pre class="hljs"><code><span class="hljs-comment"># smh, I had to put this here</span>
+<span class="hljs-built_in">alias</span> :q=<span class="hljs-string">'exit'</span>
+
+<span class="hljs-comment"># I'm working in Laravel/Symfony quite alot</span>
+<span class="hljs-built_in">alias</span> art=<span class="hljs-string">'php artisan'</span> <span class="hljs-comment"># laravel framework cliapp</span>
+<span class="hljs-built_in">alias</span> sym=<span class="hljs-string">'bin/console'</span> <span class="hljs-comment"># symfony framework cliapp</span>
+
+<span class="hljs-comment"># This + `mux` alias for tmuxinator are great combo </span>
+<span class="hljs-built_in">alias</span> muxreload=tmux <span class="hljs-built_in">source</span>-file ~/.tmux.conf <span class="hljs-comment"># reload config</span>
+
+<span class="hljs-comment"># Since Google Chrome now offer headless feature, </span>
+<span class="hljs-comment"># enjoy this alias to export any URL/Website to PDF</span>
+<span class="hljs-keyword">function</span> urlpdf {
+    chrome --headless --disable-gpu --print-to-pdf <span class="hljs-variable">$1</span>
+}</code></pre><p>I also have several aliases that points or <code>cd</code> to a particular directory, one of them directly entering my external SSD volume, which I use every day.</p>
+<h3 id="git-/-devist"><a class="header-link" href="#git-/-devist"></a>Git / Devist</h3>
+<p>This is another paragraph where I will include another tool of mine called <a href="https://github.com/stacklog/devist">Devist</a>.</p>
+<p>Most of us already know what Git is, but rarely what <code>Devist</code> is. It&#39;s a <strong>Ruby gem</strong> that <strong>generates beautiful release notes</strong> for your projects. I rewrote it from it&#39;s original source <a href="https://github.com/duraki/vicilog">Vicilog</a>. It offer various usage integration and my favoruite one is Git.</p>
+<p>Imagine you are pushing a new release, of course, you want to edit your CHANGELOG.md file. But who cares about it? Even I forget about bumping my version and changes. Therefore, I&#39;ve developed a <code>git hook</code> that is bundled with Devist.</p>
+<p>It checks if the given tag is being added to CHANGELOG before pusing on remote. The whole script is available at <a href="https://github.com/stacklog/devist/blob/dev/hook.sh">hook.sh</a> file which you add to <code>.git/hooks/</code> in your (repo). Basically, it strips down your markdown file and check for correct version. If the version is missing, Devist will exit and you won&#39;t be able to push a tag without either:</p>
+<ol class="list">
+<li>Add the version you are pushing to <em>logfile</em> (e.g. <code>changelog.md</code>) </li>
+<li>Use <code>—no-verify</code> to skip git hooks. </li>
+</ol>
+<p>This not only does it automate the check of release, but it also offer a layer of security.</p>
+<pre class="hljs"><code>$ (repo) git tag v1.0.0
+$ (repo) git push origin v1.0.0
+
+Devist / tag/hook / pre-push - https://devist.io
+&gt; Pre-push hook activated.
+&gt; Tag detected.
+&gt; Checking <span class="hljs-keyword">for</span> file CHANGELOG.md <span class="hljs-keyword">in</span> this directory ...
+Checking tag version ...
+Stripping non-numeric characters ...
+Detected tag: 1.0.0
+Checking latest TAG <span class="hljs-keyword">in</span> changelog file ...
+Tag not found <span class="hljs-keyword">in</span> CHANGELOG.md ; please bump your version.
+Use --no-verify <span class="hljs-keyword">while</span> to skip this git-hook.
+Exit.</code></pre><p>You may check a <a href="http://devist.io/changelog.html">Devist changelog</a> and see exported example. You can read more about Devist - <a href="http://devist.io">http://devist.io</a> .</p>
+<h2 id="attention"><a class="header-link" href="#attention"></a>Attention</h2>
+<p>This is only a small part of my automated integration. Do not automate tasks that you think are not worth it. Automate tasks once you find yourself thinking:</p>
+<blockquote>
+<p>Oh God, I did this thousend times ...</p>
+</blockquote>
+<p>I hope this post helped you solve some of the boring tasks you&#39;ve been doing in the past. I&#39;d also like to hear your input so be free to message me on <a href="https://twitter.com/devil_tux">Twitter</a>. </p>
+<p>If some of you know some neat tricks, please let me, I may have the same problem and you may become one great dude in my eyes. I&#39;ll send out some proper credits. :)</p>
+<p>Thank you for reading, until sometimes ...</p>
+<p class="img-container"><img src="http://i.imgur.com/N4e4ktx.jpg" alt="Stranger Things"></p>
+<p>Stranger Things is nice time killer. Original author on <a href="http://rider-tart.deviantart.com/art/Stranger-Things-622490916">DeviantArt</a>.</p>
+
+      <hr style="display: block; text-align: left; width: 100%;" />
+
+      <div id="footer"><div id="desc">thanks for reading |written on: Jul 11 2017</div></div>
+
+    </div>
+  </div>
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', '<%= @ga %>', 'auto');
+  ga('send', 'pageview');
+  </script>
+
+</body>
+</html>

@@ -87,9 +87,11 @@ th {
 
 .tag-right {
   float: right;
+  cursor: pointer;
 }
 
 .topcorner {
+    cursor: pointer;
     position: absolute;
     top: 39px;
     right: 0;

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+
+<meta charset="utf-8">
+
+<title>Binary patching in Need For Speed Most Wanted</title>
+<meta name="description" content="<%= @description %>">
+<meta name="author" content="<%= @artist %>">
+
+<link rel="stylesheet" href="assets/css/stil.css">
+<link rel="stylesheet" href="assets/css/main.css">
+
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="assets/main.js"></script>
+
+</head>
+
+<body>
+
+<style>
+  h3 {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+</style>
+
+  <div id="wrap">
+    <div id="head"><h1>
+        <a href="/">Go back</a> | <a id="title-m" href=""/>Binary patching in Need For Speed Most Wanted</a></h1></div>
+
+    <div id="content">
+    
+      <div class="tags">
+        <code class="tag">nfsmw</code><code class="tag">needforspeed</code><code class="tag">reverseengineering</code><code class="tag">gamemod</code>
+        <a class="tag-right">night</a>
+      </div>
+
+      <hr style="display: block; text-align: left: width: 100%;" /><p>Need for Speed – Greates arcade racing game ever; Most Wanted – Best version out there. So what is this tutorial all about? I can’t say it is tutorial, more like reversing engineering technique to get an unlimited nitro on any gameplay in NFSMW.</p>
+<p>In this tutorial there is no memory editing. You will need OllyDbg and Cheat Engine. This requires basic knowledge of RE  and of course a little bit of time.</p>
+<h2 id="reverse-engineering-the-binary"><a class="header-link" href="#reverse-engineering-the-binary"></a>Reverse Engineering the Binary</h2>
+<p>First thing first, create a backup copy of your <code>speed.exe</code> from your <code>X:\Dir\SubDir\Need for Speed Most Wanted</code> (Installation Directory). Open it up in OllyDbg. </p>
+<p class="img-container"><img src="https://i.imgur.com/p3nKwIc.png" alt="Backup"></p>
+<p>So you have your “speed_debug.exe” in your OllyDbg, right? Now go to address <code>0x00692B06</code>.</p>
+<pre class="hljs"><code><span class="hljs-number">00692B05</span>   .  <span class="hljs-number">57</span>               PUSH EDI                                 ;  ntdll.7C910208
+<span class="hljs-number">00692B06</span>      D99E F8000000    FSTP DWORD PTR DS:[ESI+F8]               ;  &lt;- RIGHT HERE :]
+<span class="hljs-number">00692B0C</span>   .  E8 FF90FDFF      CALL speed_de.<span class="hljs-number">0066BC10</span></code></pre><p>Why jumping to this address? I&#39;ll explain later in *<em>Finding the right address</em> section of this blogpost. Above this address, there is a <code>PUSH EDI</code> instruction. The keypress <code>Alt</code> (by default), starts Nitro in NSFW gameplay. This is where the instruction is called. For now, just remember, the address <code>0x00692B05</code> is our starting point. </p>
+<p>At address <code>0x00692B0C</code>, we see some strange call. What is that, you may ask? Go into that call (navigate to address line and press F7)-. Now we are here:</p>
+<pre class="hljs"><code><span class="hljs-number">007</span>C4041   .  <span class="hljs-number">8</span>BEC             MOV EBP,ESP                                ; &lt;- Initial <span class="hljs-keyword">on</span> call instruction
+<span class="hljs-number">007</span>C4043   .  <span class="hljs-number">6</span>A FF            PUSH -<span class="hljs-number">1</span>                                    ; &lt;- Push n-<span class="hljs-number">1</span> <span class="hljs-keyword">from</span> stack
+<span class="hljs-number">007</span>C4045   .  <span class="hljs-number">68</span> A0808B00      PUSH speed_de.<span class="hljs-number">008</span>B80A0                     ; &lt;- <span class="hljs-keyword">Step</span> <span class="hljs-keyword">into</span> this <span class="hljs-keyword">is</span>
+                                                                            <span class="hljs-number">008</span>B809F    <span class="hljs-number">00</span>FF               <span class="hljs-keyword">ADD</span> BH,BH    <span class="hljs-comment">// Adding two same values will result 0 right?</span>
+
+<span class="hljs-number">007</span>C404A   .  <span class="hljs-number">68</span> E4D57C00      PUSH speed_de.<span class="hljs-number">007</span>CD5E4                     ;  SE handler installation which <span class="hljs-keyword">step</span> <span class="hljs-keyword">into</span> <span class="hljs-keyword">is</span>
+                                                                            <span class="hljs-number">007</span>CD5E4  /$  <span class="hljs-number">55</span>               PUSH EBP     <span class="hljs-comment">// Something new... Uhm.. Forget it.</span>
+
+<span class="hljs-number">007</span>C404F   .  <span class="hljs-number">64</span>:A1 <span class="hljs-number">00000000</span>   MOV EAX,DWORD PTR FS:[<span class="hljs-number">0</span>]                   ;  Whoops, what <span class="hljs-keyword">is</span> this? Moving first byte <span class="hljs-keyword">of</span> FS <span class="hljs-keyword">to</span> EAX!
+<span class="hljs-number">007</span>C4055   .  <span class="hljs-number">50</span>               PUSH EAX                                   ;  <span class="hljs-keyword">And</span> lets push it <span class="hljs-keyword">INTO</span> stack <span class="hljs-keyword">and</span> decrease EAX.</code></pre><p>Lets just assume that the <code>call</code> at the very start (<code>0x00692B0C</code>) was only call for renewing scene and everything in it. We assumes this because it jumps to progam entry point (<code>0x007C4041</code>). And every new operation that happenes jumps to that entry point. Now, if you remember bellow address <code>0x00692B06</code> (which we will discuss later) is that call. We can create some conclusion based on this:</p>
+<pre class="hljs"><code>Address    :    <span class="hljs-number">00692B05</span>    -    Pressing button <span class="hljs-keyword">for</span> nitro
+Address    :    <span class="hljs-number">00692B06</span>    -    MAIN function
+Address    :    <span class="hljs-number">00692B0C</span>    -    The call we discussed about above</code></pre><h2 id="main-function"><a class="header-link" href="#main-function"></a>MAIN function</h2>
+<p>Main is from my view where it decrement size of Nitro health. I’m sure 100% because I got the pointer pointing to this address. We will leave PUSH EDI where it is, so we won’t do anything at address <code>0x00692B05</code>, but lets do a normal jump to call where is scene renewing. We will work with-in Main, so double click that disassembly at address <code>0x00692B06</code> and replace value to normal <code>JMP</code> instruction to call bellow that:  </p>
+<p class="img-container"><img src="https://i.imgur.com/PUlWw68.png" alt="Replaces, Decrease Nitro to Main call"></p>
+<p>If we would just <code>NOP</code> the instruction at address <code>0x00692B06</code>, we would do nothing in particular. The address would be still useable by the game rules, and you will always end up on the same call. The point of this is to simply not destroy instructions at address <code>0x00692B06</code>, but use as resource for the next instruction (jump to call). Now, go to this address we just jumped to and you&#39;ll have the result:</p>
+<pre class="hljs"><code><span class="hljs-number">00692B06</span>       /EB <span class="hljs-number">04</span>            JMP SHORT speed_de.<span class="hljs-number">00692B0C</span>                        ; Where we set to jump
+<span class="hljs-number">00692B08</span>       |F8               CLC                                                ; 
+<span class="hljs-number">00692B09</span>       |<span class="hljs-number">0000</span>             ADD BYTE PTR DS:[EAX],AL                           ; ADD value of AL to byte pointer of EAX
+<span class="hljs-number">00692B0B</span>       |<span class="hljs-number">00E8</span>             ADD AL,CH                                          ; Add value of CH to AL
+<span class="hljs-number">00692B0C</span>        <span class="hljs-number">000</span>              Go into next address                               ; Direction</code></pre><p>If we dissasemble the address just below direction at <code>0x00692B06</code> with instruction call: <code>“FSTP DWORD PTR DS:[ESI+F8]</code>, the result is obvious:</p>
+<pre class="hljs"><code><span class="hljs-number">00692B06</span> - //
+<span class="hljs-number">00692B08</span> - CLC <span class="hljs-built_in">is</span> probably the F8 <span class="hljs-keyword">for</span> adding to ESI           (FSTP)
+<span class="hljs-number">00692B09</span> - Add value from AL to EAX but <span class="hljs-keyword">in</span> one byte           (DWORD PTR DS:[ESI+above line (F8)]
+<span class="hljs-number">00692B0B</span> - Add value from CH to AL                            (CH <span class="hljs-built_in">is</span> FF <span class="hljs-keyword">and</span> AL <span class="hljs-built_in">is</span> <span class="hljs-number">00</span>)
+
+Result =                                                      FSTP DWORD PTR DS:[ESI+F8]</code></pre><p>After we did this edit, try to run your NFS:MW (F9) from Olly, and choose any account and any car. Your Nitro will last forever. Easy peasy.</p>
+<h2 id="finding-the-right-address"><a class="header-link" href="#finding-the-right-address"></a>Finding the right address</h2>
+<p>Now, lets get all to the very start, the point where we say about address we need to navigate to first. The one that we talk about in whole lesson, the famous <code>0x00692B06</code> that we disassemble. How did I found this address? The secret is in Cheat Engine.</p>
+<p>Open up your NFS:MW, and drive any car with Nitro. Open your Cheat Engine and choose <code>speed.exe</code>, and lets do a little scanning. For scan type choose “Unknown initial value“, value type 4 bytes and press “First scan“. You will get with billions of result. Go and use a nitro for a little bit, press escape, navigate your cheat engine, but this time, choose “Decreased value” in scan type, press “Next Scan” and let it finish. Now use your nitro again, but not all. In Cheat Engine just press “Next Scan” and don’t change anything. The results will get smaller and smaller. Now, let your intro goes up a little, don’t use it at all. Navigate to your Cheat Engine, choose “Increased Value” press “Next Scan“.</p>
+<p>Don’t touch other options! After scan is finished, repeat this steps again and again until you left with at least 20 addresses (requires some time but pays off). If you get up with none results just press “Undo Scan” in Cheat Engine.</p>
+<p>After you&#39;ve got at least 20 addresses (max: 30), add all of them into the addresses list bellow. This time, you need to freeze address one by one. Try with first one, and repeat each one of them one by one. The process goes like this:</p>
+<pre class="hljs"><code>-<span class="ruby"> Freeze the address
+</span>-<span class="ruby"> Go into the <span class="hljs-symbol">NFS:</span>MW
+</span>-<span class="ruby"> Use Nitro
+</span>-<span class="ruby"> If your Nitro fuel percentage goes down <span class="hljs-keyword">then</span> it’s <span class="hljs-keyword">not</span> the right address
+</span>-<span class="ruby"> Freeze another
+</span>-<span class="ruby"> Repeat the process</span></code></pre><p>Do that for every address until you found the right one. This address, once freezed, will lock the nitro bar after using it. For my binary, the address was <code>0x01356118</code>:</p>
+<pre class="hljs"><code>Active                Description                <span class="hljs-built_in">Address</span>                <span class="hljs-built_in">Type</span>                <span class="hljs-built_in">Value</span>
+[x]                   No description             <span class="hljs-number">01356118</span>               <span class="hljs-number">4</span> Bytes             <span class="hljs-number">1057120574</span></code></pre><p>The <code>[x]</code> means the address and value are frozen. The address may not be same as in your binary, and perhaps value will be different too. Values are not always what in-game HUD is showing us. Now when we have frozen, valid address,  right click on it and select <strong>Found out what writes to this address</strong>. This is simple technique if you are looking for pointers. The result will be, of course none because nothing at the moment didn’t use this address. Now, navigate your NFS:MW and use nitro a bit. You may get something like this:</p>
+<pre class="hljs"><code><span class="hljs-number">00692B06</span> – D9 9E F8000000  – fstp dword ptr [esi+<span class="hljs-number">000000F8</span>]</code></pre><p>Hold up. Remeber the address <code>0x00692B06</code> I used to disassemble in this tutorial? Well, there it is. </p>
+<p>Thanks for reading!</p>
+
+      <hr style="display: block; text-align: left; width: 100%;" />
+
+      <div id="footer"><div id="desc">thanks for reading |written on: Jun 01 2011</div></div>
+
+    </div>
+  </div>
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', '<%= @ga %>', 'auto');
+  ga('send', 'pageview');
+  </script>
+
+</body>
+</html>

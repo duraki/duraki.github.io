@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+
+<meta charset="utf-8">
+
+<title>What I&#x27;m working on</title>
+<meta name="description" content="<%= @description %>">
+<meta name="author" content="<%= @artist %>">
+
+<link rel="stylesheet" href="assets/css/stil.css">
+<link rel="stylesheet" href="assets/css/main.css">
+
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="assets/main.js"></script>
+
+</head>
+
+<body>
+
+<style>
+  h3 {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+</style>
+
+  <div id="wrap">
+    <div id="head"><h1>
+        <a href="/">Go back</a> | <a id="title-m" href=""/>What I&#x27;m working on</a></h1></div>
+
+    <div id="content">
+    
+      <div class="tags">
+        <code class="tag">nettis</code><code class="tag">jeep</code>
+        <a class="tag-right">night</a>
+      </div>
+
+      <hr style="display: block; text-align: left: width: 100%;" /><p>Some of you will understand this, once you hear family, friends, coworkers, or 
+even your dog calling you by the name of <code>hacker</code>, you start to believe them.
+Kind of funny tho, since once you get to that level you&#39;d rather prefer not.</p>
+<p>Don&#39;t you learn everyday? And when you check out the scene, the tiny
+fraction of knowledge you have is nothing compared to what is out there.
+Therefore, you don&#39;t expect to ever become one.</p>
+<p>Or so do you think. Contributing your time &quot;to the stuff&quot; is already a way. 
+You may not be a best hacker, but you still are one. A small kind, respected in 
+your own way.</p>
+<p>That is, if you are not already 2skiddy.</p>
+<p>I&#39;ll force myself to write a couple of <code>What I&#39;m working on</code>, which might seems
+interesting in the sense of my contribution. </p>
+<h1 id="nettis-(open-source)"><a class="header-link" href="#nettis-(open-source)"></a>Nettis (Open-source)</h1>
+<p><a href="https://github.com/duraki/nettis">GitHub repo</a></p>
+<p>This is something I wanted to have all my life. Basically, it&#39;s a copy of <code>Shodan</code>, a
+famous tool for pentesters. Why another clone? <strong>Good question!</strong> It is
+built for country of Bosnia and Herzegovina which I reference to quite some of
+my tools. And it will be built on top of Shodan itself!</p>
+<p>This is the first sketch of <code>nettis</code>.</p>
+<p>PLACEIMGHERE</p>
+<p>I know, image does not show much. At the upper layer, there is top-level domain
+builder. It should support a queue-like environment to scan and map domains from
+all possible sources. Once a domain is found, it does a deep scan to get
+possible domains within the same root. As such, using reverse techniques, or
+routes, various different fingering (ehm ...) methods to do the scan are
+possible.</p>
+<p>Important domains (as in - business domains, not real one), is reverse
+engineering to lowest lever. A zonefile is missing for this ccTLD, so we need
+to gather info from various different sources.</p>
+<p>At the <strong>bottom layer</strong>, there is a split map, one for server machines (read dc, 
+hosts, isp), and other for local pcs (users, human beings).</p>
+<p>In the middle, there is a storage, zero-cost, all goes on gist+github. Once we
+stash everything, a queue will have zeroep, it should do something all the time.</p>
+<p>Controling the bot with Telegram or similar is great, especially if the bot is
+running 24/7 on Pi cluster.</p>
+<p>At the end, I&#39;m supposed to have information about 130k+ domain owners
+(clients?), (thats nice), plus a whole network in the country mapped to ground. 
+All info is already publicly available, the bot will just deep scan to connect these dots.</p>
+<p>Checkout the project on <a href="https://github.com/duraki/nettis">GitHub</a>, I&#39;m studying 
+Crystal with it.</p>
+<h1 id="jeep---metasploit-for-your-car"><a class="header-link" href="#jeep---metasploit-for-your-car"></a>Jeep - Metasploit for your car</h1>
+<p><a href="https://github.com/duraki/jeep">GitHub repo</a></p>
+<p><code>jeep</code> is a Metasploit-like framework for CAN interfaces, mostly used in vehicle 
+and automobile systems. This tool should allow you to interact with your tty 
+in a simple manner, implementing both plugin system and native environment. There 
+is also an API header file available for reuse and faster module writings.</p>
+<p>That is how I explain this tool in few words. It&#39;s especially nice since it&#39;s
+open-source, so you can learn a bit of CAN. </p>
+<p><code>jeep</code> will be featured on <a href="https://can-newsletter.org/">CAN Newsletter</a> very
+soon where you will get the basic details of what it actually is. For more, read
+my introduction to vehicle hacking and follow the
+<a href="https://github.com/duraki/jeep">repository</a>.</p>
+
+      <hr style="display: block; text-align: left; width: 100%;" />
+
+      <div id="footer"><div id="desc">thanks for reading |written on: Dec 11 2017</div></div>
+
+    </div>
+  </div>
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', '<%= @ga %>', 'auto');
+  ga('send', 'pageview');
+  </script>
+
+</body>
+</html>
