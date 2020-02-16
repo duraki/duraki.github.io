@@ -150,7 +150,14 @@
 <p>While inside your Ghidra project, go to <code>0x1004a1724</code> in Dissasemble view, and you will see this code.</p>
 <pre class="hljs"><code><span class="hljs-number">1004</span>a1736 <span class="hljs-number">85</span> db           TEST       EBX,EBX
 <span class="hljs-number">1004</span>a1738 <span class="hljs-number">0</span>f <span class="hljs-number">85</span> <span class="hljs-number">58</span>        JNZ        LAB_1004a1896
-         <span class="hljs-number">01</span> <span class="hljs-number">00</span> <span class="hljs-number">00</span></code></pre><p>At the address <code>0x1004a1738</code>, is instruction JNZ (Jump not equal), which calls code signature method and exit the Sketch. Just replace this jump to the next instruction at <code>0x1004a173e</code>. </p>
+         <span class="hljs-number">01</span> <span class="hljs-number">00</span> <span class="hljs-number">00</span></code></pre><hr>
+
+<p><strong>Update:</strong> I was asked by a fellow follower (@kiwamizamurai) on my <a href="https://twitter.com/0xduraki/status/1228682677106114561">Twitter</a> post, how I&#39;ve found this address.</p>
+<p class="img-container"><img src="https://duraki.github.io/images/posts/sketch-update-codesign.png" alt="Twitter Question"></p>
+<p>I&#39;ve found this address by setting up a breakpoint just before the <code>exit</code> syscall and then going step by step in dissasembler. If you try to open up Sketch.app with bad signature you&#39;d get a system error with BAD_CODE_SIGNATURE code. Therefore, I knew the error was due to bad signature. Then I checked which instruction reference to this call. </p>
+<hr>
+
+<p>Anyway, At the address <code>0x1004a1738</code>, is instruction JNZ (Jump not equal), which calls code signature method and exit the Sketch. Just replace this jump to the next instruction at <code>0x1004a173e</code>. </p>
 <p class="img-container"><img src="https://duraki.github.io/images/posts/sketchapp-jumpity-jump.png" alt="Sketch.App Code Signature #1"></p>
 <pre class="hljs"><code> 1004a1736 <span class="hljs-number">85</span> <span class="hljs-built_in">db</span>           <span class="hljs-keyword">TEST</span>       <span class="hljs-built_in">EBX</span>,<span class="hljs-built_in">EBX</span>
  1004a1738 0f <span class="hljs-number">85</span> <span class="hljs-number">00</span>        <span class="hljs-keyword">JNZ</span>        LAB_1004a173e
@@ -185,7 +192,8 @@ $ codesign --deep --force -s <span class="hljs-string">"signature"</span> /Appli
 $ xattr -lr /Applications/Sketch.<span class="hljs-keyword">app</span>    # lists all empty attrs <span class="hljs-keyword">in</span> <span class="hljs-keyword">app</span>
 $ xattr -cr /Applications/Sketch.<span class="hljs-keyword">app</span>    # <span class="hljs-keyword">clear</span> empty attrs <span class="hljs-keyword">in</span> binary <span class="hljs-keyword">app</span></code></pre><p>Voila! There you go, a never ending Sketch.App trial.</p>
 <p class="img-container"><img src="https://duraki.github.io/images/posts/patched-sketchapp.png" alt="Patched Sketch.App"></p>
-<p>[1] <a href="https://ghidra-sre.org/">https://ghidra-sre.org/</a><br>[2] <a href="https://www.youtube.com/watch?v=fTGTnrgjuGA">https://www.youtube.com/watch?v=fTGTnrgjuGA</a></p>
+<p>If you want, you can disable Sketch.App update feature through Terminal:</p>
+<pre class="hljs"><code>$ defaults write com<span class="hljs-selector-class">.bohemiancoding</span><span class="hljs-selector-class">.sketch3</span><span class="hljs-selector-class">.plist</span> SUEnableAutomaticChecks -bool false</code></pre><p>[1] <a href="https://ghidra-sre.org/">https://ghidra-sre.org/</a><br>[2] <a href="https://www.youtube.com/watch?v=fTGTnrgjuGA">https://www.youtube.com/watch?v=fTGTnrgjuGA</a></p>
 
       <hr style="display: block; text-align: left; width: 100%;" />
 
