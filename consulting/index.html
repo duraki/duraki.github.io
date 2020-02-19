@@ -27,8 +27,10 @@
 
   <div class="main-container" style="max-width: 50%; margin: auto;">
     <div class="logo" style="padding-top: 3%">
-      <object id="anim" class="anim" type="image/svg+xml" data="style/logo.svg" height="250px"></object>
-      <p class="advisor">Cybersecurity Advisor</p>
+      
+      <object data-tilt id="anim" class="anim" type="image/svg+xml" data="style/logo.svg" height="250px"></object>
+      
+      <p class="advisor" id="test"><noscript>Cybersecurity Advisor</noscript></p>
     </div>
 
     <div class="about">
@@ -48,7 +50,9 @@
     <p style="text-align: center;padding-top: 10%;">Secure your business.</p>
 
     <div style="text-align: center;">
-      <img src="./style/copyright.png" style="text-align: center;" />
+      <div class="devil-100-pic js-tilt" data-tilt>
+        <img src="./style/copyright.png" style="text-align: center;" />
+      </div>
     </div>
   </div>
 
@@ -72,6 +76,15 @@
       new Vivus('anim', {duration: 160}, function (obj) {
         obj.play(obj.getStatus() === 'end' ? -1 : 1);
       });
+    </script>
+
+    <script src="style/js/tilt.js"></script>
+    <script src="style/js/base.js"></script>
+
+    <script type="text/javascript">
+      $('.js-tilt').tilt({
+        scale: 1.2
+      })      
     </script>
 
   </body>
