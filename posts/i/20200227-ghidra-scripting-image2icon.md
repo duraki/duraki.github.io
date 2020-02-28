@@ -6,7 +6,7 @@ tags: ["image2icon.app", "macos", "osx", "reverseengineering", "ghidra", "script
 
 ## Intro
 
-Have you ever wondered how cool Ghidra is? I did for almost since the release. As someone who pretty much enjoy reading low-level code, I really dig what NSA did with this framework. To be honest, I'm still learning Ghidra and it's potential but from what I can see, the possibilities are endless.
+Have you ever wondered how cool Ghidra is? I did for almost since the release. As someone who pretty much enjoy reading low-level code, I really dig what NSA did with this framework. To be honest, I'm still learning Ghidra potential but from what I can see, the possibilities are endless.
 
 In this post, we will learn how to use **Ghidra Scripting** to patch a MacOS application called `Image2Icon`. This simple yet cool application allows you to change Folder Icons to look Sick! The application has been developed by the same [company](http://www.shinyfrog.net/) who created a famous [Bear.App](https://bear.app/) (*a note taking ecosystem app*). The application is rather cheap (10$), and you can **buy it** [here](http://www.img2icnsapp.com/) which I highly recommend for the simplicity of use and the pricetag. Support these awesome developers.
 
@@ -154,7 +154,9 @@ SFImageTemplateMiniDisc::isLocked               XREF[1]:     10025f540(*)
 10004c50a c3              RET
 ```
 
-What we need from a `*.function` enumeration is `EntryPoint` & `Return` value. This way we can compare if function is return `0/1` depending if it's locked or not. Also, based on EntryPoint, we can define the offset of request regression, either `MOV` or `XOR`. Since `EntryPoint` returns [Address](http://ghidra.re/ghidra_docs/api/ghidra/program/model/address/Address.html), we can use method `4x on .next()` or call `add()` which accepts `displacement` as a paremeter. From the [documentation](http://ghidra.re/ghidra_docs/api/ghidra/program/model/address/Address.html#add(long)):
+What we need from a `*.function` enumeration is `EntryPoint` & `Return` value. This way we can compare if function returns `0/1` depending if it's locked or not.  
+  
+Also, based on EntryPoint, we can define the offset of request regression, either `MOV` or `XOR`. Since `EntryPoint` returns [Address](http://ghidra.re/ghidra_docs/api/ghidra/program/model/address/Address.html), we can call `.next()` (4 times), or call `add()` which accepts `displacement` as a paremeter. From the [documentation](http://ghidra.re/ghidra_docs/api/ghidra/program/model/address/Address.html#add(long)):
 
 ```Address	add​(long displacement)   Creates a new address (possibly in a new space) by adding the displacement to this address.```
 
@@ -170,7 +172,7 @@ Lets `.add()` offset of value `4` (number of instructions) to get correct instru
 				println(offset.toString());		
 ```
 
-Now that we got our offset address we need to patch, we need two things.
+Now that we got our offset address, we can patch it. To do so, we need two things.
   
 One is `getInstructionAt()` method which spits Address instruction. We will use `Assemblers` ([API](http://ghidra.re/ghidra_docs/api/ghidra/app/plugin/assembler/package-summary.html)) that offers methods for `Patching` and fixing instruction of correct offset address.
 
