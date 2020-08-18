@@ -3,6 +3,10 @@ body {
   background-color: #ffffff;
 }
 
+#avatar {
+  max-width: 100%;
+}
+
 #wrap {
   width:550px;
 }
@@ -77,7 +81,7 @@ pre {
 }
 
 img {
-  max-width: -webkit-fill-available;
+  max-width: 100%;
 }
 
 th {
