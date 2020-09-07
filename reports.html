@@ -47,6 +47,7 @@ pre {
 2014 - radiosarajevo.ba | Web     | SQL injection, admin access
 2014 - huawei.com       | Web     | Stored XSS, unrestricted redirect
 2017 - klix.ba          | Web     | Account takeover, File upload, multiple API vulns
+2020 - apple.com        | Web     | Sensitive Data Disclosure, publicly accessible .git directory
 <!--
   Zml4LmJhCg undisclosed, nda
 2017 - ***.ba           | Web     | File upload to root takeover
@@ -54,8 +55,8 @@ pre {
 2018 - ****.ba          | Web     | File upload to root takeover
 -->
 
-* all `.ba` targets are ccTLD most visited websites by Alexa ranking[1] in BA (Bosnia and Herzegovina)
-* all vulnerabilities are responsibly discolsed some of them never went public
+* all `.ba` targets are ccTLD most visited websites by Alexa ranking[1] in BA (Bosnia-Herzegovina)
+* all vulnerabilities are responsibly discolsed; few are not disclosed due to NDA 
 
 [1] https://www.alexa.com/topsites/countries/BA
 
@@ -66,7 +67,11 @@ pre {
  \___/_/\_\ .__/|_|\___/|_|\__|
           |_|                  
 
-2013 - CVE-2013-5099   | Anchor CMS         | Stored XSS
+assigned:
+2013 - CVE-2013-5099   | Anchor CMS         | Stored XSS, [<a href="https://www.exploit-db.com/exploits/26958" target="_blank">exploit-db</a>]
+2020 - CVE-2020-13648  | http-protection    | A Crystal Shard (Library), IP Spoofing Bypass, [<a href="https://www.exploit-db.com/exploits/48533" target="_blank">exploit-db</a>]
+
+non-assigned:
 2013 - /               | Anchor CMS beta    | CSRF bypass 
 2015 - /               | MeekroDB PHP       | Blind SQL injection
 
@@ -84,5 +89,6 @@ href="https://duraki.github.io/posts/o/0003-reverse-eng-alina-pos-malware.html">
 2016 - <a
 href="https://2k16.balccon.org/slides/Introduction_to_cyber_attacks_on_vehicles.pdf">Introduction to cyber-attacks on vehicles</a> | for [@BalCCon]
 2017 - <a href="https://github.com/duraki/jeep">Metasploit for your car - dev phase</a>       | for [@Public]
+2018 - <a href="https://duraki.github.io/pdf/nettis-whitepaper.pdf">Open-source intelligence gathering</a>        | Academic research paper on Espionage Surveillance System 
     
     </pre>

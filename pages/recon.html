@@ -1,0 +1,65 @@
+<html>
+<head>
+	<title>[Hacking] Recon // Cheatsheet</title>
+</head>
+<body>
+
+<div class="subdomains">
+<h2>Subdomains</h2>
+<code><pre>
+-- [0x1 - Steps]
+
+    Use amass to gather passive data
+    Use gobuster for bruteforce
+    Use commonspeak2, SecList
+    Run massdns on input
+    Run altdns on the result set
+    Run massdns on input from altdns results
+
+-- [0x2 - Example]
+
+Passive:
+--
+$ amass enum --passive -d [DOMAIN]
+$ amass enum --passive -d [DOMAIN] -o amass.recon 			# Output to file
+
+Bruteforce:
+--
+$ gobuster dns -d [DOMAIN] -w ~/util/commonspeak2/subdomains/subdomains.txt
+$ gobuster dns -d [DOMAIN] -w [WORDLIST] -o gobuster.recon -t 30 # Output to file, Via 30 threads
+
+Active DNS resolve:
+--
+
+
+-- [0xx - References]
+https://github.com/OWASP/Amass/blob/master/doc/user_guide.md
+https://redteamtutorials.com/2018/11/19/gobuster-cheatsheet/
+https://i2.wp.com/poc-server.com/blog/wp-content/uploads/2019/01/Ideal-Workflow.png
+https://appsecco.com/books/subdomain-enumeration/
+</pre></code>
+</div>
+
+<div class="subdomains">
+<h2>Network</h2>
+<code><pre>
+-- [0x0 - References]
+https://medium.com/@securityshenaningans/why-you-should-always-scan-udp-ports-part-1-2-d8ee7eb26727
+</pre></code>
+</div>
+
+<div class="subdomains">
+<h2>Other</h2>
+<code><pre>
+-- [0xx - References]
+https://github.com/0xRadi/OWASP-Web-Checklist
+https://chaos.projectdiscovery.io/#/
+</pre></code>
+</div>
+
+
+
+
+
+</body>
+</html>
