@@ -77,7 +77,7 @@ pre {
 }
 
 img {
-  max-width: -webkit-fill-available;
+  max-width: 100%;
 }
 
 th {
