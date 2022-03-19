@@ -73,30 +73,30 @@
 <p><code>V = [V1, V2, V3, ... , Vn]</code></p>
 <p>U gornjem primjeru, tačka <strong>V</strong> ima komponente vektora koje smo definisali slovom <strong>Y</strong>. U stvarnom primjeru, komponente se označavaju imenama osa koje korespondiraju tim komponentama, npr. komponente 3D tačke <strong>P</strong> bi mogli napisati ovako:</p>
 <pre class="hljs"><code><span class="hljs-attr">P</span> = [Px, Py, Pz]</code></pre><p>Kroz iste osnove matrice računamo i vrhove bilo kojeg oblika:</p>
-<pre class="hljs"><code><span class="hljs-section">    [V1]</span>
-<span class="hljs-section">    [V2]</span>
+<pre class="hljs"><code>    <span class="hljs-section">[V1]</span>
+    <span class="hljs-section">[V2]</span>
 <span class="hljs-attr">V</span> = [V3]
-<span class="hljs-section">    [..]</span>
-<span class="hljs-section">    [V4]</span></code></pre><p>Vrhove također možemo transformisati kao skalarne veličine, te tako izraćunati novi vrh koji ima iste (relevantne) proporcije nasuprot datim:</p>
-<pre class="hljs"><code><span class="hljs-attr">aV</span> = Va = &lt;aV1, aV2, ... , aVn&gt;</code></pre><p>U slučaju da je <code>a = -1</code>, koristimo notaciju <code>-V</code> da prestavimo negaciju vrha <strong>V</strong>. Kao takve, vrhovima se komponente mogu dodavati ili oduzimati:</p>
+    <span class="hljs-section">[..]</span>
+    <span class="hljs-section">[V4]</span></code></pre><p>Vrhove također možemo transformisati kao skalarne veličine, te tako izraćunati novi vrh koji ima iste (relevantne) proporcije nasuprot datim:</p>
+<pre class="hljs"><code><span class="hljs-attribute">aV</span> = Va = &lt;aV<span class="hljs-number">1</span>, aV<span class="hljs-number">2</span>, ... , aVn&gt;</code></pre><p>U slučaju da je <code>a = -1</code>, koristimo notaciju <code>-V</code> da prestavimo negaciju vrha <strong>V</strong>. Kao takve, vrhovima se komponente mogu dodavati ili oduzimati:</p>
 <pre class="hljs"><code>P + Q = &lt;<span class="hljs-built_in">P1</span>+<span class="hljs-built_in">Q1</span>, <span class="hljs-built_in">P2</span>+<span class="hljs-built_in">Q2</span>, ... , Pn+<span class="hljs-meta">Qn</span>&gt;</code></pre><p>Kao rezultat ove jednačine, transformacija detaljno, gledajuči je kroz matrice, izgleda ovako:</p>
-<pre class="hljs"><code>           <span class="hljs-string">[P1]</span>
-           <span class="hljs-string">[P2]</span>
- P =       <span class="hljs-string">[P3]</span>
-          <span class="hljs-string">[..]</span>
-           <span class="hljs-string">[Pn]</span>
+<pre class="hljs"><code>           <span class="hljs-section">[P1]</span>
+           <span class="hljs-section">[P2]</span>
+ <span class="hljs-attr">P</span> =       [P3]
+          <span class="hljs-section">[..]</span>
+           <span class="hljs-section">[Pn]</span>
 
-           <span class="hljs-string">[Q1]</span>
-           <span class="hljs-string">[Q2]</span>
- Q =       <span class="hljs-string">[Q3]</span>
-           <span class="hljs-string">[..]</span>
-           <span class="hljs-string">[Qn]</span>
+           <span class="hljs-section">[Q1]</span>
+           <span class="hljs-section">[Q2]</span>
+ <span class="hljs-attr">Q</span> =       [Q3]
+           <span class="hljs-section">[..]</span>
+           <span class="hljs-section">[Qn]</span>
 
-          <span class="hljs-string">[P1 Q1]</span>
-          <span class="hljs-string">[P2 Q2]</span>
- C= P+Q = <span class="hljs-string">[P3 Q3]</span>
-          <span class="hljs-string">[.. ..]</span>
-          <span class="hljs-string">[Pn Qn]</span></code></pre><p>Ovo je najjednostavniji primjer transformacije vrhova kroz matrica, ali stvari mogu biti složenije kada se tu pojavi više komponenti u vrhu <strong>P</strong> i u vrhu <strong>Q</strong>. Takva kalkulacija može potrajati duže u procesu GPU. </p>
+          <span class="hljs-section">[P1 Q1]</span>
+          <span class="hljs-section">[P2 Q2]</span>
+ <span class="hljs-attr">C</span>= P+Q = [P3 Q3]
+          <span class="hljs-section">[.. ..]</span>
+          <span class="hljs-section">[Pn Qn]</span></code></pre><p>Ovo je najjednostavniji primjer transformacije vrhova kroz matrica, ali stvari mogu biti složenije kada se tu pojavi više komponenti u vrhu <strong>P</strong> i u vrhu <strong>Q</strong>. Takva kalkulacija može potrajati duže u procesu GPU. </p>
 
       <hr style="display: block; text-align: left; width: 100%;" />
 

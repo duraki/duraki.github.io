@@ -58,13 +58,13 @@
 <p>Above, I highlighted two things. With <strong>purple</strong> color, at the window title, there is total number of filtered function (equals to 43). The second one, highlighted in <strong>yellow</strong> is function size. </p>
 <p>If you are wondering why the function size is different, it&#39;s pretty simple. The functions with size <code>8</code> are <strong>unlocked</strong> icons, while the size <code>11</code> are the <strong>locked</strong> icons.</p>
 <p>The function size is different because of instructions. See the snippet below for explanation.</p>
-<pre class="hljs"><code># For unlocked icons
-<span class="hljs-number">100005815</span> <span class="hljs-number">48</span> <span class="hljs-number">89</span> e5        MOV        RBP,RSP
-<span class="hljs-number">100005818</span> <span class="hljs-number">31</span> c0           XOR        EAX,EAX     ; xoring EAX/EAX returns <span class="hljs-number">0</span>
+<pre class="hljs"><code><span class="hljs-comment"># For unlocked icons</span>
+<span class="hljs-attribute">100005815</span> <span class="hljs-number">48</span> <span class="hljs-number">89</span> e<span class="hljs-number">5</span>        MOV        RBP,RSP
+<span class="hljs-attribute">100005818</span> <span class="hljs-number">31</span> c<span class="hljs-number">0</span>           XOR        EAX,EAX     ; xoring EAX/EAX returns <span class="hljs-number">0</span>
 
-# For locked icons
-<span class="hljs-number">100004455</span> <span class="hljs-number">48</span> <span class="hljs-number">89</span> e5        MOV        RBP,RSP
-<span class="hljs-number">100004458</span> b8 <span class="hljs-number">01</span> <span class="hljs-number">00</span>        MOV        EAX,<span class="hljs-number">0x1</span>     ; moving <span class="hljs-number">1</span> to EAX</code></pre><p>In the end, the pseudo-code of the function may look like this (plain C):</p>
+<span class="hljs-comment"># For locked icons</span>
+<span class="hljs-attribute">100004455</span> <span class="hljs-number">48</span> <span class="hljs-number">89</span> e<span class="hljs-number">5</span>        MOV        RBP,RSP
+<span class="hljs-attribute">100004458</span> b<span class="hljs-number">8</span> <span class="hljs-number">01</span> <span class="hljs-number">00</span>        MOV        EAX,<span class="hljs-number">0</span>x<span class="hljs-number">1</span>     ; moving <span class="hljs-number">1</span> to EAX</code></pre><p>In the end, the pseudo-code of the function may look like this (plain C):</p>
 <pre class="hljs"><code><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">isLocked</span><span class="hljs-params">()</span>
 </span>{
   <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;     <span class="hljs-comment">// or 0 for unlocked icons</span>
@@ -86,84 +86,84 @@
 <p>We will give our script the shiny new name: <code>FindPatchIsLocked.java</code>. Ghidra spits our new editor window and autofill necessary imports and libraries.</p>
 <p>Lets fix our <code>run()</code> method which will give us MD5 sum of the current program in use. Remember that <code>run()</code> function is mandatory for any Ghidra Script.</p>
 <pre class="hljs"><code>...
-    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-built_in">run</span>() throws Exception {
-        <span class="hljs-built_in">println</span>(<span class="hljs-string">"Current Program MD5 Sum: "</span> + currentProgram.getExecutableMD5());
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> throws Exception </span>{
+        <span class="hljs-built_in">println</span>(<span class="hljs-string">&quot;Current Program MD5 Sum: &quot;</span> + currentProgram.<span class="hljs-built_in">getExecutableMD5</span>());
     }</code></pre><p>If we run the script, the <code>Console</code> window will yield correct output:</p>
-<pre class="hljs"><code><span class="hljs-selector-tag">Successfully</span> <span class="hljs-selector-tag">compiled</span>: <span class="hljs-selector-tag">FindPatchIsLocked</span><span class="hljs-selector-class">.java</span>
-<span class="hljs-selector-tag">FindPatchIsLocked</span><span class="hljs-selector-class">.java</span>&gt; <span class="hljs-selector-tag">Running</span>...
-<span class="hljs-selector-tag">FindPatchIsLocked</span><span class="hljs-selector-class">.java</span>&gt; <span class="hljs-selector-tag">Current</span> <span class="hljs-selector-tag">Program</span> <span class="hljs-selector-tag">MD5</span> <span class="hljs-selector-tag">Sum</span>: <span class="hljs-selector-tag">f9a4cb81546dffa2f8d58c79d804e70f</span>
-<span class="hljs-selector-tag">FindPatchIsLocked</span><span class="hljs-selector-class">.java</span>&gt; <span class="hljs-selector-tag">Finished</span>!</code></pre><p>Now, we will write our new method for finding <code>isLocked</code> function. This method will accept <code>Program</code> which will be our <code>currentProgram</code>, and <code>String</code> as argument. The later will be used as to pass a function name. </p>
+<pre class="hljs"><code><span class="hljs-attribute">Successfully</span> compiled: FindPatchIsLocked.java
+<span class="hljs-attribute">FindPatchIsLocked</span>.java&gt; Running...
+<span class="hljs-attribute">FindPatchIsLocked</span>.java&gt; Current Program MD<span class="hljs-number">5</span> Sum: f<span class="hljs-number">9</span>a<span class="hljs-number">4</span>cb<span class="hljs-number">81546</span>dffa<span class="hljs-number">2</span>f<span class="hljs-number">8</span>d<span class="hljs-number">58</span>c<span class="hljs-number">79</span>d<span class="hljs-number">804</span>e<span class="hljs-number">70</span>f
+<span class="hljs-attribute">FindPatchIsLocked</span>.java&gt; Finished!</code></pre><p>Now, we will write our new method for finding <code>isLocked</code> function. This method will accept <code>Program</code> which will be our <code>currentProgram</code>, and <code>String</code> as argument. The later will be used as to pass a function name. </p>
 <pre class="hljs"><code>...
 
-    <span class="hljs-keyword">private</span> void findFunction(<span class="hljs-function"><span class="hljs-keyword">Program</span></span> <span class="hljs-function"><span class="hljs-keyword">program</span></span>, String <span class="hljs-keyword">name</span>) {
-        // Define FunctionManager
-        FunctionManager functionManager = <span class="hljs-function"><span class="hljs-keyword">program</span>.<span class="hljs-title">getFunctionManager</span><span class="hljs-params">()</span></span>;
-        FunctionIterator functions = functionManager.getFunctions(true);
+    <span class="hljs-keyword">private</span> void find<span class="hljs-constructor">Function(Program <span class="hljs-params">program</span>, String <span class="hljs-params">name</span>)</span> {
+        <span class="hljs-comment">// Define FunctionManager</span>
+        FunctionManager functionManager = program.get<span class="hljs-constructor">FunctionManager()</span>;
+        FunctionIterator functions = functionManager.get<span class="hljs-constructor">Functions(<span class="hljs-params">true</span>)</span>;
 
-        // Iterate over <span class="hljs-built_in">all</span> functions and find one which equals to `<span class="hljs-keyword">name</span>`
-        for (<span class="hljs-function"><span class="hljs-keyword">Function</span></span> <span class="hljs-function"><span class="hljs-keyword">function</span></span> : functions) {
-            <span class="hljs-keyword">if</span> (<span class="hljs-function"><span class="hljs-keyword">function</span>.<span class="hljs-title">getName</span><span class="hljs-params">()</span></span>.equals(<span class="hljs-keyword">name</span>)) {
-            println(<span class="hljs-string">"Function "</span> + <span class="hljs-keyword">name</span> + <span class="hljs-string">" found!"</span>);
+        <span class="hljs-comment">// Iterate over all functions and find one which equals to `name`</span>
+        <span class="hljs-keyword">for</span> (Function <span class="hljs-keyword">function</span> : functions) {
+            <span class="hljs-keyword">if</span> (<span class="hljs-keyword">function</span>.get<span class="hljs-constructor">Name()</span>.equals(name)) {
+            println(<span class="hljs-string">&quot;Function &quot;</span> + name + <span class="hljs-string">&quot; found!&quot;</span>);
             }
         }
     }</code></pre><p>Now fix the <code>run()</code> method to call this function.</p>
 <pre class="hljs"><code>...
-    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-built_in">run</span>() throws Exception {
-        <span class="hljs-built_in">println</span>(<span class="hljs-string">"Current Program MD5 Sum: "</span> + currentProgram.getExecutableMD5());
-        findFunction(currentProgram, <span class="hljs-string">"isLocked"</span>);
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> throws Exception </span>{
+        <span class="hljs-built_in">println</span>(<span class="hljs-string">&quot;Current Program MD5 Sum: &quot;</span> + currentProgram.<span class="hljs-built_in">getExecutableMD5</span>());
+        <span class="hljs-built_in">findFunction</span>(currentProgram, <span class="hljs-string">&quot;isLocked&quot;</span>);
     }</code></pre><p>The running of this script will yield positive results in the Console window.</p>
 <p class="img-container"><img src="/images/posts/img2icon/console-isLocked.png" alt="Console Window after Executing Script"></p>
 <p>That seems quite easy doesn&#39;t it? And it works! You can always reference to Ghidra API and default scripts for further details. For example, we can find <code>Function</code> model on the <a href="http://ghidra.re/ghidra_docs/api/ghidra/program/model/listing/Function.html">API Docs</a> and see what methods are supported.</p>
 <p>Lets look at the simple <code>isLocked</code> function in Dissasemble view. This one returns <code>(bool)True</code>, meaning it&#39;s locked.</p>
-<pre class="hljs"><code><span class="hljs-keyword">int</span> __stdcall isLocked(void)
-    bool     <span class="hljs-built_in">RAX</span>:<span class="hljs-number">8</span>          &lt;RETURN&gt;
-<span class="hljs-symbol">SFImageTemplateMiniDisc:</span>:isLocked               XREF[<span class="hljs-number">1</span>]:     10025f540(*)  
+<pre class="hljs"><code><span class="hljs-attribute">int</span> __stdcall isLocked(void)
+    <span class="hljs-attribute">bool</span>     RAX:<span class="hljs-number">8</span>          &lt;RETURN&gt;
+<span class="hljs-attribute">SFImageTemplateMiniDisc</span>::isLocked               XREF[<span class="hljs-number">1</span>]:     <span class="hljs-number">10025</span>f<span class="hljs-number">540</span>(*)  
 
-10004c500 <span class="hljs-number">55</span>              <span class="hljs-keyword">PUSH</span>       <span class="hljs-built_in">RBP</span>
-10004c501 <span class="hljs-number">48</span> <span class="hljs-number">89</span> e5        <span class="hljs-keyword">MOV</span>        <span class="hljs-built_in">RBP</span>,<span class="hljs-built_in">RSP</span>
-10004c504 b8 <span class="hljs-number">01</span> <span class="hljs-number">00</span>        <span class="hljs-keyword">MOV</span>        <span class="hljs-built_in">EAX</span>,<span class="hljs-number">0x1</span>
-          <span class="hljs-number">00</span> <span class="hljs-number">00</span>
-10004c509 <span class="hljs-number">5d</span>              <span class="hljs-keyword">POP</span>        <span class="hljs-built_in">RBP</span>
-10004c50a c3              <span class="hljs-keyword">RET</span></code></pre><p>What we need from a <code>*.function</code> enumeration is <code>EntryPoint</code> &amp; <code>Return</code> value. This way we can compare if function returns <code>0/1</code> depending if it&#39;s locked or not.  </p>
-<p>Also, based on EntryPoint, we can define the offset of request regression, either <code>MOV</code> or <code>XOR</code>. Since <code>EntryPoint</code> returns <a href="http://ghidra.re/ghidra_docs/api/ghidra/program/model/address/Address.html">Address</a>, we can call <code>.next()</code> (4 times), or call <code>add()</code> which accepts <code>displacement</code> as a paremeter. From the <a href="http://ghidra.re/ghidra_docs/api/ghidra/program/model/address/Address.html#add(long">documentation</a>):</p>
+<span class="hljs-attribute">10004c500</span> <span class="hljs-number">55</span>              PUSH       RBP
+<span class="hljs-attribute">10004c501</span> <span class="hljs-number">48</span> <span class="hljs-number">89</span> e<span class="hljs-number">5</span>        MOV        RBP,RSP
+<span class="hljs-attribute">10004c504</span> b<span class="hljs-number">8</span> <span class="hljs-number">01</span> <span class="hljs-number">00</span>        MOV        EAX,<span class="hljs-number">0</span>x<span class="hljs-number">1</span>
+          <span class="hljs-attribute">00</span> <span class="hljs-number">00</span>
+<span class="hljs-attribute">10004c509</span> <span class="hljs-number">5</span>d              POP        RBP
+<span class="hljs-attribute">10004c50a</span> c<span class="hljs-number">3</span>              RET</code></pre><p>What we need from a <code>*.function</code> enumeration is <code>EntryPoint</code> &amp; <code>Return</code> value. This way we can compare if function returns <code>0/1</code> depending if it&#39;s locked or not.  </p>
+<p>Also, based on EntryPoint, we can define the offset of request regression, either <code>MOV</code> or <code>XOR</code>. Since <code>EntryPoint</code> returns <a href="http://ghidra.re/ghidra_docs/api/ghidra/program/model/address/Address.html">Address</a>, we can call <code>.next()</code> (4 times), or call <code>add()</code> which accepts <code>displacement</code> as a paremeter. From the <a href="http://ghidra.re/ghidra_docs/api/ghidra/program/model/address/Address.html#add(long)">documentation</a>:</p>
 <p><code>Address    add​(long displacement)   Creates a new address (possibly in a new space) by adding the displacement to this address.</code></p>
 <p>Lets <code>.add()</code> offset of value <code>4</code> (number of instructions) to get correct instruction which either <code>MOV</code> or <code>XOR</code> the retval. </p>
-<pre class="hljs"><code>    <span class="hljs-keyword">private</span> void findFunction(<span class="hljs-function"><span class="hljs-keyword">Program</span></span> <span class="hljs-function"><span class="hljs-keyword">program</span></span>, String <span class="hljs-keyword">name</span>) {
+<pre class="hljs"><code>    <span class="hljs-keyword">private</span> void find<span class="hljs-constructor">Function(Program <span class="hljs-params">program</span>, String <span class="hljs-params">name</span>)</span> {<span class="hljs-operator">
         ...
-        for (<span class="hljs-function"><span class="hljs-keyword">Function</span></span> <span class="hljs-function"><span class="hljs-keyword">function</span></span> : functions) {
-            <span class="hljs-keyword">if</span> (<span class="hljs-function"><span class="hljs-keyword">function</span>.<span class="hljs-title">getName</span><span class="hljs-params">()</span></span>.equals(<span class="hljs-keyword">name</span>)) {
+        </span><span class="hljs-keyword">for</span> (Function <span class="hljs-keyword">function</span> : functions) {
+            <span class="hljs-keyword">if</span> (<span class="hljs-keyword">function</span>.get<span class="hljs-constructor">Name()</span>.equals(name)) {<span class="hljs-operator">
                 ...
-                Address offset = <span class="hljs-function"><span class="hljs-keyword">function</span>.<span class="hljs-title">getEntryPoint</span><span class="hljs-params">()</span></span>.add(<span class="hljs-number">4</span>);
-                println(offset.toString());        </code></pre><p>Now that we got our offset address, we can patch it. To do so, we need two things.</p>
+                </span>Address offset = <span class="hljs-keyword">function</span>.get<span class="hljs-constructor">EntryPoint()</span>.add(<span class="hljs-number">4</span>);
+                println(offset.<span class="hljs-keyword">to</span><span class="hljs-constructor">String()</span>);        </code></pre><p>Now that we got our offset address, we can patch it. To do so, we need two things.</p>
 <p>One is <code>getInstructionAt()</code> method which spits Address instruction. We will use <code>Assemblers</code> (<a href="http://ghidra.re/ghidra_docs/api/ghidra/app/plugin/assembler/package-summary.html">API</a>) that offers methods for <code>Patching</code> and fixing instruction of correct offset address.</p>
 <p>With a bit of refactoring, our current <code>findFunction</code> method looks like this:</p>
-<pre class="hljs"><code>    <span class="hljs-keyword">private</span> void findFunction(<span class="hljs-function"><span class="hljs-keyword">Program</span></span> <span class="hljs-function"><span class="hljs-keyword">program</span></span>, String <span class="hljs-keyword">name</span>) {
-        FunctionManager functionManager = <span class="hljs-function"><span class="hljs-keyword">program</span>.<span class="hljs-title">getFunctionManager</span><span class="hljs-params">()</span></span>;
-        FunctionIterator functions = functionManager.getFunctions(true);
+<pre class="hljs"><code>    <span class="hljs-keyword">private</span> void find<span class="hljs-constructor">Function(Program <span class="hljs-params">program</span>, String <span class="hljs-params">name</span>)</span> {
+        FunctionManager functionManager = program.get<span class="hljs-constructor">FunctionManager()</span>;
+        FunctionIterator functions = functionManager.get<span class="hljs-constructor">Functions(<span class="hljs-params">true</span>)</span>;
         <span class="hljs-built_in">int</span> i = <span class="hljs-number">0</span>;
-        for (<span class="hljs-function"><span class="hljs-keyword">Function</span></span> <span class="hljs-function"><span class="hljs-keyword">function</span></span> : functions) {
-            <span class="hljs-keyword">if</span> (<span class="hljs-function"><span class="hljs-keyword">function</span>.<span class="hljs-title">getName</span><span class="hljs-params">()</span></span>.equals(<span class="hljs-keyword">name</span>)) {
+        <span class="hljs-keyword">for</span> (Function <span class="hljs-keyword">function</span> : functions) {
+            <span class="hljs-keyword">if</span> (<span class="hljs-keyword">function</span>.get<span class="hljs-constructor">Name()</span>.equals(name)) {
                 i++;
+                
+                Address offset = <span class="hljs-keyword">function</span>.get<span class="hljs-constructor">EntryPoint()</span>.add(<span class="hljs-number">4</span>);    
+                Instruction ins = get<span class="hljs-constructor">InstructionAt(<span class="hljs-params">offset</span>)</span>;
 
-                Address offset = <span class="hljs-function"><span class="hljs-keyword">function</span>.<span class="hljs-title">getEntryPoint</span><span class="hljs-params">()</span></span>.add(<span class="hljs-number">4</span>);    
-                Instruction ins = getInstructionAt(offset);
-
-                String <span class="hljs-built_in">log</span> = i + <span class="hljs-string">": Function "</span> + <span class="hljs-keyword">name</span> +
-                    <span class="hljs-string">" found at: "</span> + <span class="hljs-function"><span class="hljs-keyword">function</span>.<span class="hljs-title">getEntryPoint</span><span class="hljs-params">()</span></span> + <span class="hljs-string">"! "</span> +
-                    <span class="hljs-string">"Offset: "</span> + offset.toString() + <span class="hljs-string">" * "</span> + ins.toString(); 
-
-                println(<span class="hljs-built_in">log</span>);
+                String log = i + <span class="hljs-string">&quot;: Function &quot;</span> + name +
+                    <span class="hljs-string">&quot; found at: &quot;</span> + <span class="hljs-keyword">function</span>.get<span class="hljs-constructor">EntryPoint()</span> + <span class="hljs-string">&quot;! &quot;</span> +
+                    <span class="hljs-string">&quot;Offset: &quot;</span> + offset.<span class="hljs-keyword">to</span><span class="hljs-constructor">String()</span> + <span class="hljs-string">&quot; * &quot;</span> + ins.<span class="hljs-keyword">to</span><span class="hljs-constructor">String()</span>; 
+                
+                println(log);
             }
         }
     }</code></pre><p>When we run our script from script manager, we will get correct output in the console which displays few things: <code>isLocked()</code> function Address, an offset of the instruction block which returns <code>0</code> or <code>1</code>, and the instruction at the offset. As you can see, two types of instructions are possible, both XOR and MOV, depending on retval. <strong>Blue</strong> selection represent locked modes, while <strong>green</strong> one are available for free.</p>
 <p class="img-container"><img src="/images/posts/img2icon/instruction-offset.png" alt="getInstructionAt Running"></p>
 <p>While we at it, lets work on our <code>patchInstruction</code> method. Write a new function named <code>patchInstruction</code> which will accept offset address as an input. Also import necessary modules into your script. This method needs to implement <code>Exception</code> as per documentation, as given Address may not be available in the <code>currentProgram</code>.</p>
-<pre class="hljs"><code><span class="hljs-selector-tag">import</span> <span class="hljs-selector-tag">ghidra</span><span class="hljs-selector-class">.app</span><span class="hljs-selector-class">.plugin</span><span class="hljs-selector-class">.assembler</span><span class="hljs-selector-class">.Assembler</span>;
-<span class="hljs-selector-tag">import</span> <span class="hljs-selector-tag">ghidra</span><span class="hljs-selector-class">.app</span><span class="hljs-selector-class">.plugin</span><span class="hljs-selector-class">.assembler</span><span class="hljs-selector-class">.Assemblers</span>;
+<pre class="hljs"><code><span class="hljs-keyword">import</span> ghidra.app.plugin.assembler.Assembler;
+<span class="hljs-keyword">import</span> ghidra.app.plugin.assembler.Assemblers;
 
 ...
 
-    <span class="hljs-selector-tag">private</span> <span class="hljs-selector-tag">void</span> <span class="hljs-selector-tag">patchInstruction</span>(<span class="hljs-selector-tag">Address</span> <span class="hljs-selector-tag">atOffset</span>) <span class="hljs-selector-tag">throws</span> <span class="hljs-selector-tag">Exception</span> {
+    <span class="hljs-keyword">private</span> <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">patchInstruction</span><span class="hljs-params">(Address atOffset)</span> <span class="hljs-keyword">throws</span> Exception </span>{
 
     }</code></pre><p>In this method, first we will obtain the Assembler bound for current program. You can check above documentation for detailed class references and API. The documentation states:</p>
 <p><code>static Assembler    getAssembler​(Program program)    Get an assembler for the given program.</code></p>
@@ -200,26 +200,26 @@
        <span class="hljs-number">100065843</span> 5d              POP        RBP
        <span class="hljs-number">100065844</span> c3              RET</code></pre><p>As you can see, the function <code>isLocked</code> which returns value <code>1</code> (<strong>Locked</strong>) has a few padding bytes. The difference is 3 bytes (<code>31 c0</code> &gt;&gt; <code>* 00 00 00</code>). The <code>MOV EAX, 1</code> requires 5 bytes. <code>XOR EAX, EAX</code> requires just 2 bytes (<code>xor opcode(1) + operand(1) = 2</code>). This means we shall not edit <code>XOR</code> instructions as there would be overlapping in bytes padding.</p>
 <p>We can now create <code>Assembler</code> instance named <code>asm</code> and patch the opcodes to reflect above instruction. We will use <code>asm.assemble</code> method to change opcode on the given instruction. Our <code>patchInstruction</code> now looks like this:</p>
-<pre class="hljs"><code>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">patchInstruction</span><span class="hljs-params">(Address atOffset)</span> throws Exception </span>{
+<pre class="hljs"><code>    <span class="hljs-keyword">private</span> void patch<span class="hljs-constructor">Instruction(Address <span class="hljs-params">atOffset</span>)</span> throws Exception {
         <span class="hljs-keyword">try</span> {
-            Assembler <span class="hljs-keyword">asm</span> = Assemblers.getAssembler(currentProgram);
-            <span class="hljs-keyword">asm</span>.assemble(atOffset, <span class="hljs-string">"MOV EAX, 0x0"</span>);
-        } <span class="hljs-keyword">catch</span> (Exception e) {
-            println(<span class="hljs-string">"Unable to patch at offset: "</span> + atOffset + <span class="hljs-string">" with err: "</span> + e.toString());
+            Assembler asm = <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Assemblers</span>.</span></span>get<span class="hljs-constructor">Assembler(<span class="hljs-params">currentProgram</span>)</span>;
+            asm.assemble(atOffset, <span class="hljs-string">&quot;MOV EAX, 0x0&quot;</span>);
+        } catch (Exception e) {
+            println(<span class="hljs-string">&quot;Unable to patch at offset: &quot;</span> + atOffset + <span class="hljs-string">&quot; with err: &quot;</span> + e.<span class="hljs-keyword">to</span><span class="hljs-constructor">String()</span>);
         }</code></pre><p>We need to fix our <code>findFunction()</code> method to skip <code>XOR</code> opcode in the iteration. This way, we will avoid overlapping XOR offsets with MOV instructions, as those Address already affects Icon modes (<strong>Unlocked</strong>).</p>
-<pre class="hljs"><code>    <span class="hljs-keyword">private</span> void findFunction(<span class="hljs-function"><span class="hljs-keyword">Program</span></span> <span class="hljs-function"><span class="hljs-keyword">program</span></span>, String <span class="hljs-keyword">name</span>) {
+<pre class="hljs"><code>    <span class="hljs-keyword">private</span> void find<span class="hljs-constructor">Function(Program <span class="hljs-params">program</span>, String <span class="hljs-params">name</span>)</span> {<span class="hljs-operator">
         ...
-        for (<span class="hljs-function"><span class="hljs-keyword">Function</span></span> <span class="hljs-function"><span class="hljs-keyword">function</span></span> : functions) {
-            <span class="hljs-keyword">if</span> (<span class="hljs-function"><span class="hljs-keyword">function</span>.<span class="hljs-title">getName</span><span class="hljs-params">()</span></span>.equals(<span class="hljs-keyword">name</span>)) {
+        </span><span class="hljs-keyword">for</span> (Function <span class="hljs-keyword">function</span> : functions) {
+            <span class="hljs-keyword">if</span> (<span class="hljs-keyword">function</span>.get<span class="hljs-constructor">Name()</span>.equals(name)) {
+                
+                <span class="hljs-comment">// check if instruction is MOV</span>
+                Boolean isMovOp = ins.<span class="hljs-keyword">to</span><span class="hljs-constructor">String()</span>.contains(<span class="hljs-string">&quot;MOV&quot;</span>);
+                
 
-                // check <span class="hljs-keyword">if</span> instruction is MOV
-                Boolean isMovOp = ins.toString().<span class="hljs-keyword">contains</span>(<span class="hljs-string">"MOV"</span>);
-
-
-                try {
-                    // <span class="hljs-keyword">only</span> patch instructions with MOV opcode
-                    <span class="hljs-keyword">if</span> (isMovOp == true) {
-                        patchInstruction(offset);
+                <span class="hljs-keyword">try</span> {
+                    <span class="hljs-comment">// only patch instructions with MOV opcode</span>
+                    <span class="hljs-keyword">if</span> (isMovOp<span class="hljs-operator"> == </span><span class="hljs-literal">true</span>) {
+                        patch<span class="hljs-constructor">Instruction(<span class="hljs-params">offset</span>)</span>;
                     }
         ...</code></pre><p>Finally, edit your logging info to affect the changes. The final code looks like this.</p>
 <pre class="hljs"><code><span class="hljs-comment">//This script finds isLocked function and patch the retval to 0.</span>
@@ -229,74 +229,74 @@
 <span class="hljs-comment">//@menupath </span>
 <span class="hljs-comment">//@toolbar </span>
 
-<span class="hljs-keyword">import</span> ghidra.app.script.GhidraScript;
-<span class="hljs-keyword">import</span> ghidra.program.model.util.*;
-<span class="hljs-keyword">import</span> ghidra.program.model.reloc.*;
-<span class="hljs-keyword">import</span> ghidra.program.model.data.*;
-<span class="hljs-keyword">import</span> ghidra.program.model.block.*;
-<span class="hljs-keyword">import</span> ghidra.program.model.symbol.*;
-<span class="hljs-keyword">import</span> ghidra.program.model.scalar.*;
-<span class="hljs-keyword">import</span> ghidra.program.model.mem.*;
-<span class="hljs-keyword">import</span> ghidra.program.model.listing.*;
-<span class="hljs-keyword">import</span> ghidra.program.model.lang.*;
-<span class="hljs-keyword">import</span> ghidra.program.model.pcode.*;
-<span class="hljs-keyword">import</span> ghidra.program.model.address.*;
+import ghidra.app.script.GhidraScript;
+import ghidra.program.model.util.*;
+import ghidra.program.model.reloc.*;
+import ghidra.program.model.data.*;
+import ghidra.program.model.block.*;
+import ghidra.program.model.symbol.*;
+import ghidra.program.model.scalar.*;
+import ghidra.program.model.mem.*;
+import ghidra.program.model.listing.*;
+import ghidra.program.model.lang.*;
+import ghidra.program.model.pcode.*;
+import ghidra.program.model.address.*;
 
-<span class="hljs-keyword">import</span> ghidra.app.plugin.assembler.Assembler;
-<span class="hljs-keyword">import</span> ghidra.app.plugin.assembler.Assemblers;
+import ghidra.app.plugin.assembler.Assembler;
+import ghidra.app.plugin.assembler.Assemblers;
 
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">FindPatchIsLocked</span> <span class="hljs-title">extends</span> <span class="hljs-title">GhidraScript</span> </span>{
+public <span class="hljs-keyword">class</span> FindPatchIsLocked extends GhidraScript {
 
-    <span class="hljs-keyword">public</span> void run() <span class="hljs-keyword">throws</span> <span class="hljs-type">Exception</span> {
-        <span class="hljs-built_in">println</span>(<span class="hljs-string">"Current Program MD5 Sum: "</span> + currentProgram.getExecutableMD5());
-        findFunction(currentProgram, <span class="hljs-string">"isLocked"</span>);
+    public void run<span class="hljs-literal">()</span> throws Exception {
+        println(<span class="hljs-string">&quot;Current Program MD5 Sum: &quot;</span> + currentProgram.get<span class="hljs-constructor">ExecutableMD5()</span>);
+        find<span class="hljs-constructor">Function(<span class="hljs-params">currentProgram</span>, <span class="hljs-string">&quot;isLocked&quot;</span>)</span>;
     }
 
-    <span class="hljs-keyword">private</span> void findFunction(<span class="hljs-type">Program</span> program, <span class="hljs-type">String</span> name) {
-        <span class="hljs-type">FunctionManager</span> functionManager = program.getFunctionManager();
-        <span class="hljs-type">FunctionIterator</span> functions = functionManager.getFunctions(<span class="hljs-literal">true</span>);
+    <span class="hljs-keyword">private</span> void find<span class="hljs-constructor">Function(Program <span class="hljs-params">program</span>, String <span class="hljs-params">name</span>)</span> {
+        FunctionManager functionManager = program.get<span class="hljs-constructor">FunctionManager()</span>;
+        FunctionIterator functions = functionManager.get<span class="hljs-constructor">Functions(<span class="hljs-params">true</span>)</span>;
+        
+        <span class="hljs-built_in">int</span> i = <span class="hljs-number">0</span>; <span class="hljs-comment">// function index counter</span>
 
-        int i = <span class="hljs-number">0</span>; <span class="hljs-comment">// function index counter</span>
-
-        <span class="hljs-keyword">for</span> (<span class="hljs-type">Function</span> function : functions) {
-            <span class="hljs-keyword">if</span> (function.getName().equals(name)) {
+        <span class="hljs-keyword">for</span> (Function <span class="hljs-keyword">function</span> : functions) {
+            <span class="hljs-keyword">if</span> (<span class="hljs-keyword">function</span>.get<span class="hljs-constructor">Name()</span>.equals(name)) {
                 i++;
-
-                <span class="hljs-type">Address</span> offset = function.getEntryPoint().add(<span class="hljs-number">4</span>);    
-                <span class="hljs-type">Instruction</span> ins = getInstructionAt(offset);
+                
+                Address offset = <span class="hljs-keyword">function</span>.get<span class="hljs-constructor">EntryPoint()</span>.add(<span class="hljs-number">4</span>);    
+                Instruction ins = get<span class="hljs-constructor">InstructionAt(<span class="hljs-params">offset</span>)</span>;
 
                 <span class="hljs-comment">// check if instruction is MOV</span>
-                <span class="hljs-type">Boolean</span> isMovOp = ins.<span class="hljs-built_in">toString</span>().<span class="hljs-built_in">contains</span>(<span class="hljs-string">"MOV"</span>);
-
+                Boolean isMovOp = ins.<span class="hljs-keyword">to</span><span class="hljs-constructor">String()</span>.contains(<span class="hljs-string">&quot;MOV&quot;</span>);
+                
 
                 <span class="hljs-keyword">try</span> {
-                    <span class="hljs-keyword">if</span> (isMovOp == <span class="hljs-literal">true</span>) {
-                        patchInstruction(offset);
+                    <span class="hljs-keyword">if</span> (isMovOp<span class="hljs-operator"> == </span><span class="hljs-literal">true</span>) {
+                        patch<span class="hljs-constructor">Instruction(<span class="hljs-params">offset</span>)</span>;
                     }
-                } <span class="hljs-keyword">catch</span> (<span class="hljs-type">Exception</span> e) {
-                    <span class="hljs-built_in">println</span>(<span class="hljs-string">"Error: Something happend while calling patchInstruction ..."</span>);
+                } catch (Exception e) {
+                    println(<span class="hljs-string">&quot;Error: Something happend while calling patchInstruction ...&quot;</span>);
                 }
 
 
-                <span class="hljs-type">Instruction</span> patchedIns = getInstructionAt(offset);
-
-                <span class="hljs-type">String</span> log = i + <span class="hljs-string">": Function "</span> + name +
-                    <span class="hljs-string">" found at: "</span> + function.getEntryPoint() + <span class="hljs-string">"! "</span> +
-                    <span class="hljs-string">"Offset: "</span> + offset.<span class="hljs-built_in">toString</span>() + <span class="hljs-string">" * "</span> + 
-                    ins.<span class="hljs-built_in">toString</span>() + <span class="hljs-string">" &gt;&gt; "</span> + patchedIns.<span class="hljs-built_in">toString</span>() + 
-                    <span class="hljs-string">" patch: "</span> + isMovOp.<span class="hljs-built_in">toString</span>(); 
-
-                <span class="hljs-built_in">println</span>(log);
+                Instruction patchedIns = get<span class="hljs-constructor">InstructionAt(<span class="hljs-params">offset</span>)</span>;
+                
+                String log = i + <span class="hljs-string">&quot;: Function &quot;</span> + name +
+                    <span class="hljs-string">&quot; found at: &quot;</span> + <span class="hljs-keyword">function</span>.get<span class="hljs-constructor">EntryPoint()</span> + <span class="hljs-string">&quot;! &quot;</span> +
+                    <span class="hljs-string">&quot;Offset: &quot;</span> + offset.<span class="hljs-keyword">to</span><span class="hljs-constructor">String()</span> + <span class="hljs-string">&quot; * &quot;</span> + 
+                    ins.<span class="hljs-keyword">to</span><span class="hljs-constructor">String()</span> + <span class="hljs-string">&quot; &gt;&gt; &quot;</span> + patchedIns.<span class="hljs-keyword">to</span><span class="hljs-constructor">String()</span> + 
+                    <span class="hljs-string">&quot; patch: &quot;</span> + isMovOp.<span class="hljs-keyword">to</span><span class="hljs-constructor">String()</span>; 
+                
+                println(log);
             }
         }
     }
 
-    <span class="hljs-keyword">private</span> void patchInstruction(<span class="hljs-type">Address</span> atOffset) <span class="hljs-keyword">throws</span> <span class="hljs-type">Exception</span> {
+    <span class="hljs-keyword">private</span> void patch<span class="hljs-constructor">Instruction(Address <span class="hljs-params">atOffset</span>)</span> throws Exception {
         <span class="hljs-keyword">try</span> {
-            <span class="hljs-type">Assembler</span> asm = <span class="hljs-type">Assemblers</span>.getAssembler(currentProgram);
-            asm.assemble(atOffset, <span class="hljs-string">"MOV EAX, 0x0"</span>);
-        } <span class="hljs-keyword">catch</span> (<span class="hljs-type">Exception</span> e) {
-            <span class="hljs-built_in">println</span>(<span class="hljs-string">"Unable to patch at offset: "</span> + atOffset + <span class="hljs-string">" with err: "</span> + e.<span class="hljs-built_in">toString</span>());
+            Assembler asm = <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Assemblers</span>.</span></span>get<span class="hljs-constructor">Assembler(<span class="hljs-params">currentProgram</span>)</span>;
+            asm.assemble(atOffset, <span class="hljs-string">&quot;MOV EAX, 0x0&quot;</span>);
+        } catch (Exception e) {
+            println(<span class="hljs-string">&quot;Unable to patch at offset: &quot;</span> + atOffset + <span class="hljs-string">&quot; with err: &quot;</span> + e.<span class="hljs-keyword">to</span><span class="hljs-constructor">String()</span>);
         }
     }
 }</code></pre><p>All you have to do is execute the script, and wait until completion. The script will automagically patch only those instructions for which <code>isLocked</code> function returns <code>1</code>.  </p>
@@ -304,12 +304,12 @@
 <p class="img-container"><img src="/images/posts/img2icon/running-patching.png" alt="Running And Patching"></p>
 <p>Double-clicking on any Offset Address (in Console) will automatically send your cursor to given instruction; this way we can check if our script correctly patched the code. Lets have a look at Offset <code>0x10007c715</code> (last in Console). As you can see, the instruction was properly reversed.</p>
 <pre class="hljs"><code>...
-       <span class="hljs-number">10007</span>c711 <span class="hljs-number">55</span>              PUSH       RBP
-       <span class="hljs-number">10007</span>c712 <span class="hljs-number">48</span> <span class="hljs-number">89</span> e5        MOV        RBP,RSP
-       <span class="hljs-number">10007</span>c715 b8 <span class="hljs-number">00</span> <span class="hljs-number">00</span>        MOV        EAX,<span class="hljs-number">0x0</span>
+       10007c711 <span class="hljs-number">55</span>              <span class="hljs-keyword">PUSH</span>       <span class="hljs-built_in">RBP</span>
+       10007c712 <span class="hljs-number">48</span> <span class="hljs-number">89</span> e5        <span class="hljs-keyword">MOV</span>        <span class="hljs-built_in">RBP</span>,<span class="hljs-built_in">RSP</span>
+       10007c715 b8 <span class="hljs-number">00</span> <span class="hljs-number">00</span>        <span class="hljs-keyword">MOV</span>        <span class="hljs-built_in">EAX</span>,<span class="hljs-number">0x0</span>
                  <span class="hljs-number">00</span> <span class="hljs-number">00</span>
-       <span class="hljs-number">10007</span>c71a <span class="hljs-number">5</span>d              POP        RBP
-       <span class="hljs-number">10007</span>c71b c3              RET</code></pre><p>All you have to do is build binary and codesign it. You may do so by checking <a href="https://duraki.github.io/posts/o/20200214-sketch.app-patch-in-ghidra.html">end of my last post</a> about patching Sketch for Unlimited Trial. Here is the end result:</p>
+       10007c71a <span class="hljs-number">5d</span>              <span class="hljs-keyword">POP</span>        <span class="hljs-built_in">RBP</span>
+       10007c71b c3              <span class="hljs-keyword">RET</span></code></pre><p>All you have to do is build binary and codesign it. You may do so by checking <a href="https://duraki.github.io/posts/o/20200214-sketch.app-patch-in-ghidra.html">end of my last post</a> about patching Sketch for Unlimited Trial. Here is the end result:</p>
 <p class="img-container"><img src="/images/posts/img2icon/patched-and-working.png" alt="Image2Icon.App After Patching"></p>
 <p>For further resource, check out the references I&#39;ve written at the end of the post which can help you understand more about Ghidra Scripting.</p>
 <p>Hope you like it! Always available for help on my <a href="https://twitter.com/0xduraki">Twitter</a>.</p>

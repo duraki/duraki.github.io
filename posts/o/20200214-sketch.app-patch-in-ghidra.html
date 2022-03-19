@@ -60,78 +60,78 @@
 {
   ...
 
-  puVar1 = _objc_msgSendSuper2<span class="hljs-comment">;</span>
-  uVar3 = (*(code *)_objc_msgSendSuper2)(param_1,<span class="hljs-string">"license"</span>)<span class="hljs-comment">;</span>
-  uVar3 = _objc_retainBlock(uVar3)<span class="hljs-comment">;</span>
-  (*(code *)puVar1)(uVar3,<span class="hljs-string">"remainingTimeInterval"</span>)<span class="hljs-comment">;</span>
-  uVar4 = (*(code *)puVar1)(&amp;_OBJC_CLASS___NSDate,<span class="hljs-string">"dateWithTimeIntervalSinceNow:"</span>)<span class="hljs-comment">;</span>
-  uVar4 = _objc_retainBlock(uVar4)<span class="hljs-comment">;</span>
-  (*(code *)_objc_retain)(uVar3)<span class="hljs-comment">;</span>
-  uVar3 = (*(code *)puVar1)(&amp;_OBJC_CLASS___NSCalendar,<span class="hljs-string">"currentCalendar"</span>)<span class="hljs-comment">;</span>
-  uVar3 = _objc_retainBlock(uVar3)<span class="hljs-comment">;</span>
-  uVar5 = (*(code *)puVar1)(&amp;_OBJC_CLASS___NSDate,<span class="hljs-string">"date"</span>)<span class="hljs-comment">;</span>
-  uVar5 = _objc_retainBlock(uVar5)<span class="hljs-comment">;</span>
-  uVar6 = (*(code *)puVar1)(uVar3,<span class="hljs-string">"components:fromDate:toDate:options:"</span>,<span class="hljs-number">0x10</span>,uVar5,uVar4,<span class="hljs-number">0</span>)<span class="hljs-comment">;</span>
-  uVar6 = _objc_retainBlock(uVar6)<span class="hljs-comment">;</span>
-  puVar2 = _objc_retain<span class="hljs-comment">;</span>
-  (*(code *)_objc_retain)(uVar5)<span class="hljs-comment">;</span>
-  (*(code *)puVar2)(uVar3)<span class="hljs-comment">;</span>
-  lVar7 = (*(code *)puVar1)(uVar6,<span class="hljs-string">"day"</span>)<span class="hljs-comment">;</span>
-  (*(code *)puVar2)(uVar6)<span class="hljs-comment">;</span>
-  (*(code *)puVar2)(uVar4)<span class="hljs-comment">;</span>
-  return lVar7<span class="hljs-comment">;</span>
+  puVar1 = _objc_msgSendSuper2;
+  uVar3 = <span class="hljs-comment">(*(code *)</span>_objc_msgSendSuper2)(param_1,<span class="hljs-string">&quot;license&quot;</span>);
+  uVar3 = _objc_retainBlock(uVar3);
+  <span class="hljs-comment">(*(code *)</span>puVar1)(uVar3,<span class="hljs-string">&quot;remainingTimeInterval&quot;</span>);
+  uVar4 = <span class="hljs-comment">(*(code *)</span>puVar1)(&amp;_OBJC_CLASS___NSDate,<span class="hljs-string">&quot;dateWithTimeIntervalSinceNow:&quot;</span>);
+  uVar4 = _objc_retainBlock(uVar4);
+  <span class="hljs-comment">(*(code *)</span>_objc_retain)(uVar3);
+  uVar3 = <span class="hljs-comment">(*(code *)</span>puVar1)(&amp;_OBJC_CLASS___NSCalendar,<span class="hljs-string">&quot;currentCalendar&quot;</span>);
+  uVar3 = _objc_retainBlock(uVar3);
+  uVar5 = <span class="hljs-comment">(*(code *)</span>puVar1)(&amp;_OBJC_CLASS___NSDate,<span class="hljs-string">&quot;date&quot;</span>);
+  uVar5 = _objc_retainBlock(uVar5);
+  uVar6 = <span class="hljs-comment">(*(code *)</span>puVar1)(uVar3,<span class="hljs-string">&quot;components:fromDate:toDate:options:&quot;</span>,<span class="hljs-number">0x10</span>,uVar5,uVar4,<span class="hljs-number">0</span>);
+  uVar6 = _objc_retainBlock(uVar6);
+  puVar2 = _objc_retain;
+  <span class="hljs-comment">(*(code *)</span>_objc_retain)(uVar5);
+  <span class="hljs-comment">(*(code *)</span>puVar2)(uVar3);
+  lVar7 = <span class="hljs-comment">(*(code *)</span>puVar1)(uVar6,<span class="hljs-string">&quot;day&quot;</span>);
+  <span class="hljs-comment">(*(code *)</span>puVar2)(uVar6);
+  <span class="hljs-comment">(*(code *)</span>puVar2)(uVar4);
+<span class="hljs-built_in">  return</span> lVar7;
 }</code></pre><p>Next, we have a call to function <code>remainingTimeInterval</code>, and later on, a calculation used for using remaining time through <code>currentCalendar</code> and <code>dateWithTimeIntervalSinceNow</code>. If we search for method called first (<code>remainingTimeInterval</code>), we can see we were pretty right about two possible license classes references through <code>BCLicenseManager</code>.</p>
 <p class="img-container"><img src="https://duraki.github.io/images/posts/ghidra-search-remainingTimeInterval.png" alt="remainingTimeInterval visible in two classes"></p>
 <p>We will work with-in <code>BCRegularLicense</code> since we don&#39;t need to deal with cloud protection and adding stuff to <code>/etc/hosts</code>. Lets see what is inside. We have some interesting functions in there called through in: <code>validityInterval</code>, which basically works with <code>endTime</code> (when license should expire) and combination of <code>networkTime/currentTime</code>. We also have <code>isValid</code> method notifying impl. if license is still available for use.</p>
-<pre class="hljs"><code>double remainingTimeInterval(ID param_1,SEL param_2)
-{
+<pre class="hljs"><code>double remaining<span class="hljs-constructor">TimeInterval(ID <span class="hljs-params">param_1</span>,SEL <span class="hljs-params">param_2</span>)</span>
+{<span class="hljs-operator">
   ...
-  puVar2 = _objc_msgSendSuper2<span class="hljs-comment">;</span>
-  uVar1 = (*(code *)_objc_msgSendSuper2)(param_1,<span class="hljs-string">"validityInterval"</span>)<span class="hljs-comment">;</span>
-  uVar4 = _objc_retainBlock(uVar1)<span class="hljs-comment">;</span>
-  uVar1 = (*(code *)puVar2)(uVar4,<span class="hljs-string">"endDate"</span>)<span class="hljs-comment">;</span>
-  uVar1 = _objc_retainBlock(uVar1)<span class="hljs-comment">;</span>
-  uVar6 = (*(code *)puVar2)(param_1,<span class="hljs-string">"networkTime"</span>)<span class="hljs-comment">;</span>
-  uVar5 = _objc_retainBlock(uVar6)<span class="hljs-comment">;</span>
-  uVar6 = (*(code *)puVar2)(uVar5,<span class="hljs-string">"currentDate"</span>)<span class="hljs-comment">;</span>
-  uVar6 = _objc_retainBlock(uVar6)<span class="hljs-comment">;</span>
-  (*(code *)puVar2)(uVar1,<span class="hljs-string">"timeIntervalSinceDate:"</span>,uVar6)<span class="hljs-comment">;</span>
-  puVar2 = _objc_retain<span class="hljs-comment">;</span>
-  (*(code *)_objc_retain)(uVar6)<span class="hljs-comment">;</span>
-  (*(code *)puVar2)(uVar5)<span class="hljs-comment">;</span>
-  (*(code *)puVar2)(uVar1)<span class="hljs-comment">;</span>
-  (*(code *)puVar2)(uVar4)<span class="hljs-comment">;</span>
-  cVar3 = (*(code *)_objc_msgSendSuper2)(param_1,<span class="hljs-string">"isValid"</span>)<span class="hljs-comment">;</span>
-  auVar7 = ZEXT816(<span class="hljs-number">0</span>)<span class="hljs-comment">;</span>
-  if (cVar3 != <span class="hljs-string">'\0'</span>) {
-    auVar7 = ZEXT816(<span class="hljs-keyword">extraout_XMM0_Qa);
-</span>  }
-  auVar7 = maxsd(auVar7,ZEXT816(<span class="hljs-number">0</span>))<span class="hljs-comment">;</span>
-  return <span class="hljs-keyword">SUB168(auVar7,0);
-</span>}</code></pre><p>Lets see what other methods are available in this class named <code>BCRegularLicense</code>. First, filter the Symbol Tree window to reflect the name and once found, scroll to <code>method_list_t</code> where you will right click on it and use Show Reference To.</p>
+  </span>puVar2 = _objc_msgSendSuper2;
+  uVar1 = (*(code *)_objc_msgSendSuper2)(param_1,<span class="hljs-string">&quot;validityInterval&quot;</span>);
+  uVar4 = <span class="hljs-constructor">_objc_retainBlock(<span class="hljs-params">uVar1</span>)</span>;
+  uVar1 = (*(code *)puVar2)(uVar4,<span class="hljs-string">&quot;endDate&quot;</span>);
+  uVar1 = <span class="hljs-constructor">_objc_retainBlock(<span class="hljs-params">uVar1</span>)</span>;
+  uVar6 = (*(code *)puVar2)(param_1,<span class="hljs-string">&quot;networkTime&quot;</span>);
+  uVar5 = <span class="hljs-constructor">_objc_retainBlock(<span class="hljs-params">uVar6</span>)</span>;
+  uVar6 = (*(code *)puVar2)(uVar5,<span class="hljs-string">&quot;currentDate&quot;</span>);
+  uVar6 = <span class="hljs-constructor">_objc_retainBlock(<span class="hljs-params">uVar6</span>)</span>;
+  (*(code *)puVar2)(uVar1,<span class="hljs-string">&quot;timeIntervalSinceDate:&quot;</span>,uVar6);
+  puVar2 = _objc_retain;
+  (*(code *)_objc_retain)(uVar6);
+  (*(code *)puVar2)(uVar5);
+  (*(code *)puVar2)(uVar1);
+  (*(code *)puVar2)(uVar4);
+  cVar3 = (*(code *)_objc_msgSendSuper2)(param_1,<span class="hljs-string">&quot;isValid&quot;</span>);
+  auVar7 = <span class="hljs-constructor">ZEXT816(0)</span>;
+  <span class="hljs-keyword">if</span> (cVar3 != <span class="hljs-character">&#x27;\0&#x27;</span>) {
+    auVar7 = <span class="hljs-constructor">ZEXT816(<span class="hljs-params">extraout_XMM0_Qa</span>)</span>;
+  }
+  auVar7 = maxsd(auVar7,<span class="hljs-constructor">ZEXT816(0)</span>);
+  return <span class="hljs-constructor">SUB168(<span class="hljs-params">auVar7</span>,0)</span>;
+}</code></pre><p>Lets see what other methods are available in this class named <code>BCRegularLicense</code>. First, filter the Symbol Tree window to reflect the name and once found, scroll to <code>method_list_t</code> where you will right click on it and use Show Reference To.</p>
 <p class="img-container"><img src="https://duraki.github.io/images/posts/ghidra-lm-methodlist.png" alt="List Method for Class"></p>
 <p>If you scroll down a bit in a Assembly View window, you will find <code>isExpired</code> listed. Lets see what is inside.</p>
 <p class="img-container"><img src="https://duraki.github.io/images/posts/isExpired-method.png" alt="isExpired Method in BCRegularLicense"></p>
-<pre class="hljs"><code>char isExpired(ID param_1,SEL param_2)
-{
+<pre class="hljs"><code><span class="hljs-built_in">char</span> is<span class="hljs-constructor">Expired(ID <span class="hljs-params">param_1</span>,SEL <span class="hljs-params">param_2</span>)</span>
+{<span class="hljs-operator">
   ... 
 
-  <span class="hljs-keyword">if</span> (<span class="hljs-attr">lVar4</span> == <span class="hljs-number">0</span>) {                                            // expired
-    <span class="hljs-attr">bVar6</span> = <span class="hljs-literal">true</span>;
+  </span><span class="hljs-keyword">if</span> (lVar4<span class="hljs-operator"> == </span><span class="hljs-number">0</span>) {                                            <span class="hljs-comment">// expired</span>
+    bVar6 = <span class="hljs-literal">true</span>;
   }
-  <span class="hljs-keyword">else</span> {                                                                // yet to expired
-    <span class="hljs-attr">uVar3</span> = (*(code *)_objc_msgSendSuper2)(param_1,<span class="hljs-string">"networkTime"</span>);
-    <span class="hljs-attr">uVar3</span> = _objc_retainBlock(uVar3);
-    <span class="hljs-attr">uVar5</span> = (*(code *)puVar1)(uVar3,<span class="hljs-string">"currentDate"</span>);
-    <span class="hljs-attr">uVar5</span> = _objc_retainBlock(uVar5);
-    <span class="hljs-attr">cVar2</span> = (*(code *)puVar1)(lVar4,<span class="hljs-string">"containsDate:"</span>,uVar5);
-    <span class="hljs-attr">puVar1</span> = _objc_retain;
-    <span class="hljs-attr">bVar6</span> = <span class="hljs-attr">cVar2</span> == '\<span class="hljs-number">0</span>';
+  <span class="hljs-keyword">else</span> {                                                                <span class="hljs-comment">// yet to expired</span>
+    uVar3 = (*(code *)_objc_msgSendSuper2)(param_1,<span class="hljs-string">&quot;networkTime&quot;</span>);
+    uVar3 = <span class="hljs-constructor">_objc_retainBlock(<span class="hljs-params">uVar3</span>)</span>;
+    uVar5 = (*(code *)puVar1)(uVar3,<span class="hljs-string">&quot;currentDate&quot;</span>);
+    uVar5 = <span class="hljs-constructor">_objc_retainBlock(<span class="hljs-params">uVar5</span>)</span>;
+    cVar2 = (*(code *)puVar1)(lVar4,<span class="hljs-string">&quot;containsDate:&quot;</span>,uVar5);
+    puVar1 = _objc_retain;
+    bVar6 = cVar2<span class="hljs-operator"> == </span><span class="hljs-character">&#x27;\0&#x27;</span>;
     (*(code *)_objc_retain)(uVar5);
     (*(code *)puVar1)(uVar3);
   }
   (*(code *)_objc_retain)(lVar4);
-  return (char)bVar6;
+  return (<span class="hljs-built_in">char</span>)bVar6;
 }</code></pre><p>We basically have a simple method to check if the trial is expired or not. </p>
 <h2 id="pathching-it-up"><a class="header-link" href="#pathching-it-up"></a>Pathching it up</h2>
 <p>If we follow the about <code>bVar6</code>, it can be either <code>true</code> for expired license, or <code>false</code> for unexpired license. Go to this method in Ghidra Listing (Dissasemble) and find a ASM function which moves value of <code>0x1</code> (true) to R12B (<code>bVar6</code>), at address <code>0x1004a2a50</code>.</p>
@@ -142,19 +142,19 @@
 1004a2a50 <span class="hljs-number">41</span> b4 <span class="hljs-number">01</span>        <span class="hljs-keyword">MOV</span>        <span class="hljs-built_in">R12B</span>,<span class="hljs-number">0x1</span></code></pre><p>To patch your executable, right click on the instruction on this address and click Patch Instruction, or rather you can select the address and press keyboard shortcut <code>Shift+Command+G</code>. Patch this instruction to always return <code>0x0</code> (false), meaning the trial will never expire. See below picture for patched ASM instruction.</p>
 <p class="img-container"><img src="https://duraki.github.io/images/posts/isExpired-patching.png" alt="isExpired Patching"></p>
 <p>At address <code>0x1004a2a4e</code> we see initial JMP instruction which jumps (goto) checking procedure. We need to patch this instruction to jump to our patch at <code>0x1004a2a50</code>. The final code assembly looks like this.</p>
-<pre class="hljs"><code><span class="hljs-number">1004</span>a2a48 <span class="hljs-number">4</span>c <span class="hljs-number">89</span> ff        MOV        param_1,R15
-<span class="hljs-number">1004</span>a2a4b <span class="hljs-number">41</span> ff d5        CALL       R13=&gt;__stubs::_objc_release                      undefined _objc_release()
-<span class="hljs-number">1004</span>a2a4e eb <span class="hljs-number">00</span>           JMP        LAB_1004a2a50                                    Jump to return `false` instruction   -+
-                     LAB_1004a2a50                                   XREF[<span class="hljs-number">2</span>]:         .......................               |
-<span class="hljs-number">1004</span>a2a50 <span class="hljs-number">41</span> b4 <span class="hljs-number">00</span>        MOV        R12B,<span class="hljs-number">0x0</span>                                         Always return `false` on isExpired  &lt;-+
-<span class="hljs-number">1004</span>a2a53 <span class="hljs-number">4</span>c <span class="hljs-number">89</span> f7        MOV        param_1,R14
-<span class="hljs-number">1004</span>a2a56 ff <span class="hljs-number">15</span> ec        CALL       qword ptr [-&gt;__stubs::_objc_release]             undefined _objc_release()
-         <span class="hljs-number">68</span> <span class="hljs-number">12</span> <span class="hljs-number">00</span></code></pre><h2 id="bypassing-sketch-code-signature"><a class="header-link" href="#bypassing-sketch-code-signature"></a>Bypassing Sketch Code Signature</h2>
+<pre class="hljs"><code><span class="hljs-attribute">1004a2a48</span> <span class="hljs-number">4</span>c <span class="hljs-number">89</span> ff        MOV        param_<span class="hljs-number">1</span>,R<span class="hljs-number">15</span>
+<span class="hljs-attribute">1004a2a4b</span> <span class="hljs-number">41</span> ff d<span class="hljs-number">5</span>        CALL       R<span class="hljs-number">13</span>=&gt;__stubs::_objc_release                      undefined _objc_release()
+<span class="hljs-attribute">1004a2a4e</span> eb <span class="hljs-number">00</span>           JMP        LAB_<span class="hljs-number">1004</span>a<span class="hljs-number">2</span>a<span class="hljs-number">50</span>                                    Jump to return `false` instruction   -+
+                     <span class="hljs-attribute">LAB_1004a2a50</span>                                   XREF[<span class="hljs-number">2</span>]:         .......................               |
+<span class="hljs-attribute">1004a2a50</span> <span class="hljs-number">41</span> b<span class="hljs-number">4</span> <span class="hljs-number">00</span>        MOV        R<span class="hljs-number">12</span>B,<span class="hljs-number">0</span>x<span class="hljs-number">0</span>                                         Always return `false` <span class="hljs-literal">on</span> isExpired  &lt;-+
+<span class="hljs-attribute">1004a2a53</span> <span class="hljs-number">4</span>c <span class="hljs-number">89</span> f<span class="hljs-number">7</span>        MOV        param_<span class="hljs-number">1</span>,R<span class="hljs-number">14</span>
+<span class="hljs-attribute">1004a2a56</span> ff <span class="hljs-number">15</span> ec        CALL       qword ptr<span class="hljs-meta"> [-&gt;__stubs::_objc_release]             undefined _objc_release()
+         68 12 00</span></code></pre><h2 id="bypassing-sketch-code-signature"><a class="header-link" href="#bypassing-sketch-code-signature"></a>Bypassing Sketch Code Signature</h2>
 <p>We are not yet done. The Sketch tries to be smart on us; it checks code signature, meaning if the code signature is not valid, it will exit upon running. Since we patched the binary, the signature of the app will be invalid. But similary to other anti-crack techniques, this one is easy to tackle down. </p>
 <p>While inside your Ghidra project, go to <code>0x1004a1724</code> in Dissasemble view, and you will see this code.</p>
-<pre class="hljs"><code><span class="hljs-number">1004</span>a1736 <span class="hljs-number">85</span> db           TEST       EBX,EBX
-<span class="hljs-number">1004</span>a1738 <span class="hljs-number">0</span>f <span class="hljs-number">85</span> <span class="hljs-number">58</span>        JNZ        LAB_1004a1896
-         <span class="hljs-number">01</span> <span class="hljs-number">00</span> <span class="hljs-number">00</span></code></pre><hr>
+<pre class="hljs"><code><span class="hljs-attribute">1004a1736</span> <span class="hljs-number">85</span> db           TEST       EBX,EBX
+<span class="hljs-attribute">1004a1738</span> <span class="hljs-number">0</span>f <span class="hljs-number">85</span> <span class="hljs-number">58</span>        JNZ        LAB_<span class="hljs-number">1004</span>a<span class="hljs-number">1896</span>
+         <span class="hljs-attribute">01</span> <span class="hljs-number">00</span> <span class="hljs-number">00</span></code></pre><hr>
 
 <p><strong>Update:</strong> I was asked by a fellow follower (@kiwamizamurai) on my <a href="https://twitter.com/0xduraki/status/1228682677106114561">Twitter</a> post, how I&#39;ve found this address.</p>
 <p class="img-container"><img src="https://duraki.github.io/images/posts/sketch-update-codesign.png" alt="Twitter Question"></p>
@@ -163,41 +163,41 @@
 
 <p>Anyway, At the address <code>0x1004a1738</code>, is instruction JNZ (Jump not equal), which calls code signature method and exit the Sketch. Just replace this jump to the next instruction at <code>0x1004a173e</code>. </p>
 <p class="img-container"><img src="https://duraki.github.io/images/posts/sketchapp-jumpity-jump.png" alt="Sketch.App Code Signature #1"></p>
-<pre class="hljs"><code> 1004a1736 <span class="hljs-number">85</span> <span class="hljs-built_in">db</span>           <span class="hljs-keyword">TEST</span>       <span class="hljs-built_in">EBX</span>,<span class="hljs-built_in">EBX</span>
- 1004a1738 0f <span class="hljs-number">85</span> <span class="hljs-number">00</span>        <span class="hljs-keyword">JNZ</span>        LAB_1004a173e
-           <span class="hljs-number">00</span> <span class="hljs-number">00</span> <span class="hljs-number">00</span>
-                       LAB_1004a173e                                   XREF[<span class="hljs-number">1</span>]:     1004a1738(j)  
- 1004a173e <span class="hljs-number">49</span> <span class="hljs-number">89</span> c7        <span class="hljs-keyword">MOV</span>        <span class="hljs-built_in">R15</span>,<span class="hljs-built_in">RAX</span>                                       Jumps here
- 1004a1741 <span class="hljs-number">4d</span> <span class="hljs-number">89</span> f4        <span class="hljs-keyword">MOV</span>        <span class="hljs-built_in">R12</span>,<span class="hljs-built_in">R14</span></code></pre><p>Likewise, edit JZ (Jump equal) at address <code>0x1004a1879</code> to instruction JNZ. </p>
-<pre class="hljs"><code>                     LAB_1004a186b                                   XREF[<span class="hljs-number">1</span>]:     1004a180f(j)  
-1004a186b 4c <span class="hljs-number">89</span> ff        <span class="hljs-keyword">MOV</span>        <span class="hljs-built_in">RDI</span>,<span class="hljs-built_in">R15</span>
-1004a186e <span class="hljs-number">41</span> ff d6        <span class="hljs-keyword">CALL</span>       <span class="hljs-built_in">R14</span>=&gt;__stubs::_objc_release                      undefined _objc_release()
-1004a1871 4c <span class="hljs-number">89</span> ef        <span class="hljs-keyword">MOV</span>        <span class="hljs-built_in">RDI</span>,<span class="hljs-built_in">R13</span>
-1004a1874 <span class="hljs-number">41</span> ff d6        <span class="hljs-keyword">CALL</span>       <span class="hljs-built_in">R14</span>=&gt;__stubs::_objc_release                      undefined _objc_release()
-1004a1877 <span class="hljs-number">84</span> <span class="hljs-built_in">db</span>           <span class="hljs-keyword">TEST</span>       <span class="hljs-built_in">BL</span>,<span class="hljs-built_in">BL</span>
-1004a1879 <span class="hljs-number">74</span> <span class="hljs-number">1b</span>           <span class="hljs-keyword">JZ</span>         LAB_1004a1896                                            Replace with <span class="hljs-keyword">JNZ</span></code></pre><p>Both of this functions reference to <code>FUN_1004a1896</code> (Exit upon Invalid Code Sign), so we had to fix those to bypass this check.</p>
+<pre class="hljs"><code> <span class="hljs-attribute">1004a1736</span> <span class="hljs-number">85</span> db           TEST       EBX,EBX
+ <span class="hljs-attribute">1004a1738</span> <span class="hljs-number">0</span>f <span class="hljs-number">85</span> <span class="hljs-number">00</span>        JNZ        LAB_<span class="hljs-number">1004</span>a<span class="hljs-number">173</span>e
+           <span class="hljs-attribute">00</span> <span class="hljs-number">00</span> <span class="hljs-number">00</span>
+                       <span class="hljs-attribute">LAB_1004a173e</span>                                   XREF[<span class="hljs-number">1</span>]:     <span class="hljs-number">1004</span>a<span class="hljs-number">1738</span>(j)  
+ <span class="hljs-attribute">1004a173e</span> <span class="hljs-number">49</span> <span class="hljs-number">89</span> c<span class="hljs-number">7</span>        MOV        R<span class="hljs-number">15</span>,RAX                                       Jumps here
+ <span class="hljs-attribute">1004a1741</span> <span class="hljs-number">4</span>d <span class="hljs-number">89</span> f<span class="hljs-number">4</span>        MOV        R<span class="hljs-number">12</span>,R<span class="hljs-number">14</span></code></pre><p>Likewise, edit JZ (Jump equal) at address <code>0x1004a1879</code> to instruction JNZ. </p>
+<pre class="hljs"><code>                     <span class="hljs-attribute">LAB_1004a186b</span>                                   XREF[<span class="hljs-number">1</span>]:     <span class="hljs-number">1004</span>a<span class="hljs-number">180</span>f(j)  
+<span class="hljs-attribute">1004a186b</span> <span class="hljs-number">4</span>c <span class="hljs-number">89</span> ff        MOV        RDI,R<span class="hljs-number">15</span>
+<span class="hljs-attribute">1004a186e</span> <span class="hljs-number">41</span> ff d<span class="hljs-number">6</span>        CALL       R<span class="hljs-number">14</span>=&gt;__stubs::_objc_release                      undefined _objc_release()
+<span class="hljs-attribute">1004a1871</span> <span class="hljs-number">4</span>c <span class="hljs-number">89</span> ef        MOV        RDI,R<span class="hljs-number">13</span>
+<span class="hljs-attribute">1004a1874</span> <span class="hljs-number">41</span> ff d<span class="hljs-number">6</span>        CALL       R<span class="hljs-number">14</span>=&gt;__stubs::_objc_release                      undefined _objc_release()
+<span class="hljs-attribute">1004a1877</span> <span class="hljs-number">84</span> db           TEST       BL,BL
+<span class="hljs-attribute">1004a1879</span> <span class="hljs-number">74</span> <span class="hljs-number">1</span>b           JZ         LAB_<span class="hljs-number">1004</span>a<span class="hljs-number">1896</span>                                            Replace with JNZ</code></pre><p>Both of this functions reference to <code>FUN_1004a1896</code> (Exit upon Invalid Code Sign), so we had to fix those to bypass this check.</p>
 <blockquote>
 <p>Export your binary in Ghidra through <code>Export Program</code> function.</p>
 </blockquote>
 <h2 id="code-sign-the-binary"><a class="header-link" href="#code-sign-the-binary"></a>Code Sign the Binary</h2>
 <p>Once you exported your binary; you will get <code>Sketch.bin</code> to your export location. Move this file to Sketch.App bundle in <code>/Applications</code> directory. Then, rename and chmod your executable.</p>
-<pre class="hljs"><code><span class="hljs-comment"># In /Applications/Sketch.App/Content/MacOS</span>
-<span class="hljs-variable">$ </span>mv Sketch.bin Sketch
-<span class="hljs-variable">$ </span>chmod +x Sketch</code></pre><p>Next, execute code signature on your binary. I had to remove empty padding sections from application signature first. </p>
+<pre class="hljs"><code># In <span class="hljs-regexp">/Applications/</span>Sketch.App<span class="hljs-regexp">/Content/M</span>acOS
+$ mv Sketch.bin Sketch
+$ chmod +x Sketch</code></pre><p>Next, execute code signature on your binary. I had to remove empty padding sections from application signature first. </p>
 <h3 id="create-a-new-certificate"><a class="header-link" href="#create-a-new-certificate"></a>Create a new certificate</h3>
 <p>To create a certificate, open up <code>Keychain Access</code> in MacOS. Then go to <strong>Keychain Access</strong> in the menubar, select <code>Certificate Assistant</code> and click <code>Create a Certificate</code>. Enter your name and make sure to select a proper Certificate Type.</p>
 <p class="img-container"><img src="https://duraki.github.io/images/posts/create-cert.png" alt="Create Certificate in Keychain Access"></p>
 <p class="img-container"><img src="https://duraki.github.io/images/posts/create-cert-codesign.png" alt="Create Certificate, Certification Type"></p>
 <p>Now codesign your new binary file.</p>
-<pre class="hljs"><code># Sign the application
-$ codesign --deep --force -s <span class="hljs-string">"signature"</span> /Applications/Sketch.<span class="hljs-keyword">app</span>
+<pre class="hljs"><code><span class="hljs-comment"># Sign the application</span>
+$ codesign --deep --force -s <span class="hljs-string">&quot;signature&quot;</span> <span class="hljs-regexp">/Applications/</span>Sketch.app
 
-# <span class="hljs-keyword">If</span> you get errors <span class="hljs-keyword">while</span> codesigning, try this
-$ xattr -lr /Applications/Sketch.<span class="hljs-keyword">app</span>    # lists all empty attrs <span class="hljs-keyword">in</span> <span class="hljs-keyword">app</span>
-$ xattr -cr /Applications/Sketch.<span class="hljs-keyword">app</span>    # <span class="hljs-keyword">clear</span> empty attrs <span class="hljs-keyword">in</span> binary <span class="hljs-keyword">app</span></code></pre><p>Voila! There you go, a never ending Sketch.App trial.</p>
+<span class="hljs-comment"># If you get errors while codesigning, try this</span>
+$ xattr -lr <span class="hljs-regexp">/Applications/</span>Sketch.app    <span class="hljs-comment"># lists all empty attrs in app</span>
+$ xattr -cr <span class="hljs-regexp">/Applications/</span>Sketch.app    <span class="hljs-comment"># clear empty attrs in binary app</span></code></pre><p>Voila! There you go, a never ending Sketch.App trial.</p>
 <p class="img-container"><img src="https://duraki.github.io/images/posts/patched-sketchapp.png" alt="Patched Sketch.App"></p>
 <p>If you want, you can disable Sketch.App update feature through Terminal:</p>
-<pre class="hljs"><code>$ defaults write com<span class="hljs-selector-class">.bohemiancoding</span><span class="hljs-selector-class">.sketch3</span><span class="hljs-selector-class">.plist</span> SUEnableAutomaticChecks -bool false</code></pre><p>[1] <a href="https://ghidra-sre.org/">https://ghidra-sre.org/</a><br>[2] <a href="https://www.youtube.com/watch?v=fTGTnrgjuGA">https://www.youtube.com/watch?v=fTGTnrgjuGA</a></p>
+<pre class="hljs"><code>$ defaults write com.bohemiancoding.sketch3.plist SUEnableAutomaticChecks -<span class="hljs-keyword">bool</span> <span class="hljs-literal">false</span></code></pre><p>[1] <a href="https://ghidra-sre.org/">https://ghidra-sre.org/</a><br>[2] <a href="https://www.youtube.com/watch?v=fTGTnrgjuGA">https://www.youtube.com/watch?v=fTGTnrgjuGA</a></p>
 
       <hr style="display: block; text-align: left; width: 100%;" />
 

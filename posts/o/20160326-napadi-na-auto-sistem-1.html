@@ -43,9 +43,9 @@
 
       <hr style="display: block; text-align: left: width: 100%;" /><h2 id="intro"><a class="header-link" href="#intro"></a>Intro</h2>
 <p>Ko bi rekao da ću ja jednom pisati o cyber-attacks i hardveru. Znam za jedan post trenutno a to je bilo hakovanje onog Dongle-a sa Švicarske mreže na domaću. I tako se jednom vozam sa drugom u autu, i razmišljamo zašto ne bi provjerili sigurnost sistema na novijim automobilima koji imaju mogućnost kompjuterske dijagnostike općenito.  </p>
-<h2 id="zašto-ne?"><a class="header-link" href="#zašto-ne?"></a>Zašto ne?</h2>
+<h2 id="zašto-ne"><a class="header-link" href="#zašto-ne"></a>Zašto ne?</h2>
 <p>Za početak, ono što nas je prvo odvuklo od toga jesu finansije. Počevši od automobila koji testiramo, pa dijagnostički (hardver) alati, API, softveri, i naravno skontamo da nam treba previše novca za krenuti. Onda sam se ja odlučio da se baziram teoretski, napišemo potrebnu dokumentaciju i onda potom to prenesemo praktično.  </p>
-<h2 id="0x01---općenito-(teorija)"><a class="header-link" href="#0x01---općenito-(teorija)"></a>0x01 - Općenito (Teorija)</h2>
+<h2 id="0x01---općenito-teorija"><a class="header-link" href="#0x01---općenito-teorija"></a>0x01 - Općenito (Teorija)</h2>
 <p>Motorno vozilo korišteno u svrhu transporta, kao proizvod koji je nastao automobilnom industrijom. U današnjem vremenu skoro neophodan predmet. Sa godinama, automobilska industrija je radila na poboljšanjima automobila i danas se čak može reći da dostiže vrhunac tehnologije. No, ova tehnologija u mnogo slučajeva može da se negativno odrazi na samog potrošača. Kao što svi znamo, onda kada do nekog predmeta imamo pristup fizičke ili druge prirode, u vidu umrežavanja, to nam kao <em>napadačima</em> pruža određene (ne)pogodnosti. Sigurnost automobilske industrije mnogo proizvođaća zabrinjava. Tako npr. <strong>Mercedes</strong> ima poseban sektor koji se bavi inžinjeringom i sigurnošću sistema. Takvo nešta ima i <strong>Tesla</strong>, i <strong>Hyundai</strong>. Kao što možete primjetiti, velike firme se bore da održavaju nivo sigurnosti u novijim automobilima koji imaju razne pristupe povezanosti (GPS, GSM, WiFi, Bluetooth ..).  </p>
 <h2 id="0x02---veza"><a class="header-link" href="#0x02---veza"></a>0x02 - Veza</h2>
 <p>Automobili su kompleksne jedinice, a svaki automobil je po nečemu unikatan. Kada se baziramo na modele, noviji automobili u SAD i Europi imaju dodatne mogućnosti povezivanja. Tako imamo USB, razne jackove, CD/DVD radio, OBD, pa čak i &quot;novije&quot; načine kao WiFi, Bluetooth, itd.    </p>
@@ -59,7 +59,8 @@
     |
     |___________________ * <span class="hljs-keyword">CD</span>/DVD, USB, BLUETOOTH
 <span class="hljs-comment">                         * DIJAGNOSTIKA</span>
-<span class="hljs-comment">                         * DASHBOARD</span></code></pre><h2 id="0x03---sigurnost"><a class="header-link" href="#0x03---sigurnost"></a>0x03 - Sigurnost</h2>
+<span class="hljs-comment">                         * DASHBOARD</span>
+                         </code></pre><h2 id="0x03---sigurnost"><a class="header-link" href="#0x03---sigurnost"></a>0x03 - Sigurnost</h2>
 <p>Naravno, mi ćemo se u ovom tekstu bazirati prije svega na sigurnost kompjuterskih sistema unutar automobila. Za početak čemo podijeliti način na koji se kompjuter povezuje na <a href="https://en.wikipedia.org/wiki/Electronic_control_unit">ECU</a> komponentu. <strong>ECU</strong> (<em>Electronic Control Unit</em>) je ustvari mali system koji u automobilskoj industriji služi kao veza između kompjutera i operacijskih radnji vozila. U današnjim automobilima možemo nači i više od 70 ECU sistema koji upravljaju raznim radnjama.  </p>
 <p>Instrument kojim upravljamo ECU da vrši operacije se naziva konzola, a u današnje vrijeme je bitno napomenuti da takav pristup imamo i putem infotainment systemima ili jednostavno dashboard (Tablet).  </p>
 <pre class="hljs"><code> -<span class="ruby">----------------------------------------------------------------------
@@ -93,7 +94,7 @@
 <p><strong>CAN Bus</strong> radi na osnovu signalizacije tj. šalje dva signala koja emituju neku informaciju. Tako imamo signal visoke frekfencije (CAN HIGH / <strong>CANH</strong>) i signal niske frekvencije (CAN LOW / <strong>CANL</strong>). Za primjer protokola CAN Bus-a uzet ćemo standardnu OBD diagnostiku, tipa OBD-II. U skupu, CAN Bus podržava 2.5 volti odnosno dovoljno voltaže za emitovanje signala. Na osnovu CANH i CANL možemo odrediti signalizaciju i informaciju.  </p>
 <p class="img-container"><img src="http://i.imgur.com/UUvmy9r.png" alt="voltaza-canbus"></p>
 <p>Zavisno od vrste konektovanja na dijagnostici, pinovi i signali su raspoređeni na različitim mjestima. Za OBD-II ovi pinovi se nalaze na poziciji 6 za CANH, te poziciji 14 za CANL. Više o on-board diagnostic možete porčitati <a href="https://en.wikipedia.org/wiki/On-board_diagnostics">ovdje</a>.  </p>
-<h2 id="0x05---signal-/-informacije"><a class="header-link" href="#0x05---signal-/-informacije"></a>0x05 - Signal / Informacije</h2>
+<h2 id="0x05---signal--informacije"><a class="header-link" href="#0x05---signal--informacije"></a>0x05 - Signal / Informacije</h2>
 <p>Svi signali sa CAN Bus-a na procesor se šalju sa razlogom to jest da pošalju neki vid informacije. Signal ima svoju strukturu to jest frame informacije. Klasičan način generisanja informacija je sljedeći:  </p>
 <ul class="list">
 <li>Arbitation ID<ul class="list">
@@ -116,12 +117,10 @@
 <li>Najviše 8 bajtova  </li>
 </ul>
 </li>
+<li>*Primjer informacije: **
+<code>    | ARBITATION ID #                                                         |    |                  IDE                                                    |    |                       DLC                                               |    |                            ========== DATA ==========                   |</code></li>
 </ul>
-<p><strong>Primjer informacije: </strong></p>
-<pre class="hljs"><code>    |<span class="hljs-string"> ARBITATION ID #                                                         </span>|
-    |<span class="hljs-string">                  IDE                                                    </span>|
-    |<span class="hljs-string">                       DLC                                               </span>|
-    |<span class="hljs-string">                            ========== DATA ==========                   </span>|</code></pre><p>Jedan frame podatka se sastoji od bitova koji su prevedeni iz signala (CANH i CANL). Bitovi se dijele različite strukture zavisno od framea.  </p>
+<p>Jedan frame podatka se sastoji od bitova koji su prevedeni iz signala (CANH i CANL). Bitovi se dijele različite strukture zavisno od framea.  </p>
 <p class="img-container"><img src="http://i.imgur.com/RI89RBI.png" alt="frame-primjer"></p>
 <p>Kao što možemo vidjeti na primjeru nekog frame-a, imamo kompletan prikaz CAN slike. CAN standard zahtjeva implementaciju base frame formata ali se isti može nadovezati sa extended frame formatom odnosno da pruža takav vid opcije.  </p>
 <ul class="list">

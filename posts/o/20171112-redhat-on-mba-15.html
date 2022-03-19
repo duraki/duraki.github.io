@@ -41,7 +41,7 @@
         <a class="tag-right">night</a>
       </div>
 
-      <hr style="display: block; text-align: left: width: 100%;" /><h2 id="what?"><a class="header-link" href="#what?"></a>What?</h2>
+      <hr style="display: block; text-align: left: width: 100%;" /><h2 id="what"><a class="header-link" href="#what"></a>What?</h2>
 <p>Trying to setup a sort of normal distro on MacBook is itself demanding task, but
 stepping up the game and putting RedHat on a tiny Air seems quite fun.</p>
 <p>Older Macbook of mine survived with Ubuntu for a fair time. Common issues takes
@@ -53,7 +53,7 @@ at is security, for which we hear and horror stories every now and then on
 <p>What I&#39;m trying to show is issue you will mostly face if you try this. At the
 end you&#39;ll have something unique and stable.</p>
 <p>This was written on MBA from 2015 running a fully-supported RHEL (sortof).</p>
-<h2 id="how?"><a class="header-link" href="#how?"></a>How?</h2>
+<h2 id="how"><a class="header-link" href="#how"></a>How?</h2>
 <p>First and foremost, RH is enterprise distribution, which means you&#39;ll have to be
 subscribed to their SPM system which allows you to have all these toolsets they
 offer. </p>
@@ -66,8 +66,7 @@ development edition. Preffered choice for my daily usage which is devOping such
 system at large.</p>
 <p>Most basic <code>dd</code> and a 16GB USB3.0 will do it fine with your new shiny USB
 already inside your Mac. Holding (Apple) Option key will result your boot to
-jump in device selection. Of course continue with installation through <code>EFI
-Boot</code> as with any other distribution. No problem arises.</p>
+jump in device selection. Of course continue with installation through <code>EFI Boot</code> as with any other distribution. No problem arises.</p>
 <p>Through installation you may be asked to set installation media, which needs to
 say <code>Auto-detected installation media</code>. If it&#39;s not working, try rewriting image
 to your USB again.</p>
@@ -94,7 +93,7 @@ if you subscribed already to repositories you have to and registered your
 setup issues which is not strange since I&#39;m working on different RH version.</p>
 <p>Moving on, <strong>one night</strong> was spent fixing network, <strong>one night</strong> fixing audio, and <strong>one
 night</strong> fixing audio/mic.</p>
-<h3 id="network-(wireless)"><a class="header-link" href="#network-(wireless)"></a>Network (Wireless)</h3>
+<h3 id="network-wireless"><a class="header-link" href="#network-wireless"></a>Network (Wireless)</h3>
 <p>Thankfully, my friend @e_mouse had given me a USB to Ethernet cable just the
 other day. This worked out of the box and I started furiosuly working on
 solution.</p>
@@ -103,45 +102,45 @@ solution.</p>
 you will see that it isn&#39;t working. I didn&#39;t figure out what the problem was but
 perhaps the given repository might work.</p>
 <p>As of me, I followed the instructions given on <a href="https://elrepo.org/tiki/wl-kmod">elrepo</a>.</p>
-<pre class="hljs"><code>$ lspci| <span class="hljs-keyword">grep</span> Network
-<span class="hljs-number">03</span>:<span class="hljs-number">00</span>.<span class="hljs-number">0</span> Network controller: Broadcom Limited BCM436<span class="hljs-number">0</span> <span class="hljs-number">802.11</span>ac Wireless Network Adapter (rev <span class="hljs-number">03</span>)
+<pre class="hljs"><code>$ lspci| grep<span class="hljs-built_in"> Network
+</span>03:00.0<span class="hljs-built_in"> Network </span>controller: Broadcom Limited BCM4360 802.11ac<span class="hljs-built_in"> Wireless Network </span>Adapter (rev 03)
 
 <span class="hljs-comment"># support</span>
-<span class="hljs-number">14</span>e4:<span class="hljs-number">43</span>a<span class="hljs-number">0</span>    <span class="hljs-keyword">no</span>    BCM436<span class="hljs-number">0</span></code></pre><p>Out of the box, this wireless card is <a href="https://wireless.wiki.kernel.org/en/users/drivers/b43">not
+14e4:43a0    <span class="hljs-literal">no</span>    BCM4360</code></pre><p>Out of the box, this wireless card is <a href="https://wireless.wiki.kernel.org/en/users/drivers/b43">not
 supported</a>. Alternative
 is to use <code>wl</code>, solid choice for me since I had experience with it. RedHat team
 also have great support for these stuff so that is a huge plus.</p>
 <p>So lets get all stuff necessary to compile <code>wl</code> for our fresh install.</p>
 <pre class="hljs"><code><span class="hljs-comment"># Root</span>
 
-$ yum group install -y <span class="hljs-string">'Development Tools'</span> <span class="hljs-comment"># for compiling</span>
-$ yum install -y redhat-lsb kernel-abi-whitelists <span class="hljs-comment"># std base &amp; kernel symbols</span>
-$ yum install -y kernel-devel-$(uname -r) <span class="hljs-comment"># kernel dev libs</span>
-
+<span class="hljs-variable">$</span> yum <span class="hljs-built_in">group</span> install <span class="hljs-literal">-y</span> <span class="hljs-string">&#x27;Development Tools&#x27;</span> <span class="hljs-comment"># for compiling</span>
+<span class="hljs-variable">$</span> yum install <span class="hljs-literal">-y</span> redhat<span class="hljs-literal">-lsb</span> kernel<span class="hljs-literal">-abi</span><span class="hljs-literal">-whitelists</span> <span class="hljs-comment"># std base &amp; kernel symbols</span>
+<span class="hljs-variable">$</span> yum install <span class="hljs-literal">-y</span> kernel<span class="hljs-literal">-devel</span>-<span class="hljs-variable">$</span>(uname <span class="hljs-literal">-r</span>) <span class="hljs-comment"># kernel dev libs</span>
+ 
 <span class="hljs-comment"># User</span>
 
-$ mkdir -p ~<span class="hljs-regexp">/rpmbuild/</span>{BUILD,RPMS,SPECS,SOURCES,SRPMS}
-$ echo -e <span class="hljs-string">"%_topdir $(echo $HOME)/rpmbuild\n%dist .el$(lsb_release -s -r|cut -d"</span>.<span class="hljs-string">" -f1).local"</span> <span class="hljs-meta">&gt;&gt; </span>~<span class="hljs-regexp">/.rpmmacros</span></code></pre><p>We also need <em>wl-kmod</em> (tool used to manage wl module) and Broadcom drivers. You
+<span class="hljs-variable">$</span> mkdir <span class="hljs-literal">-p</span> ~/rpmbuild/{BUILD,RPMS,SPECS,SOURCES,SRPMS}
+<span class="hljs-variable">$</span> <span class="hljs-built_in">echo</span> <span class="hljs-literal">-e</span> <span class="hljs-string">&quot;%_topdir <span class="hljs-variable">$</span>(echo <span class="hljs-variable">$HOME</span>)/rpmbuild\n%dist .el<span class="hljs-variable">$</span>(lsb_release -s -r|cut -d&quot;</span>.<span class="hljs-string">&quot; -f1).local&quot;</span> &gt;&gt; ~/.rpmmacros</code></pre><p>We also need <em>wl-kmod</em> (tool used to manage wl module) and Broadcom drivers. You
 can get both of these from their public repos.</p>
 <p>To get <strong>Broadcom drivers</strong> <a href="http://www.broadcom.com/support/802.11">link - linux STA 32/64</a></p>
-<pre class="hljs"><code><span class="hljs-variable">$ </span>cd ~<span class="hljs-regexp">/rpmbuild/</span>SOURCES/
-<span class="hljs-variable">$ </span>wget <span class="hljs-symbol">https:</span>/<span class="hljs-regexp">/docs.broadcom.com/docs</span>-<span class="hljs-keyword">and</span>-downloads/docs/linux_sta/hybrid-v35_64-nodebug-pcoem-<span class="hljs-number">6_30_223_271</span>.tar.gz</code></pre><p>Build and prepare <code>wl-kmod</code> for install:</p>
-<pre class="hljs"><code>$ cd ~<span class="hljs-regexp">/rpmbuild
-$ wget http:/</span><span class="hljs-regexp">/elrepo.org/linux</span><span class="hljs-regexp">/elrepo/el</span>7/SRPMS/wl-kmod-<span class="hljs-number">6_30_223_271</span>-<span class="hljs-number">4</span>.el7.elrepo.nosrc.rpm 
+<pre class="hljs"><code>$ cd ~<span class="hljs-regexp">/rpmbuild/</span>SOURCES/
+$ wget https:<span class="hljs-regexp">//</span>docs.broadcom.com<span class="hljs-regexp">/docs-and-downloads/</span>docs<span class="hljs-regexp">/linux_sta/</span>hybrid-v35_64-nodebug-pcoem-<span class="hljs-number">6</span>_30_223_271.tar.gz</code></pre><p>Build and prepare <code>wl-kmod</code> for install:</p>
+<pre class="hljs"><code>$ cd ~/rpmbuild
+$ wget http:<span class="hljs-regexp">//</span>elrepo.org<span class="hljs-regexp">/linux/</span>elrepo<span class="hljs-regexp">/el7/</span>SRPMS/wl-kmod-<span class="hljs-number">6</span>_30_223_271-<span class="hljs-number">4</span>.el7.elrepo.nosrc.rpm 
 
 <span class="hljs-comment"># Build</span>
-$ rpmbuild --rebuild --define <span class="hljs-string">'packager James Madison'</span> ~<span class="hljs-regexp">/rpmbuild/wl</span>-kmod-<span class="hljs-number">6_30_223_271</span>-<span class="hljs-number">4</span>.el7.elrepo.nosrc.rpm </code></pre><p>Now lets clean up the mess:</p>
-<pre class="hljs"><code><span class="hljs-variable">$ </span>yum remove \*ndiswrapper\*
+$ rpmbuild --rebuild --define <span class="hljs-string">&#x27;packager James Madison&#x27;</span> ~<span class="hljs-regexp">/rpmbuild/</span>wl-kmod-<span class="hljs-number">6</span>_30_223_271-<span class="hljs-number">4</span>.el7.elrepo.nosrc.rpm </code></pre><p>Now lets clean up the mess:</p>
+<pre class="hljs"><code>$ yum remove \*ndiswrapper\*
 
 <span class="hljs-comment"># Install</span>
-<span class="hljs-variable">$ </span>rpm -Uvh ~<span class="hljs-regexp">/rpmbuild/</span>RPMS/[architecture]/kmod-wl*.rpm</code></pre><p><strong>Important notice:</strong></p>
+$ rpm -Uvh ~<span class="hljs-regexp">/rpmbuild/</span>RPMS<span class="hljs-regexp">/[architecture]/</span>kmod-wl*.rpm</code></pre><p><strong>Important notice:</strong></p>
 <p>For some reason, I was getting network hiccups as seen in kernel logs. This was
 up to other drivers taking place at packdrop. To fix this, just disable what you
 don&#39;t need.</p>
 <pre class="hljs"><code><span class="hljs-variable">$ </span>modprobe -r b43 b43legacy ssb wl lib80211
 <span class="hljs-variable">$ </span>modprobe lib80211_crypt_tkip
 <span class="hljs-variable">$ </span>modprobe wl</code></pre><p>You can now grab a beer since this night is over.</p>
-<pre class="hljs"><code><span class="hljs-variable">$ </span>rm -rf ~<span class="hljs-regexp">/rpmbuild</span></code></pre>
+<pre class="hljs"><code><span class="hljs-variable">$</span> <span class="hljs-built_in">rm</span> <span class="hljs-literal">-rf</span> ~/rpmbuild</code></pre>
       <hr style="display: block; text-align: left; width: 100%;" />
 
       <div id="footer"><div id="desc">thanks for reading |written on: Nov 12 2017</div></div>
