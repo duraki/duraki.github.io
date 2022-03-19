@@ -53,19 +53,19 @@
 <p>I browsed the forums here and there and collected all necessary details and electronic components to start building the project and comparing my final build against known details. Sort of a research work for a beginner in electronics such as me.</p>
 <p>What I needed was a couple of resistors of different resistance, some transistors which I suspect act as a gates in the voltage delivery and control flow, and two I/O interfaces, on one side a typical BMW 20-pin diagnostic port (for which only few pins are used), and a serial interface RS-232 for delivering the signal updates on a PC. If you are wondering why exactly does RS232 is implemented here, is because the K and L lines described above are compatible with this protocol, therefore the implementation corresponds to logical signals of the DS.</p>
 <p>Below is a schematic of the final build, laid down on a PCB or breadboard.</p>
-<p class="img-container"><img src="/images/tinyads/schematic-fresh.jpg" alt="BMW ADS Interface Schema"></p>
+<p class="img-container"><img src="/images/posts/tinyads/schematic-fresh.jpg" alt="BMW ADS Interface Schema"></p>
 <p>Although it doesn&#39;t look that hard to build, the conjunction lines are making this project a bit tedious for beginners, especially in regards to N/P transistors and their orientation. On the left side, there is a serial interface that acts as an output point in the control flow. on the right is a BMW diagnostic input that acts as a K/L-Line. In the middle, there are couple of resistors and transistors that acts as a logic gates, creating different IO understanding of the signals. Most notable pins are TXD and RXD, while the other three are 12V as a power (14), Ignition pin (16), and Ground (19).</p>
 <p>It is important to note that pin 20 and 17 are shorted from the BMW I/O. Respectively, they are delivering the signal from the shorter route.</p>
 <p>Because I wanted to build a rather &quot;readable&quot; breadboard project for the final QA, I connected two medium sized breadboards and connected their power rails to deliver full IO through it.</p>
 <h2 id="final-result"><a class="header-link" href="#final-result"></a>Final Result</h2>
 <p>After assembling the components on a breadboard, and comparing it against schema, I started beautifying the board by cutting all components legs to appropriate size, and replacing jump wires with the breadboard wires. The jump wires comes handy when you are prototyping the board but as this project will be used in a rather harsh environment, such is garage, I wanted to make sure it will stay as-is during the intended operations.</p>
-<p><img src="/images/tinyads/wip1.jpg" alt="Work in progress">
-<img src="/images/tinyads/wip2.jpg" alt="Work in progress">
-<img src="/images/tinyads/wip3.jpg" alt="Work in progress"></p>
+<p><img src="/images/posts/tinyads/wip1.jpg" alt="Work in progress">
+<img src="/images/posts/tinyads/wip2.jpg" alt="Work in progress">
+<img src="/images/posts/tinyads/wip3.jpg" alt="Work in progress"></p>
 <h2 id="qa-and-outro"><a class="header-link" href="#qa-and-outro"></a>QA and Outro</h2>
 <p>So long, the journey ends. It took me a couple of tries to successfully build it. For a quick testing, I&#39;ve used multimeter and a 12V battery attached on power rail via the pin 14. Testing resistance at different points was the easiest part. The hardest part was a final quality assurance which I did with couple of persons whom I want to credit here: <a href="https://github.com/s0cket">s0cket</a>, and <a href="https://www.linkedin.com/in/emir-tabakovic-ba151113a">Emir T.</a>; both of them a good friends doing electrical engineering. Additionally, a huge thanks to @benemorius from bimmerforums.com for reverse engineering the protocol for us.</p>
-<p><img src="/images/tinyads/serial-adapter.jpg" alt="Serial Adapter COM">
-<img src="/images/tinyads/YFXQ0739.JPG" alt="Testing Time"></p>
+<p><img src="/images/posts/tinyads/serial-adapter.jpg" alt="Serial Adapter COM">
+<img src="/images/posts/tinyads/YFXQ0739.JPG" alt="Testing Time"></p>
 <h3 id="part-list"><a class="header-link" href="#part-list"></a>Part List</h3>
 <pre class="hljs"><code><span class="hljs-attribute">8x</span> <span class="hljs-number">2</span>n<span class="hljs-number">3904</span> NPN switching transistor
 <span class="hljs-attribute">1x</span> <span class="hljs-number">2</span>n<span class="hljs-number">3906</span> PNP switching transistor

@@ -26,7 +26,7 @@ What I needed was a couple of resistors of different resistance, some transistor
 
 Below is a schematic of the final build, laid down on a PCB or breadboard.
 
-![BMW ADS Interface Schema](/images/tinyads/schematic-fresh.jpg)
+![BMW ADS Interface Schema](/images/posts/tinyads/schematic-fresh.jpg)
 
 Although it doesn't look that hard to build, the conjunction lines are making this project a bit tedious for beginners, especially in regards to N/P transistors and their orientation. On the left side, there is a serial interface that acts as an output point in the control flow. on the right is a BMW diagnostic input that acts as a K/L-Line. In the middle, there are couple of resistors and transistors that acts as a logic gates, creating different IO understanding of the signals. Most notable pins are TXD and RXD, while the other three are 12V as a power (14), Ignition pin (16), and Ground (19).
 
@@ -37,15 +37,15 @@ Because I wanted to build a rather "readable" breadboard project for the final Q
 ## Final Result
 After assembling the components on a breadboard, and comparing it against schema, I started beautifying the board by cutting all components legs to appropriate size, and replacing jump wires with the breadboard wires. The jump wires comes handy when you are prototyping the board but as this project will be used in a rather harsh environment, such is garage, I wanted to make sure it will stay as-is during the intended operations.
 
-![Work in progress](/images/tinyads/wip1.jpg)
-![Work in progress](/images/tinyads/wip2.jpg)
-![Work in progress](/images/tinyads/wip3.jpg)
+![Work in progress](/images/posts/tinyads/wip1.jpg)
+![Work in progress](/images/posts/tinyads/wip2.jpg)
+![Work in progress](/images/posts/tinyads/wip3.jpg)
 
 ## QA and Outro
 So long, the journey ends. It took me a couple of tries to successfully build it. For a quick testing, I've used multimeter and a 12V battery attached on power rail via the pin 14. Testing resistance at different points was the easiest part. The hardest part was a final quality assurance which I did with couple of persons whom I want to credit here: [s0cket](https://github.com/s0cket), and [Emir T.](https://www.linkedin.com/in/emir-tabakovic-ba151113a); both of them a good friends doing electrical engineering. Additionally, a huge thanks to @benemorius from bimmerforums.com for reverse engineering the protocol for us.
 
-![Serial Adapter COM](/images/tinyads/serial-adapter.jpg)
-![Testing Time](/images/tinyads/YFXQ0739.JPG)
+![Serial Adapter COM](/images/posts/tinyads/serial-adapter.jpg)
+![Testing Time](/images/posts/tinyads/YFXQ0739.JPG)
 
 ### Part List
 
