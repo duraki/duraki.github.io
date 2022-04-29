@@ -1,0 +1,12 @@
+baseURL = 'http://127.0.0.1:8800/notes/public/'
+languageCode = 'en-us'
+title = "duraki's notes"
+theme = "little-ocean"
+
+[permalinks]
+posts = '/:title'
+
+[params]
+logoUrl = '/notes/public/favicon.png'
+
+[params.styles]

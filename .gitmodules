@@ -1,0 +1,3 @@
+[submodule "notes/themes/little-ocean"]
+	path = notes/themes/little-ocean
+	url = https://github.com/justindsmith/little-ocean
