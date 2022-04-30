@@ -1,0 +1,18 @@
+<header>
+    <a href="/notes/public/" id="logo-and-title">
+    {{ $logoUrl := index .Site.Params "logoUrl" }}
+    <div class="site-logo">
+      {{ if $logoUrl }} <img class="site-logo" src="{{ $logoUrl }}" />{{ end }}
+    </div>
+        </a>
+
+        <div id="head">
+            <h1 class="menu-item menu-item-position"><a class="author" href="/notes/public/">{{.Site.Title}}</a></h1> / 
+            <h1 class="menu-item menu-item-position"> <a class="author" href="/about.html">halis duraki</a></h1> /
+            <h1 class="menu-item menu-item-position"><a class="author" href="/reports.html">security rep+</a></h1> / 
+            <h1 class="menu-item menu-item-position"><a class="author" href="/consulting/">consulting</a></h1> / 
+            <h1 class="menu-item menu-item-position"><a class="author" href="/">blog</a> </h1>
+        </div>
+
+        {{- partial "search-form.html" . -}}
+</header>
