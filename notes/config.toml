@@ -1,4 +1,3 @@
-# base URL = 'http://127.0.0.1:8800/notes/public/'
 baseURL = 'https://duraki.github.io/notes/public/'
 # buildDrafts=true # => Includes drafts when building
 

@@ -17,6 +17,7 @@ customizable.
 - [Configuration](#configuration)
 - [Write](#write)
 - [Build](#build)
+* [Notes](#notes)
 - [License](#license)
 
 ## Installation 
@@ -159,6 +160,28 @@ Art is a standalone Ruby static blog generator.
 ```
 
 ![Art](http://i.imgur.com/BHTTkV4.png)
+
+## Notes
+
+A `~ notes` is a dedicated page of my knowledgebase and oneliners for multiple purposes, as well as explaining my toolset and directory. You can observe or change those notes following Hugo notation. It is implemented due to speed and support of notes themeing option. The notes idea are taken from Andy's note-taking samples on his site.
+
+First install Hugo and try building `config.toml` manually like so:
+
+```
+$ brew install hugo
+# => vim ./notes/config.toml
+$ hugo -D 
+```
+
+To build for local environment, use webserver + changes in Hugo configuration:
+
+```
+$ vim config.toml
+# baseURL = 'http://127.0.0.1:8800/notes/public/' # => Development
+# baseURL = 'https://duraki.github.io/notes/public/' # => Production
+```
+
+See notes directory for examples.
 
 ## License
 
