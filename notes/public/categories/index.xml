@@ -2,10 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on </title>
-    <link>https://duraki.github.io/notes/public/categories/</link>
+    <link>http://notes.durakiconsulting.com/categories/</link>
     <description>Recent content in Categories on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>durakiconsulting (c) h. duraki</copyright><atom:link href="https://duraki.github.io/notes/public/categories/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>durakiconsulting (c) h. duraki</copyright><atom:link href="http://notes.durakiconsulting.com/categories/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

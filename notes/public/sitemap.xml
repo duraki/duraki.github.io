@@ -2,92 +2,92 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://duraki.github.io/notes/public/</loc>
+    <loc>http://notes.durakiconsulting.com/</loc>
     <lastmod>2022-04-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://duraki.github.io/notes/public/search/</loc>
+    <loc>http://notes.durakiconsulting.com/search/</loc>
     <lastmod>2021-09-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://duraki.github.io/notes/public/~-ideas/</loc>
+    <loc>http://notes.durakiconsulting.com/~-ideas/</loc>
   </url><url>
-    <loc>https://duraki.github.io/notes/public/api-penetration-test-checklist/</loc>
+    <loc>http://notes.durakiconsulting.com/api-penetration-test-checklist/</loc>
   </url><url>
-    <loc>https://duraki.github.io/notes/public/automotive-cybersecurity-videos/</loc>
+    <loc>http://notes.durakiconsulting.com/automotive-cybersecurity-videos/</loc>
   </url><url>
-    <loc>https://duraki.github.io/notes/public/automotive-hacking/</loc>
+    <loc>http://notes.durakiconsulting.com/automotive-hacking/</loc>
   </url><url>
-    <loc>https://duraki.github.io/notes/public/canfd-specifications/</loc>
+    <loc>http://notes.durakiconsulting.com/canfd-specifications/</loc>
   </url><url>
-    <loc>https://duraki.github.io/notes/public/captcha-bypass-tricks/</loc>
+    <loc>http://notes.durakiconsulting.com/captcha-bypass-tricks/</loc>
   </url><url>
-    <loc>https://duraki.github.io/notes/public/categories/</loc>
+    <loc>http://notes.durakiconsulting.com/categories/</loc>
   </url><url>
-    <loc>https://duraki.github.io/notes/public/classical-api-abuse/</loc>
+    <loc>http://notes.durakiconsulting.com/classical-api-abuse/</loc>
   </url><url>
-    <loc>https://duraki.github.io/notes/public/cycript/</loc>
+    <loc>http://notes.durakiconsulting.com/cycript/</loc>
   </url><url>
-    <loc>https://duraki.github.io/notes/public/decrypt-ipa-from-appstore/</loc>
+    <loc>http://notes.durakiconsulting.com/decrypt-ipa-from-appstore/</loc>
   </url><url>
-    <loc>https://duraki.github.io/notes/public/ecu-calibration/</loc>
+    <loc>http://notes.durakiconsulting.com/ecu-calibration/</loc>
   </url><url>
-    <loc>https://duraki.github.io/notes/public/ecu-foundations/</loc>
+    <loc>http://notes.durakiconsulting.com/ecu-foundations/</loc>
   </url><url>
-    <loc>https://duraki.github.io/notes/public/ethernet-specifications/</loc>
+    <loc>http://notes.durakiconsulting.com/ethernet-specifications/</loc>
   </url><url>
-    <loc>https://duraki.github.io/notes/public/firewall-engagements/</loc>
+    <loc>http://notes.durakiconsulting.com/firewall-engagements/</loc>
   </url><url>
-    <loc>https://duraki.github.io/notes/public/frida-objection-tutorial/</loc>
+    <loc>http://notes.durakiconsulting.com/frida-objection-tutorial/</loc>
   </url><url>
-    <loc>https://duraki.github.io/notes/public/how-to-compromise-ecu/</loc>
+    <loc>http://notes.durakiconsulting.com/how-to-compromise-ecu/</loc>
   </url><url>
-    <loc>https://duraki.github.io/notes/public/how-to-write-notes/</loc>
+    <loc>http://notes.durakiconsulting.com/how-to-write-notes/</loc>
   </url><url>
-    <loc>https://duraki.github.io/notes/public/ios-reverse-engineering/</loc>
+    <loc>http://notes.durakiconsulting.com/ios-reverse-engineering/</loc>
   </url><url>
-    <loc>https://duraki.github.io/notes/public/ios-static-analysis/</loc>
+    <loc>http://notes.durakiconsulting.com/ios-static-analysis/</loc>
   </url><url>
-    <loc>https://duraki.github.io/notes/public/jailbreak-bypass/</loc>
+    <loc>http://notes.durakiconsulting.com/jailbreak-bypass/</loc>
   </url><url>
-    <loc>https://duraki.github.io/notes/public/linux-notes/</loc>
+    <loc>http://notes.durakiconsulting.com/linux-notes/</loc>
   </url><url>
-    <loc>https://duraki.github.io/notes/public/list-of-topics/</loc>
+    <loc>http://notes.durakiconsulting.com/list-of-topics/</loc>
   </url><url>
-    <loc>https://duraki.github.io/notes/public/macos-notes/</loc>
+    <loc>http://notes.durakiconsulting.com/macos-notes/</loc>
   </url><url>
-    <loc>https://duraki.github.io/notes/public/metasploit-framework/</loc>
+    <loc>http://notes.durakiconsulting.com/metasploit-framework/</loc>
   </url><url>
-    <loc>https://duraki.github.io/notes/public/network-lab/</loc>
+    <loc>http://notes.durakiconsulting.com/network-lab/</loc>
   </url><url>
-    <loc>https://duraki.github.io/notes/public/network-recon/</loc>
+    <loc>http://notes.durakiconsulting.com/network-recon/</loc>
   </url><url>
-    <loc>https://duraki.github.io/notes/public/opcrouter-research/</loc>
+    <loc>http://notes.durakiconsulting.com/opcrouter-research/</loc>
   </url><url>
-    <loc>https://duraki.github.io/notes/public/posts/</loc>
+    <loc>http://notes.durakiconsulting.com/posts/</loc>
   </url><url>
-    <loc>https://duraki.github.io/notes/public/pure-reverse-engineering/</loc>
+    <loc>http://notes.durakiconsulting.com/pure-reverse-engineering/</loc>
   </url><url>
-    <loc>https://duraki.github.io/notes/public/sqli-payloads/</loc>
+    <loc>http://notes.durakiconsulting.com/sqli-payloads/</loc>
   </url><url>
-    <loc>https://duraki.github.io/notes/public/svg-payloads/</loc>
+    <loc>http://notes.durakiconsulting.com/svg-payloads/</loc>
   </url><url>
-    <loc>https://duraki.github.io/notes/public/tags/</loc>
+    <loc>http://notes.durakiconsulting.com/tags/</loc>
   </url><url>
-    <loc>https://duraki.github.io/notes/public/troubleshoot/</loc>
+    <loc>http://notes.durakiconsulting.com/troubleshoot/</loc>
   </url><url>
-    <loc>https://duraki.github.io/notes/public/vehicle-graybox-security-testing/</loc>
+    <loc>http://notes.durakiconsulting.com/vehicle-graybox-security-testing/</loc>
   </url><url>
-    <loc>https://duraki.github.io/notes/public/vhost-enumeration/</loc>
+    <loc>http://notes.durakiconsulting.com/vhost-enumeration/</loc>
   </url><url>
-    <loc>https://duraki.github.io/notes/public/web-application-penetration-test-checklist/</loc>
+    <loc>http://notes.durakiconsulting.com/web-application-penetration-test-checklist/</loc>
   </url><url>
-    <loc>https://duraki.github.io/notes/public/web-fuzzing-technqiues/</loc>
+    <loc>http://notes.durakiconsulting.com/web-fuzzing-technqiues/</loc>
   </url><url>
-    <loc>https://duraki.github.io/notes/public/web-penetration-testing-oneliners/</loc>
+    <loc>http://notes.durakiconsulting.com/web-penetration-testing-oneliners/</loc>
   </url><url>
-    <loc>https://duraki.github.io/notes/public/windbg-cheatsheets/</loc>
+    <loc>http://notes.durakiconsulting.com/windbg-cheatsheets/</loc>
   </url><url>
-    <loc>https://duraki.github.io/notes/public/windows-notes/</loc>
+    <loc>http://notes.durakiconsulting.com/windows-notes/</loc>
   </url><url>
-    <loc>https://duraki.github.io/notes/public/xss-payloads/</loc>
+    <loc>http://notes.durakiconsulting.com/xss-payloads/</loc>
   </url>
 </urlset>
