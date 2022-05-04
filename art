@@ -39,15 +39,21 @@ class Art
       builder
     end
 
+    if ARGV[0] == "notes"
+      puts "\t\tnotes - publish hugo notes. use ENV as an argument (a file stored in ./config/*.toml)" 
+      build_notes(ARGV[1])
+    end
+
     exit
   end
   
   # Init.
   def initialize
-    puts "art".blue + " is a standalone, single-file static blog generator.".green 
-    puts "---------".red
-    puts "init <blog>".blue + " | Start a new blog, initialize directory"
-    puts "publish".blue + "     | Publish blog from this directory"
+    puts "art is a standalone, single-file static blog generator.".green 
+    puts ("-"*100).green
+    puts "init <blog>".white + " | Start a new blog, initialize directory".green
+    puts "publish".white + "     | Publish blog from this directory".green
+    puts "notes <env>".white + " | Copy ./config/env.toml to ./notes/ and builds it".green
     cli
   end
 
@@ -59,6 +65,23 @@ class Art
     puts "---------".red
     puts "[+] Creating build configuration ...".green
     builder = Build.new @home
+  end
+
+  # Build notes.
+  def build_notes(env = "local")
+    puts "[/] Executing system Hugo command. Make sure to '% brew install hugo' prior to execution."
+    puts "[/] ENVIRONMENT: #{env.upcase}"
+    puts "\t copying ENV file now ..."
+    puts "cp config/#{env}.toml /notes/config.toml" 
+
+    config_path = "./config/#{env}.toml" 
+    destination_path = "./notes/config.toml"
+
+    FileUtils.cp(config_path, destination_path)
+    puts "Config file copied for notes"
+    puts "\t\t...running hugo for the gen phase..."
+    `cd ./notes && hugo`
+    puts "notes published"
   end
 
 end
