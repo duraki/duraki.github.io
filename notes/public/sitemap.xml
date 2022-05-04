@@ -2,92 +2,92 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://notes.durakiconsulting.com/</loc>
+    <loc>http://127.0.0.1:8800/notes/public/</loc>
     <lastmod>2022-04-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://notes.durakiconsulting.com/search/</loc>
+    <loc>http://127.0.0.1:8800/notes/public/search/</loc>
     <lastmod>2021-09-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://notes.durakiconsulting.com/~-ideas/</loc>
+    <loc>http://127.0.0.1:8800/notes/public/~-ideas/</loc>
   </url><url>
-    <loc>http://notes.durakiconsulting.com/api-penetration-test-checklist/</loc>
+    <loc>http://127.0.0.1:8800/notes/public/api-penetration-test-checklist/</loc>
   </url><url>
-    <loc>http://notes.durakiconsulting.com/automotive-cybersecurity-videos/</loc>
+    <loc>http://127.0.0.1:8800/notes/public/automotive-cybersecurity-videos/</loc>
   </url><url>
-    <loc>http://notes.durakiconsulting.com/automotive-hacking/</loc>
+    <loc>http://127.0.0.1:8800/notes/public/automotive-hacking/</loc>
   </url><url>
-    <loc>http://notes.durakiconsulting.com/canfd-specifications/</loc>
+    <loc>http://127.0.0.1:8800/notes/public/canfd-specifications/</loc>
   </url><url>
-    <loc>http://notes.durakiconsulting.com/captcha-bypass-tricks/</loc>
+    <loc>http://127.0.0.1:8800/notes/public/captcha-bypass-tricks/</loc>
   </url><url>
-    <loc>http://notes.durakiconsulting.com/categories/</loc>
+    <loc>http://127.0.0.1:8800/notes/public/categories/</loc>
   </url><url>
-    <loc>http://notes.durakiconsulting.com/classical-api-abuse/</loc>
+    <loc>http://127.0.0.1:8800/notes/public/classical-api-abuse/</loc>
   </url><url>
-    <loc>http://notes.durakiconsulting.com/cycript/</loc>
+    <loc>http://127.0.0.1:8800/notes/public/cycript/</loc>
   </url><url>
-    <loc>http://notes.durakiconsulting.com/decrypt-ipa-from-appstore/</loc>
+    <loc>http://127.0.0.1:8800/notes/public/decrypt-ipa-from-appstore/</loc>
   </url><url>
-    <loc>http://notes.durakiconsulting.com/ecu-calibration/</loc>
+    <loc>http://127.0.0.1:8800/notes/public/ecu-calibration/</loc>
   </url><url>
-    <loc>http://notes.durakiconsulting.com/ecu-foundations/</loc>
+    <loc>http://127.0.0.1:8800/notes/public/ecu-foundations/</loc>
   </url><url>
-    <loc>http://notes.durakiconsulting.com/ethernet-specifications/</loc>
+    <loc>http://127.0.0.1:8800/notes/public/ethernet-specifications/</loc>
   </url><url>
-    <loc>http://notes.durakiconsulting.com/firewall-engagements/</loc>
+    <loc>http://127.0.0.1:8800/notes/public/firewall-engagements/</loc>
   </url><url>
-    <loc>http://notes.durakiconsulting.com/frida-objection-tutorial/</loc>
+    <loc>http://127.0.0.1:8800/notes/public/frida-objection-tutorial/</loc>
   </url><url>
-    <loc>http://notes.durakiconsulting.com/how-to-compromise-ecu/</loc>
+    <loc>http://127.0.0.1:8800/notes/public/how-to-compromise-ecu/</loc>
   </url><url>
-    <loc>http://notes.durakiconsulting.com/how-to-write-notes/</loc>
+    <loc>http://127.0.0.1:8800/notes/public/how-to-write-notes/</loc>
   </url><url>
-    <loc>http://notes.durakiconsulting.com/ios-reverse-engineering/</loc>
+    <loc>http://127.0.0.1:8800/notes/public/ios-reverse-engineering/</loc>
   </url><url>
-    <loc>http://notes.durakiconsulting.com/ios-static-analysis/</loc>
+    <loc>http://127.0.0.1:8800/notes/public/ios-static-analysis/</loc>
   </url><url>
-    <loc>http://notes.durakiconsulting.com/jailbreak-bypass/</loc>
+    <loc>http://127.0.0.1:8800/notes/public/jailbreak-bypass/</loc>
   </url><url>
-    <loc>http://notes.durakiconsulting.com/linux-notes/</loc>
+    <loc>http://127.0.0.1:8800/notes/public/linux-notes/</loc>
   </url><url>
-    <loc>http://notes.durakiconsulting.com/list-of-topics/</loc>
+    <loc>http://127.0.0.1:8800/notes/public/list-of-topics/</loc>
   </url><url>
-    <loc>http://notes.durakiconsulting.com/macos-notes/</loc>
+    <loc>http://127.0.0.1:8800/notes/public/macos-notes/</loc>
   </url><url>
-    <loc>http://notes.durakiconsulting.com/metasploit-framework/</loc>
+    <loc>http://127.0.0.1:8800/notes/public/metasploit-framework/</loc>
   </url><url>
-    <loc>http://notes.durakiconsulting.com/network-lab/</loc>
+    <loc>http://127.0.0.1:8800/notes/public/network-lab/</loc>
   </url><url>
-    <loc>http://notes.durakiconsulting.com/network-recon/</loc>
+    <loc>http://127.0.0.1:8800/notes/public/network-recon/</loc>
   </url><url>
-    <loc>http://notes.durakiconsulting.com/opcrouter-research/</loc>
+    <loc>http://127.0.0.1:8800/notes/public/opcrouter-research/</loc>
   </url><url>
-    <loc>http://notes.durakiconsulting.com/posts/</loc>
+    <loc>http://127.0.0.1:8800/notes/public/posts/</loc>
   </url><url>
-    <loc>http://notes.durakiconsulting.com/pure-reverse-engineering/</loc>
+    <loc>http://127.0.0.1:8800/notes/public/pure-reverse-engineering/</loc>
   </url><url>
-    <loc>http://notes.durakiconsulting.com/sqli-payloads/</loc>
+    <loc>http://127.0.0.1:8800/notes/public/sqli-payloads/</loc>
   </url><url>
-    <loc>http://notes.durakiconsulting.com/svg-payloads/</loc>
+    <loc>http://127.0.0.1:8800/notes/public/svg-payloads/</loc>
   </url><url>
-    <loc>http://notes.durakiconsulting.com/tags/</loc>
+    <loc>http://127.0.0.1:8800/notes/public/tags/</loc>
   </url><url>
-    <loc>http://notes.durakiconsulting.com/troubleshoot/</loc>
+    <loc>http://127.0.0.1:8800/notes/public/troubleshoot/</loc>
   </url><url>
-    <loc>http://notes.durakiconsulting.com/vehicle-graybox-security-testing/</loc>
+    <loc>http://127.0.0.1:8800/notes/public/vehicle-graybox-security-testing/</loc>
   </url><url>
-    <loc>http://notes.durakiconsulting.com/vhost-enumeration/</loc>
+    <loc>http://127.0.0.1:8800/notes/public/vhost-enumeration/</loc>
   </url><url>
-    <loc>http://notes.durakiconsulting.com/web-application-penetration-test-checklist/</loc>
+    <loc>http://127.0.0.1:8800/notes/public/web-application-penetration-test-checklist/</loc>
   </url><url>
-    <loc>http://notes.durakiconsulting.com/web-fuzzing-technqiues/</loc>
+    <loc>http://127.0.0.1:8800/notes/public/web-fuzzing-technqiues/</loc>
   </url><url>
-    <loc>http://notes.durakiconsulting.com/web-penetration-testing-oneliners/</loc>
+    <loc>http://127.0.0.1:8800/notes/public/web-penetration-testing-oneliners/</loc>
   </url><url>
-    <loc>http://notes.durakiconsulting.com/windbg-cheatsheets/</loc>
+    <loc>http://127.0.0.1:8800/notes/public/windbg-cheatsheets/</loc>
   </url><url>
-    <loc>http://notes.durakiconsulting.com/windows-notes/</loc>
+    <loc>http://127.0.0.1:8800/notes/public/windows-notes/</loc>
   </url><url>
-    <loc>http://notes.durakiconsulting.com/xss-payloads/</loc>
+    <loc>http://127.0.0.1:8800/notes/public/xss-payloads/</loc>
   </url>
 </urlset>
