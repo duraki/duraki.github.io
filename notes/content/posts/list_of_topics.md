@@ -33,8 +33,9 @@ Personal list of topics of interest. At least for me eh? :)
 
 ### Reverse Engineering
 
-* [OPCRouter Research](/opcrouter-research)
+* [Tricks and Tips](/reverse-engineering-tricks-and-tips)
 * [WinDbg Cheatsheets](/windbg-cheatsheets)
+* [Byteman Cheatsheets](/byteman)
 * [iOS Reverse Engineering](/ios-reverse-engineering)
     * [Frida & Objection Tutorial](/frida-objection-tutorial)
     * [Pure Reverse Engineering](/pure-reverse-engineering)
@@ -42,8 +43,13 @@ Personal list of topics of interest. At least for me eh? :)
     * [Decrypt IPA from AppStore](/decrypt-ipa-from-appstore)
     * [iOS Jailbreak Bypass](/jailbreak-bypass)
     * [iOS Static Analysis](/ios-static-analysis)
+* [OPCRouter Research](/opcrouter-research)
 
 ### Development
+
+* todo: `vim.init`, `tmux`, `iterm`, `osx`
+* todo: `gmmk + key remap`
+* todo: `photos/ physical`
 
 ### Misc
 

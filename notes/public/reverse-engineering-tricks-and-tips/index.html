@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html><title>Automotive Cybersecurity Videos</title>
+<html><title>Reverse Engineering Tricks and Tips</title>
 
 
 <meta charset="utf-8" />
@@ -116,35 +116,20 @@ body {
   <div class="grid">
     <div class="page" data-level="1">
       <div class="content">
-        <h1>Automotive Cybersecurity Videos</h1>
-        <p><a href="https://www.youtube.com/watch?v=xHfInsMEYdQ">https://www.youtube.com/watch?v=xHfInsMEYdQ</a>
-<a href="https://www.youtube.com/watch?v=DUNWZnhneiI">https://www.youtube.com/watch?v=DUNWZnhneiI</a>
-<a href="https://www.youtube.com/watch?v=mz55tsLnlSc">https://www.youtube.com/watch?v=mz55tsLnlSc</a>
-<a href="https://www.youtube.com/watch?v=k50hU6aPlG8">https://www.youtube.com/watch?v=k50hU6aPlG8</a>
-<a href="https://www.youtube.com/watch?v=k4JD2ZUHrXA">https://www.youtube.com/watch?v=k4JD2ZUHrXA</a> - Cert-based auth via UDS
-<a href="https://www.youtube.com/watch?v=KqV5nIkGKFs">https://www.youtube.com/watch?v=KqV5nIkGKFs</a> - CANFD explained
-<a href="https://www.youtube.com/watch?v=XMVLkbw1BNE">https://www.youtube.com/watch?v=XMVLkbw1BNE</a> - New Standard for Ethernet on a Bus Line (10BASE-T1S)
-<a href="https://www.youtube.com/watch?v=WW481idfcro">https://www.youtube.com/watch?v=WW481idfcro</a> - Cert-based auth via Vector tool
-<a href="https://www.youtube.com/watch?v=pxlx3_gEiFM">https://www.youtube.com/watch?v=pxlx3_gEiFM</a> - Embedded Security in Automotive
-<a href="https://www.youtube.com/watch?v=3uU0Sl-byVc">https://www.youtube.com/watch?v=3uU0Sl-byVc</a> - Using ML to detect anomalyes
-<a href="https://www.youtube.com/watch?v=QEOWjEytb6Y">https://www.youtube.com/watch?v=QEOWjEytb6Y</a> - Cert-based in diagnostics (in-depth)
-<a href="https://www.youtube.com/watch?v=bUdxpsQXeRU">https://www.youtube.com/watch?v=bUdxpsQXeRU</a>  - Corporate security testing in Automotive
-<a href="https://www.youtube.com/watch?v=DuXhz4mDYZA">https://www.youtube.com/watch?v=DuXhz4mDYZA</a> - From TARA to Pentest
-<a href="https://www.youtube.com/watch?v=7D7uNqPWrXw">https://www.youtube.com/watch?v=7D7uNqPWrXw</a> - Using Scapy for Car pentesting</p>
-<p>hwio</p>
-<p><a href="https://www.youtube.com/watch?v=2fplLJ3S3d0">https://www.youtube.com/watch?v=2fplLJ3S3d0</a>
-<a href="https://www.youtube.com/watch?v=Myp4-RsdE-Y">https://www.youtube.com/watch?v=Myp4-RsdE-Y</a>
-<a href="https://www.youtube.com/watch?v=Hzazchbvu6M">https://www.youtube.com/watch?v=Hzazchbvu6M</a>
-<a href="https://www.youtube.com/watch?v=dZVWXP2j0co">https://www.youtube.com/watch?v=dZVWXP2j0co</a>
-<a href="https://www.youtube.com/watch?v=10Dag6ee2d8">https://www.youtube.com/watch?v=10Dag6ee2d8</a></p>
-<p>udemy/can interface
-<a href="https://deloittedevelopment.udemy.com/course/master-can-protocol-completely-from-scratch/learn/">https://deloittedevelopment.udemy.com/course/master-can-protocol-completely-from-scratch/learn/</a></p>
-<blockquote>
-<p>Provided by Aron S.</p>
-</blockquote>
-<p>check these out to see how the UI looks. They have their own scripting language called CAPL:</p>
-<p><a href="https://www.youtube.com/watch?v=uffjocL9Zt8">https://www.youtube.com/watch?v=uffjocL9Zt8</a>
-<a href="https://www.youtube.com/watch?v=KbVPeI9A_ME">https://www.youtube.com/watch?v=KbVPeI9A_ME</a></p>
+        <h1>Reverse Engineering Tricks and Tips</h1>
+        <ul>
+<li>Find threads by patching a jump with a short jump (EB FE) to create an endless loop you can then search for</li>
+<li>Looking for &ldquo;CO A8&rdquo; to find local IP addr prefix (192.168)</li>
+<li>Looking for 4-byte Unix timestamps in hex in a file format or a network packet</li>
+<li>Search/google all application constant values, classes and libraries</li>
+<li>Resize Hex Editor window to identify unknown structures and its sizes</li>
+<li>Check application Log messages and Xref them</li>
+<li>Replace all <code>https</code> calls with <code>http</code> (instead of hooking on each TLS thread and decrypting SSL)</li>
+<li>Using LD_PRELOAD to disable specific functions or patching binaries on the fly</li>
+<li>Use Burp + <code>mitm_relay</code> to proxy traffic</li>
+<li>Decompile JAR and attack via Frida, <a href="../byteman">Byteman</a> or any other dynamic instrumentation toolkit</li>
+<li>Use dotPeek to identify and process attack surface for anything .NET based</li>
+</ul>
 
       </div>
       
