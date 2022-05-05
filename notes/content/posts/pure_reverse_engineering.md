@@ -2,9 +2,9 @@
 title: "Pure Reverse Engineering"
 ---
 
-Some internal [knowledge](./reverse-engineering-tricks-and-tips) have been shared here. Otherwise, check references below.
+Some internal [knowledge](/reverse-engineering-tricks-and-tips) have been shared here. Otherwise, check references below.
 
-Use [Byteman](./byteman) to instrument compiled Java application and Jar based files.
+Use [Byteman](/byteman) to instrument compiled Java application and Jar based files.
 
 **References**
 

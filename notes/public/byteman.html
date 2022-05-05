@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html><title>Network Lab</title>
+<html><title>Byteman</title>
 
 
 <meta charset="utf-8" />
@@ -116,25 +116,50 @@ body {
   <div class="grid">
     <div class="page" data-level="1">
       <div class="content">
-        <h1>Network Lab</h1>
-        <h2 id="simple-topology">Simple Topology</h2>
-<p><strong>In GSN3</strong>, add 2 VPCS and 2 Cisco routers. Start VPCS and enter Console mode.
-Append IPv4 address for the interface.</p>
-<pre tabindex="0"><code># sets ipv4; netmask and gw for the vpc
-PC1&gt; ip 192.168.0.10/24 192.168.0.1 
-Checking for duplicate address...
-PC1 : 192.168.0.10 255.255.255.0 gateway 192.168.0.1
+        <h1>Byteman</h1>
+        <h3 id="introduction">Introduction</h3>
+<p>Byteman is a bytecode manipulation tool for tweaking and changing Java
+application at load time and runtime. It work without the needs for
+recompilation. The modification is purely in memory, via Event Condition Action
+rule language - based on Java.</p>
+<h3 id="rules">Rules</h3>
+<p>Write ECA based rules which you can inject using Byteman directives and command
+line application.</p>
+<pre tabindex="0"><code># =&gt; trace.btm
+RULE trace main entry
+CLASS ^CognitiveApp
+METHOD main
+AT ENTRY
+IF TRUE
+DO traceln(&#34;Byteman: Application loaded successfully. java.application.main() called.&#34;)
+ENDRULE
+</code></pre><p>Replace the CognitiveApp with any class handling the Main application login. Use JD-GUI to find for <code>main()</code> functions. It&rsquo;s important to leave <code>^</code> char because it indicates the regex pattern.</p>
+<h3 id="registers">Registers</h3>
+<p>The following registers exists:</p>
+<ul>
+<li>RULE, CLASS, METHOD (Description, Classname, Method Name)</li>
+<li>AT ENTRY, AT EXIT</li>
+<li>IF TRUE (Run always)</li>
+<li>DO (Execute command)</li>
+<li>ENDRULE (Script end)</li>
+</ul>
+<h3 id="running">Running</h3>
+<ul>
+<li>Run the Java application either via Command Line or from the <code>*.shortcut</code></li>
+<li>Add <code>%JAVABYTE_HOME%</code> environment in Windows/Linux (ie. <code>setx</code> on Windows, or <code>export</code> on Linux)</li>
+<li>Create a RULE</li>
+<li>Use <code>bminstall.bat $PID</code> to inject Byteman in the JVM runtime</li>
+<li>Use <code>bmsubmit.bat ..\scripts\trace.btm</code> to register Byteman script</li>
+<li>Watch application stdout log output and search for <code>traceln</code> tagged calls</li>
+</ul>
+<pre tabindex="0"><code># =&gt; WinNT injection example
 
-# ... same for the 2nd vpc with different static ip
-# PC2&gt; ip 192.168.0.11/24 192.168.0.1
-</code></pre><p>Always save the configuration of the assets with <strong>save</strong> command:</p>
-<pre tabindex="0"><code>PC1&gt; save
-Saving startup configuration to startup.vpc
-.  done
-</code></pre><h2 id="advanced-topology">Advanced Topology</h2>
-<h2 id="corporate-topology">Corporate Topology</h2>
-<h2 id="scada-topology">SCADA Topology</h2>
-
+&gt; cd byteman/bin
+&gt; bminstall.bat $PID
+&gt; bmsubmit.bat ..\scripts\trace.btm
+Cannot locate byteman JBoss modules plugin jar
+redefine rule trace main entry
+</code></pre>
       </div>
       
 
@@ -203,7 +228,11 @@ Saving startup configuration to startup.vpc
    
 
    
+      
+   
 
+   
+      
    
 
    
@@ -231,6 +260,27 @@ Saving startup configuration to startup.vpc
    
 
 
+
+  <div class="bl-section">
+    <h4>Links to this note</h4>
+    <div class="backlinks">
+      
+        <a href="./pure-reverse-engineering.html" class="backlink-anchor">
+          <div class="backlink">
+            <p class="backlink-title">Pure Reverse Engineering</p>
+            <p class="backlink-preview">Use Byteman to instrument compiled Java application and Jar based files.</p>
+          </div>
+        </a>
+      
+        <a href="./reverse-engineering-tricks-and-tips.html" class="backlink-anchor">
+          <div class="backlink">
+            <p class="backlink-title">Reverse Engineering Tricks and Tips</p>
+            <p class="backlink-preview"> Decompile JAR and attack via Frida, Byteman or any other dynamic instrumentation toolkit  </p>
+          </div>
+        </a>
+      
+    </div>
+  </div>
 
 
       </div>

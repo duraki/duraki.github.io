@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html><title>Network Lab</title>
+<html><title>Reverse Engineering Tricks and Tips</title>
 
 
 <meta charset="utf-8" />
@@ -116,24 +116,20 @@ body {
   <div class="grid">
     <div class="page" data-level="1">
       <div class="content">
-        <h1>Network Lab</h1>
-        <h2 id="simple-topology">Simple Topology</h2>
-<p><strong>In GSN3</strong>, add 2 VPCS and 2 Cisco routers. Start VPCS and enter Console mode.
-Append IPv4 address for the interface.</p>
-<pre tabindex="0"><code># sets ipv4; netmask and gw for the vpc
-PC1&gt; ip 192.168.0.10/24 192.168.0.1 
-Checking for duplicate address...
-PC1 : 192.168.0.10 255.255.255.0 gateway 192.168.0.1
-
-# ... same for the 2nd vpc with different static ip
-# PC2&gt; ip 192.168.0.11/24 192.168.0.1
-</code></pre><p>Always save the configuration of the assets with <strong>save</strong> command:</p>
-<pre tabindex="0"><code>PC1&gt; save
-Saving startup configuration to startup.vpc
-.  done
-</code></pre><h2 id="advanced-topology">Advanced Topology</h2>
-<h2 id="corporate-topology">Corporate Topology</h2>
-<h2 id="scada-topology">SCADA Topology</h2>
+        <h1>Reverse Engineering Tricks and Tips</h1>
+        <ul>
+<li>Find threads by patching a jump with a short jump (EB FE) to create an endless loop you can then search for</li>
+<li>Looking for &ldquo;CO A8&rdquo; to find local IP addr prefix (192.168)</li>
+<li>Looking for 4-byte Unix timestamps in hex in a file format or a network packet</li>
+<li>Search/google all application constant values, classes and libraries</li>
+<li>Resize Hex Editor window to identify unknown structures and its sizes</li>
+<li>Check application Log messages and Xref them</li>
+<li>Replace all <code>https</code> calls with <code>http</code> (instead of hooking on each TLS thread and decrypting SSL)</li>
+<li>Using LD_PRELOAD to disable specific functions or patching binaries on the fly</li>
+<li>Use Burp + <code>mitm_relay</code> to proxy traffic</li>
+<li>Decompile JAR and attack via Frida, <a href="./byteman">Byteman</a> or any other dynamic instrumentation toolkit</li>
+<li>Use dotPeek to identify and process attack surface for anything .NET based</li>
+</ul>
 
       </div>
       

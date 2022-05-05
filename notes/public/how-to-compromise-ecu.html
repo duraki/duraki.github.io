@@ -218,6 +218,10 @@ body {
 
    
 
+   
+
+   
+
 
 
 
@@ -239,7 +243,7 @@ window.store = {
         
         "title": "Index",
         "tags": [],
-        "content": "Hello, these are my personal notes and knowledge graph. I started using Obsidian a bit early in 2020. and continued graphing my knowledge from there.\nI wanted something more towards functional, as to offer me a practical snippet library for my TTP\u0026rsquo;s, both online and as a backup of dementia.\nThe notes are largery inspired by others and especial Andy\u0026rsquo;s note-taking samples on his site. Thanks to Justin and Jethro for their theme support on static generation for this library of mine. Hope it will be worth to you as well as me.\nYou can start exploring from the List of Topics, List of Tools, or see the full list of notes.\n title: \u0026ldquo;List of Topics\u0026rdquo; Personal list of topics of interest. At least for me eh? :)\nAutomotive Cyber Security  Automotive Hacking Ethernet in Vehicles CANFD Specifications ECU Foundation ECU Compromise Vehicle Graybox Security Testing 👏  Classical Penetration Testing  Web Pentest Oneliners Web Fuzzing SQL Injection Payloads XSS Payloads Captcha Bypass Virtual Host Enumeration API Abuse Checklists  REST API Issue Library Web Issue Library   Networking  Basic Network Recon Firewall Penetration Test GSN3 Lab Environment Metasploit Framework    Reverse Engineering  OPCRouter Research WinDbg Cheatsheets iOS Reverse Engineering  Frida \u0026amp; Objection Tutorial Pure Reverse Engineering Cycript Decrypt IPA from AppStore iOS Jailbreak Bypass iOS Static Analysis    Development Misc  Windows Notes Linux Notes MacOS Notes How to write Notes Troubleshoot ~ ideas   How it works Additionalities offered through [params.styles] via config.toml. It\u0026rsquo;s possible to deploy dark version as well. Read for more in *.css.\n  This website is provided for free educational purposes. Knowledge shared here can be used for personal gain and experience.  ", 
+        "content": "Hello, these are my personal notes and knowledge graph. I started using Obsidian a bit early in 2020. and continued graphing my knowledge from there.\nI wanted something more towards functional, as to offer me a practical snippet library for my TTP\u0026rsquo;s, both online and as a backup of dementia.\nThe notes are largery inspired by others and especial Andy\u0026rsquo;s note-taking samples on his site. Thanks to Justin and Jethro for their theme support on static generation for this library of mine. Hope it will be worth to you as well as me.\nYou can start exploring from the List of Topics, List of Tools, or see the full list of notes.\n title: \u0026ldquo;List of Topics\u0026rdquo; Personal list of topics of interest. At least for me eh? :)\nAutomotive Cyber Security  Automotive Hacking Ethernet in Vehicles CANFD Specifications ECU Foundation ECU Compromise Vehicle Graybox Security Testing 👏  Classical Penetration Testing  Web Pentest Oneliners Web Fuzzing SQL Injection Payloads XSS Payloads Captcha Bypass Virtual Host Enumeration API Abuse Checklists  REST API Issue Library Web Issue Library   Networking  Basic Network Recon Firewall Penetration Test GSN3 Lab Environment Metasploit Framework    Reverse Engineering  Tricks and Tips WinDbg Cheatsheets Byteman Cheatsheets iOS Reverse Engineering  Frida \u0026amp; Objection Tutorial Pure Reverse Engineering Cycript Decrypt IPA from AppStore iOS Jailbreak Bypass iOS Static Analysis   OPCRouter Research  Development  todo: vim.init, tmux, iterm, osx todo: gmmk + key remap todo: photos/ physical  Misc  Windows Notes Linux Notes MacOS Notes How to write Notes Troubleshoot ~ ideas   How it works Additionalities offered through [params.styles] via config.toml. It\u0026rsquo;s possible to deploy dark version as well. Read for more in *.css.\n  This website is provided for free educational purposes. Knowledge shared here can be used for personal gain and experience.  ", 
         "url": "https:\/\/duraki.github.io\/notes\/public\/"
     },
     
@@ -291,6 +295,16 @@ window.store = {
         "tags": [],
         "content": " Link ECUs to avoid wires (weight, size, cost) Network Protocols allow ECUs to share information quickly and precisely (Ethernet \u0026amp; CANFD/CAN) Networks used between ECUs are based on Serial Communications  Serial means that items of information are sent via a single stream of communication   Speed of communication is measured in number of bits sent per second (bps) CAN (Controller Area Network) bus was developed to meet needs of up to 1 million bits per second (1Mbps) LIN (Local Interconnect Network) introduced to give a lower cost, lower speed altenative (~20 kbps) FlexRay was developed for more fault-tolerant, higher speed (10Mbps) network Ethernet (100Mbps) for videos and advanced driver assistance systems (new vehicles)  Special ECU are used called \u0026ldquo;gateways\u0026rdquo; to interconnect different network protocols (CAN + LIN, or Ethernet + FlexRay etc.)\nVehicle Diagnostics  ECUs provide diangostis services OBD standardises requests and responses related to diagnostics ISO 14229-1 (UDS) Standard  Defines structures and content of how data is interpreted   Read Fault Memory in the form of Diagnostic Trouble Codes from the ECU (detect faults)  ", 
         "url": "https:\/\/duraki.github.io\/notes\/public\/automotive-hacking.html"
+    },
+    
+    
+    
+    "https:\/\/duraki.github.io\/notes\/public\/byteman.html": {
+        
+        "title": "Byteman",
+        "tags": [],
+        "content": "Introduction Byteman is a bytecode manipulation tool for tweaking and changing Java application at load time and runtime. It work without the needs for recompilation. The modification is purely in memory, via Event Condition Action rule language - based on Java.\nRules Write ECA based rules which you can inject using Byteman directives and command line application.\n# =\u0026gt; trace.btm RULE trace main entry CLASS ^CognitiveApp METHOD main AT ENTRY IF TRUE DO traceln(\u0026#34;Byteman: Application loaded successfully. java.application.main() called.\u0026#34;) ENDRULE Replace the CognitiveApp with any class handling the Main application login. Use JD-GUI to find for main() functions. It\u0026rsquo;s important to leave ^ char because it indicates the regex pattern.\nRegisters The following registers exists:\n RULE, CLASS, METHOD (Description, Classname, Method Name) AT ENTRY, AT EXIT IF TRUE (Run always) DO (Execute command) ENDRULE (Script end)  Running  Run the Java application either via Command Line or from the *.shortcut Add %JAVABYTE_HOME% environment in Windows/Linux (ie. setx on Windows, or export on Linux) Create a RULE Use bminstall.bat $PID to inject Byteman in the JVM runtime Use bmsubmit.bat ..\\scripts\\trace.btm to register Byteman script Watch application stdout log output and search for traceln tagged calls  # =\u0026gt; WinNT injection example \u0026gt; cd byteman/bin \u0026gt; bminstall.bat $PID \u0026gt; bmsubmit.bat ..\\scripts\\trace.btm Cannot locate byteman JBoss modules plugin jar redefine rule trace main entry ", 
+        "url": "https:\/\/duraki.github.io\/notes\/public\/byteman.html"
     },
     
     
@@ -469,7 +483,7 @@ window.store = {
         
         "title": "List of Topics",
         "tags": [],
-        "content": "Personal list of topics of interest. At least for me eh? :)\nAutomotive Cyber Security  Automotive Hacking Ethernet in Vehicles CANFD Specifications ECU Foundation ECU Compromise Vehicle Graybox Security Testing 👏  Classical Penetration Testing  Web Pentest Oneliners Web Fuzzing SQL Injection Payloads XSS Payloads Captcha Bypass Virtual Host Enumeration API Abuse Checklists  REST API Issue Library Web Issue Library   Networking  Basic Network Recon Firewall Penetration Test GSN3 Lab Environment Metasploit Framework    Reverse Engineering  OPCRouter Research WinDbg Cheatsheets iOS Reverse Engineering  Frida \u0026amp; Objection Tutorial Pure Reverse Engineering Cycript Decrypt IPA from AppStore iOS Jailbreak Bypass iOS Static Analysis    Development Misc  Windows Notes Linux Notes MacOS Notes How to write Notes Troubleshoot ~ ideas  ", 
+        "content": "Personal list of topics of interest. At least for me eh? :)\nAutomotive Cyber Security  Automotive Hacking Ethernet in Vehicles CANFD Specifications ECU Foundation ECU Compromise Vehicle Graybox Security Testing 👏  Classical Penetration Testing  Web Pentest Oneliners Web Fuzzing SQL Injection Payloads XSS Payloads Captcha Bypass Virtual Host Enumeration API Abuse Checklists  REST API Issue Library Web Issue Library   Networking  Basic Network Recon Firewall Penetration Test GSN3 Lab Environment Metasploit Framework    Reverse Engineering  Tricks and Tips WinDbg Cheatsheets Byteman Cheatsheets iOS Reverse Engineering  Frida \u0026amp; Objection Tutorial Pure Reverse Engineering Cycript Decrypt IPA from AppStore iOS Jailbreak Bypass iOS Static Analysis   OPCRouter Research  Development  todo: vim.init, tmux, iterm, osx todo: gmmk + key remap todo: photos/ physical  Misc  Windows Notes Linux Notes MacOS Notes How to write Notes Troubleshoot ~ ideas  ", 
         "url": "https:\/\/duraki.github.io\/notes\/public\/list-of-topics.html"
     },
     
@@ -539,8 +553,18 @@ window.store = {
         
         "title": "Pure Reverse Engineering",
         "tags": [],
-        "content": "References\n Debugging iOS binaries with lldb Bypass Flutter SSL Pinning (2021) Frida Android Function Enumerator and Dumper  ", 
+        "content": "Some internal knowledge have been shared here. Otherwise, check references below.\nUse Byteman to instrument compiled Java application and Jar based files.\nReferences\n Debugging iOS binaries with lldb Bypass Flutter SSL Pinning (2021) Frida Android Function Enumerator and Dumper  ", 
         "url": "https:\/\/duraki.github.io\/notes\/public\/pure-reverse-engineering.html"
+    },
+    
+    
+    
+    "https:\/\/duraki.github.io\/notes\/public\/reverse-engineering-tricks-and-tips.html": {
+        
+        "title": "Reverse Engineering Tricks and Tips",
+        "tags": [],
+        "content": " Find threads by patching a jump with a short jump (EB FE) to create an endless loop you can then search for Looking for \u0026ldquo;CO A8\u0026rdquo; to find local IP addr prefix (192.168) Looking for 4-byte Unix timestamps in hex in a file format or a network packet Search/google all application constant values, classes and libraries Resize Hex Editor window to identify unknown structures and its sizes Check application Log messages and Xref them Replace all https calls with http (instead of hooking on each TLS thread and decrypting SSL) Using LD_PRELOAD to disable specific functions or patching binaries on the fly Use Burp + mitm_relay to proxy traffic Decompile JAR and attack via Frida, Byteman or any other dynamic instrumentation toolkit Use dotPeek to identify and process attack surface for anything .NET based  ", 
+        "url": "https:\/\/duraki.github.io\/notes\/public\/reverse-engineering-tricks-and-tips.html"
     },
     
     
