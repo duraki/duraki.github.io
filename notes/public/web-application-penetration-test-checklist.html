@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html><title>Index</title>
+<html><title>Web Application Penetration Test Checklist</title>
 
 
 <meta charset="utf-8" />
@@ -112,103 +112,282 @@ body {
 </form>
 </header>
 
-<div class="page" data-level="1">
-  <div class="content">
-    <p>Hello, these are my personal notes and knowledge graph. I started using Obsidian
-a bit early in 2020. and continued graphing my knowledge from there.</p>
-<p>I wanted something more towards functional, as to offer me a practical snippet
-library for my TTP&rsquo;s, both online and as a backup of dementia.</p>
-<p>The notes are largery inspired by others and especial <a href="https://notes.andymatuschak.org">Andy&rsquo;s</a> note-taking samples on his site. Thanks to Justin and Jethro for their theme support on static generation for this library of mine. Hope it will be worth to you as well as me.</p>
-<p>You can start exploring from the <a href="./list-of-topics">List of Topics</a>, <a href="./list-of-tools">List of Tools</a>, or see the <a href="./posts">full list of notes</a>.</p>
+<div class="grid-container">
+  <div class="grid">
+    <div class="page" data-level="1">
+      <div class="content">
+        <h1>Web Application Penetration Test Checklist</h1>
+        <pre tabindex="0"><code>[+] Sql Injection Attack
+[+] Hibernate Query Language Injection
+[+] Direct OS Code Injection
+[+] XML Entity Injection
+[+] Broken Authentication and Session Management
+[+] Cross-Site Scripting (XSS)
+[+] Insecure Direct Object References
+[+] Security Misconfiguration
+[+] Sensitive Data Exposure
+[+] Missing Function Level Access Control
+[+] Cross-Site Request Forgery (CSRF)
+[+] Using Components with Known Vulnerabilities
+[+] Unvalidated Redirects and Forwards
+[+] Cross Site Scripting Attacks
+[+] Click Jacking Attacks
+[+] DNS Cache Poisoning
+[+] Symlinking – An Insider Attack
+[+] Cross Site Request Forgery Attacks
+[+] Remote Code Execution Attacks
+[+] Remote File inclusion
+[+] Local file inclusion
+[+] EverCookie
+[+] Denial oF Service Attack
+[+] Cookie Eviction
+[+] PHPwn
+[+] NAT Pinning
+[+] XSHM
+[+] MitM DNS Rebinding SSL/TLS Wildcards and
+[+] Quick Proxy Detection
+[+] Improving HTTPS Side Channel Attacks
+[+] Side Channel Attacks in SSL
+[+] Turning XSS into Clickjacking
+[+] Bypassing CSRF protections with ClickJacking
+[+] HTTP Parameter Pollution
+[+] URL Hijacking
+[+] Stroke Jacking
+[+] Fooling B64_Encode(Payload) on WAFs And Filters
+[+] MySQL Stacked Queries with SQL Injection.
+[+] Posting Raw XML cross-domain
+[+] Generic Cross-Browser Cross-Domain theft
+[+] Attacking HTTPS with Cache Injection
+[+] Tap Jacking
+[+] XSS - Track
+[+] Next Generation Click Jacking
+[+] XSSing Client-Side Dynamic HTML.
+[+] Stroke triggered XSS and Stroke Jacking
+[+] Lost iN Translation
+[+] Persistent Cross Interface Attacks
+[+] Chronofeit Phishing
+[+] SQLi Filter Evasion Cheat Sheet (MySQL)
+[+] Tabnabbing
+[+] UI Redressing
+[+] Cookie Poisoning
+[+] SSRF
+[+] Bruteforce of PHPSESSID
+[+] Blended Threats and JavaScript
+[+] Cross-Site Port Attacks
+[+] CAPTCHA Re-Riding Attack
+[+] Arbitrary file access
+[+] Binary planting
+[+] Blind SQL Injection
+[+] Blind XPath Injection
+[+] Brute force attack
+[+] Buffer overflow attack
+[+] Cache Poisoning
+[+] Cash Overflow
+[+] Clickjacking
+[+] Command injection attacks
+[+] Comment Injection Attack
+[+] Content Security Policy
+[+] Content Spoofing
+[+] Credential stuffing
+[+] Cross Frame Scripting
+[+] Cross Site History Manipulation (XSHM)
+[+] Cross Site Tracing
+[+] Cross-Site Request Forgery (CSRF)
+[+] Cross Site Port Attack (XSPA)
+[+] Cross-Site Scripting (XSS)
+[+] Cross-User Defacement
+[+] Custom Special Character Injection
+[+] Denial of Service
+[+] Direct Dynamic Code Evaluation (‘Eval Injection’)
+[+] Execution After Redirect (EAR)
+[+] Exploitation of CORS
+[+] Forced browsing
+[+] Form action hijacking
+[+] Format string attack
+[+] Full Path Disclosure
+[+] Function Injection
+[+] Host Header injection
+[+] HTTP Response Splitting
+[+] HTTP verb tampering
+[+] HTML injection
+[+] LDAP injection
+[+] Log Injection
+[+] Man-in-the-browser attack
+[+] Man-in-the-middle attack
+[+] Mobile code: invoking untrusted mobile code
+[+] Mobile code: non-final public field
+[+] Mobile code: object hijack
+[+] One-Click Attack
+[+] Parameter Delimiter
+[+] Page takeover
+[+] Path Traversal
+[+] Reflected DOM Injection
+[+] Regular expression Denial of Service – ReDoS
+[+] Repudiation Attack
+[+] Resource Injection
+[+] Server-Side Includes (SSI) Injection
+[+] Session fixation
+[+] Session hijacking attack
+[+] Session Prediction
+[+] Setting Manipulation
+[+] Special Element Injection
+[+] SMTP injection
+[+] SQL Injection
+[+] SSI injection
+[+] Traffic flood
+[+] Web Parameter Tampering
+[+] XPATH Injection
+[+] XSRF or SSRF
+[+] Image mime type injection
+[+] DNS
+[+] CRLF
+[+] 2FA
+[+] XSS
+[+] CSRF
+[+] SOP
+[+] SSRF
+[+] LFI &amp; RFI
+[+] SQLi
+[+] File Upload
+[+] XXE
+[+] LDAP
+[+] MongoDB
+[+] IDOR
+[+] Web Socket
+[+] Click Jacking
+[+] No rate limit
+[+] CMDI
+[+] Directory Traversal
+[+] HTTP Request Smugling
+[+] Subdomain Takeover
+[+] Wordpress
+[+] Joomla
+[+] Drupal
+[+] HSTS
+[+] Host Header Attack
+[+] Password reset
+[+] Session Management
+[+] Github  
+[+] HeartBleed
+[+] SSI 
+[+] Recon
+[+] URL Rerdirect
+[+] HTMLi
+[+] SPF recored
+[+] Critical File Found
+[+] Source Code Disclosure
+</code></pre>
+      </div>
+      
 
-<hr>
-<h2 id="title-list-of-topics">title: &ldquo;List of Topics&rdquo;</h2>
-<p>Personal list of topics of interest. At least for me eh? :)</p>
-<h3 id="automotive-cyber-security">Automotive Cyber Security</h3>
-<ul>
-<li><a href="./automotive-hacking">Automotive Hacking</a></li>
-<li><a href="./ethernet-specifications">Ethernet in Vehicles</a></li>
-<li><a href="./canfd-specifications">CANFD Specifications</a></li>
-<li><a href="./ecu-foundations">ECU Foundation</a></li>
-<li><a href="./how-to-compromise-ecu">ECU Compromise</a></li>
-<li><a href="./vehicle-graybox-security-testing">Vehicle Graybox Security Testing</a> 👏</li>
-</ul>
-<h3 id="classical-penetration-testing">Classical Penetration Testing</h3>
-<ul>
-<li><a href="./web-penetration-testing-oneliners">Web Pentest Oneliners</a></li>
-<li><a href="./web-fuzzing-technqiues">Web Fuzzing</a></li>
-<li><a href="./sqli-payloads">SQL Injection Payloads</a></li>
-<li><a href="./xss-payloads">XSS Payloads</a></li>
-<li><a href="./captcha-bypass-tricks">Captcha Bypass</a></li>
-<li><a href="./vhost-enumeration">Virtual Host Enumeration</a></li>
-<li><a href="./classical-api-abuse">API Abuse</a></li>
-<li>Checklists
-<ul>
-<li><a href="./api-penetration-test-checklist">REST API Issue Library</a></li>
-<li><a href="./web-application-penetration-test-checklist">Web Issue Library</a></li>
-</ul>
-</li>
-<li>Networking
-<ul>
-<li><a href="./network-recon">Basic Network Recon</a></li>
-<li><a href="./firewall-engagements">Firewall Penetration Test</a></li>
-<li><a href="./network-lab">GSN3 Lab Environment</a></li>
-<li><a href="./metasploit-framework">Metasploit Framework</a></li>
-</ul>
-</li>
-</ul>
-<h3 id="reverse-engineering">Reverse Engineering</h3>
-<ul>
-<li><a href="./reverse-engineering-tricks-and-tips">Tricks and Tips</a></li>
-<li><a href="./windbg-cheatsheets">WinDbg Cheatsheets</a></li>
-<li><a href="./byteman">Byteman Cheatsheets</a></li>
-<li><a href="./byteman-scripts">Byteman Scripts</a></li>
-<li><a href="./ios-reverse-engineering">iOS Reverse Engineering</a>
-<ul>
-<li><a href="./frida-objection-tutorial#ios-tutorial">Frida &amp; Objection Tutorial</a></li>
-<li><a href="./pure-reverse-engineering">Pure Reverse Engineering</a></li>
-<li><a href="./cycript">Cycript</a></li>
-<li><a href="./decrypt-ipa-from-appstore">Decrypt IPA from AppStore</a></li>
-<li><a href="./jailbreak-bypass">iOS Jailbreak Bypass</a></li>
-<li><a href="./ios-static-analysis">iOS Static Analysis</a></li>
-</ul>
-</li>
-<li><a href="./android-reverse-engineering">Android Reverse Engineering</a>
-<ul>
-<li><a href="./frida-objection-tutorial#android-tutorial">Frida &amp; Objection Tutorial</a></li>
-</ul>
-</li>
-<li><a href="./opcrouter-research">OPCRouter Research</a></li>
-</ul>
-<h3 id="development">Development</h3>
-<ul>
-<li>todo: <code>vim.init</code>, <code>tmux</code>, <code>iterm</code>, <code>osx</code></li>
-<li>todo: <code>gmmk + key remap</code></li>
-<li>todo: <code>photos/ physical</code></li>
-</ul>
-<h3 id="misc">Misc</h3>
-<ul>
-<li><a href="./windows-notes">Windows Notes</a></li>
-<li><a href="./linux-notes">Linux Notes</a></li>
-<li><a href="./macos-notes">MacOS Notes</a></li>
-<li><a href="./how-to-write-notes">How to write Notes</a></li>
-<li><a href="./troubleshoot">Troubleshoot</a></li>
-<li><a href="./~-ideas">~ ideas</a></li>
-</ul>
 
 
-<hr>
-<h3 id="how-it-works">How it works</h3>
-<p>Additionalities offered through <code>[params.styles]</code> via <code>config.toml</code>. It&rsquo;s
-possible to deploy dark version as well. Read for more in *.css.</p>
-<details>
-  <summary></summary>
-  This website is provided for free educational purposes. Knowledge shared here can be used for personal gain and experience.
-</details>
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
 
 
-  </div>
+
+
+      </div>
+   </div>
 </div>
+
+<script src="https://duraki.github.io/notes/public/js/URI.js" type="text/javascript"></script>
+
+<script src="https://duraki.github.io/notes/public/js/page.js" type="text/javascript"></script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <script>
 window.store = {

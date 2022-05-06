@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html><title>Index</title>
+<html><title>iOS Reverse Engineering</title>
 
 
 <meta charset="utf-8" />
@@ -112,59 +112,21 @@ body {
 </form>
 </header>
 
-<div class="page" data-level="1">
-  <div class="content">
-    <p>Hello, these are my personal notes and knowledge graph. I started using Obsidian
-a bit early in 2020. and continued graphing my knowledge from there.</p>
-<p>I wanted something more towards functional, as to offer me a practical snippet
-library for my TTP&rsquo;s, both online and as a backup of dementia.</p>
-<p>The notes are largery inspired by others and especial <a href="https://notes.andymatuschak.org">Andy&rsquo;s</a> note-taking samples on his site. Thanks to Justin and Jethro for their theme support on static generation for this library of mine. Hope it will be worth to you as well as me.</p>
-<p>You can start exploring from the <a href="./list-of-topics">List of Topics</a>, <a href="./list-of-tools">List of Tools</a>, or see the <a href="./posts">full list of notes</a>.</p>
-
-<hr>
-<h2 id="title-list-of-topics">title: &ldquo;List of Topics&rdquo;</h2>
-<p>Personal list of topics of interest. At least for me eh? :)</p>
-<h3 id="automotive-cyber-security">Automotive Cyber Security</h3>
+<div class="grid-container">
+  <div class="grid">
+    <div class="page" data-level="1">
+      <div class="content">
+        <h1>iOS Reverse Engineering</h1>
+        <p><strong>References</strong></p>
 <ul>
-<li><a href="./automotive-hacking">Automotive Hacking</a></li>
-<li><a href="./ethernet-specifications">Ethernet in Vehicles</a></li>
-<li><a href="./canfd-specifications">CANFD Specifications</a></li>
-<li><a href="./ecu-foundations">ECU Foundation</a></li>
-<li><a href="./how-to-compromise-ecu">ECU Compromise</a></li>
-<li><a href="./vehicle-graybox-security-testing">Vehicle Graybox Security Testing</a> 👏</li>
+<li><a href="https://owasp.org/www-pdf-archive/OWASPIreland-Limerick-Day_20131031_iOSCheatSheet-OanaCornea.pdf">iOS CheatSheet</a></li>
+<li><a href="https://kov4l3nko.github.io/blog/2016-03-01-decrypting-apps-from-appstore/">Decrypting apps from AppStore</a></li>
+<li><a href="https://iphonedevwiki.net/index.php/Reverse_Engineering_Tools">Reverse Engineering Tools</a></li>
+<li><a href="https://trelis24.github.io/2018/03/27/Pentesting-iOS-Static/">iOS Static Analysis</a></li>
 </ul>
-<h3 id="classical-penetration-testing">Classical Penetration Testing</h3>
-<ul>
-<li><a href="./web-penetration-testing-oneliners">Web Pentest Oneliners</a></li>
-<li><a href="./web-fuzzing-technqiues">Web Fuzzing</a></li>
-<li><a href="./sqli-payloads">SQL Injection Payloads</a></li>
-<li><a href="./xss-payloads">XSS Payloads</a></li>
-<li><a href="./captcha-bypass-tricks">Captcha Bypass</a></li>
-<li><a href="./vhost-enumeration">Virtual Host Enumeration</a></li>
-<li><a href="./classical-api-abuse">API Abuse</a></li>
-<li>Checklists
-<ul>
-<li><a href="./api-penetration-test-checklist">REST API Issue Library</a></li>
-<li><a href="./web-application-penetration-test-checklist">Web Issue Library</a></li>
-</ul>
-</li>
-<li>Networking
-<ul>
-<li><a href="./network-recon">Basic Network Recon</a></li>
-<li><a href="./firewall-engagements">Firewall Penetration Test</a></li>
-<li><a href="./network-lab">GSN3 Lab Environment</a></li>
-<li><a href="./metasploit-framework">Metasploit Framework</a></li>
-</ul>
-</li>
-</ul>
-<h3 id="reverse-engineering">Reverse Engineering</h3>
-<ul>
-<li><a href="./reverse-engineering-tricks-and-tips">Tricks and Tips</a></li>
-<li><a href="./windbg-cheatsheets">WinDbg Cheatsheets</a></li>
-<li><a href="./byteman">Byteman Cheatsheets</a></li>
-<li><a href="./byteman-scripts">Byteman Scripts</a></li>
-<li><a href="./ios-reverse-engineering">iOS Reverse Engineering</a>
-<ul>
+<p><strong>Using <code>class-dump</code></strong></p>
+<pre tabindex="0"><code>$ class-dump -S -s -H App -o /path/to/headers/App/
+</code></pre><ul>
 <li><a href="./frida-objection-tutorial#ios-tutorial">Frida &amp; Objection Tutorial</a></li>
 <li><a href="./pure-reverse-engineering">Pure Reverse Engineering</a></li>
 <li><a href="./cycript">Cycript</a></li>
@@ -172,43 +134,134 @@ library for my TTP&rsquo;s, both online and as a backup of dementia.</p>
 <li><a href="./jailbreak-bypass">iOS Jailbreak Bypass</a></li>
 <li><a href="./ios-static-analysis">iOS Static Analysis</a></li>
 </ul>
-</li>
-<li><a href="./android-reverse-engineering">Android Reverse Engineering</a>
-<ul>
-<li><a href="./frida-objection-tutorial#android-tutorial">Frida &amp; Objection Tutorial</a></li>
-</ul>
-</li>
-<li><a href="./opcrouter-research">OPCRouter Research</a></li>
-</ul>
-<h3 id="development">Development</h3>
-<ul>
-<li>todo: <code>vim.init</code>, <code>tmux</code>, <code>iterm</code>, <code>osx</code></li>
-<li>todo: <code>gmmk + key remap</code></li>
-<li>todo: <code>photos/ physical</code></li>
-</ul>
-<h3 id="misc">Misc</h3>
-<ul>
-<li><a href="./windows-notes">Windows Notes</a></li>
-<li><a href="./linux-notes">Linux Notes</a></li>
-<li><a href="./macos-notes">MacOS Notes</a></li>
-<li><a href="./how-to-write-notes">How to write Notes</a></li>
-<li><a href="./troubleshoot">Troubleshoot</a></li>
-<li><a href="./~-ideas">~ ideas</a></li>
-</ul>
+
+      </div>
+      
 
 
-<hr>
-<h3 id="how-it-works">How it works</h3>
-<p>Additionalities offered through <code>[params.styles]</code> via <code>config.toml</code>. It&rsquo;s
-possible to deploy dark version as well. Read for more in *.css.</p>
-<details>
-  <summary></summary>
-  This website is provided for free educational purposes. Knowledge shared here can be used for personal gain and experience.
-</details>
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+      
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
 
 
+
+  <div class="bl-section">
+    <h4>Links to this note</h4>
+    <div class="backlinks">
+      
+        <a href="./list-of-topics.html" class="backlink-anchor">
+          <div class="backlink">
+            <p class="backlink-title">List of Topics</p>
+            <p class="backlink-preview"> iOS Reverse Engineering  </p>
+          </div>
+        </a>
+      
+    </div>
   </div>
+
+
+      </div>
+   </div>
 </div>
+
+<script src="https://duraki.github.io/notes/public/js/URI.js" type="text/javascript"></script>
+
+<script src="https://duraki.github.io/notes/public/js/page.js" type="text/javascript"></script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <script>
 window.store = {

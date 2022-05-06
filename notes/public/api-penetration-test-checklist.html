@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html><title>Index</title>
+<html><title>API Penetration Test Checklist</title>
 
 
 <meta charset="utf-8" />
@@ -112,103 +112,187 @@ body {
 </form>
 </header>
 
-<div class="page" data-level="1">
-  <div class="content">
-    <p>Hello, these are my personal notes and knowledge graph. I started using Obsidian
-a bit early in 2020. and continued graphing my knowledge from there.</p>
-<p>I wanted something more towards functional, as to offer me a practical snippet
-library for my TTP&rsquo;s, both online and as a backup of dementia.</p>
-<p>The notes are largery inspired by others and especial <a href="https://notes.andymatuschak.org">Andy&rsquo;s</a> note-taking samples on his site. Thanks to Justin and Jethro for their theme support on static generation for this library of mine. Hope it will be worth to you as well as me.</p>
-<p>You can start exploring from the <a href="./list-of-topics">List of Topics</a>, <a href="./list-of-tools">List of Tools</a>, or see the <a href="./posts">full list of notes</a>.</p>
+<div class="grid-container">
+  <div class="grid">
+    <div class="page" data-level="1">
+      <div class="content">
+        <h1>API Penetration Test Checklist</h1>
+        <pre tabindex="0"><code>---
 
-<hr>
-<h2 id="title-list-of-topics">title: &ldquo;List of Topics&rdquo;</h2>
-<p>Personal list of topics of interest. At least for me eh? :)</p>
-<h3 id="automotive-cyber-security">Automotive Cyber Security</h3>
-<ul>
-<li><a href="./automotive-hacking">Automotive Hacking</a></li>
-<li><a href="./ethernet-specifications">Ethernet in Vehicles</a></li>
-<li><a href="./canfd-specifications">CANFD Specifications</a></li>
-<li><a href="./ecu-foundations">ECU Foundation</a></li>
-<li><a href="./how-to-compromise-ecu">ECU Compromise</a></li>
-<li><a href="./vehicle-graybox-security-testing">Vehicle Graybox Security Testing</a> 👏</li>
-</ul>
-<h3 id="classical-penetration-testing">Classical Penetration Testing</h3>
-<ul>
-<li><a href="./web-penetration-testing-oneliners">Web Pentest Oneliners</a></li>
-<li><a href="./web-fuzzing-technqiues">Web Fuzzing</a></li>
-<li><a href="./sqli-payloads">SQL Injection Payloads</a></li>
-<li><a href="./xss-payloads">XSS Payloads</a></li>
-<li><a href="./captcha-bypass-tricks">Captcha Bypass</a></li>
-<li><a href="./vhost-enumeration">Virtual Host Enumeration</a></li>
-<li><a href="./classical-api-abuse">API Abuse</a></li>
-<li>Checklists
-<ul>
-<li><a href="./api-penetration-test-checklist">REST API Issue Library</a></li>
-<li><a href="./web-application-penetration-test-checklist">Web Issue Library</a></li>
-</ul>
-</li>
-<li>Networking
-<ul>
-<li><a href="./network-recon">Basic Network Recon</a></li>
-<li><a href="./firewall-engagements">Firewall Penetration Test</a></li>
-<li><a href="./network-lab">GSN3 Lab Environment</a></li>
-<li><a href="./metasploit-framework">Metasploit Framework</a></li>
-</ul>
-</li>
-</ul>
-<h3 id="reverse-engineering">Reverse Engineering</h3>
-<ul>
-<li><a href="./reverse-engineering-tricks-and-tips">Tricks and Tips</a></li>
-<li><a href="./windbg-cheatsheets">WinDbg Cheatsheets</a></li>
-<li><a href="./byteman">Byteman Cheatsheets</a></li>
-<li><a href="./byteman-scripts">Byteman Scripts</a></li>
-<li><a href="./ios-reverse-engineering">iOS Reverse Engineering</a>
-<ul>
-<li><a href="./frida-objection-tutorial#ios-tutorial">Frida &amp; Objection Tutorial</a></li>
-<li><a href="./pure-reverse-engineering">Pure Reverse Engineering</a></li>
-<li><a href="./cycript">Cycript</a></li>
-<li><a href="./decrypt-ipa-from-appstore">Decrypt IPA from AppStore</a></li>
-<li><a href="./jailbreak-bypass">iOS Jailbreak Bypass</a></li>
-<li><a href="./ios-static-analysis">iOS Static Analysis</a></li>
-</ul>
-</li>
-<li><a href="./android-reverse-engineering">Android Reverse Engineering</a>
-<ul>
-<li><a href="./frida-objection-tutorial#android-tutorial">Frida &amp; Objection Tutorial</a></li>
-</ul>
-</li>
-<li><a href="./opcrouter-research">OPCRouter Research</a></li>
-</ul>
-<h3 id="development">Development</h3>
-<ul>
-<li>todo: <code>vim.init</code>, <code>tmux</code>, <code>iterm</code>, <code>osx</code></li>
-<li>todo: <code>gmmk + key remap</code></li>
-<li>todo: <code>photos/ physical</code></li>
-</ul>
-<h3 id="misc">Misc</h3>
-<ul>
-<li><a href="./windows-notes">Windows Notes</a></li>
-<li><a href="./linux-notes">Linux Notes</a></li>
-<li><a href="./macos-notes">MacOS Notes</a></li>
-<li><a href="./how-to-write-notes">How to write Notes</a></li>
-<li><a href="./troubleshoot">Troubleshoot</a></li>
-<li><a href="./~-ideas">~ ideas</a></li>
-</ul>
+## Authentication
+- [ ] Don&#39;t use `Basic Auth`. Use standard authentication instead (e.g. [JWT](https://jwt.io/), [OAuth](https://oauth.net/)).
+- [ ] Don&#39;t reinvent the wheel in `Authentication`, `token generation`, `password storage`. Use the standards.
+- [ ] Use `Max Retry` and jail features in Login.
+- [ ] Use encryption on all sensitive data.
+
+### JWT (JSON Web Token)
+- [ ] Use a random complicated key (`JWT Secret`) to make brute forcing the token very hard.
+- [ ] Don&#39;t extract the algorithm from the header. Force the algorithm in the backend (`HS256` or `RS256`).
+- [ ] Make token expiration (`TTL`, `RTTL`) as short as possible.
+- [ ] Don&#39;t store sensitive data in the JWT payload, it can be decoded [easily](https://jwt.io/#debugger-io).
+
+### OAuth
+- [ ] Always validate `redirect_uri` server-side to allow only whitelisted URLs.
+- [ ] Always try to exchange for code and not tokens (don&#39;t allow `response_type=token`).
+- [ ] Use `state` parameter with a random hash to prevent CSRF on the OAuth authentication process.
+- [ ] Define the default scope, and validate scope parameters for each application.
+
+## Access
+- [ ] Limit requests (Throttling) to avoid DDoS / brute-force attacks.
+- [ ] Use HTTPS on server side to avoid MITM (Man in the Middle Attack).
+- [ ] Use `HSTS` header with SSL to avoid SSL Strip attack.
+- [ ] For private APIs, only allow access from whitelisted IPs/hosts.
+
+## Input
+- [ ] Use the proper HTTP method according to the operation: `GET (read)`, `POST (create)`, `PUT/PATCH (replace/update)`, and `DELETE (to delete a record)`, and respond with `405 Method Not Allowed` if the requested method isn&#39;t appropriate for the requested resource.
+- [ ] Validate `content-type` on request Accept header (Content Negotiation) to allow only your supported format (e.g. `application/xml`, `application/json`, etc.) and respond with `406 Not Acceptable` response if not matched.
+- [ ] Validate `content-type` of posted data as you accept (e.g. `application/x-www-form-urlencoded`, `multipart/form-data`, `application/json`, etc.).
+- [ ] Validate user input to avoid common vulnerabilities (e.g. `XSS`, `SQL-Injection`, `Remote Code Execution`, etc.).
+- [ ] Don&#39;t use any sensitive data (`credentials`, `Passwords`, `security tokens`, or `API keys`) in the URL, but use standard Authorization header.
+- [ ] Use an API Gateway service to enable caching, Rate Limit policies (e.g. `Quota`, `Spike Arrest`, or `Concurrent Rate Limit`) and deploy APIs resources dynamically.
+
+## Processing
+- [ ] Check if all the endpoints are protected behind authentication to avoid broken authentication process.
+- [ ] User own resource ID should be avoided. Use `/me/orders` instead of `/user/654321/orders`.
+- [ ] Don&#39;t auto-increment IDs. Use `UUID` instead.
+- [ ] If you are parsing XML files, make sure entity parsing is not enabled to avoid `XXE` (XML external entity attack).
+- [ ] If you are parsing XML files, make sure entity expansion is not enabled to avoid `Billion Laughs/XML bomb` via exponential entity expansion attack.
+- [ ] Use a CDN for file uploads.
+- [ ] If you are dealing with huge amount of data, use Workers and Queues to process as much as possible in background and return response fast to avoid HTTP Blocking.
+- [ ] Do not forget to turn the DEBUG mode OFF.
+
+## Output
+- [ ] Send `X-Content-Type-Options: nosniff` header.
+- [ ] Send `X-Frame-Options: deny` header.
+- [ ] Send `Content-Security-Policy: default-src &#39;none&#39;` header.
+- [ ] Remove fingerprinting headers - `X-Powered-By`, `Server`, `X-AspNet-Version`, etc.
+- [ ] Force `content-type` for your response. If you return `application/json`, then your `content-type` response is `application/json`.
+- [ ] Don&#39;t return sensitive data like `credentials`, `Passwords`, or `security tokens`.
+- [ ] Return the proper status code according to the operation completed. (e.g. `200 OK`, `400 Bad Request`, `401 Unauthorized`, `405 Method Not Allowed`, etc.).
+
+## CI &amp; CD
+- [ ] Audit your design and implementation with unit/integration tests coverage.
+- [ ] Use a code review process and disregard self-approval.
+- [ ] Ensure that all components of your services are statically scanned by AV software before pushing to production, including vendor libraries and other dependencies.
+- [ ] Design a rollback solution for deployments.
 
 
-<hr>
-<h3 id="how-it-works">How it works</h3>
-<p>Additionalities offered through <code>[params.styles]</code> via <code>config.toml</code>. It&rsquo;s
-possible to deploy dark version as well. Read for more in *.css.</p>
-<details>
-  <summary></summary>
-  This website is provided for free educational purposes. Knowledge shared here can be used for personal gain and experience.
-</details>
+---
+
+## See also:
+- [yosriady/api-development-tools](https://github.com/yosriady/api-development-tools) - A collection of useful resources for building RESTful HTTP+JSON APIs.
+</code></pre>
+      </div>
+      
 
 
-  </div>
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+
+
+
+      </div>
+   </div>
 </div>
+
+<script src="https://duraki.github.io/notes/public/js/URI.js" type="text/javascript"></script>
+
+<script src="https://duraki.github.io/notes/public/js/page.js" type="text/javascript"></script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <script>
 window.store = {
