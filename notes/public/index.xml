@@ -257,6 +257,15 @@ $ sudo apt-get realmd $ realm join example.ba --user username </description>
     </item>
     
     <item>
+      <title>List of Tools</title>
+      <link>https://duraki.github.io/notes/public/list-of-tools.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://duraki.github.io/notes/public/list-of-tools.html</guid>
+      <description>apktool, android, openssl</description>
+    </item>
+    
+    <item>
       <title>List of Topics</title>
       <link>https://duraki.github.io/notes/public/list-of-topics.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
