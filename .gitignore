@@ -2,3 +2,5 @@
 !.gitignore
 !*.creative-industries
 tuxtheme/*
+
+./notes/config.toml
