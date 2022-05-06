@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html><title>Index</title>
+<html><title>OPCRouter Research</title>
 
 
 <meta charset="utf-8" />
@@ -10,10 +10,10 @@
 />
 <meta name="apple-mobile-web-app-capable" content="yes" />
 
-<link href="./favicon.png" rel="icon" type="image/x-icon" />
+<link href="../favicon.png" rel="icon" type="image/x-icon" />
 
 
-<link rel="stylesheet" href="./css/index.db0ff6adb85d12a55dc7afd153794f1bb4b22f39d3efe031d0be4456af877dea.css" />
+<link rel="stylesheet" href="../css/index.db0ff6adb85d12a55dc7afd153794f1bb4b22f39d3efe031d0be4456af877dea.css" />
 
 <style type="text/css">
   :root {
@@ -90,15 +90,15 @@ body {
 
 
 <body><header>
-    <a href="./" id="logo-and-title">
+    <a href="../" id="logo-and-title">
     
     <div class="site-logo">
-       <img class="site-logo" src="./favicon.png" />
+       <img class="site-logo" src="../favicon.png" />
     </div>
         </a>
 
         <div id="head">
-            <h1 class="menu-item menu-item-position"><a class="author" href="./"></a></h1> / 
+            <h1 class="menu-item menu-item-position"><a class="author" href="../"></a></h1> / 
             <h1 class="menu-item menu-item-position"><a class="author" href="https://duraki.github.io/about.html">halis duraki</a></h1> /
             <h1 class="menu-item menu-item-position"><a class="author" href="https://duraki.github.io/reports.html">security rep+</a></h1> / 
             <h1 class="menu-item menu-item-position"><a class="author" href="https://duraki.github.io/consulting/">consulting</a></h1> / 
@@ -112,103 +112,403 @@ body {
 </form>
 </header>
 
-<div class="page" data-level="1">
-  <div class="content">
-    <p>Hello, these are my personal notes and knowledge graph. I started using Obsidian
-a bit early in 2020. and continued graphing my knowledge from there.</p>
-<p>I wanted something more towards functional, as to offer me a practical snippet
-library for my TTP&rsquo;s, both online and as a backup of dementia.</p>
-<p>The notes are largery inspired by others and especial <a href="https://notes.andymatuschak.org">Andy&rsquo;s</a> note-taking samples on his site. Thanks to Justin and Jethro for their theme support on static generation for this library of mine. Hope it will be worth to you as well as me.</p>
-<p>You can start exploring from the <a href="./list-of-topics">List of Topics</a>, <a href="./list-of-tools">List of Tools</a>, or see the <a href="./posts">full list of notes</a>.</p>
-
-<hr>
-<h2 id="title-list-of-topics">title: &ldquo;List of Topics&rdquo;</h2>
-<p>Personal list of topics of interest. At least for me eh? :)</p>
-<h3 id="automotive-cyber-security">Automotive Cyber Security</h3>
+<div class="grid-container">
+  <div class="grid">
+    <div class="page" data-level="1">
+      <div class="content">
+        <h1>OPCRouter Research</h1>
+        <h2 id="opc-routercom-exploitation-and-vulnearbility-research">OPC-Router.com Exploitation and Vulnearbility Research</h2>
+<p>Supported Platforms:</p>
 <ul>
-<li><a href="./automotive-hacking">Automotive Hacking</a></li>
-<li><a href="./ethernet-specifications">Ethernet in Vehicles</a></li>
-<li><a href="./canfd-specifications">CANFD Specifications</a></li>
-<li><a href="./ecu-foundations">ECU Foundation</a></li>
-<li><a href="./how-to-compromise-ecu">ECU Compromise</a></li>
-<li><a href="./vehicle-graybox-security-testing">Vehicle Graybox Security Testing</a> 👏</li>
-</ul>
-<h3 id="classical-penetration-testing">Classical Penetration Testing</h3>
+<li><strong>OPC-Router 4.18</strong> (named: <code>**OPCRouter-4.18.5005.126.exe**</code>)
 <ul>
-<li><a href="./web-penetration-testing-oneliners">Web Pentest Oneliners</a></li>
-<li><a href="./web-fuzzing-technqiues">Web Fuzzing</a></li>
-<li><a href="./sqli-payloads">SQL Injection Payloads</a></li>
-<li><a href="./xss-payloads">XSS Payloads</a></li>
-<li><a href="./captcha-bypass-tricks">Captcha Bypass</a></li>
-<li><a href="./vhost-enumeration">Virtual Host Enumeration</a></li>
-<li><a href="./classical-api-abuse">API Abuse</a></li>
-<li>Checklists
-<ul>
-<li><a href="./api-penetration-test-checklist">REST API Issue Library</a></li>
-<li><a href="./web-application-penetration-test-checklist">Web Issue Library</a></li>
+<li>Windows Server 2016 &amp; 2012 R2</li>
+<li>Windows 10 (also IoT) &amp; 8.1</li>
 </ul>
 </li>
-<li>Networking
+<li><strong>OPC-Router 4.18</strong> (named: <code>**OPCRouter-4.18.5005.126 (Windows 7).exe**</code>)
 <ul>
-<li><a href="./network-recon">Basic Network Recon</a></li>
-<li><a href="./firewall-engagements">Firewall Penetration Test</a></li>
-<li><a href="./network-lab">GSN3 Lab Environment</a></li>
-<li><a href="./metasploit-framework">Metasploit Framework</a></li>
+<li>Windows Server 2012 R1 &amp; 2008 R2</li>
+<li>Windows 8.0 &amp; 7</li>
 </ul>
 </li>
 </ul>
-<h3 id="reverse-engineering">Reverse Engineering</h3>
+<h3 id="what-is-opc">What is OPC</h3>
+<p>OLE for Process Control (OPC) is a set of standard interfaces based upon Microsoft&rsquo;s OLE/COM technology. The application of the OPC standard interface makes possible interoperability between automation/control applications, field systems/devices etc.</p>
+<p><strong>ELI5:</strong> OPC is a &ldquo;standard&rdquo; used to share data in ICS between PC&rsquo;s and:</p>
 <ul>
-<li><a href="./reverse-engineering-tricks-and-tips">Tricks and Tips</a></li>
-<li><a href="./windbg-cheatsheets">WinDbg Cheatsheets</a></li>
-<li><a href="./byteman">Byteman Cheatsheets</a></li>
-<li><a href="./byteman-scripts">Byteman Scripts</a></li>
-<li><a href="./ios-reverse-engineering">iOS Reverse Engineering</a>
+<li>Enterprise Application, User Interfaces, Transport Layer, PLC &amp; Devices</li>
+</ul>
+<p>Usually, all vendors implements their own PLC Data Sharing Protocol which creates a large inconsistency and implementation in SCADA&rsquo;d environment. OPC Foundation published an OPC standard for Automation Industry Organization and Industrial Control Systems.</p>
+<h3 id="opc-standards">OPC Standards</h3>
+<p><strong>OPC</strong> offers a standard to Software Interface, decopupled from HMI/SCADA which is a great advantage. It comes usually in two parts:</p>
 <ul>
-<li><a href="./frida-objection-tutorial#ios-tutorial">Frida &amp; Objection Tutorial</a></li>
-<li><a href="./pure-reverse-engineering">Pure Reverse Engineering</a></li>
-<li><a href="./cycript">Cycript</a></li>
-<li><a href="./decrypt-ipa-from-appstore">Decrypt IPA from AppStore</a></li>
-<li><a href="./jailbreak-bypass">iOS Jailbreak Bypass</a></li>
-<li><a href="./ios-static-analysis">iOS Static Analysis</a></li>
+<li><strong>OPC Server -</strong> Exposes PLC memory address and label them as <strong>Tags. Tags</strong> are friendly name that maps to memory register in the PLC. Decouples the <strong>OPC Client</strong> from underlying DPMR.</li>
+<li><strong>OPC Client -</strong> Used to connect to OPC Server and read respectable tags.</li>
+<li><strong>OPC Data Access (OPC DA) -</strong> Browse infra for available OPC Servers. Browse OPC Server for tags and data. Can read/write Tags in a single call. Can subscribe to Tags for firing events in case of value(s) change. Blocking call therefore suspectable to DoS attack. Can lookup locations based on Cache or Device.</li>
+<li><strong>OPC Unified Architecture (OPC UA) -</strong> This is new standard that will replace, modernize and enhance all the functionality of the existing OPC defined interfaces. OPC UA is described in a layered set of specifications broken into Parts. Basically, an &ldquo;updated&rdquo; OPC Standard.</li>
+<li><strong>OPC Data Exchange (OPC DX) -</strong> Substandard/proto of OPC Standard.</li>
+</ul>
+<p><strong>Other terminology:</strong></p>
+<ul>
+<li><strong>HMI -</strong> Human Machine Interface</li>
+<li><strong>SCADA -</strong> Supervisory Control &amp; Data Acquisition</li>
+<li><strong>DDE -</strong> Dynamic Data Exchange</li>
+<li><strong>PLC -</strong> Programmable Logic Controller</li>
+<li><strong>DCS -</strong> Distributed Control System – purposes as a PLC, but highly optimized for process control, i.e. chemicals, oil/gas, food/beverage, pharmaceutical</li>
+<li><strong>RTU</strong> - Remote Terminal Unit – traditionally proprietary hardware – as today PLCs can be used for RTU&rsquo;s</li>
+<li><strong>Register</strong> – a memory location in a PLC or DCS. To some a register is a 16 bit word of data</li>
+<li><strong>Tag</strong>, or <strong>Item</strong> <strong>–</strong> a single unit of data – can be digital or analog values, or even arry</li>
+<li><strong>DCOM -</strong> Basically a protocol on top of Microsoft&rsquo;s <strong>COM</strong> for RPC (Remote Procedure Call), offers communication between <strong>COM</strong>-based applications <em>over the network.</em></li>
+</ul>
+<h3 id="opc-reverse-engineering">OPC Reverse Engineering</h3>
+<p>All downloaded installations, the OPCRouter and OPCServer (KEPServerEX) from the download page visible are put for further reuse into ./Installations directory.</p>
+<p>The OPC Router connects systems vertically and horizontally, from sensors and controls to ERP and the cloud, from printers and scales to MES, SCADA or LIMS.</p>
+<p><strong>Vendor</strong></p>
+<pre tabindex="0"><code>### inray Industriesoftware GmbH
+
+Holstenstraße 40, 25560 Schenefeld, Germany
+Phone: [+49 4892-89008-0](tel:+49 4892-89008-0)
+Email: [info@inray.de](mailto:info@inray.de)
+Web: [inray.de](https://www.inray.de/)
+</code></pre><p><strong>DOWNLOAD LINKS</strong>:</p>
+<ul>
+<li><a href="https://produkte.inray.de/OPC_Router?code=C9A928AC&amp;utm_source=sendinblue&amp;utm_campaign=OPC_Router_DOI_Confirmed__DemoLink_EN&amp;utm_medium=email#">Demo Link</a></li>
+<li><a href="https://produkte.inray.de/OPC_Router/Download?code=C9A928AC">Undirect Link</a></li>
+</ul>
+<p>After installation, double-click the &ldquo;OPC Router Configuration&rdquo; from the Windows Desktop. This will open a OPC Router GUI for configuration.</p>
+<p>Prior to exploring, we need to setup the lab as per the manual:</p>
+<ul>
+<li><strong>Requires</strong>
+<ul>
+<li>Accessible OPC Server to communicate with PLCs (OPC DA 4.0, UA, XML) - <strong>see below</strong></li>
+<li>Accessible Database Server (MS SQL, Oracle, MySQL and all others via ODBC. MS Access and writing/reading XML files supported as well)
+<ul>
+<li>for Oracle, you need additional Oracle instant client (ODAC)</li>
 </ul>
 </li>
-<li><a href="./android-reverse-engineering">Android Reverse Engineering</a>
-<ul>
-<li><a href="./frida-objection-tutorial#android-tutorial">Frida &amp; Objection Tutorial</a></li>
+<li>SAP plug-in supports SAP systems 4.0b or newer</li>
 </ul>
 </li>
-<li><a href="./opcrouter-research">OPCRouter Research</a></li>
 </ul>
-<h3 id="development">Development</h3>
+<h3 id="enabling-extensive-log-files-in-ocp-router">Enabling extensive LOG files in OCP Router</h3>
 <ul>
-<li>todo: <code>vim.init</code>, <code>tmux</code>, <code>iterm</code>, <code>osx</code></li>
-<li>todo: <code>gmmk + key remap</code></li>
-<li>todo: <code>photos/ physical</code></li>
+<li>Open OPC Router Configuration from the Desktop Shortcut</li>
+<li>Click <strong>Extras</strong> → <strong>Settings</strong> from the Menu Bar</li>
+<li>Scroll to bottom of the Settings Pane/Tab</li>
+<li><strong>Check</strong> all checkboxes in <code>Log Output</code></li>
 </ul>
-<h3 id="misc">Misc</h3>
+<h3 id="starting-opc-router-services">Starting OPC Router Service(s)</h3>
 <ul>
-<li><a href="./windows-notes">Windows Notes</a></li>
-<li><a href="./linux-notes">Linux Notes</a></li>
-<li><a href="./macos-notes">MacOS Notes</a></li>
-<li><a href="./how-to-write-notes">How to write Notes</a></li>
-<li><a href="./troubleshoot">Troubleshoot</a></li>
-<li><a href="./~-ideas">~ ideas</a></li>
+<li>Open OPC Router Configuration from the Desktop Shortcut</li>
+<li>Click <strong>Service</strong> → <strong>Start</strong> from the Menu Bar</li>
+<li>Now you can open for example: <code>C:\OPCRouter4\LogDir\OPCRouterService_15.txt</code> for detailed log output of a started service</li>
+</ul>
+<h3 id="observations">Observations</h3>
+<p>By default, a connection string is visible in OCP Router <strong>Config</strong> Logfile from above Profiling:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span>    <span style="color:#e6db74">`15.05.21 21:44:34.574[Trace:DacPac] SqlConstantConnection: SERVER=(localdb)</span><span style="color:#960050;background-color:#1e0010">\</span><span style="color:#e6db74">.</span><span style="color:#960050;background-color:#1e0010">\</span><span style="color:#e6db74">OPCRouter4;DATABASE=OPCRouterConfig;Trusted_Connection=Yes;APP=OPC-Router;Pooling=false;Connect Timeout=30`</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">`15.05.21 21:44:36.554[Trace:StorageManager] SqlConstantConnection: SERVER=(localdb)</span><span style="color:#960050;background-color:#1e0010">\</span><span style="color:#e6db74">.</span><span style="color:#960050;background-color:#1e0010">\</span><span style="color:#e6db74">OPCRouter4;DATABASE=OPCRouterConfig;Trusted_Connection=Yes;APP=OPC-Router;Pooling=false;Connect Timeout=30`</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">`15.05.21 21:44:36.639[Trace:StorageManager] SqlConstantConnection: SERVER=(localdb)</span><span style="color:#960050;background-color:#1e0010">\</span><span style="color:#e6db74">.</span><span style="color:#960050;background-color:#1e0010">\</span><span style="color:#e6db74">OPCRouter4;Trusted_Connection=Yes;APP=OPC-Router;Pooling=false;Connect Timeout=30`</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">`15.05.21 21:44:37.092[Trace:StorageManager] SqlConstantConnection: SERVER=(localdb)</span><span style="color:#960050;background-color:#1e0010">\</span><span style="color:#e6db74">.</span><span style="color:#960050;background-color:#1e0010">\</span><span style="color:#e6db74">OPCRouter4;DATABASE=OPCRouterLongTimeStorage;Trusted_Connection=Yes;APP=OPC-Router;Pooling=false;Connect Timeout=30`</span>
+</span></span></code></pre></div><p>The application, when having started services running, have this information disclosed in <strong>State</strong> → <strong>Service Status</strong> → <strong>Dashboard</strong>. For example, see <code>logs/Dashboard.xml</code> on example:</p>
+<pre tabindex="0"><code>OPC Router 4 Service is starting at 15/05/2021 20:23:42
+Starting RedundancyServerManager. Listening on port 49954
+...
+</code></pre><p>There are number of *.exe under OPC Router Installation Directory, as seen below:</p>
+<pre tabindex="0"><code># =&gt; SQLLocalDB\inray.Data.SqlLocalDB.Service.exe
+PS C:\OPCRouter4&gt; C:\OPCRouter4\SQLLocalDB\inray.Data.SqlLocalDB.Service.exe
+02:39:14 Arguments are invalid!
+02:39:14
+inray.data.sqllocaldb.service.exe - inray.Data.LocalDB.Service - (c) Copyright by inray Industriesoftware
+
+Usage: inray.data.sqllocaldb.service.exe -n &lt;arg&gt; [-i -u]
+
+Available commands:
+-------------------
+-n, --InstanceName   The Name of the instance
+-i, --install        install the service
+-u, --uninstall      uninstall the service
+
+02:39:14 &lt;Enter&gt; to continue...
+
+# =&gt; It was also observed that the file *.config consists of XML key/val attributes
+# =&gt; holding the Database settings
+PS C:\OPCRouter4&gt; more C:\OPCRouter4\SQLLocalDB\inray.Data.SqlLocalDB.Service.exe.config | grep InitialDatabase -C 10
+....
+  &lt;DatabaseConfiguration&gt;
+    &lt;InitialDatabases&gt;
+      &lt;Database Name=&#34;OPCRouterConfig&#34; BackupFile=&#34;Backup\OPCRouterConfig.bak&#34;/&gt;
+          &lt;Database Name=&#34;OPCRouterShortTimeStorage&#34; BackupFile=&#34;Backup\OPCRouterShortTimeStorage.bak&#34;/&gt;
+          &lt;Database Name=&#34;OPCRouterLongTimeStorage&#34; BackupFile=&#34;Backup\OPCRouterLongTimeStorage.bak&#34;/&gt;
+          &lt;Database Name=&#34;OPCRouterRuntime&#34; BackupFile=&#34;Backup\OPCRouterRuntime.bak&#34;/&gt;
+    &lt;/InitialDatabases&gt;
+  &lt;/DatabaseConfiguration&gt;
+&lt;/configuration&gt;
+
+# =&gt; Later, it was discovered that intensive Log Files were also discovered in that subdirectory, as shown:
+PS C:\OPCRouter4\SQLLocalDB\LogDir&gt; ls
+
+    Directory: C:\OPCRouter4\SQLLocalDB\LogDir
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----      15. 5. 2021.     23:59         256287 LoggerBase_15.txt
+-a----      16. 5. 2021.     02:44         286907 LoggerBase_16.txt
+
+# =&gt; @see logs/LoggerBase_16.txt for example 
+
+# =&gt; When using Process Explorer, there is a process (service) created and running 
+# =&gt; that shows the above utility running:
+
+# =&gt; Process Explorer shows running this service as:
+C:\OPCRouter4\SQLLocalDB\inray.Data.SqlLocalDB.Service.exe -s -n &#34;OPCRouter4&#34;
+
+# =&gt; To kill/debug server, you need to open Microsoft Windows 
+# =&gt; Control Panel and disable the Service
+
+# =&gt; A registry editor shows this path for the above service
+#    Computer\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\OPCRouter4-LocalDB
+
+# =&gt; Disable service using below window from &#34;Services&#34; (Control Panel), and then
+# =&gt; we can symlink this database for further exploration
+
+# =&gt; MINGW64:/c/
+Test Account@DESKTOP-RONDJPT MINGW64 /c
+$ ln -fs /c/OPCRouter4/ &#34;//vmware-host/Shared Folders/InstallDir&#34;
+
+# =&gt; Now resume the service via exe path shown in &#39;Services&#39;
+</code></pre><p>To debug the above server, I used approach described here:</p>
+<ul>
+<li><a href="https://bordplate.no/blog/en/post/debugging-a-windows-service">Reference</a></li>
+</ul>
+<pre tabindex="0"><code># =&gt; Run Windows Terminal with Admin Privs, and then:
+
+# Use gflags.exe to map Image File as a Service
+PS C:\Program Files (x86)\Windows Kits\10\Debuggers\x64&gt; .\gflags.exe
+... set as in below image and click Apply -&gt; Launch ...
+## Image: C:\OPCRouter4\SQLLocalDB\inray.Data.SqlLocalDB.Service.exe -s -n &#34;OPCRouter4&#34;
+## Debugger: C:\Program Files (x86)\Windows Kits\10\Debuggers\x64\windbg.exe -server tcp:port=5005 -c &#34;g&#34;
+
+# Use WinDbg to connect to host
+PS C:\Program Files (x86)\Windows Kits\10\Debuggers\x64&gt; .\windbg.exe --remote tcp:Port=5005,Server=127.0.0.1
+# ... or attach via PID (that is, gflags.exe PID)
+</code></pre><p>Additional directory &amp; files exists through the app lifecycle. For example, using API Monitor + SysMon we gathered these additional queries by the application, specifically in the directory C:\ProgramData\inray as well as %appdata%\Local\inray_industriesoftware_G:</p>
+<pre tabindex="0"><code># =&gt; Discovering more bin/lib(s)
+PS C:\ProgramData\inray\AppSettings&gt; more .\OPCRouter4\OPCRouter4.settings
+  ...
+  &lt;/Password&gt;
+  &lt;RuntimeCatalog&gt;OPCRouterRuntime&lt;/RuntimeCatalog&gt;
+  &lt;Port&gt;1433&lt;/Port&gt;
+  &lt;ConnectionTimeout&gt;30&lt;/ConnectionTimeout&gt;
+  &lt;ConfigCatalog&gt;OPCRouterConfig&lt;/ConfigCatalog&gt;
+  &lt;IntegratedSecurity&gt;True&lt;/IntegratedSecurity&gt;
+  &lt;DatabaseServer&gt;(localdb)\.\OPCRouter4&lt;/DatabaseServer&gt;
+
+# =&gt; I copied this data in ~/Program Data/ directory of this project
+# =&gt; @see: OPCRouter_OPC-Server@AR\ProgramData\inray
+
+---
+
+# =&gt; Likewise, in %appdata% directory, a user.config files are hidding
+PS C:\Users\Test Account\AppData\Local\inray_Industriesoftware_G&gt; ls
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----      16. 5. 2021.     08:08                inray.Tool.DacPacDeploy.e_Url_wdxasxd1lwq2m54joacwxw1hqc3mijhx
+d-----      15. 5. 2021.     21:44                OPCRouterConfig.exe_StrongName_jw3q4nghqgrybwap5koxvkruxpapvd5j
+
+# =&gt; I copied this data in ~/AppData_Local/ directory of this project
+# =&gt; @see: OPCRouter_OPC-Server@AR\AppData_Local\inray_Industriesoftware_G
+</code></pre><p>During the File Monitor and File System analysis, I discovered a <strong>hidden</strong> (ie. Isolated Storage) identity being accessed from the Application:</p>
+<p>Use this for reference:</p>
+<pre tabindex="0"><code># =&gt; ./filemon
+...
+identity.dat	Read Write ReadAttributes Synchronize	SUCCESS	4	5,89	0.0.0.0			C:\Users\Test Account\AppData\Local\IsolatedStorage\hfyw1qvw.lyh\bfyk5gc3.2tn\StrongName.q23pcsbq0aqsyq1ss2yaivhiqs3zep4o\identity.dat
+...
+
+# =&gt; I made a backup of this directory for further research
+# =&gt; @see: OPCRouter_OPC-Server@AR\AppData_Local\isolatedStorage\StrongName.q23pcsbq0aqsyq1ss2yaivhiqs3zep4o
+</code></pre><p>All instances of database service(s) are visible in the next directory:</p>
+<p><code>C:\Windows\ServiceProfiles\OPCRouter4-LocalDB\AppData\Local\Microsoft\Microsoft SQL Server Local DB\Instances\OPCRouter4</code></p>
+<p>Additionally, using RegEdit.exe you can point to the next path and see observables used for Token Invocations:</p>
+<pre tabindex="0"><code>Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft SQL Server Local DB\Shared Instances\OPCRouter4
+Computer\HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\inray Industriesoftware GmbH\OPC-Router
+</code></pre><h3 id="deobfuscation">Deobfuscation</h3>
+<pre tabindex="0"><code>C:\tools\de4dot-net45\de4dot.exe -r c:\input -ru -ro c:\output # =&gt; decompile with autodetection from stdin to stdout
+C:\tools\de4dot-net45\de4dot.exe -d -r C:\OPCRouter4\ -ru -ro C:\OPCRouter4-De\ # =&gt; detection only, skips unsupported obfuscators due to -ru 
+C:\tools\de4dot-net45\de4dot-x64.exe -f C:\OPCRouter4\OPCRouterConfig.exe -o C:\OPCRouter4-De\OPCRouterConfig.exe -p dr3 # =&gt; uses .net reactor which works
+C:\tools\de4dot-net45\de4dot.exe -r C:\OPCRouter4\ -ru -ro C:\OPCRouter4-De-netr3\ -p dr3 # =&gt; not supported (recursive + specify cryptor)
+</code></pre><h2 id="opc-server">OPC Server</h2>
+<p>As per OPC Router documentation, an OPC Server is required for data aggregation from Process Network layer.</p>
+<pre tabindex="0"><code>Do you need an OPC Server?
+ 
+If you also require an OPC Server for your project, we recommend the 
+Kepware OPC Server:
+
+* https://www.kepware.com/en-us/products/kepserverex/
+
+The Kepware OPC Server provides more than 160 communication drivers
+and can therefore be used for connecting many different
+control systems and IoT devices.
+</code></pre><p><strong>References:</strong></p>
+<ul>
+<li><a href="https://s3.amazonaws.com/downloads.kepware.com/dl/KEPServerEX-6.10.623.0.exe?AWSAccessKeyId=AKIAJHQP3GS35B5Q7KYQ&amp;Expires=1621113297&amp;Signature=GRmDCLHeUbi8Ueq55FL%2FfHp3oiI%3D">Demo Download</a></li>
+<li><a href="https://www.kepware.com/support/resource-library/installation-guide.pdf">Install Guide</a></li>
+<li><a href="https://www.kepware.com/products/kepserverex/documents/kepserverex-manual.pdf">Documentation / Manuals</a></li>
+</ul>
+<p>Another option for OPC Server is to use MatrikonPC&rsquo;s version available as a free/shareware on their website. I saw this paper being used in a Lab environment when reading &ldquo;<code>Penetration Testing of OPC as Part of Process Control Systems&quot; doi:10.1007/978-3-540-69293-5_22</code></p>
+<ul>
+<li><a href="https://www.matrikonopc.com/downloads/index.aspx">Download Link</a></li>
+</ul>
+<p><strong>Resources:</strong></p>
+<ul>
+<li><a href="http://alvarestech.com/temp/smar/2019/OPC%20and%20DCOM%20-%205%20things%20you%20need%20to%20know%20-%20Windows%2010.pdf">http://alvarestech.com/temp/smar/2019/OPC%20and%20DCOM%20-%205%20things%20you%20need%20to%20know%20-%20Windows%2010.pdf</a></li>
+<li><a href="https://github.com/Engineering-Research-and-Development/opc-ua-car-server">https://github.com/Engineering-Research-and-Development/opc-ua-car-server</a></li>
+<li><a href="https://www.matrikonopc.com/resources/dictionary.aspx">https://www.matrikonopc.com/resources/dictionary.aspx</a></li>
+</ul>
+<p><strong>OPC Test:</strong></p>
+<ul>
+<li><a href="http://www.cisco.com/en/US/products/sw/custcosw/ps1001/products_tech_note09186a00800acafa.shtml">Cisco Notes</a></li>
+</ul>
+<p><strong>Other Tools:</strong></p>
+<ul>
+<li>binwalk</li>
+<li>Frida</li>
+<li>uniextractor</li>
+<li>pegasus for windbg</li>
+<li>dependecywalker</li>
+<li>fribratus</li>
 </ul>
 
-
-<hr>
-<h3 id="how-it-works">How it works</h3>
-<p>Additionalities offered through <code>[params.styles]</code> via <code>config.toml</code>. It&rsquo;s
-possible to deploy dark version as well. Read for more in *.css.</p>
-<details>
-  <summary></summary>
-  This website is provided for free educational purposes. Knowledge shared here can be used for personal gain and experience.
-</details>
+      </div>
+      
 
 
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+      
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+
+
+  <div class="bl-section">
+    <h4>Links to this note</h4>
+    <div class="backlinks">
+      
+        <a href="../list-of-topics/" class="backlink-anchor">
+          <div class="backlink">
+            <p class="backlink-title">List of Topics</p>
+            <p class="backlink-preview"> OPCRouter Research  </p>
+          </div>
+        </a>
+      
+    </div>
   </div>
+
+
+      </div>
+   </div>
 </div>
+
+<script src="https://duraki.github.io/notes/public/js/URI.js" type="text/javascript"></script>
+
+<script src="https://duraki.github.io/notes/public/js/page.js" type="text/javascript"></script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <script>
 window.store = {
@@ -660,7 +960,7 @@ window.store = {
         
         "title": "Web Penetration Testing Oneliners",
         "tags": [],
-        "content": "   Also See      Check if vhost is a live on specific DNS or subdomain:\ncurl -s -H \u0026#34;Host. $SUBDOMAIN.EXAMPLE.BA\u0026#34; http://example.ba Other techniques described in vhost enumeration\nRedirect URI with a Set-Cookie in GET request:\nhttp://$EXAMPLE.BA/index.php?redirect_url=./%3f%0d%0a%09set-cookie:+hello=yoyoo Rate Limit Bypass\nHeaders: * X-Forwarded-Host: http://evil.com (Password reset poisoning) * X-Forwarded-For: 127.0.0.* (Rate Limit Bypass) Permutations: * Null byte techniques * Case sensitiveness Captcha Bypass Tricks 😂\nCaptcha Bypass is described in separate page.\nAlso See  Checklists are provided for both REST API Issue Library as well as Web Issue Library API Abuse and Reuse  ", 
+        "content": "   Also See      Check if vhost is a live on specific DNS or subdomain:\ncurl -s -H \u0026#34;Host. $SUBDOMAIN.EXAMPLE.BA\u0026#34; http://example.ba Other techniques described in vhost enumeration\nRedirect URI with a Set-Cookie in GET request:\nhttp://$EXAMPLE.BA/index.php?redirect_url=../%3f%0d%0a%09set-cookie:+hello=yoyoo Rate Limit Bypass\nHeaders: * X-Forwarded-Host: http://evil.com (Password reset poisoning) * X-Forwarded-For: 127.0.0.* (Rate Limit Bypass) Permutations: * Null byte techniques * Case sensitiveness Captcha Bypass Tricks 😂\nCaptcha Bypass is described in separate page.\nAlso See  Checklists are provided for both REST API Issue Library as well as Web Issue Library API Abuse and Reuse  ", 
         "url": "https:\/\/duraki.github.io\/notes\/public\/web-penetration-testing-oneliners\/"
     },
     

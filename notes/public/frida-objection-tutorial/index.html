@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html><title>Index</title>
+<html><title>Frida &amp; Objection Tutorial</title>
 
 
 <meta charset="utf-8" />
@@ -10,10 +10,10 @@
 />
 <meta name="apple-mobile-web-app-capable" content="yes" />
 
-<link href="./favicon.png" rel="icon" type="image/x-icon" />
+<link href="../favicon.png" rel="icon" type="image/x-icon" />
 
 
-<link rel="stylesheet" href="./css/index.db0ff6adb85d12a55dc7afd153794f1bb4b22f39d3efe031d0be4456af877dea.css" />
+<link rel="stylesheet" href="../css/index.db0ff6adb85d12a55dc7afd153794f1bb4b22f39d3efe031d0be4456af877dea.css" />
 
 <style type="text/css">
   :root {
@@ -90,15 +90,15 @@ body {
 
 
 <body><header>
-    <a href="./" id="logo-and-title">
+    <a href="../" id="logo-and-title">
     
     <div class="site-logo">
-       <img class="site-logo" src="./favicon.png" />
+       <img class="site-logo" src="../favicon.png" />
     </div>
         </a>
 
         <div id="head">
-            <h1 class="menu-item menu-item-position"><a class="author" href="./"></a></h1> / 
+            <h1 class="menu-item menu-item-position"><a class="author" href="../"></a></h1> / 
             <h1 class="menu-item menu-item-position"><a class="author" href="https://duraki.github.io/about.html">halis duraki</a></h1> /
             <h1 class="menu-item menu-item-position"><a class="author" href="https://duraki.github.io/reports.html">security rep+</a></h1> / 
             <h1 class="menu-item menu-item-position"><a class="author" href="https://duraki.github.io/consulting/">consulting</a></h1> / 
@@ -112,103 +112,244 @@ body {
 </form>
 </header>
 
-<div class="page" data-level="1">
-  <div class="content">
-    <p>Hello, these are my personal notes and knowledge graph. I started using Obsidian
-a bit early in 2020. and continued graphing my knowledge from there.</p>
-<p>I wanted something more towards functional, as to offer me a practical snippet
-library for my TTP&rsquo;s, both online and as a backup of dementia.</p>
-<p>The notes are largery inspired by others and especial <a href="https://notes.andymatuschak.org">Andy&rsquo;s</a> note-taking samples on his site. Thanks to Justin and Jethro for their theme support on static generation for this library of mine. Hope it will be worth to you as well as me.</p>
-<p>You can start exploring from the <a href="./list-of-topics">List of Topics</a>, <a href="./list-of-tools">List of Tools</a>, or see the <a href="./posts">full list of notes</a>.</p>
+<div class="grid-container">
+  <div class="grid">
+    <div class="page" data-level="1">
+      <div class="content">
+        <h1>Frida &amp; Objection Tutorial</h1>
+        <h2 id="android-tutorial">Android Tutorial</h2>
+<h3 id="frida-setup">Frida Setup</h3>
+<p>Make sure to have Android Debugging interface running (<code>adbd</code>) on your testing device. For reference, read the <a href="#adbd-setup">adbd setup</a> first and then continue here.</p>
+<p>Install the Frida for <a href="https://frida.re/docs/android/">Android</a>:</p>
+<pre tabindex="0"><code>$ adb root # might be required
+$ adb push frida-server /data/local/tmp/
+$ adb shell &#34;chmod 755 /data/local/tmp/frida-server&#34;
+$ adb shell &#34;/data/local/tmp/frida-server &amp;&#34;
+</code></pre><p>Smoke test on Frida setup:</p>
+<pre tabindex="0"><code>$ adb devices -l
+$ frida-ps -U
+# PID NAME 1590 com.facebook.katana
+# 13194 com.facebook.katana:providers
+# 12326 com.facebook.orca
+# 13282 com.twitter.android
+...
+</code></pre><h3 id="adbd-setup"><code>adbd</code> setup</h3>
+<ul>
+<li>Change all SELinux permissions to <strong>Permissable</strong></li>
+<li>Use SELinuxPermission Android application, which checks for <code>getenforce</code> on a system reboot</li>
+<li>In MagiskManager application, enable the <a href="https://github.com/evdenis/adb_root">ADB Root</a></li>
+<li>When device is rebooting, USB debugging will not work out of the box</li>
+<li>SSH to Android device, using OpenSSHD</li>
+<li>In SSH shell type the following:</li>
+</ul>
+<pre tabindex="0"><code># =&gt; On Android device (ssh)
+% su
+% whoami
+% adbd
 
-<hr>
-<h2 id="title-list-of-topics">title: &ldquo;List of Topics&rdquo;</h2>
-<p>Personal list of topics of interest. At least for me eh? :)</p>
-<h3 id="automotive-cyber-security">Automotive Cyber Security</h3>
+# =&gt; On Attackers machine (duh)
+$ adb root
+$ adb shell
+(android) $ whoami # =&gt; root
+</code></pre><h2 id="ios-tutorial">iOS Tutorial</h2>
+<h3 id="frida-setup-1">Frida Setup</h3>
 <ul>
-<li><a href="./automotive-hacking">Automotive Hacking</a></li>
-<li><a href="./ethernet-specifications">Ethernet in Vehicles</a></li>
-<li><a href="./canfd-specifications">CANFD Specifications</a></li>
-<li><a href="./ecu-foundations">ECU Foundation</a></li>
-<li><a href="./how-to-compromise-ecu">ECU Compromise</a></li>
-<li><a href="./vehicle-graybox-security-testing">Vehicle Graybox Security Testing</a> 👏</li>
+<li>iOS connected over Wi-FI, Windows/Host connected to the same Wi-Fi, Linux/Guest connected to the same Wi-Fi</li>
+<li>Establish SSH connection to the iPhone (<code>ssh root@x.x.x.x -p $PORT</code>)</li>
+<li>SSH Auth combo (default): <code>root:alpine</code></li>
+<li>Initiate a <code>frida-server</code> with remote connection listener</li>
+<li>In iOS device, open the application</li>
+<li>In a new Terminal, connect to Frida server</li>
 </ul>
-<h3 id="classical-penetration-testing">Classical Penetration Testing</h3>
+<p>To create a new <code>frida-server</code>, first remove frida autoload script and start manually:</p>
+<pre tabindex="0"><code># =&gt; Unload iOS daemon
+$ launchctl unload -w /Library/LaunchDaemons/re.frida.server.plist
+
+# =&gt; Start frida-server manually
+Testers-iPhone:/Applications root# frida-server -l x.x.x.x
+</code></pre><p>To establish a Frida REPL connection, use <code>frida</code> CLI:</p>
+<pre tabindex="0"><code>root@kali:~# frida -H x.x.x.x -F
+     ____
+    / _  |   Frida 12.10.0 - A world-class dynamic instrumentation toolkit
+   | (_| |
+    &gt; _  |   Commands:
+   /_/ |_|       help      -&gt; Displays the help system
+   . . . .       object?   -&gt; Display information about &#39;object&#39;
+   . . . .       exit/quit -&gt; Exit
+   . . . .
+   . . . .   More info at https://www.frida.re/docs/home/
+[Remote::AppName]-&gt;
+</code></pre><h3 id="objection-setup">Objection Setup</h3>
+<p>First reference to <a href="#frida-setup">Frida Setup</a> to establish connection to the Frida server. Then use <code>objection</code> to investigate into the targeted application.</p>
+<pre tabindex="0"><code>root@kali:~# objection -N -h 172.22.4.109 -g App explore
+Using networked device @`172.22.4.109:27042`
+Agent injected and responds ok!
+
+     _   _         _   _
+ ___| |_|_|___ ___| |_|_|___ ___
+| . | . | | -_|  _|  _| | . |   |
+|___|___| |___|___|_| |_|___|_|_|
+      |___|(object)inject(ion) v1.9.4
+
+     Runtime Mobile Exploration
+        by: @leonjza from @sensepost
+
+[tab] for command suggestions
+x.xxxx.xxxxxxxx.xxxx on (iPhone: 13.3) [net] #
+</code></pre><p><strong>Objection Usage</strong></p>
+<p>$ env
+x.xxx.xxxxxxxxx.xxxx on (iPhone: 13.3) [net] # env</p>
+<pre tabindex="0"><code>Name               Path
+-----------------  -------------------------------------------------------------------------------------------
+BundlePath         /private/var/containers/Bundle/Application/DD6C2A3C-6CD3-44D0-9EAF-BC8EEE8C6702/App.app
+CachesDirectory    /var/mobile/Containers/Data/Application/B26572F4-75BA-45C0-A6DE-40AEA275AF28/Library/Caches
+DocumentDirectory  /var/mobile/Containers/Data/Application/B26572F4-75BA-45C0-A6DE-40AEA275AF28/Documents
+LibraryDirectory   /var/mobile/Containers/Data/Application/B26572F4-75BA-45C0-A6DE-40AEA275AF28/Library
+</code></pre><hr>
+<p><strong>References</strong></p>
 <ul>
-<li><a href="./web-penetration-testing-oneliners">Web Pentest Oneliners</a></li>
-<li><a href="./web-fuzzing-technqiues">Web Fuzzing</a></li>
-<li><a href="./sqli-payloads">SQL Injection Payloads</a></li>
-<li><a href="./xss-payloads">XSS Payloads</a></li>
-<li><a href="./captcha-bypass-tricks">Captcha Bypass</a></li>
-<li><a href="./vhost-enumeration">Virtual Host Enumeration</a></li>
-<li><a href="./classical-api-abuse">API Abuse</a></li>
-<li>Checklists
-<ul>
-<li><a href="./api-penetration-test-checklist">REST API Issue Library</a></li>
-<li><a href="./web-application-penetration-test-checklist">Web Issue Library</a></li>
-</ul>
-</li>
-<li>Networking
-<ul>
-<li><a href="./network-recon">Basic Network Recon</a></li>
-<li><a href="./firewall-engagements">Firewall Penetration Test</a></li>
-<li><a href="./network-lab">GSN3 Lab Environment</a></li>
-<li><a href="./metasploit-framework">Metasploit Framework</a></li>
-</ul>
-</li>
-</ul>
-<h3 id="reverse-engineering">Reverse Engineering</h3>
-<ul>
-<li><a href="./reverse-engineering-tricks-and-tips">Tricks and Tips</a></li>
-<li><a href="./windbg-cheatsheets">WinDbg Cheatsheets</a></li>
-<li><a href="./byteman">Byteman Cheatsheets</a></li>
-<li><a href="./byteman-scripts">Byteman Scripts</a></li>
-<li><a href="./ios-reverse-engineering">iOS Reverse Engineering</a>
-<ul>
-<li><a href="./frida-objection-tutorial#ios-tutorial">Frida &amp; Objection Tutorial</a></li>
-<li><a href="./pure-reverse-engineering">Pure Reverse Engineering</a></li>
-<li><a href="./cycript">Cycript</a></li>
-<li><a href="./decrypt-ipa-from-appstore">Decrypt IPA from AppStore</a></li>
-<li><a href="./jailbreak-bypass">iOS Jailbreak Bypass</a></li>
-<li><a href="./ios-static-analysis">iOS Static Analysis</a></li>
-</ul>
-</li>
-<li><a href="./android-reverse-engineering">Android Reverse Engineering</a>
-<ul>
-<li><a href="./frida-objection-tutorial#android-tutorial">Frida &amp; Objection Tutorial</a></li>
-</ul>
-</li>
-<li><a href="./opcrouter-research">OPCRouter Research</a></li>
-</ul>
-<h3 id="development">Development</h3>
-<ul>
-<li>todo: <code>vim.init</code>, <code>tmux</code>, <code>iterm</code>, <code>osx</code></li>
-<li>todo: <code>gmmk + key remap</code></li>
-<li>todo: <code>photos/ physical</code></li>
-</ul>
-<h3 id="misc">Misc</h3>
-<ul>
-<li><a href="./windows-notes">Windows Notes</a></li>
-<li><a href="./linux-notes">Linux Notes</a></li>
-<li><a href="./macos-notes">MacOS Notes</a></li>
-<li><a href="./how-to-write-notes">How to write Notes</a></li>
-<li><a href="./troubleshoot">Troubleshoot</a></li>
-<li><a href="./~-ideas">~ ideas</a></li>
+<li><a href="https://www.allysonomalley.com/2018/12/20/ios-pentesting-tools-part-3-frida-and-objection/">Frida and Objection</a></li>
+<li><a href="https://kalilinuxtutorials.com/objection-mobile-exploration/">Objection Mobile Exploration</a></li>
+<li><a href="https://x64.sh/mobile/security/2019/06/01/Frida-and-Objection/">Frida and Objection via x64.sh</a></li>
+<li><a href="https://www.secjuice.com/objection-frida-guide/">Objection/Frida Guide</a></li>
 </ul>
 
-
-<hr>
-<h3 id="how-it-works">How it works</h3>
-<p>Additionalities offered through <code>[params.styles]</code> via <code>config.toml</code>. It&rsquo;s
-possible to deploy dark version as well. Read for more in *.css.</p>
-<details>
-  <summary></summary>
-  This website is provided for free educational purposes. Knowledge shared here can be used for personal gain and experience.
-</details>
+      </div>
+      
 
 
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+      
+   
+
+   
+
+   
+
+   
+
+   
+      
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+
+
+  <div class="bl-section">
+    <h4>Links to this note</h4>
+    <div class="backlinks">
+      
+        <a href="../ios-reverse-engineering/" class="backlink-anchor">
+          <div class="backlink">
+            <p class="backlink-title">iOS Reverse Engineering</p>
+            <p class="backlink-preview"> Frida &amp;amp; Objection Tutorial  </p>
+          </div>
+        </a>
+      
+        <a href="../list-of-topics/" class="backlink-anchor">
+          <div class="backlink">
+            <p class="backlink-title">List of Topics</p>
+            <p class="backlink-preview">* [Frida &amp;amp; Objection Tutorial](/frida-objection-tutorial#ios-tutorial)  </p>
+          </div>
+        </a>
+      
+    </div>
   </div>
+
+
+      </div>
+   </div>
 </div>
+
+<script src="https://duraki.github.io/notes/public/js/URI.js" type="text/javascript"></script>
+
+<script src="https://duraki.github.io/notes/public/js/page.js" type="text/javascript"></script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <script>
 window.store = {
@@ -660,7 +801,7 @@ window.store = {
         
         "title": "Web Penetration Testing Oneliners",
         "tags": [],
-        "content": "   Also See      Check if vhost is a live on specific DNS or subdomain:\ncurl -s -H \u0026#34;Host. $SUBDOMAIN.EXAMPLE.BA\u0026#34; http://example.ba Other techniques described in vhost enumeration\nRedirect URI with a Set-Cookie in GET request:\nhttp://$EXAMPLE.BA/index.php?redirect_url=./%3f%0d%0a%09set-cookie:+hello=yoyoo Rate Limit Bypass\nHeaders: * X-Forwarded-Host: http://evil.com (Password reset poisoning) * X-Forwarded-For: 127.0.0.* (Rate Limit Bypass) Permutations: * Null byte techniques * Case sensitiveness Captcha Bypass Tricks 😂\nCaptcha Bypass is described in separate page.\nAlso See  Checklists are provided for both REST API Issue Library as well as Web Issue Library API Abuse and Reuse  ", 
+        "content": "   Also See      Check if vhost is a live on specific DNS or subdomain:\ncurl -s -H \u0026#34;Host. $SUBDOMAIN.EXAMPLE.BA\u0026#34; http://example.ba Other techniques described in vhost enumeration\nRedirect URI with a Set-Cookie in GET request:\nhttp://$EXAMPLE.BA/index.php?redirect_url=../%3f%0d%0a%09set-cookie:+hello=yoyoo Rate Limit Bypass\nHeaders: * X-Forwarded-Host: http://evil.com (Password reset poisoning) * X-Forwarded-For: 127.0.0.* (Rate Limit Bypass) Permutations: * Null byte techniques * Case sensitiveness Captcha Bypass Tricks 😂\nCaptcha Bypass is described in separate page.\nAlso See  Checklists are provided for both REST API Issue Library as well as Web Issue Library API Abuse and Reuse  ", 
         "url": "https:\/\/duraki.github.io\/notes\/public\/web-penetration-testing-oneliners\/"
     },
     

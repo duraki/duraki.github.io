@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html><title>Index</title>
+<html><title>Firewall Engagements</title>
 
 
 <meta charset="utf-8" />
@@ -10,10 +10,10 @@
 />
 <meta name="apple-mobile-web-app-capable" content="yes" />
 
-<link href="./favicon.png" rel="icon" type="image/x-icon" />
+<link href="../favicon.png" rel="icon" type="image/x-icon" />
 
 
-<link rel="stylesheet" href="./css/index.db0ff6adb85d12a55dc7afd153794f1bb4b22f39d3efe031d0be4456af877dea.css" />
+<link rel="stylesheet" href="../css/index.db0ff6adb85d12a55dc7afd153794f1bb4b22f39d3efe031d0be4456af877dea.css" />
 
 <style type="text/css">
   :root {
@@ -90,15 +90,15 @@ body {
 
 
 <body><header>
-    <a href="./" id="logo-and-title">
+    <a href="../" id="logo-and-title">
     
     <div class="site-logo">
-       <img class="site-logo" src="./favicon.png" />
+       <img class="site-logo" src="../favicon.png" />
     </div>
         </a>
 
         <div id="head">
-            <h1 class="menu-item menu-item-position"><a class="author" href="./"></a></h1> / 
+            <h1 class="menu-item menu-item-position"><a class="author" href="../"></a></h1> / 
             <h1 class="menu-item menu-item-position"><a class="author" href="https://duraki.github.io/about.html">halis duraki</a></h1> /
             <h1 class="menu-item menu-item-position"><a class="author" href="https://duraki.github.io/reports.html">security rep+</a></h1> / 
             <h1 class="menu-item menu-item-position"><a class="author" href="https://duraki.github.io/consulting/">consulting</a></h1> / 
@@ -112,103 +112,240 @@ body {
 </form>
 </header>
 
-<div class="page" data-level="1">
-  <div class="content">
-    <p>Hello, these are my personal notes and knowledge graph. I started using Obsidian
-a bit early in 2020. and continued graphing my knowledge from there.</p>
-<p>I wanted something more towards functional, as to offer me a practical snippet
-library for my TTP&rsquo;s, both online and as a backup of dementia.</p>
-<p>The notes are largery inspired by others and especial <a href="https://notes.andymatuschak.org">Andy&rsquo;s</a> note-taking samples on his site. Thanks to Justin and Jethro for their theme support on static generation for this library of mine. Hope it will be worth to you as well as me.</p>
-<p>You can start exploring from the <a href="./list-of-topics">List of Topics</a>, <a href="./list-of-tools">List of Tools</a>, or see the <a href="./posts">full list of notes</a>.</p>
+<div class="grid-container">
+  <div class="grid">
+    <div class="page" data-level="1">
+      <div class="content">
+        <h1>Firewall Engagements</h1>
+        <p>Reconned from the start to finish in a few sec &hellip;</p>
+<pre tabindex="0"><code>┌──(kali㉿kali)-[~]
+└─$ ping x.x.x.x 
+PING ??? 56(84) bytes of data.
+64 bytes from ???: icmp_seq=1 ttl=52 time=64.4 ms
+64 bytes from ???: icmp_seq=2 ttl=52 time=62.7 ms
+^C
+--- ??? ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1002ms
 
-<hr>
-<h2 id="title-list-of-topics">title: &ldquo;List of Topics&rdquo;</h2>
-<p>Personal list of topics of interest. At least for me eh? :)</p>
-<h3 id="automotive-cyber-security">Automotive Cyber Security</h3>
+┌──(kali㉿kali)-[~]
+└─$ host x.x.x.x 
+</code></pre><pre tabindex="0"><code>% nslookup 
+&gt; set type=PTR
+&gt; x.x.x.x
+Server:	        ???	
+Address:        ???	
+
+Non-authoritative answer:
+...
+</code></pre><pre tabindex="0"><code>% whois x.x.x.x (example.ba)
+</code></pre><p>TCP Port Scan (Active)</p>
+<pre tabindex="0"><code>% sudo nmap -sS  x.x.x.x
+PORT     STATE SERVICE
+8089/tcp open  unknown
+</code></pre><p>UDP Port Scan</p>
+<pre tabindex="0"><code>% sudo nmap -sU --top-ports=100 x.x.x.x
+PORT   STATE         SERVICE
+9/udp  open|filtered discard
+67/udp open|filtered dhcps
+</code></pre><p>Using <code>masscan</code> for rate allowance</p>
+<pre tabindex="0"><code>% sudo masscan 80.101.121.42 -p0-65535 --rate
+Scanning 1 hosts [65536 ports/host]
+Discovered open port 4433/tcp on x.x.x.x
+</code></pre><p>OS Detection</p>
+<pre tabindex="0"><code>% sudo nmap -O x.x.x.x
+</code></pre><p>Port Service detection</p>
+<pre tabindex="0"><code>% sudo nmap -sV -sS x.x.x.x -p $PORT           
+PORT     STATE SERVICE VERSION
+$PORT/tcp open  http    FRITZ!Box TR-069 service
+</code></pre><p>Enumerate HTTP Paths via <code>nmap</code></p>
+<pre tabindex="0"><code>$ nmap -n -p80,4433,8080,8089,9443 --script http-enum x.x.x.x 
+
+PORT     STATE  SERVICE
+80/tcp   closed http
+4433/tcp open   vop
+8080/tcp closed http-proxy
+8089/tcp open   unknown
+9443/tcp closed tungsten-https
+</code></pre><p>Certificate identification</p>
+<pre tabindex="0"><code>% nmap -sV --script ssl-cert-intaddr $SONICWALL -Pn -p4433,8089,80,9443,443 
+...
+
+PORT     STATE    SERVICE        VERSION
+80/tcp   filtered http
+443/tcp  filtered https
+4433/tcp open     ssl/http       SonicWALL firewall http config
+|_http-server-header: SonicWALL
+| ssl-cert-intaddr: 
+|   Subject commonName: 
+|     192.168.168.168
+|   Issuer commonName: 
+|_    192.168.168.168
+8089/tcp open     http           FRITZ!Box TR-069 service
+9443/tcp filtered tungsten-https
+Service Info: Devices: firewall, broadband router
+</code></pre><p>Active DNS Enumeration from the $ISP:</p>
+<pre tabindex="0"><code>% amass intel -active -addr x.x.x.x
+</code></pre><p>Firewalk Evasion</p>
+<pre tabindex="0"><code>% sudo nmap --script=firewalk --traceroute x.x.x.x
+...
+
+PORT    STATE   SERVICE
+
+Host script results:
+| firewalk: 
+| HOP  HOST           PROTOCOL  BLOCKED PORTS
+
+TRACEROUTE (using port 443/tcp)
+HOP RTT      ADDRESS
+1   ...
+</code></pre><p><a href="./vhost-enumeration"><code>vhost</code></a> discovery</p>
+<pre tabindex="0"><code>$ nmap -p4433,8089,80,9443 --script=&#34;+http-vhosts&#34; $SONICWALL -Pn       
+
+PORT     STATE    SERVICE
+...
+</code></pre><p>wafw00f  implementation</p>
+<pre tabindex="0"><code>% wafw00f https://x.x.x.x:4433 -a -v
+
+                ______
+               /      \                                                      
+              (  W00f! )                                                     
+               \  ____/                                                      
+               ,,    __            404 Hack Not Found                        
+           |`-.__   / /                      __     __                       
+           /&#34;  _/  /_/                       \ \   / /                       
+          *===*    /                          \ \_/ /  405 Not Allowed       
+         /     )__//                           \   /                         
+    /|  /     /---`                        403 Forbidden                     
+    \\/`   \ |                                 / _ \                         
+    `\    /_\\_              502 Bad Gateway  / / \ \  500 Internal Error    
+      `_____``-`                             /_/   \_\                       
+                                                                             
+                        ~ WAFW00F : v2.1.0 ~                                 
+        The Web Application Firewall Fingerprinting Toolkit                  
+                                                                             
+[*] Checking https://???
+[+] The site https://??? is behind SonicWall (Dell) WAF.
+</code></pre><p><strong>Other Technqs</strong></p>
 <ul>
-<li><a href="./automotive-hacking">Automotive Hacking</a></li>
-<li><a href="./ethernet-specifications">Ethernet in Vehicles</a></li>
-<li><a href="./canfd-specifications">CANFD Specifications</a></li>
-<li><a href="./ecu-foundations">ECU Foundation</a></li>
-<li><a href="./how-to-compromise-ecu">ECU Compromise</a></li>
-<li><a href="./vehicle-graybox-security-testing">Vehicle Graybox Security Testing</a> 👏</li>
-</ul>
-<h3 id="classical-penetration-testing">Classical Penetration Testing</h3>
-<ul>
-<li><a href="./web-penetration-testing-oneliners">Web Pentest Oneliners</a></li>
-<li><a href="./web-fuzzing-technqiues">Web Fuzzing</a></li>
-<li><a href="./sqli-payloads">SQL Injection Payloads</a></li>
-<li><a href="./xss-payloads">XSS Payloads</a></li>
-<li><a href="./captcha-bypass-tricks">Captcha Bypass</a></li>
-<li><a href="./vhost-enumeration">Virtual Host Enumeration</a></li>
-<li><a href="./classical-api-abuse">API Abuse</a></li>
-<li>Checklists
-<ul>
-<li><a href="./api-penetration-test-checklist">REST API Issue Library</a></li>
-<li><a href="./web-application-penetration-test-checklist">Web Issue Library</a></li>
-</ul>
-</li>
-<li>Networking
-<ul>
-<li><a href="./network-recon">Basic Network Recon</a></li>
-<li><a href="./firewall-engagements">Firewall Penetration Test</a></li>
-<li><a href="./network-lab">GSN3 Lab Environment</a></li>
-<li><a href="./metasploit-framework">Metasploit Framework</a></li>
-</ul>
-</li>
-</ul>
-<h3 id="reverse-engineering">Reverse Engineering</h3>
-<ul>
-<li><a href="./reverse-engineering-tricks-and-tips">Tricks and Tips</a></li>
-<li><a href="./windbg-cheatsheets">WinDbg Cheatsheets</a></li>
-<li><a href="./byteman">Byteman Cheatsheets</a></li>
-<li><a href="./byteman-scripts">Byteman Scripts</a></li>
-<li><a href="./ios-reverse-engineering">iOS Reverse Engineering</a>
-<ul>
-<li><a href="./frida-objection-tutorial#ios-tutorial">Frida &amp; Objection Tutorial</a></li>
-<li><a href="./pure-reverse-engineering">Pure Reverse Engineering</a></li>
-<li><a href="./cycript">Cycript</a></li>
-<li><a href="./decrypt-ipa-from-appstore">Decrypt IPA from AppStore</a></li>
-<li><a href="./jailbreak-bypass">iOS Jailbreak Bypass</a></li>
-<li><a href="./ios-static-analysis">iOS Static Analysis</a></li>
-</ul>
-</li>
-<li><a href="./android-reverse-engineering">Android Reverse Engineering</a>
-<ul>
-<li><a href="./frida-objection-tutorial#android-tutorial">Frida &amp; Objection Tutorial</a></li>
-</ul>
-</li>
-<li><a href="./opcrouter-research">OPCRouter Research</a></li>
-</ul>
-<h3 id="development">Development</h3>
-<ul>
-<li>todo: <code>vim.init</code>, <code>tmux</code>, <code>iterm</code>, <code>osx</code></li>
-<li>todo: <code>gmmk + key remap</code></li>
-<li>todo: <code>photos/ physical</code></li>
-</ul>
-<h3 id="misc">Misc</h3>
-<ul>
-<li><a href="./windows-notes">Windows Notes</a></li>
-<li><a href="./linux-notes">Linux Notes</a></li>
-<li><a href="./macos-notes">MacOS Notes</a></li>
-<li><a href="./how-to-write-notes">How to write Notes</a></li>
-<li><a href="./troubleshoot">Troubleshoot</a></li>
-<li><a href="./~-ideas">~ ideas</a></li>
+<li>Phineas&rsquo; Phisher VPN exploit</li>
+<li>Manual SQL Injection via binary patch diffing of vuln/non-vuln version</li>
+<li>Bruteforce Attack (Rate Limiter, Bypass)</li>
+<li>VPN or Firewall Version Disclosure</li>
+<li>Known Exploits and CVE&rsquo;s</li>
+<li>Potential SQLmap payload</li>
 </ul>
 
-
-<hr>
-<h3 id="how-it-works">How it works</h3>
-<p>Additionalities offered through <code>[params.styles]</code> via <code>config.toml</code>. It&rsquo;s
-possible to deploy dark version as well. Read for more in *.css.</p>
-<details>
-  <summary></summary>
-  This website is provided for free educational purposes. Knowledge shared here can be used for personal gain and experience.
-</details>
+      </div>
+      
 
 
-  </div>
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+
+
+
+      </div>
+   </div>
 </div>
+
+<script src="https://duraki.github.io/notes/public/js/URI.js" type="text/javascript"></script>
+
+<script src="https://duraki.github.io/notes/public/js/page.js" type="text/javascript"></script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <script>
 window.store = {
@@ -660,7 +797,7 @@ window.store = {
         
         "title": "Web Penetration Testing Oneliners",
         "tags": [],
-        "content": "   Also See      Check if vhost is a live on specific DNS or subdomain:\ncurl -s -H \u0026#34;Host. $SUBDOMAIN.EXAMPLE.BA\u0026#34; http://example.ba Other techniques described in vhost enumeration\nRedirect URI with a Set-Cookie in GET request:\nhttp://$EXAMPLE.BA/index.php?redirect_url=./%3f%0d%0a%09set-cookie:+hello=yoyoo Rate Limit Bypass\nHeaders: * X-Forwarded-Host: http://evil.com (Password reset poisoning) * X-Forwarded-For: 127.0.0.* (Rate Limit Bypass) Permutations: * Null byte techniques * Case sensitiveness Captcha Bypass Tricks 😂\nCaptcha Bypass is described in separate page.\nAlso See  Checklists are provided for both REST API Issue Library as well as Web Issue Library API Abuse and Reuse  ", 
+        "content": "   Also See      Check if vhost is a live on specific DNS or subdomain:\ncurl -s -H \u0026#34;Host. $SUBDOMAIN.EXAMPLE.BA\u0026#34; http://example.ba Other techniques described in vhost enumeration\nRedirect URI with a Set-Cookie in GET request:\nhttp://$EXAMPLE.BA/index.php?redirect_url=../%3f%0d%0a%09set-cookie:+hello=yoyoo Rate Limit Bypass\nHeaders: * X-Forwarded-Host: http://evil.com (Password reset poisoning) * X-Forwarded-For: 127.0.0.* (Rate Limit Bypass) Permutations: * Null byte techniques * Case sensitiveness Captcha Bypass Tricks 😂\nCaptcha Bypass is described in separate page.\nAlso See  Checklists are provided for both REST API Issue Library as well as Web Issue Library API Abuse and Reuse  ", 
         "url": "https:\/\/duraki.github.io\/notes\/public\/web-penetration-testing-oneliners\/"
     },
     
