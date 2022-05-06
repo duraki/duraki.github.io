@@ -76,6 +76,8 @@ class Art
 
     config_path = "./config/#{env}.toml" 
     destination_path = "./notes/config.toml"
+  
+    `rm -rf ./notes/public/ -y`
 
     FileUtils.cp(config_path, destination_path)
     puts "Config file copied for notes"
