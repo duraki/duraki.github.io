@@ -32,7 +32,20 @@ $ adb shell
 % reboot
 ```
 
+### Using Logcat on Android
+
+To use built-in `logcat`, append the following:
+
+```
+$ adb shell 'logcat --pid=$(pidof -s x.xxx.xxx.xxxxx.xx)'
+```
+
 **References**
 
 * [Android Nougat and Burp Proxy Configuration](https://blog.ropnop.com/configuring-burp-suite-with-android-nougat/)
 * [Install custom CA on Android](https://awakened1712.github.io/hacking/hacking-install-ca-android/)
+* [Generic Android Deobfuscator](https://github.com/CalebFenton/simplify#generic-android-deobfuscator)
+* [Injecting Frida via Lief](https://lief-project.github.io/doc/stable/tutorials/09_frida_lief.html)
+* [Frida on non-rooted device](https://jlajara.gitlab.io/mobile/2019/05/18/Frida-non-rooted.html)
+* [InjectFridaGadget tool](https://github.com/darvincisec/InjectFridaGadget)
+* [Proxying Android App traffic](https://blog.nviso.eu/2020/11/19/proxying-android-app-traffic-common-issues-checklist/)

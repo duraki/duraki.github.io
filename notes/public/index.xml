@@ -23,7 +23,9 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://duraki.github.io/notes/public/android-recompilation.html</guid>
-      <description>~ todo.</description>
+      <description>Decompile Android APK file using apktool:
+# =&amp;gt; decompile $ apktool -r d AppName.apk -o AppName # =&amp;gt; recompile $ apktool b AppName Resign the APK package and install the Android application:
+# =&amp;gt; sign the apk package $ keytool -genkey -keystore example.keystore -validity 10000 -alias example $ jarsigner -keystore example.keystore -verbose AppName.apk example # =&amp;gt; installation $ apk install AppName.apk </description>
     </item>
     
     <item>

@@ -56,4 +56,12 @@ $ apt-get install kali-defaults kali-root-login desktop-base xfce4 xfce4-places-
 $ openbox --replace & exit
 ```
 
+## Burp Proxy
 
+When connecting to a **new wi-fi** or internet connection, make sure to:
+
+* Click Network in the Taskbar Properties
+* Configure Firewall and Security Settings
+* In Windows Security, click "Allow an app through firewall"
+* Click **Change Settings**
+* Select Burp Proxy / Charles etc. and select all 3 checkboxes (Network, Home, Public)
