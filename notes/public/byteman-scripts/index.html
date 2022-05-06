@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html><title>Linux Notes</title>
+<html><title>Byteman Scripts</title>
 
 
 <meta charset="utf-8" />
@@ -116,11 +116,71 @@ body {
   <div class="grid">
     <div class="page" data-level="1">
       <div class="content">
-        <h1>Linux Notes</h1>
-        <p><strong>Active Directory</strong></p>
-<p>Access Active Directory Domain Admin via Linux:</p>
-<pre tabindex="0"><code>$ sudo apt-get realmd
-$ realm join example.ba --user username
+        <h1>Byteman Scripts</h1>
+        <p><strong>Simple trace skeleton</strong></p>
+<pre tabindex="0"><code>RULE trace
+CLASS ^App
+METHOD login
+AT ENTRY
+IF true
+DO System.out.println(&#34; Tracing login stdout&#34;)
+DO traceln(&#34;Tracing login ended&#34;)
+ENDRULE
+</code></pre><p><strong>Trace application entry</strong></p>
+<pre tabindex="0"><code>RULE trace application entry
+CLASS ^App
+METHOD main
+AT ENTRY
+IF TRUE
+DO traceln(&#34;BMB java.application.main() called!&#34;)
+ENDRULE
+</code></pre><p><strong>Trace application exit</strong></p>
+<pre tabindex="0"><code>RULE trace application exit
+CLASS ^App
+METHOD main
+AT EXIT
+IF TRUE
+DO traceln(&#34;BMB java.application exited&#34;)
+ENDRULE
+</code></pre><p><strong>Thread start</strong></p>
+<pre tabindex="0"><code>RULE trace thread start
+CLASS java.lang.Thread
+METHOD start()
+IF true
+DO traceln(&#34;*** BMB start for thread: &#34; + $0.getName())
+ENDRULE
+</code></pre><p><strong>Trace application login</strong></p>
+<pre tabindex="0"><code>RULE trace application login
+CLASS ^LoginApi
+METHOD login
+AT ENTRY
+IF TRUE
+DO traceln(&#34;BMB java.application.login() called!&#34;)
+ENDRULE
+</code></pre><p><strong>Trace class create entry</strong></p>
+<pre tabindex="0"><code>RULE ClassLoadMonitor trace create
+CLASS java.lang.ClassLoader
+METHOD defineClass(String, byte[], int, int, ProtectionDomain)
+AT EXIT
+IF TRUE
+DO traceStack(&#34;*** BMB Called defineClass(&#34; + $1 + &#34;) in thread &#34; + Thread.currentThread().getName() + &#34;\n&#34;, 10)
+ENDRULE
+</code></pre><p><strong>Early return</strong></p>
+<pre tabindex="0"><code>RULE bypass license expiration
+CLASS ^App
+METHOD checkForSecurity
+AT ENTRY
+DO debug(&#34;returning earlz with bool&#34;);
+    return true
+ENDRULE
+</code></pre><p><strong>Set default TimeZone</strong></p>
+<pre tabindex="0"><code> RULE check setDefault
+ CLASS java.util.TimeZone
+ METHOD setDefault(TimeZone)
+ AT ENTRY
+ IF TRUE
+ DO traceStack(&#34;XXX attempting to get change the default timezone &#34;+ &#34;: parameter : &#34; +$1 + &#34; : detail : &#34; + $1.getDisplayName())
+ ENDRULE
 </code></pre>
       </div>
       
@@ -220,8 +280,6 @@ $ realm join example.ba --user username
    
 
    
-      
-   
 
    
 
@@ -234,14 +292,7 @@ $ realm join example.ba --user username
         <a href="http://127.0.0.1:8800/notes/public/list-of-topics/" class="backlink-anchor">
           <div class="backlink">
             <p class="backlink-title">List of Topics</p>
-            <p class="backlink-preview"> Linux Notes  </p>
-          </div>
-        </a>
-      
-        <a href="http://127.0.0.1:8800/notes/public/windows-notes/" class="backlink-anchor">
-          <div class="backlink">
-            <p class="backlink-title">Windows Notes</p>
-            <p class="backlink-preview">See also Linux Notes</p>
+            <p class="backlink-preview"> Byteman Scripts  </p>
           </div>
         </a>
       

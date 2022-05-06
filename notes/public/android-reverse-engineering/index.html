@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html><title>Linux Notes</title>
+<html><title>Android Reverse Engineering</title>
 
 
 <meta charset="utf-8" />
@@ -116,12 +116,32 @@ body {
   <div class="grid">
     <div class="page" data-level="1">
       <div class="content">
-        <h1>Linux Notes</h1>
-        <p><strong>Active Directory</strong></p>
-<p>Access Active Directory Domain Admin via Linux:</p>
-<pre tabindex="0"><code>$ sudo apt-get realmd
-$ realm join example.ba --user username
-</code></pre>
+        <h1>Android Reverse Engineering</h1>
+        <h3 id="burp-proxy-setup">Burp Proxy Setup</h3>
+<p>If using <strong>Android 7</strong> or above, you need to export Burp CA Certificate from <code>Proxy → Options</code>, and selecting <code>Import/Export CA certificate</code>. Android wants the certificate to be in <strong>PEM format</strong>. The filename has to be equal to the <code>subject_hash_old</code> value appended with <code>.0</code>.</p>
+<p><strong>Note</strong> - if you are using OpenSSL &lt; 1.0, you need to use <code>subject_hash</code> instead of <code>subject_hash_old</code>.</p>
+<p>Using <code>openssl</code> is recommended way to convert DER to PEM format. Dump the <code>subject_hash_old</code> and rename the file as explained above.</p>
+<pre tabindex="0"><code>$ openssl x509 -inform DER -in cacert.der -out cacert.pem
+$ openssl x509 -inform PEM -subject_hash_old -in cacert.pem |head -1
+$ mv cacert.pem &lt;hash&gt;.0
+</code></pre><p>Push the certificate onto Android device by using <code>adb</code> or <code>ssh</code>:</p>
+<pre tabindex="0"><code># =&gt; move cert to the device
+$ adb push &lt;hash&gt;.0 /data/local/tmp
+
+# =&gt; on android device:
+$ adb shell
+% su
+% mount -o rw,remount /system 
+% mv /data/local/tmp/&lt;hash&gt;.0 /system/etc/security/cacerts/
+% chown root:root /system/etc/security/cacerts/&lt;hash&gt;.0
+% chmod 644 /system/etc/security/cacerts/&lt;hash&gt;.0
+% reboot
+</code></pre><p><strong>References</strong></p>
+<ul>
+<li><a href="https://blog.ropnop.com/configuring-burp-suite-with-android-nougat/">Android Nougat and Burp Proxy Configuration</a></li>
+<li><a href="https://awakened1712.github.io/hacking/hacking-install-ca-android/">Install custom CA on Android</a></li>
+</ul>
+
       </div>
       
 
@@ -220,8 +240,6 @@ $ realm join example.ba --user username
    
 
    
-      
-   
 
    
 
@@ -234,14 +252,7 @@ $ realm join example.ba --user username
         <a href="http://127.0.0.1:8800/notes/public/list-of-topics/" class="backlink-anchor">
           <div class="backlink">
             <p class="backlink-title">List of Topics</p>
-            <p class="backlink-preview"> Linux Notes  </p>
-          </div>
-        </a>
-      
-        <a href="http://127.0.0.1:8800/notes/public/windows-notes/" class="backlink-anchor">
-          <div class="backlink">
-            <p class="backlink-title">Windows Notes</p>
-            <p class="backlink-preview">See also Linux Notes</p>
+            <p class="backlink-preview"> Android Reverse Engineering  </p>
           </div>
         </a>
       

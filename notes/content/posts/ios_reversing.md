@@ -15,7 +15,7 @@ title: "iOS Reverse Engineering"
 $ class-dump -S -s -H App -o /path/to/headers/App/
 ```
 
-* [Frida & Objection Tutorial](./frida-objection-tutorial)
+* [Frida & Objection Tutorial](./frida-objection-tutorial#ios-tutorial)
 * [Pure Reverse Engineering](./pure-reverse-engineering)
 * [Cycript](./cycript)
 * [Decrypt IPA from AppStore](./decrypt-ipa-from-appstore)

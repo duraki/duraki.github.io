@@ -2,6 +2,56 @@
 title: "Frida & Objection Tutorial"
 ---
 
+## Android Tutorial
+
+### Frida Setup
+
+Make sure to have Android Debugging interface running (`adbd`) on your testing device. For reference, read the [adbd setup](#adbd-setup) first and then continue here.
+
+Install the Frida for [Android](https://frida.re/docs/android/):
+
+```
+$ adb root # might be required
+$ adb push frida-server /data/local/tmp/
+$ adb shell "chmod 755 /data/local/tmp/frida-server"
+$ adb shell "/data/local/tmp/frida-server &"
+```
+
+Smoke test on Frida setup:
+
+```
+$ adb devices -l
+$ frida-ps -U
+# PID NAME 1590 com.facebook.katana
+# 13194 com.facebook.katana:providers
+# 12326 com.facebook.orca
+# 13282 com.twitter.android
+...
+```
+
+### `adbd` setup
+
+* Change all SELinux permissions to **Permissable**
+* Use SELinuxPermission Android application, which checks for `getenforce` on a system reboot
+* In MagiskManager application, enable the [ADB Root](https://github.com/evdenis/adb_root)
+* When device is rebooting, USB debugging will not work out of the box
+* SSH to Android device, using OpenSSHD
+* In SSH shell type the following:
+
+```
+# => On Android device (ssh)
+% su
+% whoami
+% adbd
+
+# => On Attackers machine (duh)
+$ adb root
+$ adb shell
+(android) $ whoami # => root
+```
+
+## iOS Tutorial
+
 ### Frida Setup
 
 * iOS connected over Wi-FI, Windows/Host connected to the same Wi-Fi, Linux/Guest connected to the same Wi-Fi
@@ -62,12 +112,12 @@ x.xxxx.xxxxxxxx.xxxx on (iPhone: 13.3) [net] #
 **Objection Usage**
 
 $ env
-hr.wiener.customer.staging on (iPhone: 13.3) [net] # env                                                                                                                                                        
+x.xxx.xxxxxxxxx.xxxx on (iPhone: 13.3) [net] # env                                                                                                                                                        
 
 ```
 Name               Path
 -----------------  -------------------------------------------------------------------------------------------
-BundlePath         /private/var/containers/Bundle/Application/DD6C2A3C-6CD3-44D0-9EAF-BC8EEE8C6702/Wiener.app
+BundlePath         /private/var/containers/Bundle/Application/DD6C2A3C-6CD3-44D0-9EAF-BC8EEE8C6702/App.app
 CachesDirectory    /var/mobile/Containers/Data/Application/B26572F4-75BA-45C0-A6DE-40AEA275AF28/Library/Caches
 DocumentDirectory  /var/mobile/Containers/Data/Application/B26572F4-75BA-45C0-A6DE-40AEA275AF28/Documents
 LibraryDirectory   /var/mobile/Containers/Data/Application/B26572F4-75BA-45C0-A6DE-40AEA275AF28/Library

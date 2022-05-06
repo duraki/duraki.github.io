@@ -33,8 +33,16 @@ The following registers exists:
 
 * RULE, CLASS, METHOD (Description, Classname, Method Name)
 * AT ENTRY, AT EXIT
+* AT EXCEPTION EXIT
+* AT EXCEPTION ENTRY
 * IF TRUE (Run always)
+  - IF counter / 5 == 10
 * DO (Execute command)
+  - DO incrementCounter("cnt")
+  - DO trace("Trace string line")
+  - DO traceStack("Trace stack line")
+* BIND (Read variable)
+  - BIND counter = readCounter("cnt")
 * ENDRULE (Script end)
 
 ### Running
@@ -56,4 +64,16 @@ Cannot locate byteman JBoss modules plugin jar
 redefine rule trace main entry
 ```
 
+### Scripts
+
+List of scripts and usage [on Byteman Scripts](./byteman-scripts). Just for reference.
+
+### References
+
+* [Official JBoss Byteman Programmers Guide](https://downloads.jboss.org/byteman/4.0.18/byteman-programmers-guide.html#introduction-to-byteman)
+* [Official Script Samples](https://github.com/bytemanproject/byteman/tree/main/sample/scripts)
+* [A Byteman Tutorial](https://developer.jboss.org/docs/DOC-17213)
+* [JUDCon Flavia Race Condition Bytemon Slides](https://downloads.jboss.org/byteman/papers/JUDCon_presentation_flavia_race_conditions.pdf)
+* [Blog - How to use JBoss and Bytemon](https://giallone.blogspot.com/2014/10/use-byteman-in-jboss-fuse-fabric8-karaf.html)
+* [Hooking into vulnerabilities in Java applications](https://www.synacktiv.com/en/publications/captain-hook-how-not-to-look-for-vulnerabilities-in-java-applications.html)
 
