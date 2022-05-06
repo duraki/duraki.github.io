@@ -84,6 +84,8 @@ class Art
     puts "\t\t...running hugo for the gen phase..."
     `cd ./notes && hugo`
     puts "notes published"
+
+    builder 
   end
 
 end
