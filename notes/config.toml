@@ -1,7 +1,7 @@
 baseURL = 'https://duraki.github.io/notes/public/'
 # buildDrafts=true # => Includes drafts when building
 
-RelativeURLs=true
+#RelativeURLs=true
 CanonifyURLs=true
 
 languageCode = 'en-us'
