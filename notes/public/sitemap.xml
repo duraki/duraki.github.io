@@ -20,6 +20,12 @@
   </url><url>
     <loc>https://duraki.github.io/notes/public/automotive-hacking.html</loc>
   </url><url>
+    <loc>https://duraki.github.io/notes/public/bash-in-simple-words.html</loc>
+  </url><url>
+    <loc>https://duraki.github.io/notes/public/blog-setup.html</loc>
+  </url><url>
+    <loc>https://duraki.github.io/notes/public/bypass-403-on-nginx.html</loc>
+  </url><url>
     <loc>https://duraki.github.io/notes/public/byteman.html</loc>
   </url><url>
     <loc>https://duraki.github.io/notes/public/byteman-scripts.html</loc>
@@ -31,6 +37,8 @@
     <loc>https://duraki.github.io/notes/public/categories.html</loc>
   </url><url>
     <loc>https://duraki.github.io/notes/public/classical-api-abuse.html</loc>
+  </url><url>
+    <loc>https://duraki.github.io/notes/public/cloud-metadata.html</loc>
   </url><url>
     <loc>https://duraki.github.io/notes/public/cycript.html</loc>
   </url><url>
@@ -45,6 +53,8 @@
     <loc>https://duraki.github.io/notes/public/firewall-engagements.html</loc>
   </url><url>
     <loc>https://duraki.github.io/notes/public/frida-objection-tutorial.html</loc>
+  </url><url>
+    <loc>https://duraki.github.io/notes/public/frida-gadget-injection.html</loc>
   </url><url>
     <loc>https://duraki.github.io/notes/public/how-to-compromise-ecu.html</loc>
   </url><url>
@@ -62,9 +72,13 @@
   </url><url>
     <loc>https://duraki.github.io/notes/public/list-of-topics.html</loc>
   </url><url>
+    <loc>https://duraki.github.io/notes/public/lldb.html</loc>
+  </url><url>
     <loc>https://duraki.github.io/notes/public/macos-notes.html</loc>
   </url><url>
     <loc>https://duraki.github.io/notes/public/metasploit-framework.html</loc>
+  </url><url>
+    <loc>https://duraki.github.io/notes/public/netcat-tricks.html</loc>
   </url><url>
     <loc>https://duraki.github.io/notes/public/network-lab.html</loc>
   </url><url>
@@ -72,11 +86,19 @@
   </url><url>
     <loc>https://duraki.github.io/notes/public/opcrouter-research.html</loc>
   </url><url>
+    <loc>https://duraki.github.io/notes/public/osint.html</loc>
+  </url><url>
+    <loc>https://duraki.github.io/notes/public/php-filesystem-functions.html</loc>
+  </url><url>
+    <loc>https://duraki.github.io/notes/public/php-source-code-analysis.html</loc>
+  </url><url>
     <loc>https://duraki.github.io/notes/public/posts.html</loc>
   </url><url>
     <loc>https://duraki.github.io/notes/public/pure-reverse-engineering.html</loc>
   </url><url>
     <loc>https://duraki.github.io/notes/public/reverse-engineering-tricks-and-tips.html</loc>
+  </url><url>
+    <loc>https://duraki.github.io/notes/public/server-anywhere.html</loc>
   </url><url>
     <loc>https://duraki.github.io/notes/public/sqli-payloads.html</loc>
   </url><url>
@@ -88,6 +110,8 @@
   </url><url>
     <loc>https://duraki.github.io/notes/public/vehicle-graybox-security-testing.html</loc>
   </url><url>
+    <loc>https://duraki.github.io/notes/public/vehicle-hacking-environment.html</loc>
+  </url><url>
     <loc>https://duraki.github.io/notes/public/vhost-enumeration.html</loc>
   </url><url>
     <loc>https://duraki.github.io/notes/public/web-application-penetration-test-checklist.html</loc>
@@ -95,6 +119,8 @@
     <loc>https://duraki.github.io/notes/public/web-fuzzing-technqiues.html</loc>
   </url><url>
     <loc>https://duraki.github.io/notes/public/web-penetration-testing-oneliners.html</loc>
+  </url><url>
+    <loc>https://duraki.github.io/notes/public/wifi-cracking-via-aircrack.html</loc>
   </url><url>
     <loc>https://duraki.github.io/notes/public/windbg-cheatsheets.html</loc>
   </url><url>

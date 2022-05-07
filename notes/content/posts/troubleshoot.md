@@ -2,6 +2,36 @@
 title: "Troubleshoot"
 ---
 
+## Hardware
+
+**Fix Kappa Headphones on Apple Macbook**
+
+{{< gist duraki 177b820df217deaa5a563200eca9c152 >}}
+
+## Linux
+
+**Fix RHEL SD Card Reader** (Red Hat Enterprise Linux)
+
+{{< gist duraki 5f301ac52e8ac951da4b248b6e81f9f0 >}}
+
+**Fix RHEL VPN forward options** (*see above*)
+
+{{< gist duraki 38a73392cdb921bdadb8a97e6368faba >}}
+
+**Fix Wireless for Macbook Air on RHEL** (*see above*)
+
+Dedicated [post](https://duraki.github.io/posts/o/20171112-redhat-on-mba-15.html) has been published on my blog. RHEL gets kinda buggy on Macbook Air (Intel).
+
+{{< gist duraki 1900a69beb7d222d0abc01c6bb150ae9 >}}
+
+## Bypasses
+
+**Chrome Enterprise Policy Bypass**
+
+Very annoying on JAMF'd and managed devices. Basically, Company provides a laptop with a bloatware in a form of Chrome extension. This is a trick I discovered around 2016. You can bypass "Enterprise" limitation and remove the Chrome extension from reapperaing.
+
+{{< gist duraki a0b81443484a6cd288e4eb15ae3734b1 >}}
+
 ## VirtualBox || VMWare
 
 **When in Kali Linux and doing Security Assessment**
