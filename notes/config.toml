@@ -1,9 +1,9 @@
-baseURL = 'https://duraki.github.io/notes/public'
-canonifyURLs=true
-relativeURLs=true
-uglyURLs=true
+baseURL = 'https://duraki.github.io/notes/public/'
+# buildDrafts=true # => Includes drafts when building
 
-buildDrafts=true # => Includes drafts when building
+RelativeURLs=true
+CanonifyURLs=true
+
 languageCode = 'en-us'
 itle = "duraki's notes"
 theme = "little-ocean"
@@ -17,7 +17,5 @@ posts = '/:title'
 
 [params]
 logoUrl = '/favicon.png'
-ugly = ".html"
-uglyhome = "/index.html"
 
 [params.styles]
