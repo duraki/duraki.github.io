@@ -10,9 +10,7 @@ p {
 }
 
 .logo {
-    padding-top: 13%;
-    width: 100%;
-    text-align: center;
+    padding-top: 10% !important;
 }
 
 .anim {
@@ -24,7 +22,15 @@ p {
 }
 
 .about {
-	text-align: center;
+	font-size: 20px;
+}
+
+.speciality > p {
+	font-size: 24px !important;
+        width: 600px;
+        margin: 0 auto;
+        text-align: right;
+        padding-top: 50px;
 }
 
 .about > p {
@@ -131,4 +137,8 @@ p {
          url('./fonts/tewi-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
+}
+
+.main-container {
+    max-width: 70% !important;
 }

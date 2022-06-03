@@ -264,10 +264,14 @@ $ more AndroidManifest.xml &amp;lt;application ...&amp;gt; &amp;lt;activity andr
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://duraki.github.io/notes/public/how-to-write-notes.html</guid>
-      <description>TL;DR  Use Markdown for everything Use shortcodes Clear and consistent Integrate well with art CLI  Shortcodes Caption images via this shortcode
-&amp;lt;span class=&amp;#34;caption-wrapper&amp;#34;&amp;gt; &amp;lt;img class=&amp;#34;caption&amp;#34; src=&amp;#34;/images/2016/thetheme/1.png&amp;#34; title=&amp;#34;Sample caption&amp;#34; alt=&amp;#34;Sample caption&amp;#34;&amp;gt; &amp;lt;span class=&amp;#34;caption-text&amp;#34;&amp;gt;Sample caption&amp;lt;/span&amp;gt; &amp;lt;/span&amp;gt; {{ &amp;lt; imgcap title=&amp;#34;Sample caption&amp;#34; src=&amp;#34;/images/2016/thetheme/1.png&amp;#34; &amp;gt; }} Insert Gist via this line
-{{ &amp;lt; gist duraki 78985452 &amp;gt; }} Include Instagram image in the note
-# =&amp;gt; https://www.instagram.com/p/BWNjjyYFxVx/ # =&amp;gt; Normal Instagram view {{ &amp;lt; instagram BWNjjyYFxVx &amp;gt; }} # =&amp;gt; Hide caption {{ &amp;lt; instagram BWNjjyYFxVx hidecaption &amp;gt; }} Include Tweet in the note</description>
+      <description>TL;DR  Use Markdown for everything Use shortcodes Clear and consistent Integrate well with art CLI  Markdown Styled Blocks
+::: alert red This is a **Red Alert!** Take cover. ::: ::: alert red This is a Red Alert! Take cover. :::
+Media Insertion
+Use quotes markdown block:
+&amp;gt; https://vimeo.com/1234567 FontAwesome Icons
+Use FontAwesome Icon Library:
+# =&amp;gt; in markdown (md) ## Some of my photos :fa-camera-retro: Highlight Lines
+List of supported languages</description>
     </item>
     
     <item>
@@ -364,6 +368,20 @@ $ msfconsole ... [loaded] msf5 exploit(multi/handler) &amp;gt; use multi/handler
     </item>
     
     <item>
+      <title>MITM_Intercept</title>
+      <link>https://duraki.github.io/notes/public/mitm_intercept.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://duraki.github.io/notes/public/mitm_intercept.html</guid>
+      <description>Configure your MacOS to point /etc/private/hosts to real server.
+Next use the following script to print and return handlers.
+## basic intercept tcp macos desktop via /etc/private/hosts def handle_request(message): print(message) return message + b&amp;#34;\x00&amp;#34; def handle_response(message): # Both functions must return a message. print(message) return message Run mitm_intercept.py with the following command line:
+$ mitm_intercept.py -l u:x.x.x.x:port t:x.x.x.x.x:port -t u:x.x.x.x:port x.x.x.x:port -p x.x.x.x:8080
+References:
+ via -l listener via u: &amp;amp; t: udp + tcp listener via -t target via -p proxy listener (burp) via -m (mix connection) performs TCP relay without SSL handshake   In this case, the communication goes through the HTTP modification server running on 127.</description>
+    </item>
+    
+    <item>
       <title>netcat tricks</title>
       <link>https://duraki.github.io/notes/public/netcat-tricks.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -398,6 +416,16 @@ $ nmap -Pn -vvv -sC --script=firewalk -p1-65535 -D RND:10 &amp;lt;target&amp;gt;
 $ nslookup set type=NS x.x.x.x basic nmap
 $ sudo nmap -sS 80.101.121.42 # syn scan first $ sudo nmap -O 80.101.121.42 # os detection $ sudo nmap -sV -sS 80.101.121.42 -p 8089 # service detection $ nc 80.101.121.42 8089 # try connecting via detected ports basic masscan
 $ sudo masscan 80.</description>
+    </item>
+    
+    <item>
+      <title>Network Reverse Engineering</title>
+      <link>https://duraki.github.io/notes/public/network-reverse-engineering.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://duraki.github.io/notes/public/network-reverse-engineering.html</guid>
+      <description>using netstat (xnu) to print only TCP entries for a specific PID:
+$ netstat -anvp tcp | awk &amp;#39;{ if ($9 == PID) print }&amp;#39; # =&amp;gt; ie. # $ netstat -anvp tcp | awk &amp;#39;{ if ($9 == 1105) print }&amp;#39; ## tcp4 0 0 192.168.0.25.52952 52.0.253.194.443 ESTABLISHED 131072 131072 1105 0 0x0102 0x00000000 ## tcp4 0 0 127.0.0.1.45112 *.* LISTEN 131072 131072 1105 0 0x0100 0x00000106 ## tcp4 0 0 127.</description>
     </item>
     
     <item>

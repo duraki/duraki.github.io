@@ -1,0 +1,134 @@
+body {
+	background: #0D0F0E;
+	font-family: 'tewimedium', monospace;
+	color: white;
+}
+
+p {
+	color: white;
+	font-family: 'tewimedium', monospace;
+}
+
+.logo {
+    padding-top: 13%;
+    width: 100%;
+    text-align: center;
+}
+
+.anim {
+	height: 300px;
+}
+
+.advisor {
+	font-size: 24px;
+}
+
+.about {
+	text-align: center;
+}
+
+.about > p {
+	font-size: 16px;
+	color: #9a8e8e;
+}
+
+.about > p > a {
+	color: white;
+	text-decoration: none;
+}
+
+.about > p > a:hover {
+	color: white;
+	text-decoration: underline;
+}
+
+.references {
+	padding-top: 10px;
+	text-align: left;
+}
+
+.references > p {
+	font-size: 16px;
+	text-decoration: underline;
+}
+
+.references > .ref {
+	line-height: 0.3px;
+	font-size: 16px;
+	text-decoration: none;
+}
+
+.references > .ref:hover {
+}
+
+.references > p > .ref-corp {
+	font-size: 12px;
+	color: #8e8989;
+}
+
+@media only screen and (max-width: 700px) {
+  .references > .ref {
+    line-height: 10px;
+  }
+
+  span {
+    padding-top: 10px;
+    display: block;
+  }
+}
+
+.footer {
+	text-align: center;
+	position: absolute;
+	bottom: 0;
+	padding-bottom: 20px;
+}
+
+.duraki-consulting {
+	text-align: center;
+}
+
+.copyright {
+	width: 100px;
+	text-align: center;
+	background: #fff;
+	font-size: 9px;
+	color: black;
+}
+
+.advisor {
+	font-size: 24px;
+}
+
+.cursor:after {
+    content: "▌";
+    opacity: 0;
+    animation: cursor 1s infinite;
+}
+
+@keyframes cursor {
+    0% {
+        opacity: 0;
+    }
+    40% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@font-face {
+    font-family: 'tewimedium';
+    src: url('./fonts/tewi-webfont.woff2') format('woff2'),
+    	 url('./fonts/tewi.ttf') format('truetype'),
+         url('./fonts/tewi-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
