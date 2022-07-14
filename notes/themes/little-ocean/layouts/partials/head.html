@@ -9,7 +9,7 @@
 />
 <meta name="apple-mobile-web-app-capable" content="yes" />
 
-{{ if not (in (.Site.BaseURL | string) "localhost") }}
+{{ if not (in (.Site.BaseURL | string) "127.0.0.1") }}
     <!-- This template code only runs when the website
         does *not* run on localhost (meaning, runs in the
         production environment). -->

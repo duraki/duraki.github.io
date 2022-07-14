@@ -83,7 +83,9 @@ class Art
 
     # only local
     if env.downcase == "local"
-      `cd ./notes/public/ && php -S 127.0.0.1:8800`
+
+      # `cd ./notes/public/ && php -S 127.0.0.1:8800`
+      `cd ./notes/ && hugo server --minify --bind 127.0.0.1 --port 8800 --baseURL=http://127.0.0.1:8800/notes/public`
     else
       puts("deploying $PROD ... skipping php serve")
     end

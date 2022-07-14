@@ -1,5 +1,11 @@
+<style type="text/css">
+    .menu-item-position > a {
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+</style>
 <header>
-    <a href="/index" id="logo-and-title">
+    <a href="/" id="logo-and-title">
     {{ $logoUrl := index .Site.Params "logoUrl" }}
     <div class="site-logo">
       {{ if $logoUrl }} <img class="site-logo" src="{{ $logoUrl }}" />{{ end }}
@@ -7,7 +13,7 @@
         </a>
 
         <div id="head">
-            <h1 class="menu-item menu-item-position"><a class="author" href="https://duraki.github.io/about.html">halis duraki</a></h1> /
+            <h1 class="menu-item menu-item-position"><a style="padding-left: 0px;" class="author" href="https://duraki.github.io/about.html">halis duraki</a></h1> /
             <h1 class="menu-item menu-item-position"><a class="author" href="https://duraki.github.io/reports.html">security rep+</a></h1> / 
             <h1 class="menu-item menu-item-position"><a class="author" href="https://duraki.github.io/consulting/">consulting</a></h1> / 
             <h1 class="menu-item menu-item-position"><a class="author" href="https://duraki.github.io/">blog</a> </h1> /

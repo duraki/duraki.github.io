@@ -69,6 +69,14 @@ The configuration for different environments is located in [/config/ directory](
 $ ruby art notes prod && git add . && git commit -m "Release :party:" --no-verify && git push origin master
 ```
 
+*you can also deploy local environment using `hugo server`, from with-in this repository*:
+
+```
+$ cd ./notes/ && hugo server --minify --bind 127.0.0.1 --port 8800 --baseURL=http://127.0.0.1:8800/ && cd ..
+
+# => Web Server is available at http://127.0.0.1:8800/ (bind address 127.0.0.1)
+``` 
+
 ## Themes 
 
 ### deviltux 

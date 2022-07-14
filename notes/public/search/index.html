@@ -12,11 +12,11 @@
 
 
     
-    <base href="/notes/public/">
+    <base href="/notes/public/notes/public/">
 
 
 
-<link href="/favicon.png" rel="icon" type="image/x-icon" />
+<link href="/notes/public/favicon.png" rel="icon" type="image/x-icon" />
 
 
 <link rel="stylesheet" href="/notes/public/css/index.db0ff6adb85d12a55dc7afd153794f1bb4b22f39d3efe031d0be4456af877dea.css" />
@@ -95,22 +95,28 @@ body {
 </style>
 
 
-<body><header>
-    <a href="/index" id="logo-and-title">
+<body><style type="text/css">
+    .menu-item-position > a {
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+</style>
+<header>
+    <a href="/notes/public/" id="logo-and-title">
     
     <div class="site-logo">
-       <img class="site-logo" src="/favicon.png" />
+       <img class="site-logo" src="/notes/public/favicon.png" />
     </div>
         </a>
 
         <div id="head">
-            <h1 class="menu-item menu-item-position"><a class="author" href="https://duraki.github.io/about.html">halis duraki</a></h1> /
+            <h1 class="menu-item menu-item-position"><a style="padding-left: 0px;" class="author" href="https://duraki.github.io/about.html">halis duraki</a></h1> /
             <h1 class="menu-item menu-item-position"><a class="author" href="https://duraki.github.io/reports.html">security rep+</a></h1> / 
             <h1 class="menu-item menu-item-position"><a class="author" href="https://duraki.github.io/consulting/">consulting</a></h1> / 
             <h1 class="menu-item menu-item-position"><a class="author" href="https://duraki.github.io/">blog</a> </h1> /
-            <h1 class="menu-item menu-item-position"><a class="author" href="/">~ notes</a></h1> <br /> 
+            <h1 class="menu-item menu-item-position"><a class="author" href="/notes/public/">~ notes</a></h1> <br /> 
         </div><form id="search"
-    action='/notes/public/search/' method="get">
+    action='/notes/public/notes/public/search/' method="get">
     <label hidden for="search-input">Search site</label>
     <input type="text" id="search-input" name="query"
     placeholder="Type here to search">
@@ -810,7 +816,7 @@ window.store = {
         
         "title": "Web Penetration Testing Oneliners",
         "tags": [],
-        "content": "   Also See      Check if vhost is a live on specific DNS or subdomain:\ncurl -s -H \u0026#34;Host. $SUBDOMAIN.EXAMPLE.BA\u0026#34; http://example.ba Other techniques described in vhost enumeration\nRedirect URI with a Set-Cookie in GET request:\nhttp://$EXAMPLE.BA/index.php?redirect_url=/%3f%0d%0a%09set-cookie:+hello=yoyoo Rate Limit Bypass\nHeaders: * X-Forwarded-Host: http://evil.com (Password reset poisoning) * X-Forwarded-For: 127.0.0.* (Rate Limit Bypass) Permutations: * Null byte techniques * Case sensitiveness Some other techniques can be used, ie. 403 bypass via header manipulation.\nCaptcha Bypass Tricks 😂\nCaptcha Bypass is described in separate page.\nAlso See  Checklists are provided for both REST API Issue Library as well as Web Issue Library API Abuse and Reuse 403 Bypass  ", 
+        "content": "   Also See      Check if vhost is a live on specific DNS or subdomain:\ncurl -s -H \u0026#34;Host. $SUBDOMAIN.EXAMPLE.BA\u0026#34; http://example.ba Other techniques described in vhost enumeration\nRedirect URI with a Set-Cookie in GET request:\nhttp://$EXAMPLE.BA/index.php?redirect_url=/notes/public/%3f%0d%0a%09set-cookie:+hello=yoyoo Rate Limit Bypass\nHeaders: * X-Forwarded-Host: http://evil.com (Password reset poisoning) * X-Forwarded-For: 127.0.0.* (Rate Limit Bypass) Permutations: * Null byte techniques * Case sensitiveness Some other techniques can be used, ie. 403 bypass via header manipulation.\nCaptcha Bypass Tricks 😂\nCaptcha Bypass is described in separate page.\nAlso See  Checklists are provided for both REST API Issue Library as well as Web Issue Library API Abuse and Reuse 403 Bypass  ", 
         "url": "\/notes\/public\/web-penetration-testing-oneliners\/"
     },
     
@@ -858,9 +864,9 @@ window.store = {
 </script>
 
 
-<script src="/notes/public/js/lunr.min.js" type="text/javascript"></script>
+<script src="/notes/public/notes/public/js/lunr.min.js" type="text/javascript"></script>
 
 
-<script src="/notes/public/js/search.js" type="text/javascript"></script>
+<script src="/notes/public/notes/public/js/search.js" type="text/javascript"></script>
 </body>
 </html>
