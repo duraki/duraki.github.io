@@ -14,9 +14,10 @@
         does *not* run on localhost (meaning, runs in the
         production environment). -->
     <base href="{{ .Site.BaseURL }}">
+{{ else }}
+    <base href="{{ .Site.BaseURL }}"
 {{ end }}
 
-<base href="./">
 
 <link href="/favicon.png" rel="icon" type="image/x-icon" />
 
