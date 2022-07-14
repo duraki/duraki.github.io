@@ -2,11 +2,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Search on duraki&#39;s notes</title>
-    <link>//duraki.github.io/notes/public/search/</link>
+    <link>https://duraki.github.io/notes/public/search/</link>
     <description>Recent content in Search on duraki&#39;s notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>durakiconsulting (c) h. duraki</copyright>
-    <lastBuildDate>Tue, 07 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="//duraki.github.io/notes/public/search/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 07 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://duraki.github.io/notes/public/search/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

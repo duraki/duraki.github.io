@@ -9,6 +9,16 @@
 />
 <meta name="apple-mobile-web-app-capable" content="yes" />
 
+{{ if not (in (.Site.BaseURL | string) "localhost") }}
+    <!-- This template code only runs when the website
+        does *not* run on localhost (meaning, runs in the
+        production environment). -->
+    <base href="{{ .Site.BaseURL }}">
+{{ else }}
+{{ end }}
+
+<base href="./">
+
 <link href="/favicon.png" rel="icon" type="image/x-icon" />
 
 {{ $IndexCss := resources.Get "/css/index.scss" | resources.ToCSS (dict
