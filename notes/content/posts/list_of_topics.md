@@ -4,7 +4,7 @@ title: "List of Topics"
 
 Personal list of topics of interest. At least for me eh? :)
 
-### Automotive Cyber Security
+### Automotive Cyber Security [§Automotive](/automotive)
 
 * [Automotive Hacking](/automotive-hacking)
 * [Ethernet in Vehicles](/ethernet-specifications)
@@ -15,7 +15,7 @@ Personal list of topics of interest. At least for me eh? :)
 * [Vehicle Graybox Security Testing](/vehicle-graybox-security-testing) 
 * [Vehicle Hacking Environment](/vehicle-hacking-environment)
 
-### Classical Penetration Testing
+### Classical Penetration Testing [§Classical Pentest](/classical)
 
 * [OSINT](/osint)
 * [Web Pentest Oneliners](/web-penetration-testing-oneliners)
@@ -32,7 +32,7 @@ Personal list of topics of interest. At least for me eh? :)
     * [Web Issue Library](/web-application-penetration-test-checklist)
     * [PHP Source Code Analysis](/php-source-code-analysis)
         * [PHP Filesystem Functions](/php-filesystem-functions)
-* Networking
+* Networking [§Network](/network)
     * [Basic Network Recon](/network-recon)
     * [Firewall Penetration Test](/firewall-engagements)
     * [Wifi Cracking via Aircrack](/wifi-cracking-via-aircrack)
@@ -41,7 +41,7 @@ Personal list of topics of interest. At least for me eh? :)
     * [Server Anywhere](/server-anywhere)
     * [Netcat Tricks](/netcat-tricks)
 
-### Reverse Engineering
+### Reverse Engineering [§RE](/re)
 
 * [Tricks and Tips](/reverse-engineering-tricks-and-tips)
 * [WinDbg Cheatsheets](/windbg-cheatsheets)
@@ -65,7 +65,7 @@ Personal list of topics of interest. At least for me eh? :)
     * [Android Recompilation](/android-recompilation)
 * [OPCRouter Research](/opcrouter-research)
 
-### Development
+### Development [§dev](/dev)
 
 **blog**
 
