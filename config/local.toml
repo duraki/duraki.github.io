@@ -1,11 +1,11 @@
-baseURL = 'http://127.0.0.1:8800/notes/public'
-buildDrafts=true # => Includes drafts when building
+baseURL = 'http://127.0.0.1:8800/'
+buildDrafts=true 
 
 #RelativeURLs=true
 CanonifyURLs=true
 
 languageCode = 'en-us'
-itle = "duraki's notes"
+title = "duraki's notes"
 theme = "little-ocean"
 
 copyright = "durakiconsulting (c) h. duraki"

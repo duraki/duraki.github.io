@@ -1,11 +1,11 @@
 #!/usr/local/bin/ruby
+require "erb"
+require "yaml"
+require "front_matter_parser"
+require "colorize"
+require "fileutils"
+require "open-uri"
 
-require 'erb'
-require 'yaml'
-require 'front_matter_parser'
-require 'colorize'
-require 'fileutils'
-require 'open-uri'
 
 # + art
 # + single-file static blog generator
@@ -13,154 +13,133 @@ require 'open-uri'
 # + Author : Halis Duraki <duraki@linuxmail.org>
 # + Website: https://duraki.github.io
 class Art
-
   # => Config mockup
   CONFIG_MOCKUP = "https://gist.githubusercontent.com/duraki/9549f72f90a3c73a777efcdcea595576/raw/e36faa42a7a62afe10d7878aa1d63eba6e936b34/art.yaml"
   WWW_DIR = ""
 
   def init(name)
-    Dir.mkdir "./#{name}"
-    Dir.mkdir "./#{name}/#{WWW_DIR}"
-
-    Dir.mkdir "./#{name}/#{WWW_DIR}/posts/i"
-    Dir.mkdir "./#{name}/#{WWW_DIR}/posts/o"
-
+    Dir.mkdir("./#{name}")
+    Dir.mkdir("./#{name}/#{WWW_DIR}")
+    Dir.mkdir("./#{name}/#{WWW_DIR}/posts/i")
+    Dir.mkdir("./#{name}/#{WWW_DIR}/posts/o")
     mockup = open(CONFIG_MOCKUP)
-    puts "Generating mockup for blog: #{name} ..."
+    puts("Generating mockup for blog: #{name} ...")
     IO.copy_stream(mockup, "./#{name}/.home.yml")
-    puts "Done!".blue + " Edit your `.home.yml` file in ./#{name}/, and start writing :)"
+    puts("Done!".blue + " Edit your `.home.yml` file in ./#{name}/, and start writing :)")
   end
+
   def cli
     if ARGV[0] == "init" && !ARGV[1].nil?
       init(ARGV[1])
     end
 
-    if ARGV[0] == "publish" 
+    if ARGV[0] == "publish"
       builder
     end
 
     if ARGV[0] == "notes"
-      puts "\t\tnotes - publish hugo notes. use ENV as an argument (a file stored in ./config/*.toml)" 
+      puts("\t\tnotes - publish hugo notes. use ENV as an argument (a file stored in ./config/*.toml)")
       build_notes(ARGV[1])
     end
 
     exit
   end
-  
+
   # Init.
   def initialize
-    puts "art is a standalone, single-file static blog generator.".green 
-    puts ("-"*100).green
-    puts "init <blog>".white + " | Start a new blog, initialize directory".green
-    puts "publish".white + "     | Publish blog from this directory".green
-    puts "notes <env>".white + " | Copy ./config/env.toml to ./notes/ and builds it".green
+    puts("art is a standalone, single-file static blog generator.".green)
+    puts(("-" * 100).green)
+    puts("init <blog>".white + " | Start a new blog, initialize directory".green)
+    puts("publish".white + "     | Publish blog from this directory".green)
+    puts("notes <env>".white + " | Copy ./config/env.toml to ./notes/ and builds it".green)
     cli
   end
 
   # Build.
-  def builder 
-    puts "[+] Loading `.home.yml` from this directory ...".green
-    @home = YAML.load_file('.home.yml')
-    puts "[+] File loaded.".green
-    puts "---------".red
-    puts "[+] Creating build configuration ...".green
-    builder = Build.new @home
+  def builder
+    puts("[+] Loading `.home.yml` from this directory ...".green)
+    @home = YAML.load_file(".home.yml")
+    puts("[+] File loaded.".green)
+    puts("---------".red)
+    puts("[+] Creating build configuration ...".green)
+    builder = Build.new(@home)
   end
 
   # Build notes.
   def build_notes(env = "local")
-    puts "[/] Executing system Hugo command. Make sure to '% brew install hugo' prior to execution."
-    puts "[/] ENVIRONMENT: #{env.upcase}"
-    puts "\t copying ENV file now ..."
-    puts "cp config/#{env}.toml /notes/config.toml" 
-
-    config_path = "./config/#{env}.toml" 
+    puts("[/] Executing system Hugo command. Make sure to '% brew install hugo' prior to execution.")
+    puts("[/] ENVIRONMENT: #{env.upcase}")
+    puts("\t copying ENV file now ...")
+    puts("cp config/#{env}.toml /notes/config.toml")
+    config_path = "./config/#{env}.toml"
     destination_path = "./notes/config.toml"
-  
     `rm -rf ./notes/public/ -y`
-
     FileUtils.cp(config_path, destination_path)
-    puts "Config file copied for notes"
-    puts "\t\t...running hugo for the gen phase..."
+    puts("Config file copied for notes")
+    puts("\t\t...running hugo for the gen phase...")
     `cd ./notes && hugo`
-    puts "notes published"
-
-    builder 
+    puts("notes published")
+    puts("Bringing up a local PHP server ... on loopback:8800")
+    `cd ./notes/public/ && php -S 127.0.0.1:8800`
+    builder
   end
-
 end
 
 class Build
-
   attr_accessor :artist, :title, :description
   attr_accessor :posts_in, :posts_out
   attr_accessor :script_list, :theme, :ga
   attr_accessor :post_title, :post_date
 
-  def initialize config
-    self.theme = config['minimal']['theme']
-    puts "[+] Detecting theme ... ".red + self.theme
-    overwrite_theme self.theme # rebuild theme assets
-
-    puts "[+] Reading `#{self.theme}/index.erb` file ...".green
+  def initialize(config)
+    self.theme = config["minimal"]["theme"]
+    puts("[+] Detecting theme ... ".red + self.theme)
+    overwrite_theme(self.theme)
+    puts("[+] Reading `#{self.theme}/index.erb` file ...".green)
     @template = File.read("./#{self.theme}/index.erb")
-    puts "[+] Index layout loaded.".green
-
-    puts "[+] Creating accessors from YAML file ...".green
-    puts "---------".red
-
-    self.artist = config['minimal']['artist']
-    puts "[+] Detecting who you are ... ".red + self.artist
-
-    self.title = config['minimal']['title'] 
-    puts "[+] Detecting blog title ... ".red + self.title
-
-    self.description = config['minimal']['description']
-    puts "[+] Detecting blog description ...".red + " [detected] "
-
-    self.posts_in = config['posts']['in']
-    puts "[+] Detecting input directory ... ".red + "#{Art::WWW_DIR}" + self.posts_in
-
-    self.posts_out = config['posts']['out']
-    puts "[+] Detecting output directory ...".red + "#{Art::WWW_DIR}" + self.posts_out
-
-    self.script_list = config['scripts']
-    puts "[+] Building script list ... ".red + " [built] "
-
-    self.ga = config['art']['ga']
-    puts "[+] Detecting Google Analytics ...".red + "[#{self.ga}]"
-
-    puts "[x] Accessors built.".green
-    puts "---------".red
-
-    puts "[+] Exporting markdown to HTML ...".green
-    exec = self.cli # generate html from mdc
-    system(exec + "> /dev/null") # exec generation process
-
-    puts "[+] Building metadata & posts ...".green
-    list = posts # get all .md files
-    beauty(list) # build by metadata
-
-    puts "[+] Building scripts ...".green
+    puts("[+] Index layout loaded.".green)
+    puts("[+] Creating accessors from YAML file ...".green)
+    puts("---------".red)
+    self.artist = config["minimal"]["artist"]
+    puts("[+] Detecting who you are ... ".red + self.artist)
+    self.title = config["minimal"]["title"]
+    puts("[+] Detecting blog title ... ".red + self.title)
+    self.description = config["minimal"]["description"]
+    puts("[+] Detecting blog description ...".red + " [detected] ")
+    self.posts_in = config["posts"]["in"]
+    puts("[+] Detecting input directory ... ".red + "#{Art::WWW_DIR}" + self.posts_in)
+    self.posts_out = config["posts"]["out"]
+    puts("[+] Detecting output directory ...".red + "#{Art::WWW_DIR}" + self.posts_out)
+    self.script_list = config["scripts"]
+    puts("[+] Building script list ... ".red + " [built] ")
+    self.ga = config["art"]["ga"]
+    puts("[+] Detecting Google Analytics ...".red + "[#{self.ga}]")
+    puts("[x] Accessors built.".green)
+    puts("---------".red)
+    puts("[+] Exporting markdown to HTML ...".green)
+    exec = self.cli
+    system(exec + "> /dev/null")
+    puts("[+] Building metadata & posts ...".green)
+    list = posts
+    beauty(list)
+    puts("[+] Building scripts ...".green)
     scripts(self.script_list)
-
-    puts "[+] All systems ready ...".green
-    puts "---------".red
-
+    puts("[+] All systems ready ...".green)
+    puts("---------".red)
     write
   end
 
   # Generate html from markdown using `markdown-html` node module
   def cli
-    return "generate-md --layout ./#{self.theme} --input .#{Art::WWW_DIR}#{self.posts_in} --output .#{Art::WWW_DIR}#{self.posts_out}" 
+    return "generate-md --layout ./#{self.theme} --input .#{Art::WWW_DIR}#{self.posts_in} --output .#{Art::WWW_DIR}#{self.posts_out}"
   end
 
   # Generate scripts and appropriate locations
-  def scripts list
+  def scripts(list)
     @scriptarr = {}
 
     list.each_with_index do |item, index|
-        @scriptarr[index] = {name: item.split(':')[1], title: item.split(':')[0]}
+      @scriptarr[index] = {name: item.split(":")[1], title: item.split(":")[0]}
     end
 
     @scriptarr
@@ -169,68 +148,69 @@ class Build
   # Get posts by id-s
   def posts
     list = Array.new
-    Dir["."+Art::WWW_DIR+self.posts_in+"/*.md"].each do |f|
+
+    Dir["." + Art::WWW_DIR + self.posts_in + "/*.md"].each do |f|
       list.push(f)
     end
 
-    list.sort_by! {|s| s[/\d+/].to_i}
-
+    list.sort_by! { |s| s[/\d+/].to_i }
     list
   end
 
   # Helper method to beauty post list
-  def beauty list 
-    hashed = {} 
-
+  def beauty(list)
+    hashed = {}
     i = 0
+
     list.each do |file|
       extract_metadata(file)
-
-      i=i+1
-      hashed[i] = { id: extract_id(file), filename: file, title: @post_title, date: @post_date, out: @post_out}
+      i = i + 1
+      hashed[i] = {
+        id: extract_id(file),
+        filename: file,
+        title: @post_title,
+        date: @post_date,
+        out: @post_out,
+      }
     end
 
     @all_posts = Hash[hashed.to_a.reverse]
   end
 
   # Extract ID of post
-  def extract_id file
+  def extract_id(file)
     file.match(/[0-9]{4}/).to_a[0]
     id = file.match(/[0-9]{4}/).to_a[0]
     id.to_s
   end
 
   # Extract metadata / frontmatter from yaml post
-  def extract_metadata file
+  def extract_metadata(file)
     metadata = FrontMatterParser::Parser.parse_file(file)
     metadata.front_matter
-
-    @post_title = metadata.front_matter['title']
-    @post_date = metadata.front_matter['date']
-
-    @post_out = file.sub '.md', '.html'
-    @post_out = @post_out.sub self.posts_in, self.posts_out
+    @post_title = metadata.front_matter["title"]
+    @post_date = metadata.front_matter["date"]
+    @post_out = file.sub(".md", ".html")
+    @post_out = @post_out.sub(self.posts_in, self.posts_out)
   end
-  
+
   # Write results with erb
   def write
-    puts "[+] Binding results ...".green
+    puts("[+] Binding results ...".green)
     erb = ERB.new(@template)
-  
-    File.open(".#{Art::WWW_DIR}/index.html", 'w') do |f|
-      f.write erb.result(binding)
+
+    File.open(".#{Art::WWW_DIR}/index.html", "w") do |f|
+      f.write(erb.result(binding))
     end
 
-    puts "[x] All done.".green
+    puts("[x] All done.".green)
   end
 
   # Overwrite assets / theme
-  def overwrite_theme theme
-    FileUtils.cp_r Dir["#{theme}/assets/*"], ".#{Art::WWW_DIR}/assets/" 
+  def overwrite_theme(theme)
+    FileUtils.cp_r(Dir["#{theme}/assets/*"], ".#{Art::WWW_DIR}/assets/")
   end
-
 end
 
 # Initialize.
 art = Art.new
-#art.builder
