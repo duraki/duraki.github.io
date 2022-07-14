@@ -63,6 +63,12 @@ $ ruby art notes prod         # => deploy & serve for prod
 
 The configuration for different environments is located in [/config/ directory](./config/).
 
+**or** deploy it with a one-liner which updates production:
+
+```
+$ ruby art notes prod && git add . && git commit -m "Release :party:" --no-verify && git push origin master
+```
+
 ## Themes 
 
 ### deviltux 
