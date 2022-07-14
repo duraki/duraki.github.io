@@ -17,7 +17,7 @@ customizable.
 - [Configuration](#configuration)
 - [Write](#write)
 - [Build](#build)
-* [Notes](#notes)
+- [Notes](#notes)
 - [License](#license)
 
 ## Installation 
@@ -51,6 +51,17 @@ $ wget https://raw.githubusercontent.com/duraki/duraki.github.io/master/art
 $ git clone git@github.com:duraki/tuxtheme.git
 ...
 ```
+
+### Notes Deployment
+
+Deploy the `duraki notes` either via -:
+
+```
+$ ruby art notes local        # => deploy & serve locally
+$ ruby art notes prod         # => deploy & serve for prod
+```
+
+The configuration for different environments is located in [/config/ directory](./config/).
 
 ## Themes 
 

@@ -1,4 +1,4 @@
-baseURL = 'https://duraki.github.io/notes/public/'
+baseURL = '//duraki.github.io/notes/public/'
 # buildDrafts=true # => Includes drafts when building
 
 RelativeURLs=true

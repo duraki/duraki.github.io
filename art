@@ -80,7 +80,14 @@ class Art
     `cd ./notes && hugo`
     puts("notes published")
     puts("Bringing up a local PHP server ... on loopback:8800")
-    `cd ./notes/public/ && php -S 127.0.0.1:8800`
+
+    # only local
+    if env.downcase == "local"
+      `cd ./notes/public/ && php -S 127.0.0.1:8800`
+    else
+      puts("deploying $PROD ... skipping php serve")
+    end
+
     builder
   end
 end
