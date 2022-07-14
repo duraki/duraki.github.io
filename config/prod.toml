@@ -1,5 +1,5 @@
 #baseURL = 'https://duraki.github.io/notes/public/'
-baseURL = './notes/public/'
+baseURL = '/notes/public/'
 
 #RelativeURLs=true
 #CanonifyURLs=true
