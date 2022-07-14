@@ -1,5 +1,4 @@
-baseURL = 'https://duraki.github.io/'
-# buildDrafts=true # => Includes drafts when building
+baseURL = 'https://duraki.github.io/notes/public/'
 
 #RelativeURLs=true
 #CanonifyURLs=true
@@ -9,8 +8,7 @@ title = "duraki's notes"
 theme = "little-ocean"
 
 copyright = "durakiconsulting (c) h. duraki"
-enableEmoji = true # => https://www.webfx.com/tools/emoji-cheat-sheet/
-# publishDir = "" # => https://gohugo.io/getting-started/configuration/#publishdir
+enableEmoji = true
 
 [permalinks]
 posts = '/:title'
