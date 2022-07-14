@@ -16,7 +16,7 @@ Special ECU are used called "gateways" to interconnect different network protoco
 
 ## Vehicle Diagnostics
 
-- [ECUs](./ecu-foundations) provide diangostis services
+- [ECUs](/ecu-foundations) provide diangostis services
 - OBD standardises requests and responses related to diagnostics
 - ISO 14229-1 (UDS) Standard
 	- Defines structures and content of how data is interpreted

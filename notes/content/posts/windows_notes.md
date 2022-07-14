@@ -21,7 +21,7 @@ $ sudo apt-get realmd
 $ realm join example.ba --user username
 ```
 
-See also [Linux Notes](./linux-notes)
+See also [Linux Notes](/linux-notes)
 
 Resource:
 

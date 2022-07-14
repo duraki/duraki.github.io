@@ -47,7 +47,7 @@ Usually, all vendors implements their own PLC Data Sharing Protocol which create
 
 ### OPC Reverse Engineering
 
-All downloaded installations, the OPCRouter and OPCServer (KEPServerEX) from the download page visible are put for further reuse into ./Installations directory.
+All downloaded installations, the OPCRouter and OPCServer (KEPServerEX) from the download page visible are put for further reuse into `./Installations` directory.
 
 The OPC Router connects systems vertically and horizontally, from sensors and controls to ERP and the cloud, from printers and scales to MES, SCADA or LIMS.
 

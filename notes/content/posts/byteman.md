@@ -66,7 +66,7 @@ redefine rule trace main entry
 
 ### Scripts
 
-List of scripts and usage [on Byteman Scripts](./byteman-scripts). Just for reference.
+List of scripts and usage [on Byteman Scripts](/byteman-scripts). Just for reference.
 
 ### References
 

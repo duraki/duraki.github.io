@@ -31,7 +31,7 @@ title: "ECU Foundations"
 
 - OBD protocol (On Board Diagnostics)
 - Use OBD to diagnose ECU's
-- Use [XCP and Callibration](./ecu-calibration) to Diagnose ECU
+- Use [XCP and Callibration](/ecu-calibration) to Diagnose ECU
 
 
 ## HCP (New era of ECU's)

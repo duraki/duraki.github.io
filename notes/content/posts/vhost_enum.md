@@ -20,6 +20,6 @@ $ cd virtual-host-discovery
 $ ruby scan.rb --ip=51.77.138.18 --host=target.ba
 ```
 
-=> then continue [here](./web-penetration-testing-oneliners)
+=> then continue [here](/web-penetration-testing-oneliners)
 
 

@@ -8,13 +8,13 @@ title: "iOS Reverse Engineering"
 $ class-dump -S -s -H App -o /path/to/headers/App/
 ```
 
-* [Frida & Objection Tutorial](./frida-objection-tutorial#ios-tutorial)
-* [LLDB](./lldb)
-* [Pure Reverse Engineering](./pure-reverse-engineering)
-* [Cycript](./cycript)
-* [Decrypt IPA from AppStore](./decrypt-ipa-from-appstore)
-* [iOS Jailbreak Bypass](./jailbreak-bypass)
-* [iOS Static Analysis](./ios-static-analysis)
+* [Frida & Objection Tutorial](/frida-objection-tutorial#ios-tutorial)
+* [LLDB](/lldb)
+* [Pure Reverse Engineering](/pure-reverse-engineering)
+* [Cycript](/cycript)
+* [Decrypt IPA from AppStore](/decrypt-ipa-from-appstore)
+* [iOS Jailbreak Bypass](/jailbreak-bypass)
+* [iOS Static Analysis](/ios-static-analysis)
 
 **References**
 

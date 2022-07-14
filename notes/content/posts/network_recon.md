@@ -110,7 +110,7 @@ $ nmap --script nmap-vulners,vulscan --script-args vulscandb=scipvuldb.csv -sV -
 
 **discover vhost on the target**
 
-* [Virtual Host Enumeration](./vhost-enumeration)
+* [Virtual Host Enumeration](/vhost-enumeration)
 
 ```
 $ nmap -p4433,8089,80,9443 --script="+http-vhosts" x.x.x.x -Pn

@@ -2,4 +2,4 @@
 title: "Dev"
 ---
 
-* [Bash](./bash-in-simple-words)
+* [Bash](/bash-in-simple-words)

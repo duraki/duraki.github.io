@@ -129,7 +129,7 @@ HOP RTT      ADDRESS
 1   ...
 ```
 
-[`vhost`](./vhost-enumeration) discovery
+[`vhost`](/vhost-enumeration) discovery
 
 ```
 $ nmap -p4433,8089,80,9443 --script="+http-vhosts" $SONICWALL -Pn       

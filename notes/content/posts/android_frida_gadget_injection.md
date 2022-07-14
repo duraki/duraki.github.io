@@ -2,9 +2,9 @@
 title: "Frida Gadget Injection"
 ---
 
-This is quick description on how to inject Frida gadget into Smali directly without much overhead. Start by installing [Frida and Objection](./frida-objection-tutorial#android-tutorial) and then continuing from here.
+This is quick description on how to inject Frida gadget into Smali directly without much overhead. Start by installing [Frida and Objection](/frida-objection-tutorial#android-tutorial) and then continuing from here.
 
-First [decompile the APK](./android-recompilation) and check the **AndroidManifest.xml** file.
+First [decompile the APK](/android-recompilation) and check the **AndroidManifest.xml** file.
 
 ```
 $ more AndroidManifest.xml
