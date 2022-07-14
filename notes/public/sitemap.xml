@@ -16,6 +16,8 @@
   </url><url>
     <loc>https://duraki.github.io/notes/public/api-penetration-test-checklist/</loc>
   </url><url>
+    <loc>https://duraki.github.io/notes/public/automotive/</loc>
+  </url><url>
     <loc>https://duraki.github.io/notes/public/automotive-cybersecurity-videos/</loc>
   </url><url>
     <loc>https://duraki.github.io/notes/public/automotive-hacking/</loc>
@@ -23,6 +25,8 @@
     <loc>https://duraki.github.io/notes/public/bash-in-simple-words/</loc>
   </url><url>
     <loc>https://duraki.github.io/notes/public/blog-setup/</loc>
+  </url><url>
+    <loc>https://duraki.github.io/notes/public/building-kali-linux-for-banana-pro/</loc>
   </url><url>
     <loc>https://duraki.github.io/notes/public/bypass-403-on-nginx/</loc>
   </url><url>
@@ -36,6 +40,8 @@
   </url><url>
     <loc>https://duraki.github.io/notes/public/categories/</loc>
   </url><url>
+    <loc>https://duraki.github.io/notes/public/classical/</loc>
+  </url><url>
     <loc>https://duraki.github.io/notes/public/classical-api-abuse/</loc>
   </url><url>
     <loc>https://duraki.github.io/notes/public/cloud-metadata/</loc>
@@ -43,6 +49,8 @@
     <loc>https://duraki.github.io/notes/public/cycript/</loc>
   </url><url>
     <loc>https://duraki.github.io/notes/public/decrypt-ipa-from-appstore/</loc>
+  </url><url>
+    <loc>https://duraki.github.io/notes/public/dev/</loc>
   </url><url>
     <loc>https://duraki.github.io/notes/public/ecu-calibration/</loc>
   </url><url>
@@ -55,6 +63,8 @@
     <loc>https://duraki.github.io/notes/public/frida-objection-tutorial/</loc>
   </url><url>
     <loc>https://duraki.github.io/notes/public/frida-gadget-injection/</loc>
+  </url><url>
+    <loc>https://duraki.github.io/notes/public/ghidra-and-related/</loc>
   </url><url>
     <loc>https://duraki.github.io/notes/public/how-to-compromise-ecu/</loc>
   </url><url>
@@ -80,7 +90,11 @@
   </url><url>
     <loc>https://duraki.github.io/notes/public/mitm_intercept/</loc>
   </url><url>
+    <loc>https://duraki.github.io/notes/public/modding-uplink-by-introversion/</loc>
+  </url><url>
     <loc>https://duraki.github.io/notes/public/netcat-tricks/</loc>
+  </url><url>
+    <loc>https://duraki.github.io/notes/public/network/</loc>
   </url><url>
     <loc>https://duraki.github.io/notes/public/network-lab/</loc>
   </url><url>
@@ -99,6 +113,8 @@
     <loc>https://duraki.github.io/notes/public/posts/</loc>
   </url><url>
     <loc>https://duraki.github.io/notes/public/pure-reverse-engineering/</loc>
+  </url><url>
+    <loc>https://duraki.github.io/notes/public/re/</loc>
   </url><url>
     <loc>https://duraki.github.io/notes/public/reverse-engineering-tricks-and-tips/</loc>
   </url><url>

